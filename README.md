@@ -7,3 +7,4 @@ You can find the online version of the Laravel documentation at [https://laravel
 * Download the project (the version you need).
 * Run index.html
 
+## Support me by starring
