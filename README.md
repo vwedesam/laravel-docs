@@ -8,9 +8,12 @@ You can find the online version of the Laravel documentation at [https://laravel
 * Run index.html
 
 
+
 ## Preview
 
+
 ![](images/image.jpg)
+
 
 
 
