@@ -10,7 +10,7 @@ You can find the online version of the Laravel documentation at [https://laravel
 
 ## Preview
 
-❮img src="images/image.jpg" width="100" ❯
+![](images/image.jpg)
 
 
 
