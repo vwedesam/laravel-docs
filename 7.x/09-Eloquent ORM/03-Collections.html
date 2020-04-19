@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Eloquent: Collections - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/eloquent-collections">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Collections_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Collections_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Collections_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Collections_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Eloquent: Collections</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#available-methods">Available Methods</a></li>
+                            <li><a href="#custom-collections">Custom Collections</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>All multi-result sets returned by Eloquent are instances of the <code class=" language-php">Illuminate\<span
+                                class="token package">Database<span class="token punctuation">\</span>Eloquent<span
+                                class="token punctuation">\</span>Collection</span></code> object, including results
+                            retrieved via the <code class=" language-php">get</code> method or accessed via a
+                            relationship. The Eloquent collection object extends the Laravel <a
+                                    href="https://laravel.com/docs/7.x/collections">base collection</a>, so it naturally
+                            inherits dozens of methods used to fluently work with the underlying array of Eloquent
+                            models.</p>
+                        <p>All collections also serve as iterators, allowing you to loop over them as if they were
+                            simple PHP arrays:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> App\<span
+                                class="token package">User</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">where</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'active'</span><span
+                                class="token punctuation">,</span> <span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$users</span> <span class="token keyword">as</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>However, collections are much more powerful than arrays and expose a
+                            variety of map / reduce operations that may be chained using an
+                            intuitive interface. For example, let's remove all inactive models and
+                            gather the first name for each remaining user:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> App\<span
+                                class="token package">User</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">all</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$names</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">reject</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">active</span> <span class="token operator">===</span> <span
+                                    class="token boolean constant">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">map</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Collections_files/exclamation.svg"></div>
+                                <p class="content"> While most Eloquent collection methods return a new instance of an
+                                    Eloquent collection, the <code class=" language-php">pluck</code>, <code
+                                            class=" language-php">keys</code>, <code class=" language-php">zip</code>,
+                                    <code class=" language-php">collapse</code>, <code
+                                            class=" language-php">flatten</code> and <code
+                                            class=" language-php">flip</code> methods return a <a
+                                            href="https://laravel.com/docs/7.x/collections">base collection</a>
+                                    instance. Likewise, if a <code class=" language-php">map</code> operation returns a
+                                    collection that does not contain any Eloquent models, it will be automatically cast
+                                    to a base collection.</p></div>
+                        </blockquote>
+                        <p><a name="available-methods"></a></p>
+                        <h2 id="available-methods"><a href="#available-methods">Available Methods</a></h2>
+                        <p>All Eloquent collections extend the base <a
+                                href="#available-methods">Laravel collection</a>
+                            object; therefore, they inherit all of the powerful methods provided by the base collection
+                            class.</p>
+                        <p>In addition, the <code class=" language-php">Illuminate\<span
+                                class="token package">Database<span class="token punctuation">\</span>Eloquent<span
+                                class="token punctuation">\</span>Collection</span></code> class provides a superset of
+                            methods to aid with managing your model collections. Most methods return <code
+                                    class=" language-php">Illuminate\<span class="token package">Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Collection</span></code>
+                            instances; however, some methods return a base <code class=" language-php">Illuminate\<span
+                                    class="token package">Support<span
+                                    class="token punctuation">\</span>Collection</span></code> instance.</p>
+                        <style>
+                            #collection-method-list > p {
+                                column-count: 1;
+                                -moz-column-count: 1;
+                                -webkit-column-count: 1;
+                                column-gap: 2em;
+                                -moz-column-gap: 2em;
+                                -webkit-column-gap: 2em;
+                            }
+
+                            #collection-method-list a {
+                                display: block;
+                            }
+                        </style>
+                        <div id="collection-method-list">
+                            <p><a href="#method-contains">contains</a>
+                                <a href="#method-diff">diff</a>
+                                <a href="#method-except">except</a>
+                                <a href="#method-find">find</a>
+                                <a href="#method-findMany">findMany</a>
+                                <a href="#method-fresh">fresh</a>
+                                <a href="#method-intersect">intersect</a>
+                                <a href="#method-load">load</a>
+                                <a href="#method-loadMissing">loadMissing</a>
+                                <a href="#method-modelKeys">modelKeys</a>
+                                <a href="#method-makeVisible">makeVisible</a>
+                                <a href="#method-makeHidden">makeHidden</a>
+                                <a href="#method-only">only</a>
+                                <a href="#method-unique">unique</a></p>
+                        </div>
+                        <p><a name="method-contains"></a></p>
+                        <h4 id="method-contains"><a href="#method-contains"><code class=" language-php"><span
+                                class="token function">contains</span><span class="token punctuation">(</span><span
+                                class="token variable">$key</span><span class="token punctuation">,</span> <span
+                                class="token variable">$operator</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">,</span> <span
+                                class="token variable">$value</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">contains</code> method may be used to
+                            determine if a given model instance is contained by the collection.
+                            This method accepts a primary key or a model instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">contains</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">contains</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-diff"></a></p>
+                        <h4 id="method-diff"><a href="#method-diff"><code class=" language-php"><span
+                                class="token function">diff</span><span class="token punctuation">(</span><span
+                                class="token variable">$items</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">diff</code> method returns all of the models that are not
+                            present in the given collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">diff</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">whereIn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token number">1</span><span class="token punctuation">,</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span> <span
+                                    class="token number">3</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-except"></a></p>
+                        <h4 id="method-except"><a href="#method-except"><code class=" language-php"><span
+                                class="token function">except</span><span class="token punctuation">(</span><span
+                                class="token variable">$keys</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">except</code> method returns all of the models that do not
+                            have the given primary keys:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">except</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token number">1</span><span class="token punctuation">,</span> <span
+                                class="token number">2</span><span class="token punctuation">,</span> <span
+                                class="token number">3</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="method-find"></a></p>
+                        <h4 id="method-find" class="first-collection-method"><a href="#method-find"><code
+                                class=" language-php"><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">)</span></code></a></h4>
+                        <p>The <code class=" language-php">find</code> method finds a model that has a given primary
+                            key. If <code class=" language-php"><span class="token variable">$key</span></code> is a
+                            model instance, <code class=" language-php">find</code> will attempt to return a model
+                            matching the primary key. If <code class=" language-php"><span
+                                    class="token variable">$key</span></code> is an array of keys, <code
+                                    class=" language-php">find</code> will return all models which match the <code
+                                    class=" language-php"><span class="token variable">$keys</span></code> using <code
+                                    class=" language-php"><span class="token function">whereIn</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">all</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-findMany"></a></p>
+                        <h4 id="method-findMany"><a href="#method-findMany"><code class=" language-php"><span
+                                class="token function">findMany</span><span class="token punctuation">(</span><span
+                                class="token variable">$keys</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">findMany</code> method returns all models with a primary key
+                            that is included in the <code class=" language-php"><span
+                                    class="token variable">$keys</span></code> array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">all</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">findMany</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token number">1</span><span class="token punctuation">,</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span> <span
+                                    class="token number">3</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-fresh"></a></p>
+                        <h4 id="method-fresh"><a href="#method-fresh"><code class=" language-php"><span
+                                class="token function">fresh</span><span class="token punctuation">(</span><span
+                                class="token variable">$with</span> <span class="token operator">=</span> <span
+                                class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span></code></a></h4>
+                        <p>The <code class=" language-php">fresh</code> method retrieves a fresh
+                            instance of each model in the collection from the database. In
+                            addition, any specified relationships will be eager loaded:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">fresh</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">fresh</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'comments'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-intersect"></a></p>
+                        <h4 id="method-intersect"><a href="#method-intersect"><code class=" language-php"><span
+                                class="token function">intersect</span><span class="token punctuation">(</span><span
+                                class="token variable">$items</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">intersect</code> method returns all of the models that are
+                            also present in the given collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">intersect</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">whereIn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token number">1</span><span class="token punctuation">,</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span> <span
+                                    class="token number">3</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-load"></a></p>
+                        <h4 id="method-load"><a href="#method-load"><code class=" language-php"><span
+                                class="token function">load</span><span class="token punctuation">(</span><span
+                                class="token variable">$relations</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">load</code> method eager loads the given relationships for
+                            all models in the collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">load</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'comments'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'posts'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">load</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'comments.author'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-loadMissing"></a></p>
+                        <h4 id="method-loadMissing"><a href="#method-loadMissing"><code class=" language-php"><span
+                                class="token function">loadMissing</span><span class="token punctuation">(</span><span
+                                class="token variable">$relations</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">loadMissing</code> method eager loads the given relationships
+                            for all models in the collection if the relationships are not already loaded:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">loadMissing</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'comments'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'posts'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadMissing</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'comments.author'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="method-modelKeys"></a></p>
+                        <h4 id="method-modelKeys"><a href="#method-modelKeys"><code class=" language-php"><span
+                                class="token function">modelKeys</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span></code></a></h4>
+                        <p>The <code class=" language-php">modelKeys</code> method returns the primary keys for all
+                            models in the collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">modelKeys</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">// [1, 2, 3, 4, 5]</span></code></pre>
+                        <p><a name="method-makeVisible"></a></p>
+                        <h4 id="method-makeVisible"><a href="#method-makeVisible"><code class=" language-php"><span
+                                class="token function">makeVisible</span><span class="token punctuation">(</span><span
+                                class="token variable">$attributes</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">makeVisible</code> method makes attributes visible that are
+                            typically "hidden" on each model in the collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">makeVisible</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'address'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'phone_number'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="method-makeHidden"></a></p>
+                        <h4 id="method-makeHidden"><a href="#method-makeHidden"><code class=" language-php"><span
+                                class="token function">makeHidden</span><span class="token punctuation">(</span><span
+                                class="token variable">$attributes</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">makeHidden</code> method hides attributes that are typically
+                            "visible" on each model in the collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">makeHidden</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'address'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'phone_number'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="method-only"></a></p>
+                        <h4 id="method-only"><a href="#method-only"><code class=" language-php"><span
+                                class="token function">only</span><span class="token punctuation">(</span><span
+                                class="token variable">$keys</span><span class="token punctuation">)</span></code></a>
+                        </h4>
+                        <p>The <code class=" language-php">only</code> method returns all of the models that have the
+                            given primary keys:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">only</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token number">1</span><span class="token punctuation">,</span> <span
+                                class="token number">2</span><span class="token punctuation">,</span> <span
+                                class="token number">3</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="method-unique"></a></p>
+                        <h4 id="method-unique"><a href="#method-unique"><code class=" language-php"><span
+                                class="token function">unique</span><span class="token punctuation">(</span><span
+                                class="token variable">$key</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">,</span> <span
+                                class="token variable">$strict</span> <span class="token operator">=</span> <span
+                                class="token boolean constant">false</span><span
+                                class="token punctuation">)</span></code></a></h4>
+                        <p>The <code class=" language-php">unique</code> method returns all of
+                            the unique models in the collection. Any models of the same type with
+                            the same primary key as another model in the collection are removed.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">unique</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="custom-collections"></a></p>
+                        <h2 id="custom-collections"><a href="#custom-collections">Custom Collections</a></h2>
+                        <p>If you need to use a custom <code class=" language-php">Collection</code> object with your
+                            own extension methods, you may override the <code class=" language-php">newCollection</code>
+                            method on your model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>CustomCollection</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param  array  $models
+     * @return \Illuminate\Database\Eloquent\Collection
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">newCollection</span><span
+                                    class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                    class="token variable">$models</span> <span class="token operator">=</span> <span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CustomCollection</span><span
+                                    class="token punctuation">(</span><span class="token variable">$models</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once you have defined a <code class=" language-php">newCollection</code> method, you will
+                            receive an instance of your custom collection anytime Eloquent returns a <code
+                                    class=" language-php">Collection</code>
+                            instance of that model. If you would like to use a custom collection
+                            for every model in your application, you should override the <code class=" language-php">newCollection</code>
+                            method on a base model class that is extended by all of your models.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

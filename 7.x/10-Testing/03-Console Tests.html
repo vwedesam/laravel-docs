@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Console Tests - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/console-tests">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Console%20Tests_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Console%20Tests_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Console%20Tests_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Console%20Tests_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Console Tests</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#expecting-input-and-output">Expecting Input / Output</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>In addition to simplifying HTTP testing, Laravel provides a simple API for testing console
+                            applications that ask for user input.</p>
+                        <p><a name="expecting-input-and-output"></a></p>
+                        <h2 id="expecting-input-and-output"><a href="#expecting-input-and-output">Expecting Input /
+                            Output</a></h2>
+                        <p>Laravel allows you to easily "mock" user input for your console commands using the <code
+                                class=" language-php">expectsQuestion</code> method. In addition, you may specify the
+                            exit code and text that you expect to be output by the console command using the <code
+                                    class=" language-php">assertExitCode</code> and <code class=" language-php">expectsOutput</code>
+                            methods. For example, consider the following console command:</p>
+                        <pre class=" language-php"><code class=" language-php">Artisan<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">command</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'question'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">ask</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'What is your name?'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$language</span> <span class="token operator">=</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">choice</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Which language do you program in?'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'PHP'</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'Ruby'</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'Python'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">line</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Your name is '</span><span
+                                    class="token punctuation">.</span><span class="token variable">$name</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">' and you program in '</span><span
+                                    class="token punctuation">.</span><span class="token variable">$language</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'.'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may test this command with the following test which utilizes the <code
+                                class=" language-php">expectsQuestion</code>, <code
+                                class=" language-php">expectsOutput</code>, and <code class=" language-php">assertExitCode</code>
+                            methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Test a console command.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testConsoleCommand</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">artisan</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'question'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">expectsQuestion</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'What is your name?'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'Taylor Otwell'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">expectsQuestion</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Which language do you program in?'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'PHP'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">expectsOutput</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Your name is Taylor Otwell and you program in PHP.'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertExitCode</span><span
+                                    class="token punctuation">(</span><span class="token number">0</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>When writing a command which expects a confirmation in the form of a "yes" or "no" answer,
+                            you may utilize the <code class=" language-php">expectsConfirmation</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">artisan</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'module:import'</span><span
+                                class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">expectsConfirmation</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Do you really wish to run this command?'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'no'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertExitCode</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

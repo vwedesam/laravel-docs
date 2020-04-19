@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>HTTP Tests - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/http-tests">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="02-HTTP%20Tests_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="02-HTTP%20Tests_files/app.css">
+
+    <!-- Load JS -->
+    <script src="02-HTTP%20Tests_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="02-HTTP%20Tests_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>HTTP Tests</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#customizing-request-headers">Customizing Request Headers</a></li>
+                                    <li><a href="#cookies">Cookies</a></li>
+                                    <li><a href="#debugging-responses">Debugging Responses</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#session-and-authentication">Session / Authentication</a></li>
+                            <li><a href="#testing-json-apis">Testing JSON APIs</a></li>
+                            <li><a href="#testing-file-uploads">Testing File Uploads</a></li>
+                            <li><a href="#available-assertions">Available Assertions</a>
+                                <ul>
+                                    <li><a href="#response-assertions">Response Assertions</a></li>
+                                    <li><a href="#authentication-assertions">Authentication Assertions</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel provides a very fluent API for making HTTP requests to your
+                            application and examining the output. For example, take a look at the
+                            feature test defined below:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Tests<span class="token punctuation">\</span>Feature</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>RefreshDatabase</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>WithoutMiddleware</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Tests<span class="token punctuation">\</span>TestCase</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicTest</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">assertStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">200</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">get</code> method makes a <code class=" language-php"><span
+                                class="token constant">GET</span></code> request into the application, while the <code
+                                class=" language-php">assertStatus</code>
+                            method asserts that the returned response should have the given HTTP
+                            status code. In addition to this simple assertion, Laravel also contains
+                            a variety of assertions for inspecting the response headers, content,
+                            JSON structure, and more.</p>
+                        <p><a name="customizing-request-headers"></a></p>
+                        <h3 id="customizing-request-headers"><a href="#customizing-request-headers">Customizing Request
+                            Headers</a></h3>
+                        <p>You may use the <code class=" language-php">withHeaders</code> method
+                            to customize the request's headers before it is sent to the
+                            application. This allows you to add any custom headers you would like to
+                            the request:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic functional test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withHeaders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'X-Header'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'Value'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">json</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'POST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'Sally'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">201</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertJson</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'created'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-HTTP%20Tests_files/lightbulb.svg"></div>
+                                <p class="content"> The CSRF middleware is automatically disabled when running
+                                    tests.</p></div>
+                        </blockquote>
+                        <p><a name="cookies"></a></p>
+                        <h3 id="cookies"><a href="#cookies">Cookies</a></h3>
+                        <p>You may use the <code class=" language-php">withCookie</code> or <code class=" language-php">withCookies</code>
+                            methods to set cookie values before making a request. The <code class=" language-php">withCookie</code>
+                            method accepts a cookie name and value as its two arguments, while the <code
+                                    class=" language-php">withCookies</code> method accepts an array of name / value
+                            pairs:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testCookies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withCookie</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'color'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'blue'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withCookies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'color'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'blue'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'Taylor'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/'</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="debugging-responses"></a></p>
+                        <h3 id="debugging-responses"><a href="#debugging-responses">Debugging Responses</a></h3>
+                        <p>After making a test request to your application, the <code class=" language-php">dump</code>,
+                            <code class=" language-php">dumpHeaders</code>, and <code
+                                    class=" language-php">dumpSession</code> methods may be used to examine and debug
+                            the response contents:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Tests<span class="token punctuation">\</span>Feature</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>RefreshDatabase</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>WithoutMiddleware</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Tests<span class="token punctuation">\</span>TestCase</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicTest</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dumpHeaders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dumpSession</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dump</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="session-and-authentication"></a></p>
+                        <h2 id="session-and-authentication"><a href="#session-and-authentication">Session /
+                            Authentication</a></h2>
+                        <p>Laravel provides several helpers for working with the session during
+                            HTTP testing. First, you may set the session data to a given array using
+                            the <code class=" language-php">withSession</code> method. This is useful for loading the
+                            session with data before issuing a request to your application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testApplication</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withSession</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+                         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/'</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>One common use of the session is for maintaining state for the authenticated user. The <code
+                                class=" language-php">actingAs</code> helper method provides a simple way to
+                            authenticate a given user as the current user. For example, we may use a <a
+                                    href="#writing-factories">model
+                                factory</a> to generate and authenticate a user:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testApplication</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">factory</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">create</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">actingAs</span><span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span>
+                         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">withSession</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+                         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/'</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You may also specify which guard should be used to authenticate the
+                            given user by passing the guard name as the second argument to the <code
+                                    class=" language-php">actingAs</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">actingAs</span><span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'api'</span><span
+                                class="token punctuation">)</span></code></pre>
+                        <p><a name="testing-json-apis"></a></p>
+                        <h2 id="testing-json-apis"><a href="#testing-json-apis">Testing JSON APIs</a></h2>
+                        <p>Laravel also provides several helpers for testing JSON APIs and their responses. For example,
+                            the <code class=" language-php">json</code>, <code class=" language-php">getJson</code>,
+                            <code class=" language-php">postJson</code>, <code class=" language-php">putJson</code>,
+                            <code class=" language-php">patchJson</code>, <code class=" language-php">deleteJson</code>,
+                            and <code class=" language-php">optionsJson</code>
+                            methods may be used to issue JSON requests with various HTTP verbs. You
+                            may also easily pass data and headers to these methods. To get started,
+                            let's write a test to make a <code class=" language-php"><span
+                                    class="token constant">POST</span></code> request to <code
+                                    class=" language-php"><span class="token operator">/</span>user</code> and assert
+                            that the expected data was returned:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic functional test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">postJson</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'Sally'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">201</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertJson</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'created'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-HTTP%20Tests_files/lightbulb.svg"></div>
+                                <p class="content"> The <code class=" language-php">assertJson</code> method converts
+                                    the response to an array and utilizes <code class=" language-php">PHPUnit<span
+                                            class="token punctuation">:</span><span class="token punctuation">:</span>assertArraySubset</code>
+                                    to verify that the given array exists within the JSON response returned
+                                    by the application. So, if there are other properties in the JSON
+                                    response, this test will still pass as long as the given fragment is
+                                    present.</p></div>
+                        </blockquote>
+                        <p>In addition, JSON response data may be accessed as array variables on the response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">assertTrue</span><span class="token punctuation">(</span><span
+                                class="token variable">$response</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'created'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="verifying-exact-match"></a></p>
+                        <h3 id="verifying-exact-match"><a href="#verifying-exact-match">Verifying An Exact JSON
+                            Match</a></h3>
+                        <p>If you would like to verify that the given array is an <strong>exact</strong> match for the
+                            JSON returned by the application, you should use the <code class=" language-php">assertExactJson</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic functional test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">json</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'POST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'Sally'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">201</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertExactJson</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'created'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="verifying-json-paths"></a></p>
+                        <h3 id="verifying-json-paths"><a href="#verifying-json-paths">Verifying JSON Paths</a></h3>
+                        <p>If you would like to verify that the JSON response contains some given data at a specified
+                            path, you should use the <code class=" language-php">assertJsonPath</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * A basic functional test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">json</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'POST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'Sally'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$response</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">201</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">assertJsonPath</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'team.owner.name'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="testing-file-uploads"></a></p>
+                        <h2 id="testing-file-uploads"><a href="#testing-file-uploads">Testing File Uploads</a></h2>
+                        <p>The <code class=" language-php">Illuminate\<span class="token package">Http<span
+                                class="token punctuation">\</span>UploadedFile</span></code> class provides a <code
+                                class=" language-php">fake</code> method which may be used to generate dummy files or
+                            images for testing. This, combined with the <code class=" language-php">Storage</code>
+                            facade's <code class=" language-php">fake</code>
+                            method greatly simplifies the testing of file uploads. For example, you
+                            may combine these two features to easily test an avatar upload form:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Tests<span class="token punctuation">\</span>Feature</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>RefreshDatabase</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>WithoutMiddleware</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>UploadedFile</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Storage</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Tests<span class="token punctuation">\</span>TestCase</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ExampleTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testAvatarUpload</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">fake</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'avatars'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$file</span> <span class="token operator">=</span> UploadedFile<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">fake</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">image</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'avatar.jpg'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">json</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'POST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'/avatar'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'avatar'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$file</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Assert the file was stored...</span>
+        Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">disk</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'avatars'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">assertExists</span><span
+                                    class="token punctuation">(</span><span class="token variable">$file</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">hashName</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token comment">// Assert a file does not exist...</span>
+        Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">disk</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'avatars'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">assertMissing</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'missing.jpg'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Fake File Customization</h4>
+                        <p>When creating files using the <code class=" language-php">fake</code> method, you may specify
+                            the width, height, and size of the image in order to better test your validation rules:</p>
+                        <pre class=" language-php"><code class=" language-php">UploadedFile<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">fake</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">image</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'avatar.jpg'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$width</span><span
+                                class="token punctuation">,</span> <span class="token variable">$height</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">size</span><span
+                                class="token punctuation">(</span><span class="token number">100</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>In addition to creating images, you may create files of any other type using the <code
+                                class=" language-php">create</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">UploadedFile<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">fake</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">create</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'document.pdf'</span><span
+                                class="token punctuation">,</span> <span
+                                class="token variable">$sizeInKilobytes</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If needed, you may pass a <code class=" language-php"><span
+                                class="token variable">$mimeType</span></code> argument to the method to explicitly
+                            define the MIME type that should be returned by the file:</p>
+                        <pre class=" language-php"><code class=" language-php">UploadedFile<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">fake</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">create</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'document.pdf'</span><span
+                                class="token punctuation">,</span> <span
+                                class="token variable">$sizeInKilobytes</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'application/pdf'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="available-assertions"></a></p>
+                        <h2 id="available-assertions"><a href="#available-assertions">Available Assertions</a></h2>
+                        <p><a name="response-assertions"></a></p>
+                        <h3 id="response-assertions"><a href="#response-assertions">Response Assertions</a></h3>
+                        <p>Laravel provides a variety of custom assertion methods for your <a
+                                href="https://phpunit.de/">PHPUnit</a> feature tests. These assertions may be accessed
+                            on the response that is returned from the <code class=" language-php">json</code>, <code
+                                    class=" language-php">get</code>, <code class=" language-php">post</code>, <code
+                                    class=" language-php">put</code>, and <code class=" language-php">delete</code> test
+                            methods:</p>
+                        <style>
+                            .collection-method-list > p {
+                                column-count: 2;
+                                -moz-column-count: 2;
+                                -webkit-column-count: 2;
+                                column-gap: 2em;
+                                -moz-column-gap: 2em;
+                                -webkit-column-gap: 2em;
+                            }
+
+                            .collection-method-list a {
+                                display: block;
+                            }
+                        </style>
+                        <div class="collection-method-list">
+                            <p><a href="#assert-cookie">assertCookie</a>
+                                <a href="#assert-cookie-expired">assertCookieExpired</a>
+                                <a href="#assert-cookie-not-expired">assertCookieNotExpired</a>
+                                <a href="#assert-cookie-missing">assertCookieMissing</a>
+                                <a href="#assert-created">assertCreated</a>
+                                <a href="#assert-dont-see">assertDontSee</a>
+                                <a href="#assert-dont-see-text">assertDontSeeText</a>
+                                <a href="#assert-exact-json">assertExactJson</a>
+                                <a href="#assert-forbidden">assertForbidden</a>
+                                <a href="#assert-header">assertHeader</a>
+                                <a href="#assert-header-missing">assertHeaderMissing</a>
+                                <a href="#assert-json">assertJson</a>
+                                <a href="#assert-json-count">assertJsonCount</a>
+                                <a href="#assert-json-fragment">assertJsonFragment</a>
+                                <a href="#assert-json-missing">assertJsonMissing</a>
+                                <a href="#assert-json-missing-exact">assertJsonMissingExact</a>
+                                <a href="#assert-json-missing-validation-errors">assertJsonMissingValidationErrors</a>
+                                <a href="#assert-json-path">assertJsonPath</a>
+                                <a href="#assert-json-structure">assertJsonStructure</a>
+                                <a href="#assert-json-validation-errors">assertJsonValidationErrors</a>
+                                <a href="#assert-location">assertLocation</a>
+                                <a href="#assert-no-content">assertNoContent</a>
+                                <a href="#assert-not-found">assertNotFound</a>
+                                <a href="#assert-ok">assertOk</a>
+                                <a href="#assert-plain-cookie">assertPlainCookie</a>
+                                <a href="#assert-redirect">assertRedirect</a>
+                                <a href="#assert-see">assertSee</a>
+                                <a href="#assert-see-in-order">assertSeeInOrder</a>
+                                <a href="#assert-see-text">assertSeeText</a>
+                                <a href="#assert-see-text-in-order">assertSeeTextInOrder</a>
+                                <a href="#assert-session-has">assertSessionHas</a>
+                                <a href="#assert-session-has-input">assertSessionHasInput</a>
+                                <a href="#assert-session-has-all">assertSessionHasAll</a>
+                                <a href="#assert-session-has-errors">assertSessionHasErrors</a>
+                                <a href="#assert-session-has-errors-in">assertSessionHasErrorsIn</a>
+                                <a href="#assert-session-has-no-errors">assertSessionHasNoErrors</a>
+                                <a href="#assert-session-doesnt-have-errors">assertSessionDoesntHaveErrors</a>
+                                <a href="#assert-session-missing">assertSessionMissing</a>
+                                <a href="#assert-status">assertStatus</a>
+                                <a href="#assert-successful">assertSuccessful</a>
+                                <a href="#assert-unauthorized">assertUnauthorized</a>
+                                <a href="#assert-view-has">assertViewHas</a>
+                                <a href="#assert-view-has-all">assertViewHasAll</a>
+                                <a href="#assert-view-is">assertViewIs</a>
+                                <a href="#assert-view-missing">assertViewMissing</a></p>
+                        </div>
+                        <p><a name="assert-cookie"></a></p>
+                        <h4 id="assert-cookie"><a href="#assert-cookie">assertCookie</a></h4>
+                        <p>Assert that the response contains the given cookie:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertCookie</span><span
+                                class="token punctuation">(</span><span class="token variable">$cookieName</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-cookie-expired"></a></p>
+                        <h4 id="assert-cookie-expired"><a href="#assert-cookie-expired">assertCookieExpired</a></h4>
+                        <p>Assert that the response contains the given cookie and it is expired:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertCookieExpired</span><span
+                                class="token punctuation">(</span><span class="token variable">$cookieName</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-cookie-not-expired"></a></p>
+                        <h4 id="assert-cookie-not-expired"><a
+                                href="#assert-cookie-not-expired">assertCookieNotExpired</a></h4>
+                        <p>Assert that the response contains the given cookie and it is not expired:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertCookieNotExpired</span><span
+                                class="token punctuation">(</span><span class="token variable">$cookieName</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-cookie-missing"></a></p>
+                        <h4 id="assert-cookie-missing"><a href="#assert-cookie-missing">assertCookieMissing</a></h4>
+                        <p>Assert that the response does not contains the given cookie:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertCookieMissing</span><span
+                                class="token punctuation">(</span><span class="token variable">$cookieName</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-created"></a></p>
+                        <h4 id="assert-created"><a href="#assert-created">assertCreated</a></h4>
+                        <p>Assert that the response has a 201 status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertCreated</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-dont-see"></a></p>
+                        <h4 id="assert-dont-see"><a href="#assert-dont-see">assertDontSee</a></h4>
+                        <p>Assert that the given string is not contained within the response.
+                            This assertion will automatically escape the given string unless you
+                            pass a second argument of <code class=" language-php"><span class="token boolean constant">false</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertDontSee</span><span
+                                class="token punctuation">(</span><span class="token variable">$value</span><span
+                                class="token punctuation">,</span> <span class="token variable">$escaped</span> <span
+                                class="token operator">=</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-dont-see-text"></a></p>
+                        <h4 id="assert-dont-see-text"><a href="#assert-dont-see-text">assertDontSeeText</a></h4>
+                        <p>Assert that the given string is not contained within the response
+                            text. This assertion will automatically escape the given string unless
+                            you pass a second argument of <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertDontSeeText</span><span
+                                class="token punctuation">(</span><span class="token variable">$value</span><span
+                                class="token punctuation">,</span> <span class="token variable">$escaped</span> <span
+                                class="token operator">=</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-exact-json"></a></p>
+                        <h4 id="assert-exact-json"><a href="#assert-exact-json">assertExactJson</a></h4>
+                        <p>Assert that the response contains an exact match of the given JSON data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertExactJson</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-forbidden"></a></p>
+                        <h4 id="assert-forbidden"><a href="#assert-forbidden">assertForbidden</a></h4>
+                        <p>Assert that the response has a forbidden status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertForbidden</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-header"></a></p>
+                        <h4 id="assert-header"><a href="#assert-header">assertHeader</a></h4>
+                        <p>Assert that the given header is present on the response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertHeader</span><span
+                                class="token punctuation">(</span><span class="token variable">$headerName</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-header-missing"></a></p>
+                        <h4 id="assert-header-missing"><a href="#assert-header-missing">assertHeaderMissing</a></h4>
+                        <p>Assert that the given header is not present on the response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertHeaderMissing</span><span
+                                class="token punctuation">(</span><span class="token variable">$headerName</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json"></a></p>
+                        <h4 id="assert-json"><a href="#assert-json">assertJson</a></h4>
+                        <p>Assert that the response contains the given JSON data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertJson</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">,</span> <span
+                                class="token variable">$strict</span> <span class="token operator">=</span> <span
+                                class="token boolean constant">false</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-count"></a></p>
+                        <h4 id="assert-json-count"><a href="#assert-json-count">assertJsonCount</a></h4>
+                        <p>Assert that the response JSON has an array with the expected number of items at the given
+                            key:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertJsonCount</span><span
+                                class="token punctuation">(</span><span class="token variable">$count</span><span
+                                class="token punctuation">,</span> <span class="token variable">$key</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-fragment"></a></p>
+                        <h4 id="assert-json-fragment"><a href="#assert-json-fragment">assertJsonFragment</a></h4>
+                        <p>Assert that the response contains the given JSON fragment:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertJsonFragment</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-missing"></a></p>
+                        <h4 id="assert-json-missing"><a href="#assert-json-missing">assertJsonMissing</a></h4>
+                        <p>Assert that the response does not contain the given JSON fragment:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertJsonMissing</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-missing-exact"></a></p>
+                        <h4 id="assert-json-missing-exact"><a
+                                href="#assert-json-missing-exact">assertJsonMissingExact</a></h4>
+                        <p>Assert that the response does not contain the exact JSON fragment:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertJsonMissingExact</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-missing-validation-errors"></a></p>
+                        <h4 id="assert-json-missing-validation-errors"><a href="#assert-json-missing-validation-errors">assertJsonMissingValidationErrors</a>
+                        </h4>
+                        <p>Assert that the response has no JSON validation errors for the given keys:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertJsonMissingValidationErrors</span><span
+                                class="token punctuation">(</span><span class="token variable">$keys</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-path"></a></p>
+                        <h4 id="assert-json-path"><a href="#assert-json-path">assertJsonPath</a></h4>
+                        <p>Assert that the response contains the given data at the specified path:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertJsonPath</span><span
+                                class="token punctuation">(</span><span class="token variable">$path</span><span
+                                class="token punctuation">,</span> <span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">,</span> <span
+                                class="token variable">$strict</span> <span class="token operator">=</span> <span
+                                class="token boolean constant">false</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-structure"></a></p>
+                        <h4 id="assert-json-structure"><a href="#assert-json-structure">assertJsonStructure</a></h4>
+                        <p>Assert that the response has a given JSON structure:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertJsonStructure</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$structure</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-json-validation-errors"></a></p>
+                        <h4 id="assert-json-validation-errors"><a href="#assert-json-validation-errors">assertJsonValidationErrors</a>
+                        </h4>
+                        <p>Assert that the response has the given JSON validation errors:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertJsonValidationErrors</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-location"></a></p>
+                        <h4 id="assert-location"><a href="#assert-location">assertLocation</a></h4>
+                        <p>Assert that the response has the given URI value in the <code
+                                class=" language-php">Location</code> header:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertLocation</span><span
+                                class="token punctuation">(</span><span class="token variable">$uri</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-no-content"></a></p>
+                        <h4 id="assert-no-content"><a href="#assert-no-content">assertNoContent</a></h4>
+                        <p>Assert that the response has the given status code and no content.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertNoContent</span><span
+                                class="token punctuation">(</span><span class="token variable">$status</span> <span
+                                class="token operator">=</span> <span class="token number">204</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-not-found"></a></p>
+                        <h4 id="assert-not-found"><a href="#assert-not-found">assertNotFound</a></h4>
+                        <p>Assert that the response has a not found status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertNotFound</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-ok"></a></p>
+                        <h4 id="assert-ok"><a href="#assert-ok">assertOk</a></h4>
+                        <p>Assert that the response has a 200 status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertOk</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-plain-cookie"></a></p>
+                        <h4 id="assert-plain-cookie"><a href="#assert-plain-cookie">assertPlainCookie</a></h4>
+                        <p>Assert that the response contains the given cookie (unencrypted):</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertPlainCookie</span><span
+                                class="token punctuation">(</span><span class="token variable">$cookieName</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-redirect"></a></p>
+                        <h4 id="assert-redirect"><a href="#assert-redirect">assertRedirect</a></h4>
+                        <p>Assert that the response is a redirect to a given URI:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertRedirect</span><span
+                                class="token punctuation">(</span><span class="token variable">$uri</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-see"></a></p>
+                        <h4 id="assert-see"><a href="#assert-see">assertSee</a></h4>
+                        <p>Assert that the given string is contained within the response. This
+                            assertion will automatically escape the given string unless you pass a
+                            second argument of <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertSee</span><span
+                                class="token punctuation">(</span><span class="token variable">$value</span><span
+                                class="token punctuation">,</span> <span class="token variable">$escaped</span> <span
+                                class="token operator">=</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-see-in-order"></a></p>
+                        <h4 id="assert-see-in-order"><a href="#assert-see-in-order">assertSeeInOrder</a></h4>
+                        <p>Assert that the given strings are contained in order within the
+                            response. This assertion will automatically escape the given strings
+                            unless you pass a second argument of <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSeeInOrder</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$values</span><span class="token punctuation">,</span> <span
+                                class="token variable">$escaped</span> <span class="token operator">=</span> <span
+                                class="token boolean constant">true</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-see-text"></a></p>
+                        <h4 id="assert-see-text"><a href="#assert-see-text">assertSeeText</a></h4>
+                        <p>Assert that the given string is contained within the response text.
+                            This assertion will automatically escape the given string unless you
+                            pass a second argument of <code class=" language-php"><span class="token boolean constant">false</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertSeeText</span><span
+                                class="token punctuation">(</span><span class="token variable">$value</span><span
+                                class="token punctuation">,</span> <span class="token variable">$escaped</span> <span
+                                class="token operator">=</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-see-text-in-order"></a></p>
+                        <h4 id="assert-see-text-in-order"><a href="#assert-see-text-in-order">assertSeeTextInOrder</a>
+                        </h4>
+                        <p>Assert that the given strings are contained in order within the
+                            response text. This assertion will automatically escape the given
+                            strings unless you pass a second argument of <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSeeTextInOrder</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$values</span><span class="token punctuation">,</span> <span
+                                class="token variable">$escaped</span> <span class="token operator">=</span> <span
+                                class="token boolean constant">true</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has"></a></p>
+                        <h4 id="assert-session-has"><a href="#assert-session-has">assertSessionHas</a></h4>
+                        <p>Assert that the session contains the given piece of data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHas</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has-input"></a></p>
+                        <h4 id="assert-session-has-input"><a href="#assert-session-has-input">assertSessionHasInput</a>
+                        </h4>
+                        <p>Assert that the session has a given value in the flashed input array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHasInput</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has-all"></a></p>
+                        <h4 id="assert-session-has-all"><a href="#assert-session-has-all">assertSessionHasAll</a></h4>
+                        <p>Assert that the session has a given list of values:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHasAll</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has-errors"></a></p>
+                        <h4 id="assert-session-has-errors"><a
+                                href="#assert-session-has-errors">assertSessionHasErrors</a></h4>
+                        <p>Assert that the session contains an error for the given <code class=" language-php"><span
+                                class="token variable">$keys</span></code>. If <code class=" language-php"><span
+                                class="token variable">$keys</span></code> is an associative array, assert that the
+                            session contains a specific error message (value) for each field (key):</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHasErrors</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$keys</span><span class="token punctuation">,</span> <span
+                                class="token variable">$format</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">,</span> <span
+                                class="token variable">$errorBag</span> <span class="token operator">=</span> <span
+                                class="token single-quoted-string string">'default'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has-errors-in"></a></p>
+                        <h4 id="assert-session-has-errors-in"><a href="#assert-session-has-errors-in">assertSessionHasErrorsIn</a>
+                        </h4>
+                        <p>Assert that the session contains an error for the given <code class=" language-php"><span
+                                class="token variable">$keys</span></code>, within a specific error bag. If <code
+                                class=" language-php"><span class="token variable">$keys</span></code>
+                            is an associative array, assert that the session contains a specific
+                            error message (value) for each field (key), within the error bag:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHasErrorsIn</span><span
+                                class="token punctuation">(</span><span class="token variable">$errorBag</span><span
+                                class="token punctuation">,</span> <span class="token variable">$keys</span> <span
+                                class="token operator">=</span> <span class="token punctuation">[</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token variable">$format</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-has-no-errors"></a></p>
+                        <h4 id="assert-session-has-no-errors"><a href="#assert-session-has-no-errors">assertSessionHasNoErrors</a>
+                        </h4>
+                        <p>Assert that the session has no errors:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionHasNoErrors</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-doesnt-have-errors"></a></p>
+                        <h4 id="assert-session-doesnt-have-errors"><a href="#assert-session-doesnt-have-errors">assertSessionDoesntHaveErrors</a>
+                        </h4>
+                        <p>Assert that the session has no errors for the given keys:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertSessionDoesntHaveErrors</span><span
+                                class="token punctuation">(</span><span class="token variable">$keys</span> <span
+                                class="token operator">=</span> <span class="token punctuation">[</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token variable">$format</span> <span class="token operator">=</span> <span
+                                class="token constant">null</span><span class="token punctuation">,</span> <span
+                                class="token variable">$errorBag</span> <span class="token operator">=</span> <span
+                                class="token single-quoted-string string">'default'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-session-missing"></a></p>
+                        <h4 id="assert-session-missing"><a href="#assert-session-missing">assertSessionMissing</a></h4>
+                        <p>Assert that the session does not contain the given key:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSessionMissing</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-status"></a></p>
+                        <h4 id="assert-status"><a href="#assert-status">assertStatus</a></h4>
+                        <p>Assert that the response has a given code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertStatus</span><span
+                                class="token punctuation">(</span><span class="token variable">$code</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-successful"></a></p>
+                        <h4 id="assert-successful"><a href="#assert-successful">assertSuccessful</a></h4>
+                        <p>Assert that the response has a successful (&gt;= 200 and &lt; 300) status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertSuccessful</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-unauthorized"></a></p>
+                        <h4 id="assert-unauthorized"><a href="#assert-unauthorized">assertUnauthorized</a></h4>
+                        <p>Assert that the response has an unauthorized (401) status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertUnauthorized</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-view-has"></a></p>
+                        <h4 id="assert-view-has"><a href="#assert-view-has">assertViewHas</a></h4>
+                        <p>Assert that the response view was given a piece of data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertViewHas</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>In addition, view data may be accessed as array variables on the response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">assertEquals</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'Taylor'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$response</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'name'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-view-has-all"></a></p>
+                        <h4 id="assert-view-has-all"><a href="#assert-view-has-all">assertViewHasAll</a></h4>
+                        <p>Assert that the response view has a given list of data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertViewHasAll</span><span
+                                class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                class="token variable">$data</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-view-is"></a></p>
+                        <h4 id="assert-view-is"><a href="#assert-view-is">assertViewIs</a></h4>
+                        <p>Assert that the given view was returned by the route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">assertViewIs</span><span
+                                class="token punctuation">(</span><span class="token variable">$value</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="assert-view-missing"></a></p>
+                        <h4 id="assert-view-missing"><a href="#assert-view-missing">assertViewMissing</a></h4>
+                        <p>Assert that the response view is missing a piece of bound data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">assertViewMissing</span><span
+                                class="token punctuation">(</span><span class="token variable">$key</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="authentication-assertions"></a></p>
+                        <h3 id="authentication-assertions"><a href="#authentication-assertions">Authentication
+                            Assertions</a></h3>
+                        <p>Laravel also provides a variety of authentication related assertions for your <a
+                                href="https://phpunit.de/">PHPUnit</a> feature tests:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$this</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">assertAuthenticated</span><span
+                                        class="token punctuation">(</span><span class="token variable">$guard</span>
+                                    <span class="token operator">=</span> <span class="token constant">null</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Assert that the user is authenticated.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$this</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">assertGuest</span><span
+                                        class="token punctuation">(</span><span class="token variable">$guard</span>
+                                    <span class="token operator">=</span> <span class="token constant">null</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Assert that the user is not authenticated.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$this</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">assertAuthenticatedAs</span><span
+                                        class="token punctuation">(</span><span class="token variable">$user</span><span
+                                        class="token punctuation">,</span> <span class="token variable">$guard</span>
+                                    <span class="token operator">=</span> <span class="token constant">null</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Assert that the given user is authenticated.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$this</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">assertCredentials</span><span
+                                        class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                        class="token variable">$credentials</span><span
+                                        class="token punctuation">,</span> <span class="token variable">$guard</span>
+                                    <span class="token operator">=</span> <span class="token constant">null</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Assert that the given credentials are valid.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$this</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">assertInvalidCredentials</span><span
+                                        class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                        class="token variable">$credentials</span><span
+                                        class="token punctuation">,</span> <span class="token variable">$guard</span>
+                                    <span class="token operator">=</span> <span class="token constant">null</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Assert that the given credentials are invalid.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

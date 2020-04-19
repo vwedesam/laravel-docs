@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Redis - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/redis">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="06-Redis_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="06-Redis_files/app.css">
+
+    <!-- Load JS -->
+    <script src="06-Redis_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="06-Redis_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Redis</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#predis">Predis</a></li>
+                                    <li><a href="#phpredis">PhpRedis</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#interacting-with-redis">Interacting With Redis</a>
+                                <ul>
+                                    <li><a href="#pipelining-commands">Pipelining Commands</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#pubsub">Pub / Sub</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p><a href="https://redis.io/">Redis</a> is an open source, advanced key-value store. It is
+                            often referred to as a data structure server since keys can contain <a
+                                    href="https://redis.io/topics/data-types#strings">strings</a>, <a
+                                    href="https://redis.io/topics/data-types#hashes">hashes</a>, <a
+                                    href="https://redis.io/topics/data-types#lists">lists</a>, <a
+                                    href="https://redis.io/topics/data-types#sets">sets</a>, and <a
+                                    href="https://redis.io/topics/data-types#sorted-sets">sorted sets</a>.</p>
+                        <p>Before using Redis with Laravel, we encourage you to install and use the <a
+                                href="https://github.com/phpredis/phpredis">PhpRedis</a>
+                            PHP extension via PECL. The extension is more complex to install but
+                            may yield better performance for applications that make heavy use of
+                            Redis.</p>
+                        <p>Alternatively, you can install the <code class=" language-php">predis<span
+                                class="token operator">/</span>predis</code> package via Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> predis<span
+                                class="token operator">/</span>predis</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-Redis_files/exclamation.svg"></div>
+                                <p class="content"> Predis has been abandoned by the package's original author and may
+                                    be removed from Laravel in a future release.</p></div>
+                        </blockquote>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>The Redis configuration for your application is located in the <code class=" language-php">config<span
+                                class="token operator">/</span>database<span
+                                class="token punctuation">.</span>php</code> configuration file. Within this file, you
+                            will see a <code class=" language-php">redis</code> array containing the Redis servers
+                            utilized by your application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+
+    <span class="token single-quoted-string string">'client'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLIENT'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'phpredis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'default'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_HOST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'127.0.0.1'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PASSWORD'</span><span
+                                    class="token punctuation">,</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PORT'</span><span
+                                    class="token punctuation">,</span> <span class="token number">6379</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'database'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_DB'</span><span
+                                    class="token punctuation">,</span> <span class="token number">0</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'cache'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_HOST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'127.0.0.1'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PASSWORD'</span><span
+                                    class="token punctuation">,</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PORT'</span><span
+                                    class="token punctuation">,</span> <span class="token number">6379</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'database'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CACHE_DB'</span><span
+                                    class="token punctuation">,</span> <span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>The default server configuration should suffice for development.
+                            However, you are free to modify this array based on your environment.
+                            Each Redis server defined in your configuration file is required to have
+                            a name, host, and port.</p>
+                        <h4>Configuring Clusters</h4>
+                        <p>If your application is utilizing a cluster of Redis servers, you should define these clusters
+                            within a <code class=" language-php">clusters</code> key of your Redis configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+
+    <span class="token single-quoted-string string">'client'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLIENT'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'phpredis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'clusters'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'default'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_HOST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'localhost'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'password'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">env</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'REDIS_PASSWORD'</span><span
+                                    class="token punctuation">,</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PORT'</span><span
+                                    class="token punctuation">,</span> <span class="token number">6379</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'database'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>By default, clusters will perform client-side sharding across your
+                            nodes, allowing you to pool nodes and create a large amount of available
+                            RAM. However, note that client-side sharding does not handle failover;
+                            therefore, is primarily suited for cached data that is available from
+                            another primary data store. If you would like to use native Redis
+                            clustering, you should specify this in the <code class=" language-php">options</code> key of
+                            your Redis configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+
+    <span class="token single-quoted-string string">'client'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLIENT'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'phpredis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'cluster'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLUSTER'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'clusters'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token comment">// ...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="predis"></a></p>
+                        <h3 id="predis"><a href="#predis">Predis</a></h3>
+                        <p>To utilize the Predis extension, you should change the <code class=" language-php"><span
+                                class="token constant">REDIS_CLIENT</span></code> environment variable from <code
+                                class=" language-php">phpredis</code> to <code class=" language-php">predis</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+
+    <span class="token single-quoted-string string">'client'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLIENT'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'predis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Rest of Redis configuration...</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>In addition to the default <code class=" language-php">host</code>, <code
+                                class=" language-php">port</code>, <code class=" language-php">database</code>, and
+                            <code class=" language-php">password</code> server configuration options, Predis supports
+                            additional <a href="https://github.com/nrk/predis/wiki/Connection-Parameters">connection
+                                parameters</a>
+                            that may be defined for each of your Redis servers. To utilize these
+                            additional configuration options, add them to your Redis server
+                            configuration in the <code class=" language-php">config<span class="token operator">/</span>database<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'default'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_HOST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'localhost'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PASSWORD'</span><span
+                                    class="token punctuation">,</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PORT'</span><span
+                                    class="token punctuation">,</span> <span class="token number">6379</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'database'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'read_write_timeout'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">60</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="phpredis"></a></p>
+                        <h3 id="phpredis"><a href="#phpredis">PhpRedis</a></h3>
+                        <p>The PhpRedis extension is configured as default at <code class=" language-php"><span
+                                class="token constant">REDIS_CLIENT</span></code> env and in your <code
+                                class=" language-php">config<span class="token operator">/</span>database<span
+                                class="token punctuation">.</span>php</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+
+    <span class="token single-quoted-string string">'client'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_CLIENT'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'phpredis'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// Rest of Redis configuration...</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>If you plan to use PhpRedis extension along with the <code class=" language-php">Redis</code>
+                            Facade alias, you should rename it to something else, like <code class=" language-php">RedisManager</code>,
+                            to avoid a collision with the Redis class. You can do that in the aliases section of your
+                            <code class=" language-php">app<span class="token punctuation">.</span>php</code> config
+                            file.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'RedisManager'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> Illuminate\<span
+                                class="token package">Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Redis</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token keyword">class</span><span class="token punctuation">,</span></code></pre>
+                        <p>In addition to the default <code class=" language-php">host</code>, <code
+                                class=" language-php">port</code>, <code class=" language-php">database</code>, and
+                            <code class=" language-php">password</code> server configuration options, PhpRedis supports
+                            the following additional connection parameters: <code
+                                    class=" language-php">persistent</code>, <code class=" language-php">prefix</code>,
+                            <code class=" language-php">read_timeout</code> and <code
+                                    class=" language-php">timeout</code>. You may add any of these options to your Redis
+                            server configuration in the <code class=" language-php">config<span
+                                    class="token operator">/</span>database<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'default'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_HOST'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'localhost'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PASSWORD'</span><span
+                                    class="token punctuation">,</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'REDIS_PORT'</span><span
+                                    class="token punctuation">,</span> <span class="token number">6379</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'database'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'read_timeout'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">60</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>The Redis Facade</h4>
+                        <p>To avoid class naming collisions with the Redis PHP extension itself, you will need to delete
+                            or rename the <code class=" language-php">Illuminate\<span
+                                    class="token package">Support<span class="token punctuation">\</span>Facades<span
+                                    class="token punctuation">\</span>Redis</span></code> facade alias from your <code
+                                    class=" language-php">app</code> configuration file's <code class=" language-php">aliases</code>
+                            array. Generally, you should remove this alias entirely and only
+                            reference the facade by its fully qualified class name while using the
+                            Redis PHP extension.</p>
+                        <p><a name="interacting-with-redis"></a></p>
+                        <h2 id="interacting-with-redis"><a href="#interacting-with-redis">Interacting With Redis</a>
+                        </h2>
+                        <p>You may interact with Redis by calling various methods on the <code class=" language-php">Redis</code>
+                            <a href="https://laravel.com/docs/7.x/facades">facade</a>. The <code class=" language-php">Redis</code>
+                            facade supports dynamic methods, meaning you may call any <a
+                                    href="https://redis.io/commands">Redis command</a> on the facade and the command
+                            will be passed directly to Redis. In this example, we will call the Redis <code
+                                    class=" language-php"><span class="token constant">GET</span></code> command by
+                            calling the <code class=" language-php">get</code> method on the <code
+                                    class=" language-php">Redis</code> facade:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Redis</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">showProfile</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$user</span> <span class="token operator">=</span> Redis<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user:profile:'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>As mentioned above, you may call any of the Redis commands on the <code
+                                class=" language-php">Redis</code> facade. Laravel uses magic methods to pass the
+                            commands to the Redis server, so pass the arguments the Redis command expects:</p>
+                        <pre class=" language-php"><code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">set</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'name'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Taylor'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$values</span> <span class="token operator">=</span> Redis<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">lrange</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'names'</span><span
+                                    class="token punctuation">,</span> <span class="token number">5</span><span
+                                    class="token punctuation">,</span> <span class="token number">10</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may also pass commands to the server using the <code
+                                class=" language-php">command</code> method, which accepts the name of the command as
+                            its first argument, and an array of values as its second argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$values</span> <span class="token operator">=</span> Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">command</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'lrange'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'name'</span><span
+                                class="token punctuation">,</span> <span class="token number">5</span><span
+                                class="token punctuation">,</span> <span class="token number">10</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>Using Multiple Redis Connections</h4>
+                        <p>You may get a Redis instance by calling the <code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span
+                                class="token punctuation">:</span>connection</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$redis</span> <span class="token operator">=</span> Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">connection</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>This will give you an instance of the default Redis server. You may also pass the connection
+                            or cluster name to the <code class=" language-php">connection</code> method to get a
+                            specific server or cluster as defined in your Redis configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$redis</span> <span class="token operator">=</span> Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">connection</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'my-connection'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="pipelining-commands"></a></p>
+                        <h3 id="pipelining-commands"><a href="#pipelining-commands">Pipelining Commands</a></h3>
+                        <p>Pipelining should be used when you need to send many commands to the server. The <code
+                                class=" language-php">pipeline</code> method accepts one argument: a <code
+                                class=" language-php">Closure</code>
+                            that receives a Redis instance. You may issue all of your commands to
+                            this Redis instance and they will all be streamed to the server thus
+                            providing better performance:</p>
+                        <pre class=" language-php"><code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">pipeline</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$pipe</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$i</span> <span class="token operator">=</span> <span
+                                    class="token number">0</span><span class="token punctuation">;</span> <span
+                                    class="token variable">$i</span> <span class="token operator">&lt;</span> <span
+                                    class="token number">1000</span><span class="token punctuation">;</span> <span
+                                    class="token variable">$i</span><span class="token operator">++</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$pipe</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">set</span><span
+                                    class="token punctuation">(</span><span class="token double-quoted-string string">"key:<span
+                                    class="token interpolation"><span
+                                    class="token variable">$i</span></span>"</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$i</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="pubsub"></a></p>
+                        <h2 id="pubsub"><a href="#pubsub">Pub / Sub</a></h2>
+                        <p>Laravel provides a convenient interface to the Redis <code
+                                class=" language-php">publish</code> and <code class=" language-php">subscribe</code>
+                            commands. These Redis commands allow you to listen for messages on a
+                            given "channel". You may publish messages to the channel from another
+                            application, or even using another programming language, allowing easy
+                            communication between applications and processes.</p>
+                        <p>First, let's setup a channel listener using the <code class=" language-php">subscribe</code>
+                            method. We'll place this method call within an <a
+                                    href="https://laravel.com/docs/7.x/artisan">Artisan command</a> since calling the
+                            <code class=" language-php">subscribe</code> method begins a long-running process:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Console<span
+                                    class="token punctuation">\</span>Commands</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Console<span
+                                    class="token punctuation">\</span>Command</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Redis</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">RedisSubscribe</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Command</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'redis:subscribe'</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The console command description.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$description</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'Subscribe to a Redis channel'</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Execute the console command.
+     *
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">subscribe</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'test-channel'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$message</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token keyword">echo</span> <span class="token variable">$message</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Now we may publish messages to the channel using the <code
+                                class=" language-php">publish</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'publish'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Route logic...</span>
+
+    Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">publish</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'test-channel'</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token function">json_encode</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Wildcard Subscriptions</h4>
+                        <p>Using the <code class=" language-php">psubscribe</code> method, you may subscribe to a
+                            wildcard channel, which may be useful for catching all messages on all channels. The <code
+                                    class=" language-php"><span class="token variable">$channel</span></code> name will
+                            be passed as the second argument to the provided callback <code class=" language-php">Closure</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">psubscribe</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'*'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$message</span><span class="token punctuation">,</span> <span
+                                class="token variable">$channel</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$message</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">psubscribe</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'users.*'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$message</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$channel</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$message</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

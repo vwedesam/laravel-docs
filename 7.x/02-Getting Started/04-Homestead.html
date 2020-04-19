@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Homestead - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/homestead">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Homestead_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Homestead_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Homestead_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Homestead_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Homestead</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#installation-and-setup">Installation &amp; Setup</a>
+                                <ul>
+                                    <li><a href="#first-steps">First Steps</a></li>
+                                    <li><a href="#configuring-homestead">Configuring Homestead</a></li>
+                                    <li><a href="#launching-the-vagrant-box">Launching The Vagrant Box</a></li>
+                                    <li><a href="#per-project-installation">Per Project Installation</a></li>
+                                    <li><a href="#installing-optional-features">Installing Optional Features</a></li>
+                                    <li><a href="#aliases">Aliases</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#daily-usage">Daily Usage</a>
+                                <ul>
+                                    <li><a href="#accessing-homestead-globally">Accessing Homestead Globally</a></li>
+                                    <li><a href="#connecting-via-ssh">Connecting Via SSH</a></li>
+                                    <li><a href="#connecting-to-databases">Connecting To Databases</a></li>
+                                    <li><a href="#database-backups">Database Backups</a></li>
+                                    <li><a href="#database-snapshots">Database Snapshots</a></li>
+                                    <li><a href="#adding-additional-sites">Adding Additional Sites</a></li>
+                                    <li><a href="#environment-variables">Environment Variables</a></li>
+                                    <li><a href="#configuring-cron-schedules">Configuring Cron Schedules</a></li>
+                                    <li><a href="#configuring-mailhog">Configuring Mailhog</a></li>
+                                    <li><a href="#configuring-minio">Configuring Minio</a></li>
+                                    <li><a href="#ports">Ports</a></li>
+                                    <li><a href="#sharing-your-environment">Sharing Your Environment</a></li>
+                                    <li><a href="#multiple-php-versions">Multiple PHP Versions</a></li>
+                                    <li><a href="#web-servers">Web Servers</a></li>
+                                    <li><a href="#mail">Mail</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#debugging-and-profiling">Debugging &amp; Profiling</a>
+                                <ul>
+                                    <li><a href="#debugging-web-requests">Debugging Web Requests With Xdebug</a></li>
+                                    <li><a href="#debugging-cli-applications">Debugging CLI Applications</a></li>
+                                    <li><a href="#profiling-applications-with-blackfire">Profiling Applications with
+                                        Blackfire</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#network-interfaces">Network Interfaces</a></li>
+                            <li><a href="#extending-homestead">Extending Homestead</a></li>
+                            <li><a href="#updating-homestead">Updating Homestead</a></li>
+                            <li><a href="#provider-specific-settings">Provider Specific Settings</a>
+                                <ul>
+                                    <li><a href="#provider-specific-virtualbox">VirtualBox</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel strives to make the entire PHP development experience delightful, including your
+                            local development environment. <a href="https://www.vagrantup.com/">Vagrant</a> provides a
+                            simple, elegant way to manage and provision Virtual Machines.</p>
+                        <p>Laravel Homestead is an official, pre-packaged Vagrant box that
+                            provides you a wonderful development environment without requiring you
+                            to install PHP, a web server, and any other server software on your
+                            local machine. No more worrying about messing up your operating system!
+                            Vagrant boxes are completely disposable. If something goes wrong, you
+                            can destroy and re-create the box in minutes!</p>
+                        <p>Homestead runs on any Windows, Mac, or Linux system, and includes
+                            Nginx, PHP, MySQL, PostgreSQL, Redis, Memcached, Node, and all of the
+                            other goodies you need to develop amazing Laravel applications.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content">
+                                    If you are using Windows, you may need to enable hardware
+                                    virtualization (VT-x). It can usually be enabled via your BIOS. If you
+                                    are using Hyper-V on a UEFI system you may additionally need to disable
+                                    Hyper-V in order to access VT-x.</p></div>
+                        </blockquote>
+                        <p><a name="included-software"></a></p>
+                        <h3 id="included-software"><a href="#included-software">Included Software</a></h3>
+                        <style>
+                            #software-list > ul {
+                                column-count: 3;
+                                -moz-column-count: 3;
+                                -webkit-column-count: 3;
+                                column-gap: 5em;
+                                -moz-column-gap: 5em;
+                                -webkit-column-gap: 5em;
+                                line-height: 1.9;
+                            }
+                        </style>
+                        <div id="software-list">
+                            <ul>
+                                <li>Ubuntu 18.04</li>
+                                <li>Git</li>
+                                <li>PHP 7.4</li>
+                                <li>PHP 7.3</li>
+                                <li>PHP 7.2</li>
+                                <li>PHP 7.1</li>
+                                <li>PHP 7.0</li>
+                                <li>PHP 5.6</li>
+                                <li>Nginx</li>
+                                <li>MySQL</li>
+                                <li>lmm for MySQL or MariaDB database snapshots</li>
+                                <li>Sqlite3</li>
+                                <li>PostgreSQL</li>
+                                <li>Composer</li>
+                                <li>Node (With Yarn, Bower, Grunt, and Gulp)</li>
+                                <li>Redis</li>
+                                <li>Memcached</li>
+                                <li>Beanstalkd</li>
+                                <li>Mailhog</li>
+                                <li>avahi</li>
+                                <li>ngrok</li>
+                                <li>Xdebug</li>
+                                <li>XHProf / Tideways / XHGui</li>
+                                <li>wp-cli</li>
+                            </ul>
+                        </div>
+                        <p><a name="optional-software"></a></p>
+                        <h3 id="optional-software"><a href="#optional-software">Optional Software</a></h3>
+                        <style>
+                            #software-list > ul {
+                                column-count: 3;
+                                -moz-column-count: 3;
+                                -webkit-column-count: 3;
+                                column-gap: 5em;
+                                -moz-column-gap: 5em;
+                                -webkit-column-gap: 5em;
+                                line-height: 1.9;
+                            }
+                        </style>
+                        <div id="software-list">
+                            <ul>
+                                <li>Apache</li>
+                                <li>Blackfire</li>
+                                <li>Cassandra</li>
+                                <li>Chronograf</li>
+                                <li>CouchDB</li>
+                                <li>Crystal &amp; Lucky Framework</li>
+                                <li>Docker</li>
+                                <li>Elasticsearch</li>
+                                <li>Gearman</li>
+                                <li>Go</li>
+                                <li>Grafana</li>
+                                <li>InfluxDB</li>
+                                <li>MariaDB</li>
+                                <li>MinIO</li>
+                                <li>MongoDB</li>
+                                <li>MySQL 8</li>
+                                <li>Neo4j</li>
+                                <li>Oh My Zsh</li>
+                                <li>Open Resty</li>
+                                <li>PM2</li>
+                                <li>Python</li>
+                                <li>RabbitMQ</li>
+                                <li>Solr</li>
+                                <li>Webdriver &amp; Laravel Dusk Utilities</li>
+                            </ul>
+                        </div>
+                        <p><a name="installation-and-setup"></a></p>
+                        <h2 id="installation-and-setup"><a href="#installation-and-setup">Installation &amp; Setup</a>
+                        </h2>
+                        <p><a name="first-steps"></a></p>
+                        <h3 id="first-steps"><a href="#first-steps">First Steps</a></h3>
+                        <p>Before launching your Homestead environment, you must install <a
+                                href="https://www.virtualbox.org/wiki/Downloads">VirtualBox 6.x</a>, <a
+                                href="https://www.vmware.com/">VMWare</a>, <a
+                                href="https://www.parallels.com/products/desktop/">Parallels</a> or <a
+                                href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Hyper-V</a>
+                            as well as <a href="https://www.vagrantup.com/downloads.html">Vagrant</a>. All of these
+                            software packages provide easy-to-use visual installers for all popular operating systems.
+                        </p>
+                        <p>To use the VMware provider, you will need to purchase both VMware Fusion / Workstation and
+                            the <a href="https://www.vagrantup.com/vmware">VMware Vagrant plug-in</a>. Though it is not
+                            free, VMware can provide faster shared folder performance out of the box.</p>
+                        <p>To use the Parallels provider, you will need to install <a
+                                href="https://github.com/Parallels/vagrant-parallels">Parallels Vagrant plug-in</a>. It
+                            is free of charge.</p>
+                        <p>Because of <a href="https://www.vagrantup.com/docs/hyperv/limitations.html">Vagrant
+                            limitations</a>, The Hyper-V provider ignores all networking settings.</p>
+                        <h4>Installing The Homestead Vagrant Box</h4>
+                        <p>Once VirtualBox / VMware and Vagrant have been installed, you should add the <code
+                                class=" language-php">laravel<span class="token operator">/</span>homestead</code>
+                            box to your Vagrant installation using the following command in your
+                            terminal. It will take a few minutes to download the box, depending on
+                            your Internet connection speed:</p>
+                        <pre class=" language-php"><code class=" language-php">vagrant box add laravel<span
+                                class="token operator">/</span>homestead</code></pre>
+                        <p>If this command fails, make sure your Vagrant installation is up to date.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> Homestead periodically issues "alpha" / "beta" boxes for testing,
+                                    which may interfere with the <code class=" language-php">vagrant box add</code>
+                                    command. If you are having issues running <code class=" language-php">vagrant box
+                                        add</code>, you may run the <code class=" language-php">vagrant up</code>
+                                    command and the correct box will be downloaded when Vagrant attempts to start the
+                                    virtual machine.</p></div>
+                        </blockquote>
+                        <h4>Installing Homestead</h4>
+                        <p>You may install Homestead by cloning the repository onto your host machine. Consider cloning
+                            the repository into a <code class=" language-php">Homestead</code> folder within your "home"
+                            directory, as the Homestead box will serve as the host to all of your Laravel projects:</p>
+                        <pre class=" language-php"><code class=" language-php">git <span
+                                class="token keyword">clone</span> https<span class="token punctuation">:</span><span
+                                class="token comment">//github.com/laravel/homestead.git ~/Homestead</span></code></pre>
+                        <p>You should check out a tagged version of Homestead since the <code class=" language-php">master</code>
+                            branch may not always be stable. You can find the latest stable version on the <a
+                                    href="https://github.com/laravel/homestead/releases">GitHub Release Page</a>.
+                            Alternatively, you may checkout the <code class=" language-php">release</code> branch which
+                            always contains the latest stable release:</p>
+                        <pre class=" language-php"><code class=" language-php">cd <span
+                                class="token operator">~</span><span class="token operator">/</span>Homestead
+
+git checkout release</code></pre>
+                        <p>Once you have cloned the Homestead repository, run the <code class=" language-php">bash
+                            init<span class="token punctuation">.</span>sh</code> command from the Homestead directory
+                            to create the <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            configuration file. The <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file will be placed in the Homestead
+                            directory:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Mac / Linux...</span>
+bash init<span class="token punctuation">.</span>sh
+
+<span class="token comment">// Windows...</span>
+init<span class="token punctuation">.</span>bat</code></pre>
+                        <p><a name="configuring-homestead"></a></p>
+                        <h3 id="configuring-homestead"><a href="#configuring-homestead">Configuring Homestead</a></h3>
+                        <h4>Setting Your Provider</h4>
+                        <p>The <code class=" language-php">provider</code> key in your <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code> file indicates which Vagrant provider
+                            should be used: <code class=" language-php">virtualbox</code>, <code class=" language-php">vmware_fusion</code>,
+                            <code class=" language-php">vmware_workstation</code>, <code
+                                    class=" language-php">parallels</code> or <code class=" language-php">hyperv</code>.
+                            You may set this to the provider you prefer:</p>
+                        <pre class=" language-php"><code class=" language-php">provider<span
+                                class="token punctuation">:</span> virtualbox</code></pre>
+                        <h4>Configuring Shared Folders</h4>
+                        <p>The <code class=" language-php">folders</code> property of the <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code>
+                            file lists all of the folders you wish to share with your Homestead
+                            environment. As files within these folders are changed, they will be
+                            kept in sync between your local machine and the Homestead environment.
+                            You may configure as many shared folders as necessary:</p>
+                        <pre class=" language-php"><code class=" language-php">folders<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span
+                                    class="token operator">~</span><span class="token operator">/</span>code<span
+                                    class="token operator">/</span>project1
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>project1</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> Windows users should not use the <code class=" language-php"><span
+                                        class="token operator">~</span><span class="token operator">/</span></code> path
+                                    syntax and instead should use the full path to their project, such as <code
+                                            class=" language-php"><span class="token constant">C</span><span
+                                            class="token punctuation">:</span>\<span class="token package">Users<span
+                                            class="token punctuation">\</span>user<span
+                                            class="token punctuation">\</span>Code<span
+                                            class="token punctuation">\</span>project1</span></code>.</p></div>
+                        </blockquote>
+                        <p>You should always map individual projects to their own folder mapping instead of mapping your
+                            entire <code class=" language-php"><span class="token operator">~</span><span
+                                    class="token operator">/</span>code</code> folder. When you map a folder the virtual
+                            machine must keep track of all disk IO for <em>every</em> file in the folder. This leads to
+                            performance issues if you have a large number of files in a folder.</p>
+                        <pre class=" language-php"><code class=" language-php">folders<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span
+                                    class="token operator">~</span><span class="token operator">/</span>code<span
+                                    class="token operator">/</span>project1
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>project1
+
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span
+                                    class="token operator">~</span><span class="token operator">/</span>code<span
+                                    class="token operator">/</span>project2
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>project2</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> You should never mount <code class=" language-php"><span
+                                        class="token punctuation">.</span></code> (the current directory) when using
+                                    Homestead. This causes Vagrant to not map the current folder to <code
+                                            class=" language-php"><span class="token operator">/</span>vagrant</code>
+                                    and will break optional features and cause unexpected results while provisioning.
+                                </p></div>
+                        </blockquote>
+                        <p>To enable <a href="https://www.vagrantup.com/docs/synced-folders/nfs.html">NFS</a>, you only
+                            need to add a simple flag to your synced folder configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">folders<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span
+                                    class="token operator">~</span><span class="token operator">/</span>code<span
+                                    class="token operator">/</span>project1
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>project1
+      type<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"nfs"</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> When using NFS on Windows, you should consider installing the <a
+                                        href="https://github.com/winnfsd/vagrant-winnfsd">vagrant-winnfsd</a> plug-in.
+                                    This plug-in will maintain the correct user / group permissions for files and
+                                    directories within the Homestead box.</p></div>
+                        </blockquote>
+                        <p>You may also pass any options supported by Vagrant's <a
+                                href="https://www.vagrantup.com/docs/synced-folders/basic_usage.html">Synced Folders</a>
+                            by listing them under the <code class=" language-php">options</code> key:</p>
+                        <pre class=" language-php"><code class=" language-php">folders<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> <span
+                                    class="token operator">~</span><span class="token operator">/</span>code<span
+                                    class="token operator">/</span>project1
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>project1
+      type<span class="token punctuation">:</span> <span class="token double-quoted-string string">"rsync"</span>
+      options<span class="token punctuation">:</span>
+          rsync__args<span class="token punctuation">:</span> <span class="token punctuation">[</span><span
+                                    class="token double-quoted-string string">"--verbose"</span><span
+                                    class="token punctuation">,</span> <span class="token double-quoted-string string">"--archive"</span><span
+                                    class="token punctuation">,</span> <span class="token double-quoted-string string">"--delete"</span><span
+                                    class="token punctuation">,</span> <span class="token double-quoted-string string">"-zz"</span><span
+                                    class="token punctuation">]</span>
+          rsync__exclude<span class="token punctuation">:</span> <span class="token punctuation">[</span><span
+                                    class="token double-quoted-string string">"node_modules"</span><span
+                                    class="token punctuation">]</span></code></pre>
+                        <h4>Configuring Nginx Sites</h4>
+                        <p>Not familiar with Nginx? No problem. The <code class=" language-php">sites</code>
+                            property allows you to easily map a "domain" to a folder on your
+                            Homestead environment. A sample site configuration is included in the <code
+                                    class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            file. Again, you may add as many sites to your Homestead environment as
+                            necessary. Homestead can serve as a convenient, virtualized environment
+                            for every Laravel project you are working on:</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project1<span class="token operator">/</span><span
+                                    class="token keyword">public</span></code></pre>
+                        <p>If you change the <code class=" language-php">sites</code> property after provisioning the
+                            Homestead box, you should re-run <code class=" language-php">vagrant reload <span
+                                    class="token operator">--</span>provision</code> to update the Nginx configuration
+                            on the virtual machine.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content">
+                                    Homestead scripts are built to be as idempotent as possible. However,
+                                    if you are experiencing issues while provisioning you should destroy and
+                                    rebuild the machine via <code class=" language-php">vagrant destroy <span
+                                        class="token operator">&amp;&amp;</span> vagrant up</code>.</p></div>
+                        </blockquote>
+                        <p><a name="hostname-resolution"></a></p>
+                        <h4 id="hostname-resolution"><a href="#hostname-resolution">Hostname Resolution</a></h4>
+                        <p>Homestead publishes hostnames over <code class=" language-php">mDNS</code> for automatic host
+                            resolution. If you set <code class=" language-php">hostname<span
+                                    class="token punctuation">:</span> homestead</code> in your <code
+                                    class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            file, the host will be available at <code class=" language-php">homestead<span
+                                    class="token punctuation">.</span>local</code>. MacOS, iOS, and Linux desktop
+                            distributions include <code class=" language-php">mDNS</code> support by default. Windows
+                            requires installing <a
+                                    href="https://support.apple.com/kb/DL999?viewlocale=en_US&amp;locale=en_US">Bonjour
+                                Print Services for Windows</a>.</p>
+                        <p>Using automatic hostnames works best for "per project" installations
+                            of Homestead. If you host multiple sites on a single Homestead instance,
+                            you may add the "domains" for your web sites to the <code class=" language-php">hosts</code>
+                            file on your machine. The <code class=" language-php">hosts</code> file will redirect
+                            requests for your Homestead sites into your Homestead machine. On Mac and Linux, this file
+                            is located at <code class=" language-php"><span class="token operator">/</span>etc<span
+                                    class="token operator">/</span>hosts</code>. On Windows, it is located at <code
+                                    class=" language-php"><span class="token constant">C</span><span
+                                    class="token punctuation">:</span>\<span class="token package">Windows<span
+                                    class="token punctuation">\</span>System32<span class="token punctuation">\</span>drivers<span
+                                    class="token punctuation">\</span>etc<span
+                                    class="token punctuation">\</span>hosts</span></code>. The lines you add to this
+                            file will look like the following:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token number">192.168</span><span
+                                class="token number">.10</span><span class="token number">.10</span>  homestead<span
+                                class="token punctuation">.</span>test</code></pre>
+                        <p>Make sure the IP address listed is the one set in your <code
+                                class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code> file.
+                            Once you have added the domain to your <code class=" language-php">hosts</code> file and
+                            launched the Vagrant box you will be able to access the site via your web browser:</p>
+                        <pre class=" language-php"><code class=" language-php">http<span
+                                class="token punctuation">:</span><span
+                                class="token comment">//homestead.test</span></code></pre>
+                        <p><a name="launching-the-vagrant-box"></a></p>
+                        <h3 id="launching-the-vagrant-box"><a href="#launching-the-vagrant-box">Launching The Vagrant
+                            Box</a></h3>
+                        <p>Once you have edited the <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code> to your liking, run the <code
+                                class=" language-php">vagrant up</code>
+                            command from your Homestead directory. Vagrant will boot the virtual
+                            machine and automatically configure your shared folders and Nginx sites.</p>
+                        <p>To destroy the machine, you may use the <code class=" language-php">vagrant destroy <span
+                                class="token operator">--</span>force</code> command.</p>
+                        <p><a name="per-project-installation"></a></p>
+                        <h3 id="per-project-installation"><a href="#per-project-installation">Per Project
+                            Installation</a></h3>
+                        <p>Instead of installing Homestead globally and sharing the same
+                            Homestead box across all of your projects, you may instead configure a
+                            Homestead instance for each project you manage. Installing Homestead per
+                            project may be beneficial if you wish to ship a <code
+                                    class=" language-php">Vagrantfile</code> with your project, allowing others working
+                            on the project to <code class=" language-php">vagrant up</code>.</p>
+                        <p>To install Homestead directly into your project, require it using Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>homestead <span
+                                class="token operator">--</span>dev</code></pre>
+                        <p>Once Homestead has been installed, use the <code class=" language-php">make</code> command to
+                            generate the <code class=" language-php">Vagrantfile</code> and <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file in your project root. The <code
+                                    class=" language-php">make</code> command will automatically configure the <code
+                                    class=" language-php">sites</code> and <code class=" language-php">folders</code>
+                            directives in the <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file.</p>
+                        <p>Mac / Linux:</p>
+                        <pre class=" language-php"><code class=" language-php">php vendor<span
+                                class="token operator">/</span>bin<span
+                                class="token operator">/</span>homestead make</code></pre>
+                        <p>Windows:</p>
+                        <pre class=" language-php"><code class=" language-php">vendor\<span class="token package"><span
+                                class="token punctuation">\</span>bin<span class="token punctuation">\</span><span
+                                class="token punctuation">\</span>homestead</span> make</code></pre>
+                        <p>Next, run the <code class=" language-php">vagrant up</code> command in your terminal and
+                            access your project at <code class=" language-php">http<span
+                                    class="token punctuation">:</span><span
+                                    class="token comment">//homestead.test</span></code> in your browser. Remember, you
+                            will still need to add an <code class=" language-php"><span class="token operator">/</span>etc<span
+                                    class="token operator">/</span>hosts</code> file entry for <code
+                                    class=" language-php">homestead<span class="token punctuation">.</span>test</code>
+                            or the domain of your choice if you are not using automatic <a href="#hostname-resolution">hostname
+                                resolution</a>.</p>
+                        <p><a name="installing-optional-features"></a></p>
+                        <h3 id="installing-optional-features"><a href="#installing-optional-features">Installing
+                            Optional Features</a></h3>
+                        <p>Optional software is installed using the "features" setting in your
+                            Homestead configuration file. Most features can be enabled or disabled
+                            with a boolean value, while some features allow multiple configuration
+                            options:</p>
+                        <pre class=" language-php"><code class=" language-php">features<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> blackfire<span class="token punctuation">:</span>
+        server_id<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"server_id"</span>
+        server_token<span class="token punctuation">:</span> <span class="token double-quoted-string string">"server_value"</span>
+        client_id<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"client_id"</span>
+        client_token<span class="token punctuation">:</span> <span class="token double-quoted-string string">"client_value"</span>
+    <span class="token operator">-</span> cassandra<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> chronograf<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> couchdb<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> crystal<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> docker<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> elasticsearch<span class="token punctuation">:</span>
+        version<span class="token punctuation">:</span> <span class="token number">7</span>
+    <span class="token operator">-</span> gearman<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> golang<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> grafana<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> influxdb<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> mariadb<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> minio<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> mongodb<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> mysql8<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> neo4j<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> ohmyzsh<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> openresty<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> pm2<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> python<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> rabbitmq<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> solr<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span>
+    <span class="token operator">-</span> webdriver<span class="token punctuation">:</span> <span
+                                    class="token boolean constant">true</span></code></pre>
+                        <h4>MariaDB</h4>
+                        <p>Enabling MariaDB will remove MySQL and install MariaDB. MariaDB
+                            serves as a drop-in replacement for MySQL, so you should still use the <code
+                                    class=" language-php">mysql</code> database driver in your application's database
+                            configuration.</p>
+                        <h4>MongoDB</h4>
+                        <p>The default MongoDB installation will set the database username to <code
+                                class=" language-php">homestead</code> and the corresponding password to <code
+                                class=" language-php">secret</code>.</p>
+                        <h4>Elasticsearch</h4>
+                        <p>You may specify a supported version of Elasticsearch, which may be a
+                            major version or an exact version number (major.minor.patch). The
+                            default installation will create a cluster named 'homestead'. You should
+                            never give Elasticsearch more than half of the operating system's
+                            memory, so make sure your Homestead machine has at least twice the
+                            Elasticsearch allocation.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Homestead_files/lightbulb.svg"></div>
+                                <p class="content"> Check out the <a
+                                        href="https://www.elastic.co/guide/en/elasticsearch/reference/current">Elasticsearch
+                                    documentation</a> to learn how to customize your configuration.</p></div>
+                        </blockquote>
+                        <h4>Neo4j</h4>
+                        <p>The default Neo4j installation will set the database username to <code class=" language-php">homestead</code>
+                            and corresponding password to <code class=" language-php">secret</code>. To access the Neo4j
+                            browser, visit <code class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//homestead.test:7474</span></code> via your web browser. The
+                            ports <code class=" language-php"><span class="token number">7687</span></code> (Bolt),
+                            <code class=" language-php"><span class="token number">7474</span></code> (HTTP), and <code
+                                    class=" language-php"><span class="token number">7473</span></code> (HTTPS) are
+                            ready to serve requests from the Neo4j client.</p>
+                        <p><a name="aliases"></a></p>
+                        <h3 id="aliases"><a href="#aliases">Aliases</a></h3>
+                        <p>You may add Bash aliases to your Homestead machine by modifying the <code
+                                class=" language-php">aliases</code> file within your Homestead directory:</p>
+                        <pre class=" language-php"><code class=" language-php">alias c<span
+                                class="token operator">=</span><span
+                                class="token single-quoted-string string">'clear'</span>
+alias <span class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token operator">=</span><span class="token single-quoted-string string">'cd ..'</span></code></pre>
+                        <p>After you have updated the <code class=" language-php">aliases</code> file, you should
+                            re-provision the Homestead machine using the <code class=" language-php">vagrant reload
+                                <span class="token operator">--</span>provision</code> command. This will ensure that
+                            your new aliases are available on the machine.</p>
+                        <p><a name="daily-usage"></a></p>
+                        <h2 id="daily-usage"><a href="#daily-usage">Daily Usage</a></h2>
+                        <p><a name="accessing-homestead-globally"></a></p>
+                        <h3 id="accessing-homestead-globally"><a href="#accessing-homestead-globally">Accessing
+                            Homestead Globally</a></h3>
+                        <p>Sometimes you may want to <code class=" language-php">vagrant up</code>
+                            your Homestead machine from anywhere on your filesystem. You can do
+                            this on Mac / Linux systems by adding a Bash function to your Bash
+                            profile. On Windows, you may accomplish this by adding a "batch" file to
+                            your <code class=" language-php"><span class="token constant">PATH</span></code>.
+                            These scripts will allow you to run any Vagrant command from anywhere
+                            on your system and will automatically point that command to your
+                            Homestead installation:</p>
+                        <h4>Mac / Linux</h4>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">function</span> <span class="token function">homestead</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token punctuation">(</span> cd <span class="token operator">~</span><span
+                                    class="token operator">/</span>Homestead <span
+                                    class="token operator">&amp;&amp;</span> vagrant $<span
+                                    class="token operator">*</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Make sure to tweak the <code class=" language-php"><span class="token operator">~</span><span
+                                class="token operator">/</span>Homestead</code>
+                            path in the function to the location of your actual Homestead
+                            installation. Once the function is installed, you may run commands like <code
+                                    class=" language-php">homestead up</code> or <code class=" language-php">homestead
+                                ssh</code> from anywhere on your system.</p>
+                        <h4>Windows</h4>
+                        <p>Create a <code class=" language-php">homestead<span
+                                class="token punctuation">.</span>bat</code> batch file anywhere on your machine with
+                            the following contents:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span class="token keyword">echo</span> off
+
+set cwd<span class="token operator">=</span><span class="token operator">%</span>cd<span class="token operator">%</span>
+set homesteadVagrant<span class="token operator">=</span><span class="token constant">C</span><span
+                                    class="token punctuation">:</span>\<span class="token package">Homestead</span>
+
+cd <span class="token operator">/</span>d <span class="token operator">%</span>homesteadVagrant<span
+                                    class="token operator">%</span> <span class="token operator">&amp;&amp;</span> vagrant <span
+                                    class="token operator">%</span><span class="token operator">*</span>
+cd <span class="token operator">/</span>d <span class="token operator">%</span>cwd<span class="token operator">%</span>
+
+set cwd<span class="token operator">=</span>
+set homesteadVagrant<span class="token operator">=</span></code></pre>
+                        <p>Make sure to tweak the example <code class=" language-php"><span
+                                class="token constant">C</span><span class="token punctuation">:</span>\<span
+                                class="token package">Homestead</span></code>
+                            path in the script to the actual location of your Homestead
+                            installation. After creating the file, add the file location to your <code
+                                    class=" language-php"><span class="token constant">PATH</span></code>. You may then
+                            run commands like <code class=" language-php">homestead up</code> or <code
+                                    class=" language-php">homestead ssh</code> from anywhere on your system.</p>
+                        <p><a name="connecting-via-ssh"></a></p>
+                        <h3 id="connecting-via-ssh"><a href="#connecting-via-ssh">Connecting Via SSH</a></h3>
+                        <p>You can SSH into your virtual machine by issuing the <code class=" language-php">vagrant
+                            ssh</code> terminal command from your Homestead directory.</p>
+                        <p>But, since you will probably need to SSH into your Homestead machine
+                            frequently, consider adding the "function" described above to your host
+                            machine to quickly SSH into the Homestead box.</p>
+                        <p><a name="connecting-to-databases"></a></p>
+                        <h3 id="connecting-to-databases"><a href="#connecting-to-databases">Connecting To Databases</a>
+                        </h3>
+                        <p>A <code class=" language-php">homestead</code> database is configured
+                            for both MySQL and PostgreSQL out of the box. To connect to your MySQL
+                            or PostgreSQL database from your host machine's database client, you
+                            should connect to <code class=" language-php"><span class="token number">127.0</span><span
+                                    class="token number">.0</span><span class="token number">.1</span></code> and port
+                            <code class=" language-php"><span class="token number">33060</span></code> (MySQL) or <code
+                                    class=" language-php"><span class="token number">54320</span></code> (PostgreSQL).
+                            The username and password for both databases is <code class=" language-php">homestead</code>
+                            / <code class=" language-php">secret</code>.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content">
+                                    You should only use these non-standard ports when connecting to the
+                                    databases from your host machine. You will use the default 3306 and 5432
+                                    ports in your Laravel database configuration file since Laravel is
+                                    running <em>within</em> the virtual machine.</p></div>
+                        </blockquote>
+                        <p><a name="database-backups"></a></p>
+                        <h3 id="database-backups"><a href="#database-backups">Database Backups</a></h3>
+                        <p>Homestead can automatically backup your database when your Vagrant
+                            box is destroyed. To utilize this feature, you must be using Vagrant
+                            2.1.0 or greater. Or, if you are using an older version of Vagrant, you
+                            must install the <code class=" language-php">vagrant<span class="token operator">-</span>triggers</code>
+                            plug-in. To enable automatic database backups, add the following line to your <code
+                                    class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            file:</p>
+                        <pre class=" language-php"><code class=" language-php">backup<span
+                                class="token punctuation">:</span> <span
+                                class="token boolean constant">true</span></code></pre>
+                        <p>Once configured, Homestead will export your databases to <code class=" language-php">mysql_backup</code>
+                            and <code class=" language-php">postgres_backup</code> directories when the <code
+                                    class=" language-php">vagrant destroy</code>
+                            command is executed. These directories can be found in the folder where
+                            you cloned Homestead or in the root of your project if you are using
+                            the <a href="#per-project-installation">per project installation</a> method.</p>
+                        <p><a name="database-snapshots"></a></p>
+                        <h3 id="database-snapshots"><a href="#database-snapshots">Database Snapshots</a></h3>
+                        <p>Homestead supports freezing the state of MySQL and MariaDB databases and branching between
+                            them using <a href="https://github.com/Lullabot/lmm">Logical MySQL Manager</a>.
+                            For example, imagine working on a site with a multi-gigabyte database.
+                            You can import the database and take a snapshot. After doing some work
+                            and creating some test content locally, you may quickly restore back to
+                            the original state.</p>
+                        <p>Under the hood, LMM uses LVM's thin snapshot functionality with
+                            copy-on-write support. In practice, this means that changing a single
+                            row in a table will only cause the changes you made to be written to
+                            disk, saving significant time and disk space during restores.</p>
+                        <p>Since <code class=" language-php">lmm</code> interacts with LVM, it must be run as <code
+                                class=" language-php">root</code>. To see all available commands, run <code
+                                class=" language-php">sudo lmm</code> inside your Vagrant box. A common workflow looks
+                            like the following:</p>
+                        <ol>
+                            <li>Import a database into the default <code class=" language-php">master</code> lmm branch.
+                            </li>
+                            <li>Save a snapshot of the unchanged database using <code class=" language-php">sudo lmm
+                                branch prod<span class="token operator">-</span><span class="token constant">YYYY</span><span
+                                        class="token operator">-</span><span class="token constant">MM</span><span
+                                        class="token operator">-</span><span class="token constant">DD</span></code>.
+                            </li>
+                            <li>Modify the database.</li>
+                            <li>Run <code class=" language-php">sudo lmm merge prod<span class="token operator">-</span><span
+                                    class="token constant">YYYY</span><span class="token operator">-</span><span
+                                    class="token constant">MM</span><span class="token operator">-</span><span
+                                    class="token constant">DD</span></code> to undo all changes.
+                            </li>
+                            <li>Run <code class=" language-php">sudo lmm delete <span class="token operator">&lt;</span>branch<span
+                                    class="token operator">&gt;</span></code> to delete unneeded branches.
+                            </li>
+                        </ol>
+                        <p><a name="adding-additional-sites"></a></p>
+                        <h3 id="adding-additional-sites"><a href="#adding-additional-sites">Adding Additional Sites</a>
+                        </h3>
+                        <p>Once your Homestead environment is provisioned and running, you may
+                            want to add additional Nginx sites for your Laravel applications. You
+                            can run as many Laravel installations as you wish on a single Homestead
+                            environment. To add an additional site, add the site to your <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project1<span class="token operator">/</span><span
+                                    class="token keyword">public</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> another<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project2<span class="token operator">/</span><span
+                                    class="token keyword">public</span></code></pre>
+                        <p>If Vagrant is not automatically managing your "hosts" file, you may need to add the new site
+                            to that file as well:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token number">192.168</span><span
+                                class="token number">.10</span><span class="token number">.10</span>  homestead<span
+                                class="token punctuation">.</span>test
+<span class="token number">192.168</span><span class="token number">.10</span><span class="token number">.10</span>  another<span
+                                    class="token punctuation">.</span>test</code></pre>
+                        <p>Once the site has been added, run the <code class=" language-php">vagrant reload <span
+                                class="token operator">--</span>provision</code> command from your Homestead directory.
+                        </p>
+                        <p><a name="site-types"></a></p>
+                        <h4 id="site-types"><a href="#site-types">Site Types</a></h4>
+                        <p>Homestead supports several types of sites which allow you to easily
+                            run projects that are not based on Laravel. For example, we may easily
+                            add a Symfony application to Homestead using the <code class=" language-php">symfony2</code>
+                            site type:</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> symfony2<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>my<span
+                                    class="token operator">-</span>symfony<span
+                                    class="token operator">-</span>project<span class="token operator">/</span>web
+      type<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"symfony2"</span></code></pre>
+                        <p>The available site types are: <code class=" language-php">apache</code>, <code
+                                class=" language-php">apigility</code>, <code class=" language-php">expressive</code>,
+                            <code class=" language-php">laravel</code> (the default), <code
+                                    class=" language-php">proxy</code>, <code class=" language-php">silverstripe</code>,
+                            <code class=" language-php">statamic</code>, <code class=" language-php">symfony2</code>,
+                            <code class=" language-php">symfony4</code>, and <code class=" language-php">zf</code>.</p>
+                        <p><a name="site-parameters"></a></p>
+                        <h4 id="site-parameters"><a href="#site-parameters">Site Parameters</a></h4>
+                        <p>You may add additional Nginx <code class=" language-php">fastcgi_param</code> values to your
+                            site via the <code class=" language-php">params</code> site directive. For example, we'll
+                            add a <code class=" language-php"><span class="token constant">FOO</span></code> parameter
+                            with a value of <code class=" language-php"><span class="token constant">BAR</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project1<span class="token operator">/</span><span
+                                    class="token keyword">public</span>
+      params<span class="token punctuation">:</span>
+          <span class="token operator">-</span> key<span class="token punctuation">:</span> <span
+                                    class="token constant">FOO</span>
+            value<span class="token punctuation">:</span> <span class="token constant">BAR</span></code></pre>
+                        <p><a name="environment-variables"></a></p>
+                        <h3 id="environment-variables"><a href="#environment-variables">Environment Variables</a></h3>
+                        <p>You can set global environment variables by adding them to your <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">variables<span class="token punctuation">:</span>
+    <span class="token operator">-</span> key<span class="token punctuation">:</span> <span class="token constant">APP_ENV</span>
+      value<span class="token punctuation">:</span> local
+    <span class="token operator">-</span> key<span class="token punctuation">:</span> <span
+                                    class="token constant">FOO</span>
+      value<span class="token punctuation">:</span> bar</code></pre>
+                        <p>After updating the <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code>, be sure to re-provision the machine by
+                            running <code class=" language-php">vagrant reload <span class="token operator">--</span>provision</code>.
+                            This will update the PHP-FPM configuration for all of the installed PHP versions and also
+                            update the environment for the <code class=" language-php">vagrant</code> user.</p>
+                        <p><a name="configuring-cron-schedules"></a></p>
+                        <h3 id="configuring-cron-schedules"><a href="#configuring-cron-schedules">Configuring Cron
+                            Schedules</a></h3>
+                        <p>Laravel provides a convenient way to <a href="https://laravel.com/docs/7.x/scheduling">schedule
+                            Cron jobs</a> by scheduling a single <code class=" language-php">schedule<span
+                                class="token punctuation">:</span>run</code> Artisan command to be run every minute. The
+                            <code class=" language-php">schedule<span class="token punctuation">:</span>run</code>
+                            command will examine the job schedule defined in your <code class=" language-php">App\<span
+                                    class="token package">Console<span
+                                    class="token punctuation">\</span>Kernel</span></code> class to determine which jobs
+                            should be run.</p>
+                        <p>If you would like the <code class=" language-php">schedule<span
+                                class="token punctuation">:</span>run</code> command to be run for a Homestead site, you
+                            may set the <code class=" language-php">schedule</code> option to <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code> when
+                            defining the site:</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project1<span class="token operator">/</span><span
+                                    class="token keyword">public</span>
+      schedule<span class="token punctuation">:</span> <span class="token boolean constant">true</span></code></pre>
+                        <p>The Cron job for the site will be defined in the <code class=" language-php"><span
+                                class="token operator">/</span>etc<span class="token operator">/</span>cron<span
+                                class="token punctuation">.</span>d</code> folder of the virtual machine.</p>
+                        <p><a name="configuring-mailhog"></a></p>
+                        <h3 id="configuring-mailhog"><a href="#configuring-mailhog">Configuring Mailhog</a></h3>
+                        <p>Mailhog allows you to easily catch your outgoing email and examine it
+                            without actually sending the mail to its recipients. To get started,
+                            update your <code class=" language-php"><span class="token punctuation">.</span>env</code>
+                            file to use the following mail settings:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token constant">MAIL_DRIVER</span><span class="token operator">=</span>smtp
+<span class="token constant">MAIL_HOST</span><span class="token operator">=</span>localhost
+<span class="token constant">MAIL_PORT</span><span class="token operator">=</span><span class="token number">1025</span>
+<span class="token constant">MAIL_USERNAME</span><span class="token operator">=</span><span
+                                    class="token constant">null</span>
+<span class="token constant">MAIL_PASSWORD</span><span class="token operator">=</span><span
+                                    class="token constant">null</span>
+<span class="token constant">MAIL_ENCRYPTION</span><span class="token operator">=</span><span class="token constant">null</span></code></pre>
+                        <p>Once Mailhog has been configured, you may access the Mailhog dashboard at <code
+                                class=" language-php">http<span class="token punctuation">:</span><span
+                                class="token comment">//localhost:8025</span></code>.</p>
+                        <p><a name="configuring-minio"></a></p>
+                        <h3 id="configuring-minio"><a href="#configuring-minio">Configuring Minio</a></h3>
+                        <p>Minio is an open source object storage server with an Amazon S3 compatible API. To install
+                            Minio, update your <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file with the following configuration
+                            option in the <a href="#installing-optional-features">features</a> section:</p>
+                        <pre class=" language-php"><code class=" language-php">minio<span
+                                class="token punctuation">:</span> <span
+                                class="token boolean constant">true</span></code></pre>
+                        <p>By default, Minio is available on port 9600. You may access the Minio control panel by
+                            visiting <code class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//localhost:9600/</span></code>. The default access key is
+                            <code class=" language-php">homestead</code>, while the default secret key is <code
+                                    class=" language-php">secretkey</code>. When accessing Minio, you should always use
+                            region <code class=" language-php">us<span class="token operator">-</span>east<span
+                                    class="token operator">-</span><span class="token number">1</span></code>.</p>
+                        <p>In order to use Minio you will need to adjust the S3 disk configuration in your <code
+                                class=" language-php">config<span class="token operator">/</span>filesystems<span
+                                class="token punctuation">.</span>php</code> configuration file. You will need to add
+                            the <code class=" language-php">use_path_style_endpoint</code> option to the disk
+                            configuration, as well as change the <code class=" language-php">url</code> key to <code
+                                    class=" language-php">endpoint</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'s3'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'s3'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'AWS_ACCESS_KEY_ID'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'AWS_SECRET_ACCESS_KEY'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'region'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'AWS_DEFAULT_REGION'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'bucket'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'AWS_BUCKET'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'endpoint'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'AWS_URL'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'use_path_style_endpoint'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span>
+<span class="token punctuation">]</span></code></pre>
+                        <p>Finally, ensure your <code class=" language-php"><span class="token punctuation">.</span>env</code>
+                            file has the following options:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token constant">AWS_ACCESS_KEY_ID</span><span
+                                class="token operator">=</span>homestead
+<span class="token constant">AWS_SECRET_ACCESS_KEY</span><span class="token operator">=</span>secretkey
+<span class="token constant">AWS_DEFAULT_REGION</span><span class="token operator">=</span>us<span
+                                    class="token operator">-</span>east<span class="token operator">-</span><span
+                                    class="token number">1</span>
+<span class="token constant">AWS_URL</span><span class="token operator">=</span>http<span
+                                    class="token punctuation">:</span><span
+                                    class="token comment">//localhost:9600</span></code></pre>
+                        <p>To provision buckets, add a <code class=" language-php">buckets</code> directive to your
+                            Homestead configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php">buckets<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> name<span class="token punctuation">:</span> your<span class="token operator">-</span>bucket
+      policy<span class="token punctuation">:</span> <span class="token keyword">public</span>
+    <span class="token operator">-</span> name<span class="token punctuation">:</span> your<span class="token operator">-</span><span
+                                    class="token keyword">private</span><span class="token operator">-</span>bucket
+      policy<span class="token punctuation">:</span> none</code></pre>
+                        <p>Supported <code class=" language-php">policy</code> values include: <code
+                                class=" language-php">none</code>, <code class=" language-php">download</code>, <code
+                                class=" language-php">upload</code>, and <code class=" language-php"><span
+                                class="token keyword">public</span></code>.</p>
+                        <p><a name="ports"></a></p>
+                        <h3 id="ports"><a href="#ports">Ports</a></h3>
+                        <p>By default, the following ports are forwarded to your Homestead environment:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li><strong>SSH:</strong> 2222 → Forwards To 22</li>
+                                <li><strong>ngrok UI:</strong> 4040 → Forwards To 4040</li>
+                                <li><strong>HTTP:</strong> 8000 → Forwards To 80</li>
+                                <li><strong>HTTPS:</strong> 44300 → Forwards To 443</li>
+                                <li><strong>MySQL:</strong> 33060 → Forwards To 3306</li>
+                                <li><strong>PostgreSQL:</strong> 54320 → Forwards To 5432</li>
+                                <li><strong>MongoDB:</strong> 27017 → Forwards To 27017</li>
+                                <li><strong>Mailhog:</strong> 8025 → Forwards To 8025</li>
+                                <li><strong>Minio:</strong> 9600 → Forwards To 9600</li>
+                            </ul>
+                        </div>
+                        <h4>Forwarding Additional Ports</h4>
+                        <p>If you wish, you may forward additional ports to the Vagrant box, as well as specify their
+                            protocol:</p>
+                        <pre class=" language-php"><code class=" language-php">ports<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> send<span class="token punctuation">:</span> <span
+                                    class="token number">50000</span>
+      to<span class="token punctuation">:</span> <span class="token number">5000</span>
+    <span class="token operator">-</span> send<span class="token punctuation">:</span> <span
+                                    class="token number">7777</span>
+      to<span class="token punctuation">:</span> <span class="token number">777</span>
+      protocol<span class="token punctuation">:</span> udp</code></pre>
+                        <p><a name="sharing-your-environment"></a></p>
+                        <h3 id="sharing-your-environment"><a href="#sharing-your-environment">Sharing Your
+                            Environment</a></h3>
+                        <p>Sometimes you may wish to share what you're currently working on with
+                            coworkers or a client. Vagrant has a built-in way to support this via <code
+                                    class=" language-php">vagrant share</code>; however, this will not work if you have
+                            multiple sites configured in your <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file.</p>
+                        <p>To solve this problem, Homestead includes its own <code class=" language-php">share</code>
+                            command. To get started, SSH into your Homestead machine via <code class=" language-php">vagrant
+                                ssh</code> and run <code class=" language-php">share homestead<span
+                                    class="token punctuation">.</span>test</code>. This will share the <code
+                                    class=" language-php">homestead<span class="token punctuation">.</span>test</code>
+                            site from your <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            configuration file. You may substitute any of your other configured sites for <code
+                                    class=" language-php">homestead<span class="token punctuation">.</span>test</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">share homestead<span
+                                class="token punctuation">.</span>test</code></pre>
+                        <p>After running the command, you will see an Ngrok screen appear which
+                            contains the activity log and the publicly accessible URLs for the
+                            shared site. If you would like to specify a custom region, subdomain, or
+                            other Ngrok runtime option, you may add them to your <code
+                                    class=" language-php">share</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">share homestead<span
+                                class="token punctuation">.</span>test <span class="token operator">-</span>region<span
+                                class="token operator">=</span>eu <span class="token operator">-</span>subdomain<span
+                                class="token operator">=</span>laravel</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> Remember, Vagrant is inherently insecure and you are exposing your
+                                    virtual machine to the Internet when running the <code
+                                            class=" language-php">share</code> command.</p></div>
+                        </blockquote>
+                        <p><a name="multiple-php-versions"></a></p>
+                        <h3 id="multiple-php-versions"><a href="#multiple-php-versions">Multiple PHP Versions</a></h3>
+                        <p>Homestead 6 introduced support for multiple versions of PHP on the
+                            same virtual machine. You may specify which version of PHP to use for a
+                            given site within your <code class=" language-php">Homestead<span class="token punctuation">.</span>yaml</code>
+                            file. The available PHP versions are: "5.6", "7.0", "7.1", "7.2", "7.3", and "7.4" (the
+                            default):</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> map<span class="token punctuation">:</span> homestead<span
+                                    class="token punctuation">.</span>test
+      to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span
+                                    class="token operator">/</span>project1<span class="token operator">/</span><span
+                                    class="token keyword">public</span>
+      php<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"7.1"</span></code></pre>
+                        <p>In addition, you may use any of the supported PHP versions via the CLI:</p>
+                        <pre class=" language-php"><code class=" language-php">php5<span
+                                class="token punctuation">.</span><span class="token number">6</span> artisan <span
+                                class="token keyword">list</span>
+php7<span class="token punctuation">.</span><span class="token number">0</span> artisan <span
+                                    class="token keyword">list</span>
+php7<span class="token punctuation">.</span><span class="token number">1</span> artisan <span
+                                    class="token keyword">list</span>
+php7<span class="token punctuation">.</span><span class="token number">2</span> artisan <span
+                                    class="token keyword">list</span>
+php7<span class="token punctuation">.</span><span class="token number">3</span> artisan <span
+                                    class="token keyword">list</span>
+php7<span class="token punctuation">.</span><span class="token number">4</span> artisan <span
+                                    class="token keyword">list</span></code></pre>
+                        <p>You may also update the default CLI version by issuing the following commands from within
+                            your Homestead virtual machine:</p>
+                        <pre class=" language-php"><code class=" language-php">php56
+php70
+php71
+php72
+php73
+php74</code></pre>
+                        <p><a name="web-servers"></a></p>
+                        <h3 id="web-servers"><a href="#web-servers">Web Servers</a></h3>
+                        <p>Homestead uses the Nginx web server by default. However, it can install Apache if <code
+                                class=" language-php">apache</code> is specified as a site type. While both web servers
+                            can be installed at the same time, they cannot both be <em>running</em> at the same time.
+                            The <code class=" language-php">flip</code> shell command is available to ease the process
+                            of switching between web servers. The <code class=" language-php">flip</code>
+                            command automatically determines which web server is running, shuts it
+                            off, and then starts the other server. To use this command, SSH into
+                            your Homestead machine and run the command in your terminal:</p>
+                        <pre class=" language-php"><code class=" language-php">flip</code></pre>
+                        <p><a name="mail"></a></p>
+                        <h3 id="mail"><a href="#mail">Mail</a></h3>
+                        <p>Homestead includes the Postfix mail transfer agent, which is listening on port <code
+                                class=" language-php"><span class="token number">1025</span></code> by default. So, you
+                            may instruct your application to use the <code class=" language-php">smtp</code> mail driver
+                            on <code class=" language-php">localhost</code> port <code class=" language-php"><span
+                                    class="token number">1025</span></code>. Then, all sent mail will be handled by
+                            Postfix and caught by Mailhog. To view your sent emails, open <a
+                                    href="http://localhost:8025/">http://localhost:8025</a> in your web browser.</p>
+                        <p><a name="debugging-and-profiling"></a></p>
+                        <h2 id="debugging-and-profiling"><a href="#debugging-and-profiling">Debugging &amp;
+                            Profiling</a></h2>
+                        <p><a name="debugging-web-requests"></a></p>
+                        <h3 id="debugging-web-requests"><a href="#debugging-web-requests">Debugging Web Requests With
+                            Xdebug</a></h3>
+                        <p>Homestead includes support for step debugging using <a href="https://xdebug.org/">Xdebug</a>.
+                            For example, you can load a web page from a browser, and PHP will
+                            connect to your IDE to allow inspection and modification of the running
+                            code.</p>
+                        <p>By default Xdebug is already running and ready to accept connections. If you need to enable
+                            Xdebug on the CLI run the <code class=" language-php">sudo phpenmod xdebug</code>
+                            command within your Vagrant box. Next, follow your IDE's instructions
+                            to enable debugging. Finally, configure your browser to trigger Xdebug
+                            with an extension or <a href="https://www.jetbrains.com/phpstorm/marklets/">bookmarklet</a>.
+                        </p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Homestead_files/exclamation.svg"></div>
+                                <p class="content"> Xdebug causes PHP to run significantly slower. To disable Xdebug,
+                                    run <code class=" language-php">sudo phpdismod xdebug</code> within your Vagrant box
+                                    and restart the FPM service.</p></div>
+                        </blockquote>
+                        <p><a name="debugging-cli-applications"></a></p>
+                        <h3 id="debugging-cli-applications"><a href="#debugging-cli-applications">Debugging CLI
+                            Applications</a></h3>
+                        <p>To debug a PHP CLI application, use the <code class=" language-php">xphp</code> shell alias
+                            inside your Vagrant box:</p>
+                        <pre class=" language-php"><code class=" language-php">xphp path<span
+                                class="token operator">/</span>to<span
+                                class="token operator">/</span>script</code></pre>
+                        <h4>Autostarting Xdebug</h4>
+                        <p>When debugging functional tests that make requests to the web server,
+                            it is easier to autostart debugging rather than modifying tests to pass
+                            through a custom header or cookie to trigger debugging. To force Xdebug
+                            to start automatically, modify <code class=" language-php"><span
+                                    class="token operator">/</span>etc<span class="token operator">/</span>php<span
+                                    class="token operator">/</span><span class="token number">7.</span>x<span
+                                    class="token operator">/</span>fpm<span class="token operator">/</span>conf<span
+                                    class="token punctuation">.</span>d<span class="token operator">/</span><span
+                                    class="token number">20</span><span class="token operator">-</span>xdebug<span
+                                    class="token punctuation">.</span>ini</code> inside your Vagrant box and add the
+                            following configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">;</span> <span
+                                class="token keyword">If</span> Homestead<span class="token punctuation">.</span>yaml contains a different subnet <span
+                                class="token keyword">for</span> the <span class="token constant">IP</span> address<span
+                                class="token punctuation">,</span> this address may be different<span
+                                class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                class="token punctuation">.</span>
+xdebug<span class="token punctuation">.</span>remote_host <span class="token operator">=</span> <span
+                                    class="token number">192.168</span><span class="token number">.10</span><span
+                                    class="token number">.1</span>
+xdebug<span class="token punctuation">.</span>remote_autostart <span class="token operator">=</span> <span
+                                    class="token number">1</span></code></pre>
+                        <p><a name="profiling-applications-with-blackfire"></a></p>
+                        <h3 id="profiling-applications-with-blackfire"><a href="#profiling-applications-with-blackfire">Profiling
+                            Applications with Blackfire</a></h3>
+                        <p><a href="https://blackfire.io/docs/introduction">Blackfire</a> is a
+                            SaaS service for profiling web requests and CLI applications and writing
+                            performance assertions. It offers an interactive user interface which
+                            displays profile data in call-graphs and timelines. It is built for use
+                            in development, staging, and production, with no overhead for end users.
+                            It provides performance, quality, and security checks on code and <code
+                                    class=" language-php">php<span class="token punctuation">.</span>ini</code>
+                            configuration settings.</p>
+                        <p>The <a href="https://blackfire.io/docs/player/index">Blackfire Player</a>
+                            is an open-source Web Crawling, Web Testing and Web Scraping
+                            application which can work jointly with Blackfire in order to script
+                            profiling scenarios.</p>
+                        <p>To enable Blackfire, use the "features" setting in your Homestead configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php">features<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> blackfire<span class="token punctuation">:</span>
+        server_id<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"server_id"</span>
+        server_token<span class="token punctuation">:</span> <span class="token double-quoted-string string">"server_value"</span>
+        client_id<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"client_id"</span>
+        client_token<span class="token punctuation">:</span> <span class="token double-quoted-string string">"client_value"</span></code></pre>
+                        <p>Blackfire server credentials and client credentials <a href="https://blackfire.io/signup">require
+                            a user account</a>. Blackfire offers various options to profile an application, including a
+                            CLI tool and browser extension. Please <a href="https://blackfire.io/docs/cookbooks/index">review
+                                the Blackfire documentation for more details</a>.</p>
+                        <h3>Profiling PHP Performance Using XHGui</h3>
+                        <p><a href="https://www.github.com/perftools/xhgui">XHGui</a> is a user interface for exploring
+                            the performance of your PHP applications. To enable XHGui, add <code class=" language-php">xhgui<span
+                                    class="token punctuation">:</span> <span class="token single-quoted-string string">'true'</span></code>
+                            to your site configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">sites<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span>
+        map<span class="token punctuation">:</span> your<span class="token operator">-</span>site<span
+                                    class="token punctuation">.</span>test
+        to<span class="token punctuation">:</span> <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>vagrant<span class="token operator">/</span>your<span
+                                    class="token operator">-</span>site<span class="token operator">/</span><span
+                                    class="token keyword">public</span>
+        type<span class="token punctuation">:</span> <span class="token double-quoted-string string">"apache"</span>
+        xhgui<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'true'</span></code></pre>
+                        <p>If the site already exists, make sure to run <code class=" language-php">vagrant
+                            provision</code> after updating your configuration.</p>
+                        <p>To profile a web request, add <code class=" language-php">xhgui<span
+                                class="token operator">=</span>on</code>
+                            as a query parameter to a request. XHGui will automatically attach a
+                            cookie to the response so that subsequent requests do not need the query
+                            string value. You may view your application profile results by browsing
+                            to <code class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//your-site.test/xhgui</span></code>.</p>
+                        <p>To profile a CLI request using XHGui, prefix the command with <code
+                                class=" language-php"><span class="token constant">XHGUI</span><span
+                                class="token operator">=</span>on</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token constant">XHGUI</span><span
+                                class="token operator">=</span>on path<span class="token operator">/</span>to<span
+                                class="token operator">/</span>script</code></pre>
+                        <p>CLI profile results may be viewed in the same way as web profile results.</p>
+                        <p>Note that the act of profiling slows down script execution, and
+                            absolute times may be as much as twice as real-world requests.
+                            Therefore, always compare percentage improvements and not absolute
+                            numbers. Also, be aware the execution time includes any time spent
+                            paused in a debugger.</p>
+                        <p>Since performance profiles take up significant disk space, they are deleted automatically
+                            after a few days.</p>
+                        <p><a name="network-interfaces"></a></p>
+                        <h2 id="network-interfaces"><a href="#network-interfaces">Network Interfaces</a></h2>
+                        <p>The <code class=" language-php">networks</code> property of the <code class=" language-php">Homestead<span
+                                class="token punctuation">.</span>yaml</code> configures network interfaces for your
+                            Homestead environment. You may configure as many interfaces as necessary:</p>
+                        <pre class=" language-php"><code class=" language-php">networks<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> type<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"private_network"</span>
+      ip<span class="token punctuation">:</span> <span class="token double-quoted-string string">"192.168.10.20"</span></code></pre>
+                        <p>To enable a <a
+                                href="https://www.vagrantup.com/docs/networking/public_network.html">bridged</a>
+                            interface, configure a <code class=" language-php">bridge</code> setting and change the
+                            network type to <code class=" language-php">public_network</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">networks<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> type<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"public_network"</span>
+      ip<span class="token punctuation">:</span> <span class="token double-quoted-string string">"192.168.10.20"</span>
+      bridge<span class="token punctuation">:</span> <span class="token double-quoted-string string">"en1: Wi-Fi (AirPort)"</span></code></pre>
+                        <p>To enable <a href="https://www.vagrantup.com/docs/networking/public_network.html">DHCP</a>,
+                            just remove the <code class=" language-php">ip</code> option from your configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">networks<span
+                                class="token punctuation">:</span>
+    <span class="token operator">-</span> type<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"public_network"</span>
+      bridge<span class="token punctuation">:</span> <span class="token double-quoted-string string">"en1: Wi-Fi (AirPort)"</span></code></pre>
+                        <p><a name="extending-homestead"></a></p>
+                        <h2 id="extending-homestead"><a href="#extending-homestead">Extending Homestead</a></h2>
+                        <p>You may extend Homestead using the <code class=" language-php">after<span
+                                class="token punctuation">.</span>sh</code>
+                            script in the root of your Homestead directory. Within this file, you
+                            may add any shell commands that are necessary to properly configure and
+                            customize your virtual machine.</p>
+                        <p>When customizing Homestead, Ubuntu may ask you if you would like to
+                            keep a package's original configuration or overwrite it with a new
+                            configuration file. To avoid this, you should use the following command
+                            when installing packages to avoid overwriting any configuration
+                            previously written by Homestead:</p>
+                        <pre class=" language-php"><code class=" language-php">sudo apt<span
+                                class="token operator">-</span>get <span class="token operator">-</span>y \
+    <span class="token operator">-</span>o Dpkg<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>Options<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"--force-confdef"</span> \
+    <span class="token operator">-</span>o Dpkg<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>Options<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"--force-confold"</span> \
+    install your<span class="token operator">-</span>package</code></pre>
+                        <h3>User Customizations</h3>
+                        <p>When using Homestead in a team setting, you may want to tweak
+                            Homestead to better fit your personal development style. You may create a
+                            <code class=" language-php">user<span class="token operator">-</span>customizations<span
+                                    class="token punctuation">.</span>sh</code> file in the root of your Homestead
+                            directory (The same directory containing your <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code>). Within this file, you may make any
+                            customization you would like; however, the <code class=" language-php">user<span
+                                    class="token operator">-</span>customizations<span
+                                    class="token punctuation">.</span>sh</code> should not be version controlled.</p>
+                        <p><a name="updating-homestead"></a></p>
+                        <h2 id="updating-homestead"><a href="#updating-homestead">Updating Homestead</a></h2>
+                        <p>Before you begin updating Homestead ensure you have removed your
+                            current virtual machine by running the following command in your
+                            Homestead directory:</p>
+                        <pre class=" language-php"><code class=" language-php">vagrant destroy</code></pre>
+                        <p>Next, you need to update the Homestead source code. If you cloned the
+                            repository you can run the following commands at the location you
+                            originally cloned the repository:</p>
+                        <pre class=" language-php"><code class=" language-php">git fetch
+
+git pull origin release</code></pre>
+                        <p>These commands pull the latest Homestead code from the GitHub
+                            repository, fetches the latest tags, and then checks out the latest
+                            tagged release. You can find the latest stable release version on the <a
+                                    href="https://github.com/laravel/homestead/releases">GitHub releases page</a>.</p>
+                        <p>If you have installed Homestead via your project's <code class=" language-php">composer<span
+                                class="token punctuation">.</span>json</code> file, you should ensure your <code
+                                class=" language-php">composer<span class="token punctuation">.</span>json</code> file
+                            contains <code class=" language-php"><span class="token double-quoted-string string">"laravel/homestead"</span><span
+                                    class="token punctuation">:</span> <span class="token double-quoted-string string">"^10"</span></code>
+                            and update your dependencies:</p>
+                        <pre class=" language-php"><code class=" language-php">composer update</code></pre>
+                        <p>Then, you should update the Vagrant box using the <code class=" language-php">vagrant box
+                            update</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">vagrant box update</code></pre>
+                        <p>Finally, you will need to regenerate your Homestead box to utilize the latest Vagrant
+                            installation:</p>
+                        <pre class=" language-php"><code class=" language-php">vagrant up</code></pre>
+                        <p><a name="provider-specific-settings"></a></p>
+                        <h2 id="provider-specific-settings"><a href="#provider-specific-settings">Provider Specific
+                            Settings</a></h2>
+                        <p><a name="provider-specific-virtualbox"></a></p>
+                        <h3 id="provider-specific-virtualbox"><a href="#provider-specific-virtualbox">VirtualBox</a>
+                        </h3>
+                        <h4><code class=" language-php">natdnshostresolver</code></h4>
+                        <p>By default, Homestead configures the <code class=" language-php">natdnshostresolver</code>
+                            setting to <code class=" language-php">on</code>.
+                            This allows Homestead to use your host operating system's DNS settings.
+                            If you would like to override this behavior, add the following lines to
+                            your <code class=" language-php">Homestead<span
+                                    class="token punctuation">.</span>yaml</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">provider<span
+                                class="token punctuation">:</span> virtualbox
+natdnshostresolver<span class="token punctuation">:</span> <span class="token single-quoted-string string">'off'</span></code></pre>
+                        <h4>Symbolic Links On Windows</h4>
+                        <p>If symbolic links are not working properly on your Windows machine, you may need to add the
+                            following block to your <code class=" language-php">Vagrantfile</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">config<span
+                                class="token punctuation">.</span>vm<span
+                                class="token punctuation">.</span>provider <span
+                                class="token double-quoted-string string">"virtualbox"</span> <span
+                                class="token keyword">do</span> <span class="token operator">|</span>v<span
+                                class="token operator">|</span>
+    v<span class="token punctuation">.</span>customize <span class="token punctuation">[</span><span
+                                    class="token double-quoted-string string">"setextradata"</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">:</span>id<span
+                                    class="token punctuation">,</span> <span class="token double-quoted-string string">"VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root"</span><span
+                                    class="token punctuation">,</span> <span class="token double-quoted-string string">"1"</span><span
+                                    class="token punctuation">]</span>
+end</code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

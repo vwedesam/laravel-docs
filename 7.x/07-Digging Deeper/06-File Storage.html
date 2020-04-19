@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>File Storage - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/filesystem">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="06-File%20Storage_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="06-File%20Storage_files/app.css">
+
+    <!-- Load JS -->
+    <script src="06-File%20Storage_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="06-File%20Storage_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>File Storage</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#configuration">Configuration</a>
+                                <ul>
+                                    <li><a href="#the-public-disk">The Public Disk</a></li>
+                                    <li><a href="#the-local-driver">The Local Driver</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                    <li><a href="#caching">Caching</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#obtaining-disk-instances">Obtaining Disk Instances</a></li>
+                            <li><a href="#retrieving-files">Retrieving Files</a>
+                                <ul>
+                                    <li><a href="#downloading-files">Downloading Files</a></li>
+                                    <li><a href="#file-urls">File URLs</a></li>
+                                    <li><a href="#file-metadata">File Metadata</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#storing-files">Storing Files</a>
+                                <ul>
+                                    <li><a href="#file-uploads">File Uploads</a></li>
+                                    <li><a href="#file-visibility">File Visibility</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#deleting-files">Deleting Files</a></li>
+                            <li><a href="#directories">Directories</a></li>
+                            <li><a href="#custom-filesystems">Custom Filesystems</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel provides a powerful filesystem abstraction thanks to the wonderful <a
+                                href="https://github.com/thephpleague/flysystem">Flysystem</a>
+                            PHP package by Frank de Jonge. The Laravel Flysystem integration
+                            provides simple to use drivers for working with local filesystems and
+                            Amazon S3. Even better, it's amazingly simple to switch between these
+                            storage options as the API remains the same for each system.</p>
+                        <p><a name="configuration"></a></p>
+                        <h2 id="configuration"><a href="#configuration">Configuration</a></h2>
+                        <p>The filesystem configuration file is located at <code class=" language-php">config<span
+                                class="token operator">/</span>filesystems<span
+                                class="token punctuation">.</span>php</code>.
+                            Within this file you may configure all of your "disks". Each disk
+                            represents a particular storage driver and storage location. Example
+                            configurations for each supported driver are included in the
+                            configuration file. So, modify the configuration to reflect your storage
+                            preferences and credentials.</p>
+                        <p>You may configure as many disks as you like, and may even have multiple disks that use the
+                            same driver.</p>
+                        <p><a name="the-public-disk"></a></p>
+                        <h3 id="the-public-disk"><a href="#the-public-disk">The Public Disk</a></h3>
+                        <p>The <code class=" language-php"><span class="token keyword">public</span></code> disk is
+                            intended for files that are going to be publicly accessible. By default, the <code
+                                    class=" language-php"><span class="token keyword">public</span></code> disk uses the
+                            <code class=" language-php">local</code> driver and stores these files in <code
+                                    class=" language-php">storage<span class="token operator">/</span>app<span
+                                    class="token operator">/</span><span class="token keyword">public</span></code>. To
+                            make them accessible from the web, you should create a symbolic link from <code
+                                    class=" language-php"><span class="token keyword">public</span><span
+                                    class="token operator">/</span>storage</code> to <code class=" language-php">storage<span
+                                    class="token operator">/</span>app<span class="token operator">/</span><span
+                                    class="token keyword">public</span></code>.
+                            This convention will keep your publicly accessible files in one
+                            directory that can be easily shared across deployments when using zero
+                            down-time deployment systems like <a href="https://envoyer.io/">Envoyer</a>.</p>
+                        <p>To create the symbolic link, you may use the <code class=" language-php">storage<span
+                                class="token punctuation">:</span>link</code> Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan storage<span
+                                class="token punctuation">:</span>link</code></pre>
+                        <p>Once a file has been stored and the symbolic link has been created, you can create a URL to
+                            the files using the <code class=" language-php">asset</code> helper:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">echo</span> <span class="token function">asset</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'storage/file.txt'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may configure additional symbolic links in your <code
+                                class=" language-php">filesystems</code> configuration file. Each of the configured
+                            links will be created when you run the <code class=" language-php">storage<span
+                                    class="token punctuation">:</span>link</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'links'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token function">public_path</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'storage'</span><span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span
+                                    class="token function">storage_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'app/public'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">public_path</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'images'</span><span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span
+                                    class="token function">storage_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'app/images'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="the-local-driver"></a></p>
+                        <h3 id="the-local-driver"><a href="#the-local-driver">The Local Driver</a></h3>
+                        <p>When using the <code class=" language-php">local</code> driver, all file operations are
+                            relative to the <code class=" language-php">root</code> directory defined in your <code
+                                    class=" language-php">filesystems</code> configuration file. By default, this value
+                            is set to the <code class=" language-php">storage<span
+                                    class="token operator">/</span>app</code> directory. Therefore, the following method
+                            would store a file in <code class=" language-php">storage<span
+                                    class="token operator">/</span>app<span class="token operator">/</span>file<span
+                                    class="token punctuation">.</span>txt</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">disk</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'local'</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'file.txt'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Contents'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Permissions</h4>
+                        <p>The <code class=" language-php"><span class="token keyword">public</span></code> <a
+                                href="#file-visibility">visibility</a> translates to <code class=" language-php"><span
+                                class="token number">0755</span></code> for directories and <code class=" language-php"><span
+                                class="token number">0644</span></code> for files. You can modify the permissions
+                            mappings in your <code class=" language-php">filesystems</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'local'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'local'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'root'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span
+                                    class="token function">storage_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'app'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'permissions'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'file'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'public'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0664</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'private'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0600</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'dir'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'public'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0775</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'private'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0700</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <h4>Composer Packages</h4>
+                        <p>Before using the SFTP or S3 drivers, you will need to install the appropriate package via
+                            Composer:</p>
+                        <ul>
+                            <li>SFTP: <code class=" language-php">league<span
+                                    class="token operator">/</span>flysystem<span class="token operator">-</span>sftp
+                                <span class="token operator">~</span><span class="token number">1.0</span></code></li>
+                            <li>Amazon S3: <code class=" language-php">league<span class="token operator">/</span>flysystem<span
+                                    class="token operator">-</span>aws<span class="token operator">-</span>s3<span
+                                    class="token operator">-</span>v3 <span class="token operator">~</span><span
+                                    class="token number">1.0</span></code></li>
+                        </ul>
+                        <p>An absolute must for performance is to use a cached adapter. You will need an additional
+                            package for this:</p>
+                        <ul>
+                            <li>CachedAdapter: <code class=" language-php">league<span class="token operator">/</span>flysystem<span
+                                    class="token operator">-</span>cached<span class="token operator">-</span>adapter
+                                <span class="token operator">~</span><span class="token number">1.0</span></code></li>
+                        </ul>
+                        <h4>S3 Driver Configuration</h4>
+                        <p>The S3 driver configuration information is located in your <code class=" language-php">config<span
+                                class="token operator">/</span>filesystems<span
+                                class="token punctuation">.</span>php</code>
+                            configuration file. This file contains an example configuration array
+                            for an S3 driver. You are free to modify this array with your own S3
+                            configuration and credentials. For convenience, these environment
+                            variables match the naming convention used by the AWS CLI.</p>
+                        <h4>FTP Driver Configuration</h4>
+                        <p>Laravel's Flysystem integrations works great with FTP; however, a
+                            sample configuration is not included with the framework's default <code
+                                    class=" language-php">filesystems<span class="token punctuation">.</span>php</code>
+                            configuration file. If you need to configure a FTP filesystem, you may use the example
+                            configuration below:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'ftp'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'ftp'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'ftp.example.com'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'username'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-username'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-password'</span><span
+                                    class="token punctuation">,</span>
+
+    <span class="token comment">// Optional FTP Settings...</span>
+    <span class="token comment">// 'port' =&gt; 21,</span>
+    <span class="token comment">// 'root' =&gt; '',</span>
+    <span class="token comment">// 'passive' =&gt; true,</span>
+    <span class="token comment">// 'ssl' =&gt; true,</span>
+    <span class="token comment">// 'timeout' =&gt; 30,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>SFTP Driver Configuration</h4>
+                        <p>Laravel's Flysystem integrations works great with SFTP; however, a
+                            sample configuration is not included with the framework's default <code
+                                    class=" language-php">filesystems<span class="token punctuation">.</span>php</code>
+                            configuration file. If you need to configure a SFTP filesystem, you may use the example
+                            configuration below:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'sftp'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'sftp'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'example.com'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'username'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-username'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-password'</span><span
+                                    class="token punctuation">,</span>
+
+    <span class="token comment">// Settings for SSH key based authentication...</span>
+    <span class="token comment">// 'privateKey' =&gt; '/path/to/privateKey',</span>
+    <span class="token comment">// 'password' =&gt; 'encryption-password',</span>
+
+    <span class="token comment">// Optional SFTP Settings...</span>
+    <span class="token comment">// 'port' =&gt; 22,</span>
+    <span class="token comment">// 'root' =&gt; '',</span>
+    <span class="token comment">// 'timeout' =&gt; 30,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="caching"></a></p>
+                        <h3 id="caching"><a href="#caching">Caching</a></h3>
+                        <p>To enable caching for a given disk, you may add a <code class=" language-php">cache</code>
+                            directive to the disk's configuration options. The <code class=" language-php">cache</code>
+                            option should be an array of caching options containing the <code
+                                    class=" language-php">disk</code> name, the <code
+                                    class=" language-php">expire</code> time in seconds, and the cache <code
+                                    class=" language-php">prefix</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'s3'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'s3'</span><span
+                                    class="token punctuation">,</span>
+
+    <span class="token comment">// Other Disk Options...</span>
+
+    <span class="token single-quoted-string string">'cache'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'store'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'memcached'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'expire'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">600</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'prefix'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'cache-prefix'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="obtaining-disk-instances"></a></p>
+                        <h2 id="obtaining-disk-instances"><a href="#obtaining-disk-instances">Obtaining Disk
+                            Instances</a></h2>
+                        <p>The <code class=" language-php">Storage</code> facade may be used to interact with any of
+                            your configured disks. For example, you may use the <code class=" language-php">put</code>
+                            method on the facade to store an avatar on the default disk. If you call methods on the
+                            <code class=" language-php">Storage</code> facade without first calling the <code
+                                    class=" language-php">disk</code> method, the method call will automatically be
+                            passed to the default disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'avatars/1'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$fileContents</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If your application interacts with multiple disks, you may use the <code
+                                class=" language-php">disk</code> method on the <code
+                                class=" language-php">Storage</code> facade to work with files on a particular disk:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">disk</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'s3'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">put</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'avatars/1'</span><span
+                                class="token punctuation">,</span> <span
+                                class="token variable">$fileContents</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="retrieving-files"></a></p>
+                        <h2 id="retrieving-files"><a href="#retrieving-files">Retrieving Files</a></h2>
+                        <p>The <code class=" language-php">get</code> method may be used to
+                            retrieve the contents of a file. The raw string contents of the file
+                            will be returned by the method. Remember, all file paths should be
+                            specified relative to the "root" location configured for the disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$contents</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">exists</code> method may be used to determine if a file
+                            exists on the disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$exists</span> <span class="token operator">=</span> Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">disk</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'s3'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">exists</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">missing</code> method may be used to determine if a file is
+                            missing from the disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$missing</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">disk</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'s3'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">missing</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="downloading-files"></a></p>
+                        <h3 id="downloading-files"><a href="#downloading-files">Downloading Files</a></h3>
+                        <p>The <code class=" language-php">download</code> method may be used to generate a response
+                            that forces the user's browser to download the file at the given path. The <code
+                                    class=" language-php">download</code>
+                            method accepts a file name as the second argument to the method, which
+                            will determine the file name that is seen by the user downloading the
+                            file. Finally, you may pass an array of HTTP headers as the third
+                            argument to the method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">download</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> Storage<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">download</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$name</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$headers</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="file-urls"></a></p>
+                        <h3 id="file-urls"><a href="#file-urls">File URLs</a></h3>
+                        <p>You may use the <code class=" language-php">url</code> method to get the URL for the given
+                            file. If you are using the <code class=" language-php">local</code> driver, this will
+                            typically just prepend <code class=" language-php"><span class="token operator">/</span>storage</code>
+                            to the given path and return a relative URL to the file. If you are using the <code
+                                    class=" language-php">s3</code> driver, the fully qualified remote URL will be
+                            returned:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+<span class="token variable">$url</span> <span class="token operator">=</span> Storage<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">url</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-File%20Storage_files/exclamation.svg"></div>
+                                <p class="content"> Remember, if you are using the <code
+                                        class=" language-php">local</code> driver, all files that should be publicly
+                                    accessible should be placed in the <code class=" language-php">storage<span
+                                            class="token operator">/</span>app<span class="token operator">/</span><span
+                                            class="token keyword">public</span></code> directory. Furthermore, you
+                                    should <a href="#the-public-disk">create a symbolic link</a> at <code
+                                            class=" language-php"><span class="token keyword">public</span><span
+                                            class="token operator">/</span>storage</code> which points to the <code
+                                            class=" language-php">storage<span class="token operator">/</span>app<span
+                                            class="token operator">/</span><span
+                                            class="token keyword">public</span></code> directory.</p></div>
+                        </blockquote>
+                        <h4>Temporary URLs</h4>
+                        <p>For files stored using the <code class=" language-php">s3</code> you may create a temporary
+                            URL to a given file using the <code class=" language-php">temporaryUrl</code> method. This
+                            method accepts a path and a <code class=" language-php">DateTime</code> instance specifying
+                            when the URL should expire:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">temporaryUrl</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'file.jpg'</span><span class="token punctuation">,</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">addMinutes</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you need to specify additional <a
+                                href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html#RESTObjectGET-requests">S3
+                            request parameters</a>, you may pass the array of request parameters as the third argument
+                            to the <code class=" language-php">temporaryUrl</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">temporaryUrl</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'file.jpg'</span><span class="token punctuation">,</span>
+    <span class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">addMinutes</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token single-quoted-string string">'ResponseContentType'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'application/octet-stream'</span><span
+                                    class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>URL Host Customization</h4>
+                        <p>If you would like to pre-define the host for file URLs generated using the <code
+                                class=" language-php">Storage</code> facade, you may add a <code class=" language-php">url</code>
+                            option to the disk's configuration array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'public'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'local'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'root'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span
+                                    class="token function">storage_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'app/public'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'url'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token function">env</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'APP_URL'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/storage'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'visibility'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'public'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="file-metadata"></a></p>
+                        <h3 id="file-metadata"><a href="#file-metadata">File Metadata</a></h3>
+                        <p>In addition to reading and writing files, Laravel can also provide information about the
+                            files themselves. For example, the <code class=" language-php">size</code> method may be
+                            used to get the size of the file in bytes:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+<span class="token variable">$size</span> <span class="token operator">=</span> Storage<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">size</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">lastModified</code> method returns the UNIX timestamp of the
+                            last time the file was modified:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$time</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">lastModified</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="storing-files"></a></p>
+                        <h2 id="storing-files"><a href="#storing-files">Storing Files</a></h2>
+                        <p>The <code class=" language-php">put</code> method may be used to store raw file contents on a
+                            disk. You may also pass a PHP <code class=" language-php">resource</code> to the <code
+                                    class=" language-php">put</code>
+                            method, which will use Flysystem's underlying stream support. Remember,
+                            all file paths should be specified relative to the "root" location
+                            configured for the disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$contents</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$resource</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Automatic Streaming</h4>
+                        <p>If you would like Laravel to automatically manage streaming a given file to your storage
+                            location, you may use the <code class=" language-php">putFile</code> or <code
+                                    class=" language-php">putFileAs</code> method. This method accepts either a <code
+                                    class=" language-php">Illuminate\<span class="token package">Http<span
+                                    class="token punctuation">\</span>File</span></code> or <code class=" language-php">Illuminate\<span
+                                    class="token package">Http<span
+                                    class="token punctuation">\</span>UploadedFile</span></code> instance and will
+                            automatically stream the file to your desired location:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>File</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Storage</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// Automatically generate a unique ID for file name...</span>
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">putFile</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'photos'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">File</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/path/to/photo'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// Manually specify a file name...</span>
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">putFileAs</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'photos'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">File</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/path/to/photo'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'photo.jpg'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>There are a few important things to note about the <code class=" language-php">putFile</code>
+                            method. Note that we only specified a directory name, not a file name. By default, the <code
+                                    class=" language-php">putFile</code>
+                            method will generate a unique ID to serve as the file name. The file's
+                            extension will be determined by examining the file's MIME type. The path
+                            to the file will be returned by the <code class=" language-php">putFile</code> method so you
+                            can store the path, including the generated file name, in your database.</p>
+                        <p>The <code class=" language-php">putFile</code> and <code
+                                class=" language-php">putFileAs</code>
+                            methods also accept an argument to specify the "visibility" of the
+                            stored file. This is particularly useful if you are storing the file on a
+                            cloud disk such as S3 and would like the file to be publicly
+                            accessible:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">putFile</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">new</span> <span
+                                class="token class-name">File</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/path/to/photo'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'public'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Prepending &amp; Appending To Files</h4>
+                        <p>The <code class=" language-php">prepend</code> and <code class=" language-php">append</code>
+                            methods allow you to write to the beginning or end of a file:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">prepend</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'file.log'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Prepended Text'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">append</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'file.log'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'Appended Text'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Copying &amp; Moving Files</h4>
+                        <p>The <code class=" language-php">copy</code> method may be used to copy an existing file to a
+                            new location on the disk, while the <code class=" language-php">move</code> method may be
+                            used to rename or move an existing file to a new location:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">copy</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'old/file.jpg'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'new/file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">move</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'old/file.jpg'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'new/file.jpg'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="file-uploads"></a></p>
+                        <h3 id="file-uploads"><a href="#file-uploads">File Uploads</a></h3>
+                        <p>In web applications, one of the most common use-cases for storing
+                            files is storing user uploaded files such as profile pictures, photos,
+                            and documents. Laravel makes it very easy to store uploaded files using
+                            the <code class=" language-php">store</code> method on an uploaded file instance. Call the
+                            <code class=" language-php">store</code> method with the path at which you wish to store the
+                            uploaded file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserAvatarController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Update the avatar for the user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">file</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'avatar'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">store</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'avatars'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$path</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>There are a few important things to note about this example. Note
+                            that we only specified a directory name, not a file name. By default,
+                            the <code class=" language-php">store</code> method will generate a
+                            unique ID to serve as the file name. The file's extension will be
+                            determined by examining the file's MIME type. The path to the file will
+                            be returned by the <code class=" language-php">store</code> method so you can store the
+                            path, including the generated file name, in your database.</p>
+                        <p>You may also call the <code class=" language-php">putFile</code> method on the <code
+                                class=" language-php">Storage</code> facade to perform the same file manipulation as the
+                            example above:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$path</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">putFile</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'avatars'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$request</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">file</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'avatar'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>Specifying A File Name</h4>
+                        <p>If you would not like a file name to be automatically assigned to your stored file, you may
+                            use the <code class=" language-php">storeAs</code> method, which receives the path, the file
+                            name, and the (optional) disk as its arguments:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$path</span> <span
+                                class="token operator">=</span> <span class="token variable">$request</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">file</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'avatar'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">storeAs</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'avatars'</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also use the <code class=" language-php">putFileAs</code> method on the <code
+                                class=" language-php">Storage</code> facade, which will perform the same file
+                            manipulation as the example above:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$path</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">putFileAs</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'avatars'</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">file</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'avatar'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-File%20Storage_files/exclamation.svg"></div>
+                                <p class="content">
+                                    Unprintable and invalid unicode characters will automatically be
+                                    removed from file paths. Therefore, you may wish to sanitize your file
+                                    paths before passing them to Laravel's file storage methods. File paths
+                                    are normalized using the <code class=" language-php">League\<span
+                                        class="token package">Flysystem<span
+                                        class="token punctuation">\</span>Util</span><span
+                                        class="token punctuation">:</span><span class="token punctuation">:</span>normalizePath</code>
+                                    method.</p></div>
+                        </blockquote>
+                        <h4>Specifying A Disk</h4>
+                        <p>By default, this method will use your default disk. If you would like
+                            to specify another disk, pass the disk name as the second argument to
+                            the <code class=" language-php">store</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$path</span> <span
+                                class="token operator">=</span> <span class="token variable">$request</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">file</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'avatar'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">store</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'avatars/'</span><span class="token punctuation">.</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'s3'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Other File Information</h4>
+                        <p>If you would like to get original name of the uploaded file, you may do so using the <code
+                                class=" language-php">getClientOriginalName</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token variable">$request</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">file</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'avatar'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">getClientOriginalName</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">extension</code> method may be used to get the file extension
+                            of the uploaded file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$extension</span> <span class="token operator">=</span> <span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">file</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'avatar'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">extension</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="file-visibility"></a></p>
+                        <h3 id="file-visibility"><a href="#file-visibility">File Visibility</a></h3>
+                        <p>In Laravel's Flysystem integration, "visibility" is an abstraction of
+                            file permissions across multiple platforms. Files may either be
+                            declared <code class=" language-php"><span class="token keyword">public</span></code> or
+                            <code class=" language-php"><span class="token keyword">private</span></code>. When a file
+                            is declared <code class=" language-php"><span class="token keyword">public</span></code>,
+                            you are indicating that the file should generally be accessible to
+                            others. For example, when using the S3 driver, you may retrieve URLs for
+                            <code class=" language-php"><span class="token keyword">public</span></code> files.</p>
+                        <p>You can set the visibility when setting the file via the <code
+                                class=" language-php">put</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$contents</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If the file has already been stored, its visibility can be retrieved and set via the <code
+                                class=" language-php">getVisibility</code> and <code
+                                class=" language-php">setVisibility</code> methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$visibility</span> <span
+                                class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">getVisibility</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">setVisibility</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="deleting-files"></a></p>
+                        <h2 id="deleting-files"><a href="#deleting-files">Deleting Files</a></h2>
+                        <p>The <code class=" language-php">delete</code> method accepts a single filename or an array of
+                            files to remove from the disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'file.jpg'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'file2.jpg'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If necessary, you may specify the disk that the file should be deleted from:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">disk</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'s3'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'folder_path/file_name.jpg'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="directories"></a></p>
+                        <h2 id="directories"><a href="#directories">Directories</a></h2>
+                        <h4>Get All Files Within A Directory</h4>
+                        <p>The <code class=" language-php">files</code> method returns an array
+                            of all of the files in a given directory. If you would like to retrieve a
+                            list of all files within a given directory including all
+                            subdirectories, you may use the <code class=" language-php">allFiles</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Storage</span><span class="token punctuation">;</span>
+
+<span class="token variable">$files</span> <span class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">files</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$directory</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$files</span> <span class="token operator">=</span> Storage<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">allFiles</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$directory</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Get All Directories Within A Directory</h4>
+                        <p>The <code class=" language-php">directories</code> method returns an array of all the
+                            directories within a given directory. Additionally, you may use the <code
+                                    class=" language-php">allDirectories</code> method to get a list of all directories
+                            within a given directory and all of its subdirectories:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$directories</span> <span class="token operator">=</span> Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">directories</span><span class="token punctuation">(</span><span
+                                class="token variable">$directory</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">// Recursive...</span>
+<span class="token variable">$directories</span> <span class="token operator">=</span> Storage<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">allDirectories</span><span class="token punctuation">(</span><span
+                                    class="token variable">$directory</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Create A Directory</h4>
+                        <p>The <code class=" language-php">makeDirectory</code> method will create the given directory,
+                            including any needed subdirectories:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">makeDirectory</span><span class="token punctuation">(</span><span
+                                class="token variable">$directory</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>Delete A Directory</h4>
+                        <p>Finally, the <code class=" language-php">deleteDirectory</code> method may be used to remove
+                            a directory and all of its files:</p>
+                        <pre class=" language-php"><code class=" language-php">Storage<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">deleteDirectory</span><span
+                                class="token punctuation">(</span><span class="token variable">$directory</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="custom-filesystems"></a></p>
+                        <h2 id="custom-filesystems"><a href="#custom-filesystems">Custom Filesystems</a></h2>
+                        <p>Laravel's Flysystem integration provides drivers for several
+                            "drivers" out of the box; however, Flysystem is not limited to these and
+                            has adapters for many other storage systems. You can create a custom
+                            driver if you want to use one of these additional adapters in your
+                            Laravel application.</p>
+                        <p>In order to set up the custom filesystem you will need a Flysystem
+                            adapter. Let's add a community maintained Dropbox adapter to our
+                            project:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> spatie<span
+                                class="token operator">/</span>flysystem<span
+                                class="token operator">-</span>dropbox</code></pre>
+                        <p>Next, you should create a <a href="https://laravel.com/docs/7.x/providers">service
+                            provider</a> such as <code class=" language-php">DropboxServiceProvider</code>. In the
+                            provider's <code class=" language-php">boot</code> method, you may use the <code
+                                    class=" language-php">Storage</code> facade's <code
+                                    class=" language-php">extend</code> method to define the custom driver:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">League<span class="token punctuation">\</span>Flysystem<span
+                                    class="token punctuation">\</span>Filesystem</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Spatie<span class="token punctuation">\</span>Dropbox<span
+                                    class="token punctuation">\</span>Client</span> <span
+                                    class="token keyword">as</span> DropboxClient<span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Spatie<span class="token punctuation">\</span>FlysystemDropbox<span
+                                    class="token punctuation">\</span>DropboxAdapter</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Storage</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DropboxServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Storage<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">extend</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'dropbox'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$config</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$client</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">DropboxClient</span><span
+                                    class="token punctuation">(</span>
+                <span class="token variable">$config</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'authorization_token'</span><span
+                                    class="token punctuation">]</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">Filesystem</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">DropboxAdapter</span><span
+                                    class="token punctuation">(</span><span class="token variable">$client</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The first argument of the <code class=" language-php">extend</code> method is the name of the
+                            driver and the second is a Closure that receives the <code class=" language-php"><span
+                                    class="token variable">$app</span></code> and <code class=" language-php"><span
+                                    class="token variable">$config</span></code> variables. The resolver Closure must
+                            return an instance of <code class=" language-php">League\<span class="token package">Flysystem<span
+                                    class="token punctuation">\</span>Filesystem</span></code>. The <code
+                                    class=" language-php"><span class="token variable">$config</span></code> variable
+                            contains the values defined in <code class=" language-php">config<span
+                                    class="token operator">/</span>filesystems<span class="token punctuation">.</span>php</code>
+                            for the specified disk.</p>
+                        <p>Next, register the service provider in your <code class=" language-php">config<span
+                                class="token operator">/</span>app<span class="token punctuation">.</span>php</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'providers'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token comment">// ...</span>
+    App\<span class="token package">Providers<span class="token punctuation">\</span>DropboxServiceProvider</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p>Once you have created and registered the extension's service provider, you may use the <code
+                                class=" language-php">dropbox</code> driver in your <code
+                                class=" language-php">config<span class="token operator">/</span>filesystems<span
+                                class="token punctuation">.</span>php</code> configuration file.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

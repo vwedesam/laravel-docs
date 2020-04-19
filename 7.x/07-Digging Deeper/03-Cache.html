@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Cache - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/cache">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Cache_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Cache_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Cache_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Cache_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Cache</h1>
+                        <ul>
+                            <li><a href="#configuration">Configuration</a>
+                                <ul>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#cache-usage">Cache Usage</a>
+                                <ul>
+                                    <li><a href="#obtaining-a-cache-instance">Obtaining A Cache Instance</a></li>
+                                    <li><a href="#retrieving-items-from-the-cache">Retrieving Items From The Cache</a>
+                                    </li>
+                                    <li><a href="#storing-items-in-the-cache">Storing Items In The Cache</a></li>
+                                    <li><a href="#removing-items-from-the-cache">Removing Items From The Cache</a></li>
+                                    <li><a href="#atomic-locks">Atomic Locks</a></li>
+                                    <li><a href="#the-cache-helper">The Cache Helper</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#cache-tags">Cache Tags</a>
+                                <ul>
+                                    <li><a href="#storing-tagged-cache-items">Storing Tagged Cache Items</a></li>
+                                    <li><a href="#accessing-tagged-cache-items">Accessing Tagged Cache Items</a></li>
+                                    <li><a href="#removing-tagged-cache-items">Removing Tagged Cache Items</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#adding-custom-cache-drivers">Adding Custom Cache Drivers</a>
+                                <ul>
+                                    <li><a href="#writing-the-driver">Writing The Driver</a></li>
+                                    <li><a href="#registering-the-driver">Registering The Driver</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#events">Events</a></li>
+                        </ul>
+                        <p><a name="configuration"></a></p>
+                        <h2 id="configuration"><a href="#configuration">Configuration</a></h2>
+                        <p>Laravel provides an expressive, unified API for various caching backends. The cache
+                            configuration is located at <code class=" language-php">config<span
+                                    class="token operator">/</span>cache<span
+                                    class="token punctuation">.</span>php</code>.
+                            In this file you may specify which cache driver you would like to be
+                            used by default throughout your application. Laravel supports popular
+                            caching backends like <a href="https://memcached.org/">Memcached</a> and <a
+                                    href="https://redis.io/">Redis</a> out of the box.</p>
+                        <p>The cache configuration file also contains various other options,
+                            which are documented within the file, so make sure to read over these
+                            options. By default, Laravel is configured to use the <code
+                                    class=" language-php">file</code>
+                            cache driver, which stores the serialized, cached objects in the
+                            filesystem. For larger applications, it is recommended that you use a
+                            more robust driver such as Memcached or Redis. You may even configure
+                            multiple cache configurations for the same driver.</p>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <h4>Database</h4>
+                        <p>When using the <code class=" language-php">database</code> cache driver, you will need to
+                            setup a table to contain the cache items. You'll find an example <code
+                                    class=" language-php">Schema</code> declaration for the table below:</p>
+                        <pre class=" language-php"><code class=" language-php">Schema<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">create</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'cache'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$table</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">string</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">unique</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">text</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">integer</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'expiration'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="03-Cache_files/lightbulb.svg"></div>
+                                <p class="content"> You may also use the <code class=" language-php">php artisan
+                                    cache<span class="token punctuation">:</span>table</code> Artisan command to
+                                    generate a migration with the proper schema.</p></div>
+                        </blockquote>
+                        <h4>Memcached</h4>
+                        <p>Using the Memcached driver requires the <a href="https://pecl.php.net/package/memcached">Memcached
+                            PECL package</a> to be installed. You may list all of your Memcached servers in the <code
+                                class=" language-php">config<span class="token operator">/</span>cache<span
+                                class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'memcached'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'127.0.0.1'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">11211</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'weight'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">100</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>You may also set the <code class=" language-php">host</code> option to a UNIX socket path. If
+                            you do this, the <code class=" language-php">port</code> option should be set to <code
+                                    class=" language-php"><span class="token number">0</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'memcached'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'host'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'/var/run/memcached/memcached.sock'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'port'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">0</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'weight'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">100</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Redis</h4>
+                        <p>Before using a Redis cache with Laravel, you will need to either install the PhpRedis PHP
+                            extension via PECL or install the <code class=" language-php">predis<span
+                                    class="token operator">/</span>predis</code> package (~1.0) via Composer.</p>
+                        <p>For more information on configuring Redis, consult its <a
+                                href="#configuration">Laravel documentation page</a>.
+                        </p>
+                        <p><a name="cache-usage"></a></p>
+                        <h2 id="cache-usage"><a href="#cache-usage">Cache Usage</a></h2>
+                        <p><a name="obtaining-a-cache-instance"></a></p>
+                        <h3 id="obtaining-a-cache-instance"><a href="#obtaining-a-cache-instance">Obtaining A Cache
+                            Instance</a></h3>
+                        <p>The <code class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Cache<span
+                                class="token punctuation">\</span>Factory</span></code> and <code class=" language-php">Illuminate\<span
+                                class="token package">Contracts<span class="token punctuation">\</span>Cache<span
+                                class="token punctuation">\</span>Repository</span></code> <a
+                                href="https://laravel.com/docs/7.x/contracts">contracts</a> provide access to Laravel's
+                            cache services. The <code class=" language-php">Factory</code> contract provides access to
+                            all cache drivers defined for your application. The <code
+                                    class=" language-php">Repository</code> contract is typically an implementation of
+                            the default cache driver for your application as specified by your <code
+                                    class=" language-php">cache</code> configuration file.</p>
+                        <p>However, you may also use the <code class=" language-php">Cache</code> facade, which is what
+                            we will use throughout this documentation. The <code class=" language-php">Cache</code>
+                            facade provides convenient, terse access to the underlying implementations of the Laravel
+                            cache contracts:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Cache</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show a list of all users of the application.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Accessing Multiple Cache Stores</h4>
+                        <p>Using the <code class=" language-php">Cache</code> facade, you may access various cache
+                            stores via the <code class=" language-php">store</code> method. The key passed to the <code
+                                    class=" language-php">store</code> method should correspond to one of the stores
+                            listed in the <code class=" language-php">stores</code> configuration array in your <code
+                                    class=" language-php">cache</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">store</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'file'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">store</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">put</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'baz'</span><span
+                                    class="token punctuation">,</span> <span class="token number">600</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span> <span
+                                    class="token comment">// 10 Minutes</span></code></pre>
+                        <p><a name="retrieving-items-from-the-cache"></a></p>
+                        <h3 id="retrieving-items-from-the-cache"><a href="#retrieving-items-from-the-cache">Retrieving
+                            Items From The Cache</a></h3>
+                        <p>The <code class=" language-php">get</code> method on the <code
+                                class=" language-php">Cache</code> facade is used to retrieve items from the cache. If
+                            the item does not exist in the cache, <code class=" language-php"><span
+                                    class="token constant">null</span></code> will be returned. If you wish, you may
+                            pass a second argument to the <code class=" language-php">get</code> method specifying the
+                            default value you wish to be returned if the item doesn't exist:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may even pass a <code class=" language-php">Closure</code> as the default value. The
+                            result of the <code class=" language-php">Closure</code>
+                            will be returned if the specified item does not exist in the cache.
+                            Passing a Closure allows you to defer the retrieval of default values
+                            from a database or other external service:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token constant">DB</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">table</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Checking For Item Existence</h4>
+                        <p>The <code class=" language-php">has</code> method may be used to determine if an item exists
+                            in the cache. This method will return <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code> if the value is <code
+                                    class=" language-php"><span class="token constant">null</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">has</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Incrementing / Decrementing Values</h4>
+                        <p>The <code class=" language-php">increment</code> and <code
+                                class=" language-php">decrement</code>
+                            methods may be used to adjust the value of integer items in the cache.
+                            Both of these methods accept an optional second argument indicating the
+                            amount by which to increment or decrement the item's value:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">increment</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">increment</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$amount</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">decrement</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">decrement</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$amount</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Retrieve &amp; Store</h4>
+                        <p>Sometimes you may wish to retrieve an item from the cache, but also
+                            store a default value if the requested item doesn't exist. For example,
+                            you may wish to retrieve all users from the cache or, if they don't
+                            exist, retrieve them from the database and add them to the cache. You
+                            may do this using the <code class=" language-php">Cache<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>remember</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">remember</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">,</span> <span
+                                class="token variable">$seconds</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token constant">DB</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">table</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If the item does not exist in the cache, the <code class=" language-php">Closure</code>
+                            passed to the <code class=" language-php">remember</code> method will be executed and its
+                            result will be placed in the cache.</p>
+                        <p>You may use the <code class=" language-php">rememberForever</code> method to retrieve an item
+                            from the cache or store it forever:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">rememberForever</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'users'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token constant">DB</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">table</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Retrieve &amp; Delete</h4>
+                        <p>If you need to retrieve an item from the cache and then delete the item, you may use the
+                            <code class=" language-php">pull</code> method. Like the <code
+                                    class=" language-php">get</code> method, <code class=" language-php"><span
+                                    class="token constant">null</span></code> will be returned if the item does not
+                            exist in the cache:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">pull</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="storing-items-in-the-cache"></a></p>
+                        <h3 id="storing-items-in-the-cache"><a href="#storing-items-in-the-cache">Storing Items In The
+                            Cache</a></h3>
+                        <p>You may use the <code class=" language-php">put</code> method on the <code
+                                class=" language-php">Cache</code> facade to store items in the cache:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If the storage time is not passed to the <code class=" language-php">put</code> method, the
+                            item will be stored indefinitely:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Instead of passing the number of seconds as an integer, you may also pass a <code
+                                class=" language-php">DateTime</code> instance representing the expiration time of the
+                            cached item:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">,</span> <span class="token function">now</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">addMinutes</span><span class="token punctuation">(</span><span
+                                class="token number">10</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Store If Not Present</h4>
+                        <p>The <code class=" language-php">add</code> method will only add the item to the cache if it
+                            does not already exist in the cache store. The method will return <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code> if the
+                            item is actually added to the cache. Otherwise, the method will return <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">add</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Storing Items Forever</h4>
+                        <p>The <code class=" language-php">forever</code> method may be used to
+                            store an item in the cache permanently. Since these items will not
+                            expire, they must be manually removed from the cache using the <code class=" language-php">forget</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">forever</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="03-Cache_files/lightbulb.svg"></div>
+                                <p class="content"> If you are using the Memcached driver, items that are stored
+                                    "forever" may be removed when the cache reaches its size limit.</p></div>
+                        </blockquote>
+                        <p><a name="removing-items-from-the-cache"></a></p>
+                        <h3 id="removing-items-from-the-cache"><a href="#removing-items-from-the-cache">Removing Items
+                            From The Cache</a></h3>
+                        <p>You may remove items from the cache using the <code class=" language-php">forget</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">forget</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also remove items by providing a zero or negative TTL:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                class="token punctuation">,</span> <span class="token number">0</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span> <span class="token operator">-</span><span
+                                    class="token number">5</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may clear the entire cache using the <code class=" language-php">flush</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">flush</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Cache_files/exclamation.svg"></div>
+                                <p class="content">
+                                    Flushing the cache does not respect the cache prefix and will remove
+                                    all entries from the cache. Consider this carefully when clearing a
+                                    cache which is shared by other applications.</p></div>
+                        </blockquote>
+                        <p><a name="atomic-locks"></a></p>
+                        <h3 id="atomic-locks"><a href="#atomic-locks">Atomic Locks</a></h3>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Cache_files/exclamation.svg"></div>
+                                <p class="content"> To utilize this feature, your application must be using the <code
+                                        class=" language-php">memcached</code>, <code
+                                        class=" language-php">dynamodb</code>, or <code
+                                        class=" language-php">redis</code>
+                                    cache driver as your application's default cache driver. In addition,
+                                    all servers must be communicating with the same central cache server.</p></div>
+                        </blockquote>
+                        <p>Atomic locks allow for the manipulation of distributed locks without worrying about race
+                            conditions. For example, <a href="https://forge.laravel.com/">Laravel Forge</a>
+                            uses atomic locks to ensure that only one remote task is being executed
+                            on a server at a time. You may create and manage locks using the <code
+                                    class=" language-php">Cache<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>lock</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span><span class="token punctuation">;</span>
+
+<span class="token variable">$lock</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">lock</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$lock</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Lock acquired for 10 seconds...</span>
+
+    <span class="token variable">$lock</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">release</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>The <code class=" language-php">get</code> method also accepts a Closure. After the Closure
+                            is executed, Laravel will automatically release the lock:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">lock</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Lock acquired indefinitely and automatically released...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If the lock is not available at the moment you request it, you may
+                            instruct Laravel to wait for a specified number of seconds. If the lock
+                            can not be acquired within the specified time limit, an <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Cache<span
+                                    class="token punctuation">\</span>LockTimeoutException</span></code> will be thrown:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Cache<span
+                                class="token punctuation">\</span>LockTimeoutException</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$lock</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">lock</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token variable">$lock</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">block</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Lock acquired after waiting maximum of 5 seconds...</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span>LockTimeoutException <span class="token variable">$e</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Unable to acquire lock...</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token function">optional</span><span class="token punctuation">(</span><span class="token variable">$lock</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">release</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">lock</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">block</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// Lock acquired after waiting maximum of 5 seconds...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Managing Locks Across Processes</h4>
+                        <p>Sometimes, you may wish to acquire a lock in one process and release
+                            it in another process. For example, you may acquire a lock during a web
+                            request and wish to release the lock at the end of a queued job that is
+                            triggered by that request. In this scenario, you should pass the lock's
+                            scoped "owner token" to the queued job so that the job can
+                            re-instantiate the lock using the given token:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Within Controller...</span>
+<span class="token variable">$podcast</span> <span class="token operator">=</span> Podcast<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">find</span><span class="token punctuation">(</span><span
+                                    class="token variable">$id</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$lock</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">lock</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token number">120</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$result</span> <span class="token operator">=</span> <span
+                                    class="token variable">$lock</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$lock</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">owner</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Within ProcessPodcast Job...</span>
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">restoreLock</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">owner</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">release</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you would like to release a lock without respecting its current owner, you may use the
+                            <code class=" language-php">forceRelease</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">lock</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">forceRelease</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="the-cache-helper"></a></p>
+                        <h3 id="the-cache-helper"><a href="#the-cache-helper">The Cache Helper</a></h3>
+                        <p>In addition to using the <code class=" language-php">Cache</code> facade or <a
+                                href="https://laravel.com/docs/7.x/contracts">cache contract</a>, you may also use the
+                            global <code class=" language-php">cache</code> function to retrieve and store data via the
+                            cache. When the <code class=" language-php">cache</code> function is called with a single,
+                            string argument, it will return the value of the given key:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> <span
+                                class="token function">cache</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you provide an array of key / value pairs and an expiration time
+                            to the function, it will store values in the cache for the specified
+                            duration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token function">cache</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'key'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'value'</span><span class="token punctuation">]</span><span
+                                class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">cache</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'key'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">addMinutes</span><span
+                                    class="token punctuation">(</span><span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>When the <code class=" language-php">cache</code> function is called without any arguments,
+                            it returns an instance of the <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Cache<span
+                                    class="token punctuation">\</span>Factory</span></code> implementation, allowing you
+                            to call other caching methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token function">cache</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">remember</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">,</span> <span
+                                class="token variable">$seconds</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token constant">DB</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">table</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="03-Cache_files/lightbulb.svg"></div>
+                                <p class="content"> When testing call to the global <code
+                                        class=" language-php">cache</code> function, you may use the <code
+                                        class=" language-php">Cache<span class="token punctuation">:</span><span
+                                        class="token punctuation">:</span>shouldReceive</code> method just as if you
+                                    were <a href="#mocking-facades">testing a
+                                        facade</a>.</p></div>
+                        </blockquote>
+                        <p><a name="cache-tags"></a></p>
+                        <h2 id="cache-tags"><a href="#cache-tags">Cache Tags</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Cache_files/exclamation.svg"></div>
+                                <p class="content"> Cache tags are not supported when using the <code
+                                        class=" language-php">file</code> or <code class=" language-php">database</code>
+                                    cache drivers. Furthermore, when using multiple tags with caches that
+                                    are stored "forever", performance will be best with a driver such as <code
+                                            class=" language-php">memcached</code>, which automatically purges stale
+                                    records.</p></div>
+                        </blockquote>
+                        <p><a name="storing-tagged-cache-items"></a></p>
+                        <h3 id="storing-tagged-cache-items"><a href="#storing-tagged-cache-items">Storing Tagged Cache
+                            Items</a></h3>
+                        <p>Cache tags allow you to tag related items in the cache and then flush
+                            all cached values that have been assigned a given tag. You may access a
+                            tagged cache by passing in an ordered array of tag names. For example,
+                            let's access a tagged cache and <code class=" language-php">put</code> value in the cache:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">tags</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'people'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'artists'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'John'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$john</span><span
+                                class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">tags</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'people'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'authors'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Anne'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$anne</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="accessing-tagged-cache-items"></a></p>
+                        <h3 id="accessing-tagged-cache-items"><a href="#accessing-tagged-cache-items">Accessing Tagged
+                            Cache Items</a></h3>
+                        <p>To retrieve a tagged cache item, pass the same ordered list of tags to the <code
+                                class=" language-php">tags</code> method and then call the <code class=" language-php">get</code>
+                            method with the key you wish to retrieve:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$john</span> <span
+                                class="token operator">=</span> Cache<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">tags</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'people'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'artists'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'John'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$anne</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">tags</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'people'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'authors'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Anne'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="removing-tagged-cache-items"></a></p>
+                        <h3 id="removing-tagged-cache-items"><a href="#removing-tagged-cache-items">Removing Tagged
+                            Cache Items</a></h3>
+                        <p>You may flush all items that are assigned a tag or list of tags. For
+                            example, this statement would remove all caches tagged with either <code
+                                    class=" language-php">people</code>, <code class=" language-php">authors</code>, or
+                            both. So, both <code class=" language-php">Anne</code> and <code
+                                    class=" language-php">John</code> would be removed from the cache:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">tags</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'people'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'authors'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">flush</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>In contrast, this statement would remove only caches tagged with <code class=" language-php">authors</code>,
+                            so <code class=" language-php">Anne</code> would be removed, but not <code
+                                    class=" language-php">John</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">tags</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'authors'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">flush</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="adding-custom-cache-drivers"></a></p>
+                        <h2 id="adding-custom-cache-drivers"><a href="#adding-custom-cache-drivers">Adding Custom Cache
+                            Drivers</a></h2>
+                        <p><a name="writing-the-driver"></a></p>
+                        <h3 id="writing-the-driver"><a href="#writing-the-driver">Writing The Driver</a></h3>
+                        <p>To create our custom cache driver, we first need to implement the <code
+                                class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Cache<span
+                                class="token punctuation">\</span>Store</span></code> <a
+                                href="https://laravel.com/docs/7.x/contracts">contract</a>. So, a MongoDB cache
+                            implementation would look something like this:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Extensions</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Cache<span class="token punctuation">\</span>Store</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MongoStore</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">Store</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">many</span><span
+                                    class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                    class="token variable">$keys</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">put</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$seconds</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">putMany</span><span
+                                    class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                    class="token variable">$values</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$seconds</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">increment</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                    class="token operator">=</span> <span class="token number">1</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">decrement</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span> <span
+                                    class="token operator">=</span> <span class="token number">1</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">forever</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">forget</span><span
+                                    class="token punctuation">(</span><span class="token variable">$key</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">flush</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getPrefix</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>We just need to implement each of these methods using a MongoDB
+                            connection. For an example of how to implement each of these methods,
+                            take a look at the <code class=" language-php">Illuminate\<span
+                                    class="token package">Cache<span
+                                    class="token punctuation">\</span>MemcachedStore</span></code> in the framework
+                            source code. Once our implementation is complete, we can finish our custom driver
+                            registration.</p>
+                        <pre class=" language-php"><code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">extend</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mongo'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$app</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> Cache<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">repository</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">MongoStore</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="03-Cache_files/lightbulb.svg"></div>
+                                <p class="content"> If you're wondering where to put your custom cache driver code, you
+                                    could create an <code class=" language-php">Extensions</code> namespace within your
+                                    <code class=" language-php">app</code>
+                                    directory. However, keep in mind that Laravel does not have a rigid
+                                    application structure and you are free to organize your application
+                                    according to your preferences.</p></div>
+                        </blockquote>
+                        <p><a name="registering-the-driver"></a></p>
+                        <h3 id="registering-the-driver"><a href="#registering-the-driver">Registering The Driver</a>
+                        </h3>
+                        <p>To register the custom cache driver with Laravel, we will use the <code
+                                class=" language-php">extend</code> method on the <code
+                                class=" language-php">Cache</code> facade. The call to <code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>extend</code>
+                            could be done in the <code class=" language-php">boot</code> method of the default <code
+                                    class=" language-php">App\<span class="token package">Providers<span
+                                    class="token punctuation">\</span>AppServiceProvider</span></code>
+                            that ships with fresh Laravel applications, or you may create your own
+                            service provider to house the extension - just don't forget to register
+                            the provider in the <code class=" language-php">config<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>php</code> provider array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Extensions<span
+                                    class="token punctuation">\</span>MongoStore</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Cache</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CacheServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">extend</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'mongo'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> Cache<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">repository</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">MongoStore</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The first argument passed to the <code class=" language-php">extend</code> method is the name
+                            of the driver. This will correspond to your <code class=" language-php">driver</code> option
+                            in the <code class=" language-php">config<span class="token operator">/</span>cache<span
+                                    class="token punctuation">.</span>php</code> configuration file. The second argument
+                            is a Closure that should return an <code class=" language-php">Illuminate\<span
+                                    class="token package">Cache<span class="token punctuation">\</span>Repository</span></code>
+                            instance. The Closure will be passed an <code class=" language-php"><span
+                                    class="token variable">$app</span></code> instance, which is an instance of the <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a>.</p>
+                        <p>Once your extension is registered, update your <code class=" language-php">config<span
+                                class="token operator">/</span>cache<span class="token punctuation">.</span>php</code>
+                            configuration file's <code class=" language-php">driver</code> option to the name of your
+                            extension.</p>
+                        <p><a name="events"></a></p>
+                        <h2 id="events"><a href="#events">Events</a></h2>
+                        <p>To execute code on every cache operation, you may listen for the <a
+                                href="https://laravel.com/docs/7.x/events">events</a> fired by the cache. Typically, you
+                            should place these event listeners within your <code class=" language-php">EventServiceProvider</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$listen</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'Illuminate\Cache\Events\CacheHit'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogCacheHit'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Cache\Events\CacheMissed'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogCacheMissed'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Cache\Events\KeyForgotten'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogKeyForgotten'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Cache\Events\KeyWritten'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogKeyWritten'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

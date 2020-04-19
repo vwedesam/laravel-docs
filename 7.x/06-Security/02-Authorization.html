@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Authorization - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/authorization">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="02-Authorization_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="02-Authorization_files/app.css">
+
+    <!-- Load JS -->
+    <script src="02-Authorization_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="02-Authorization_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Authorization</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#gates">Gates</a>
+                                <ul>
+                                    <li><a href="#writing-gates">Writing Gates</a></li>
+                                    <li><a href="#authorizing-actions-via-gates">Authorizing Actions</a></li>
+                                    <li><a href="#gate-responses">Gate Responses</a></li>
+                                    <li><a href="#intercepting-gate-checks">Intercepting Gate Checks</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#creating-policies">Creating Policies</a>
+                                <ul>
+                                    <li><a href="#generating-policies">Generating Policies</a></li>
+                                    <li><a href="#registering-policies">Registering Policies</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#writing-policies">Writing Policies</a>
+                                <ul>
+                                    <li><a href="#policy-methods">Policy Methods</a></li>
+                                    <li><a href="#policy-responses">Policy Responses</a></li>
+                                    <li><a href="#methods-without-models">Methods Without Models</a></li>
+                                    <li><a href="#guest-users">Guest Users</a></li>
+                                    <li><a href="#policy-filters">Policy Filters</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#authorizing-actions-using-policies">Authorizing Actions Using Policies</a>
+                                <ul>
+                                    <li><a href="#via-the-user-model">Via The User Model</a></li>
+                                    <li><a href="#via-middleware">Via Middleware</a></li>
+                                    <li><a href="#via-controller-helpers">Via Controller Helpers</a></li>
+                                    <li><a href="#via-blade-templates">Via Blade Templates</a></li>
+                                    <li><a href="#supplying-additional-context">Supplying Additional Context</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>In addition to providing <a
+                                href="https://laravel.com/docs/7.x/authentication">authentication</a>
+                            services out of the box, Laravel also provides a simple way to
+                            authorize user actions against a given resource. Like authentication,
+                            Laravel's approach to authorization is simple, and there are two primary
+                            ways of authorizing actions: gates and policies.</p>
+                        <p>Think of gates and policies like routes and controllers. Gates
+                            provide a simple, Closure based approach to authorization while
+                            policies, like controllers, group their logic around a particular model
+                            or resource. We'll explore gates first and then examine policies.</p>
+                        <p>You do not need to choose between exclusively using gates or
+                            exclusively using policies when building an application. Most
+                            applications will most likely contain a mixture of gates and policies,
+                            and that is perfectly fine! Gates are most applicable to actions which
+                            are not related to any model or resource, such as viewing an
+                            administrator dashboard. In contrast, policies should be used when you
+                            wish to authorize an action for a particular model or resource.</p>
+                        <p><a name="gates"></a></p>
+                        <h2 id="gates"><a href="#gates">Gates</a></h2>
+                        <p><a name="writing-gates"></a></p>
+                        <h3 id="writing-gates"><a href="#writing-gates">Writing Gates</a></h3>
+                        <p>Gates are Closures that determine if a user is authorized to perform a given action and are
+                            typically defined in the <code class=" language-php">App\<span class="token package">Providers<span
+                                    class="token punctuation">\</span>AuthServiceProvider</span></code> class using the
+                            <code class=" language-php">Gate</code>
+                            facade. Gates always receive a user instance as their first argument,
+                            and may optionally receive additional arguments such as a relevant
+                            Eloquent model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'edit-settings'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">isAdmin</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span> <span
+                                    class="token operator">===</span> <span class="token variable">$post</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Gates may also be defined using a <code class=" language-php"><span class="token keyword">Class</span>@method</code>
+                            style callback string, like controllers:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register any authentication / authorization services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'App\Policies\PostPolicy@update'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="authorizing-actions-via-gates"></a></p>
+                        <h3 id="authorizing-actions-via-gates"><a href="#authorizing-actions-via-gates">Authorizing
+                            Actions</a></h3>
+                        <p>To authorize an action using gates, you should use the <code
+                                class=" language-php">allows</code> or <code class=" language-php">denies</code>
+                            methods. Note that you are not required to pass the currently
+                            authenticated user to these methods. Laravel will automatically take
+                            care of passing the user into the gate Closure:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">allows</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'edit-settings'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// The current user can edit settings</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">allows</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// The current user can update the post...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">denies</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// The current user can't update the post...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you would like to determine if a particular user is authorized to perform an action, you
+                            may use the <code class=" language-php">forUser</code> method on the <code
+                                    class=" language-php">Gate</code> facade:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">forUser</span><span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">allows</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'update-post'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// The user can update the post...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">forUser</span><span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">denies</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// The user can't update the post...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>You may authorize multiple actions at a time with the <code class=" language-php">any</code>
+                            or <code class=" language-php">none</code> methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">any</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'update-post'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'delete-post'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token variable">$post</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The user can update or delete the post</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">none</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'update-post'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'delete-post'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The user cannot update or delete the post</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Authorizing Or Throwing Exceptions</h4>
+                        <p>If you would like to attempt to authorize an action and automatically throw an <code
+                                class=" language-php">Illuminate\<span class="token package">Auth<span
+                                class="token punctuation">\</span>Access<span class="token punctuation">\</span>AuthorizationException</span></code>
+                            if the user is not allowed to perform the given action, you may use the <code
+                                    class=" language-php">Gate<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>authorize</code> method. Instances of <code
+                                    class=" language-php">AuthorizationException</code> are automatically converted to
+                            <code class=" language-php"><span class="token number">403</span></code> HTTP response:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">authorize</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'update-post'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// The action is authorized...</span></code></pre>
+                        <h4>Supplying Additional Context</h4>
+                        <p>The gate methods for authorizing abilities (<code class=" language-php">allows</code>, <code
+                                class=" language-php">denies</code>, <code class=" language-php">check</code>, <code
+                                class=" language-php">any</code>, <code class=" language-php">none</code>, <code
+                                class=" language-php">authorize</code>, <code class=" language-php">can</code>, <code
+                                class=" language-php">cannot</code>) and the authorization <a
+                                href="#via-blade-templates">Blade directives</a> (<code
+                                class=" language-php">@can</code>, <code class=" language-php">@cannot</code>, <code
+                                class=" language-php">@canany</code>)
+                            can receive an array as the second argument. These array elements are
+                            passed as parameters to gate, and can be used for additional context
+                            when making authorization decisions:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">define</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'create-post'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$user</span><span
+                                class="token punctuation">,</span> <span class="token variable">$category</span><span
+                                class="token punctuation">,</span> <span class="token variable">$extraFlag</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$category</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">group</span> <span
+                                    class="token operator">&gt;</span> <span class="token number">3</span> <span
+                                    class="token operator">&amp;&amp;</span> <span
+                                    class="token variable">$extraFlag</span> <span
+                                    class="token operator">===</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">check</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'create-post'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token variable">$category</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$extraFlag</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The user can create the post...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="gate-responses"></a></p>
+                        <h3 id="gate-responses"><a href="#gate-responses">Gate Responses</a></h3>
+                        <p>So far, we have only examined gates that return simple boolean
+                            values. However, sometimes you may wish to return a more detailed
+                            response, including an error message. To do so, you may return a <code
+                                    class=" language-php">Illuminate\<span class="token package">Auth<span
+                                    class="token punctuation">\</span>Access<span class="token punctuation">\</span>Response</span></code>
+                            from your gate:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Auth<span
+                                class="token punctuation">\</span>Access<span class="token punctuation">\</span>Response</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Gate</span><span
+                                    class="token punctuation">;</span>
+
+Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">define</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'edit-settings'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">isAdmin</span>
+                <span class="token operator">?</span> Response<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">allow</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">:</span> Response<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">deny</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'You must be a super administrator.'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When returning an authorization response from your gate, the <code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>allows</code>
+                            method will still return a simple boolean value; however, you may use the <code
+                                    class=" language-php">Gate<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>inspect</code> method to get the full
+                            authorization response returned by the gate:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span> <span class="token operator">=</span> Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">inspect</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'edit-settings'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$response</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">allowed</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The action is authorized...</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$response</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">message</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Of course, when using the <code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span
+                                class="token punctuation">:</span>authorize</code> method to throw an <code
+                                class=" language-php">AuthorizationException</code>
+                            if the action is not authorized, the error message provided by the
+                            authorization response will be propagated to the HTTP response:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">authorize</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'edit-settings'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// The action is authorized...</span></code></pre>
+                        <p><a name="intercepting-gate-checks"></a></p>
+                        <h3 id="intercepting-gate-checks"><a href="#intercepting-gate-checks">Intercepting Gate
+                            Checks</a></h3>
+                        <p>Sometimes, you may wish to grant all abilities to a specific user. You may use the <code
+                                class=" language-php">before</code> method to define a callback that is run before all
+                            other authorization checks:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">before</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                class="token variable">$ability</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">isSuperAdmin</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If the <code class=" language-php">before</code> callback returns a non-null result that
+                            result will be considered the result of the check.</p>
+                        <p>You may use the <code class=" language-php">after</code> method to define a callback to be
+                            executed after all other authorization checks:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">after</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                class="token variable">$ability</span><span class="token punctuation">,</span> <span
+                                class="token variable">$result</span><span class="token punctuation">,</span> <span
+                                class="token variable">$arguments</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">isSuperAdmin</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Similar to the <code class=" language-php">before</code> check, if the <code
+                                class=" language-php">after</code> callback returns a non-null result that result will
+                            be considered the result of the check.</p>
+                        <p><a name="creating-policies"></a></p>
+                        <h2 id="creating-policies"><a href="#creating-policies">Creating Policies</a></h2>
+                        <p><a name="generating-policies"></a></p>
+                        <h3 id="generating-policies"><a href="#generating-policies">Generating Policies</a></h3>
+                        <p>Policies are classes that organize authorization logic around a
+                            particular model or resource. For example, if your application is a
+                            blog, you may have a <code class=" language-php">Post</code> model and a corresponding <code
+                                    class=" language-php">PostPolicy</code> to authorize user actions such as creating
+                            or updating posts.</p>
+                        <p>You may generate a policy using the <code class=" language-php">make<span
+                                class="token punctuation">:</span>policy</code> <a
+                                href="https://laravel.com/docs/7.x/artisan">artisan command</a>. The generated policy
+                            will be placed in the <code class=" language-php">app<span class="token operator">/</span>Policies</code>
+                            directory. If this directory does not exist in your application, Laravel will create it for
+                            you:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>policy PostPolicy</code></pre>
+                        <p>The <code class=" language-php">make<span class="token punctuation">:</span>policy</code>
+                            command will generate an empty policy class. If you would like to
+                            generate a class with the basic "CRUD" policy methods already included
+                            in the class, you may specify a <code class=" language-php"><span
+                                    class="token operator">--</span>model</code> when executing the command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>policy PostPolicy <span
+                                class="token operator">--</span>model<span
+                                class="token operator">=</span>Post</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Authorization_files/lightbulb.svg"></div>
+                                <p class="content"> All policies are resolved via the Laravel <a
+                                        href="https://laravel.com/docs/7.x/container">service container</a>, allowing
+                                    you to type-hint any needed dependencies in the policy's constructor to have them
+                                    automatically injected.</p></div>
+                        </blockquote>
+                        <p><a name="registering-policies"></a></p>
+                        <h3 id="registering-policies"><a href="#registering-policies">Registering Policies</a></h3>
+                        <p>Once the policy exists, it needs to be registered. The <code class=" language-php">AuthServiceProvider</code>
+                            included with fresh Laravel applications contains a <code
+                                    class=" language-php">policies</code>
+                            property which maps your Eloquent models to their corresponding
+                            policies. Registering a policy will instruct Laravel which policy to
+                            utilize when authorizing actions against a given model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Policies<span class="token punctuation">\</span>PostPolicy</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Support<span class="token punctuation">\</span>Providers<span
+                                    class="token punctuation">\</span>AuthServiceProvider</span> <span
+                                    class="token keyword">as</span> ServiceProvider<span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Gate</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$policies</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        Post<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span> <span
+                                    class="token operator">=</span><span
+                                    class="token operator">&gt;</span> PostPolicy<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Policy Auto-Discovery</h4>
+                        <p>Instead of manually registering model policies, Laravel can
+                            auto-discover policies as long as the model and policy follow standard
+                            Laravel naming conventions. Specifically, the policies must be in a <code
+                                    class=" language-php">Policies</code> directory below the directory that contains
+                            the models. So, for example, the models may be placed in the <code
+                                    class=" language-php">app</code> directory while the policies may be placed in the
+                            <code class=" language-php">app<span class="token operator">/</span>Policies</code>
+                            directory. In addition, the policy name must match the model name and have a <code
+                                    class=" language-php">Policy</code> suffix. So, a <code
+                                    class=" language-php">User</code> model would correspond to a <code
+                                    class=" language-php">UserPolicy</code> class.</p>
+                        <p>If you would like to provide your own policy discovery logic, you may register a custom
+                            callback using the <code class=" language-php">Gate<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span>guessPolicyNamesUsing</code>
+                            method. Typically, this method should be called from the <code
+                                    class=" language-php">boot</code> method of your application's <code
+                                    class=" language-php">AuthServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Gate</span><span class="token punctuation">;</span>
+
+Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">guessPolicyNamesUsing</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$modelClass</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// return policy class name...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="02-Authorization_files/exclamation.svg"></div>
+                                <p class="content"> Any policies that are explicitly mapped in your <code
+                                        class=" language-php">AuthServiceProvider</code> will take precedence over any
+                                    potential auto-discovered policies.</p></div>
+                        </blockquote>
+                        <p><a name="writing-policies"></a></p>
+                        <h2 id="writing-policies"><a href="#writing-policies">Writing Policies</a></h2>
+                        <p><a name="policy-methods"></a></p>
+                        <h3 id="policy-methods"><a href="#policy-methods">Policy Methods</a></h3>
+                        <p>Once the policy has been registered, you may add methods for each action it authorizes. For
+                            example, let's define an <code class=" language-php">update</code> method on our <code
+                                    class=" language-php">PostPolicy</code> which determines if a given <code
+                                    class=" language-php">User</code> can update a given <code class=" language-php">Post</code>
+                            instance.</p>
+                        <p>The <code class=" language-php">update</code> method will receive a <code
+                                class=" language-php">User</code> and a <code class=" language-php">Post</code> instance
+                            as its arguments, and should return <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code> or <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>
+                            indicating whether the user is authorized to update the given <code class=" language-php">Post</code>.
+                            So, for this example, let's verify that the user's <code class=" language-php">id</code>
+                            matches the <code class=" language-php">user_id</code> on the post:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Policies</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostPolicy</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Determine if the given post can be updated by the user.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Post  $post
+     * @return bool
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span> <span
+                                    class="token operator">===</span> <span class="token variable">$post</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You may continue to define additional methods on the policy as needed
+                            for the various actions it authorizes. For example, you might define <code
+                                    class=" language-php">view</code> or <code class=" language-php">delete</code>
+                            methods to authorize various <code class=" language-php">Post</code> actions, but remember
+                            you are free to give your policy methods any name you like.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Authorization_files/lightbulb.svg"></div>
+                                <p class="content"> If you used the <code class=" language-php"><span
+                                        class="token operator">--</span>model</code> option when generating your policy
+                                    via the Artisan console, it will already contain methods for the <code
+                                            class=" language-php">viewAny</code>, <code
+                                            class=" language-php">view</code>, <code class=" language-php">create</code>,
+                                    <code class=" language-php">update</code>, <code class=" language-php">delete</code>,
+                                    <code class=" language-php">restore</code>, and <code class=" language-php">forceDelete</code>
+                                    actions.</p></div>
+                        </blockquote>
+                        <p><a name="policy-responses"></a></p>
+                        <h3 id="policy-responses"><a href="#policy-responses">Policy Responses</a></h3>
+                        <p>So far, we have only examined policy methods that return simple
+                            boolean values. However, sometimes you may wish to return a more
+                            detailed response, including an error message. To do so, you may return
+                            an <code class=" language-php">Illuminate\<span class="token package">Auth<span
+                                    class="token punctuation">\</span>Access<span class="token punctuation">\</span>Response</span></code>
+                            from your policy method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Auth<span
+                                class="token punctuation">\</span>Access<span class="token punctuation">\</span>Response</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Determine if the given post can be updated by the user.
+ *
+ * @param  \App\User  $user
+ * @param  \App\Post  $post
+ * @return \Illuminate\Auth\Access\Response
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span> <span class="token operator">===</span> <span
+                                    class="token variable">$post</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">user_id</span>
+                <span class="token operator">?</span> Response<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">allow</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">:</span> Response<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">deny</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'You do not own this post.'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>When returning an authorization response from your policy, the <code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>allows</code>
+                            method will still return a simple boolean value; however, you may use the <code
+                                    class=" language-php">Gate<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>inspect</code> method to get the full
+                            authorization response returned by the gate:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$response</span> <span class="token operator">=</span> Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">inspect</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$response</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">allowed</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The action is authorized...</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$response</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">message</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Of course, when using the <code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span
+                                class="token punctuation">:</span>authorize</code> method to throw an <code
+                                class=" language-php">AuthorizationException</code>
+                            if the action is not authorized, the error message provided by the
+                            authorization response will be propagated to the HTTP response:</p>
+                        <pre class=" language-php"><code class=" language-php">Gate<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">authorize</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// The action is authorized...</span></code></pre>
+                        <p><a name="methods-without-models"></a></p>
+                        <h3 id="methods-without-models"><a href="#methods-without-models">Methods Without Models</a>
+                        </h3>
+                        <p>Some policy methods only receive the currently authenticated user and
+                            not an instance of the model they authorize. This situation is most
+                            common when authorizing <code class=" language-php">create</code> actions. For example, if
+                            you are creating a blog, you may wish to check if a user is authorized to create any posts
+                            at all.</p>
+                        <p>When defining policy methods that will not receive a model instance, such as a <code
+                                class=" language-php">create</code> method, it will not receive a model instance.
+                            Instead, you should define the method as only expecting the authenticated user:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine if the given user can create posts.
+ *
+ * @param  \App\User  $user
+ * @return bool
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">create</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="guest-users"></a></p>
+                        <h3 id="guest-users"><a href="#guest-users">Guest Users</a></h3>
+                        <p>By default, all gates and policies automatically return <code class=" language-php"><span
+                                class="token boolean constant">false</span></code>
+                            if the incoming HTTP request was not initiated by an authenticated
+                            user. However, you may allow these authorization checks to pass through
+                            to your gates and policies by declaring an "optional" type-hint or
+                            supplying a <code class=" language-php"><span class="token constant">null</span></code>
+                            default value for the user argument definition:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Policies</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostPolicy</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Determine if the given post can be updated by the user.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Post  $post
+     * @return bool
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span><span class="token operator">?</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">optional</span><span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span> <span
+                                    class="token operator">===</span> <span class="token variable">$post</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="policy-filters"></a></p>
+                        <h3 id="policy-filters"><a href="#policy-filters">Policy Filters</a></h3>
+                        <p>For certain users, you may wish to authorize all actions within a given policy. To accomplish
+                            this, define a <code class=" language-php">before</code> method on the policy. The <code
+                                    class=" language-php">before</code>
+                            method will be executed before any other methods on the policy, giving
+                            you an opportunity to authorize the action before the intended policy
+                            method is actually called. This feature is most commonly used for
+                            authorizing application administrators to perform any action:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span class="token function">before</span><span
+                                class="token punctuation">(</span><span class="token variable">$user</span><span
+                                class="token punctuation">,</span> <span class="token variable">$ability</span><span
+                                class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">isSuperAdmin</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you would like to deny all authorizations for a user you should return <code
+                                class=" language-php"><span class="token boolean constant">false</span></code> from the
+                            <code class=" language-php">before</code> method. If <code class=" language-php"><span
+                                    class="token constant">null</span></code> is returned, the authorization will fall
+                            through to the policy method.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="02-Authorization_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">before</code>
+                                    method of a policy class will not be called if the class doesn't
+                                    contain a method with a name matching the name of the ability being
+                                    checked.</p></div>
+                        </blockquote>
+                        <p><a name="authorizing-actions-using-policies"></a></p>
+                        <h2 id="authorizing-actions-using-policies"><a href="#authorizing-actions-using-policies">Authorizing
+                            Actions Using Policies</a></h2>
+                        <p><a name="via-the-user-model"></a></p>
+                        <h3 id="via-the-user-model"><a href="#via-the-user-model">Via The User Model</a></h3>
+                        <p>The <code class=" language-php">User</code> model that is included with your Laravel
+                            application includes two helpful methods for authorizing actions: <code
+                                    class=" language-php">can</code> and <code class=" language-php">cant</code>. The
+                            <code class=" language-php">can</code>
+                            method receives the action you wish to authorize and the relevant
+                            model. For example, let's determine if a user is authorized to update a
+                            given <code class=" language-php">Post</code> model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">can</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If a <a href="#registering-policies">policy is registered</a> for the given model, the <code
+                                class=" language-php">can</code>
+                            method will automatically call the appropriate policy and return the
+                            boolean result. If no policy is registered for the model, the <code class=" language-php">can</code>
+                            method will attempt to call the Closure based Gate matching the given action name.</p>
+                        <h4>Actions That Don't Require Models</h4>
+                        <p>Remember, some actions like <code class=" language-php">create</code> may not require a model
+                            instance. In these situations, you may pass a class name to the <code class=" language-php">can</code>
+                            method. The class name will be used to determine which policy to use when authorizing the
+                            action:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">can</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">,</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// Executes the "create" method on the relevant policy...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="via-middleware"></a></p>
+                        <h3 id="via-middleware"><a href="#via-middleware">Via Middleware</a></h3>
+                        <p>Laravel includes a middleware that can authorize actions before the
+                            incoming request even reaches your routes or controllers. By default,
+                            the <code class=" language-php">Illuminate\<span class="token package">Auth<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authorize</span></code>
+                            middleware is assigned the <code class=" language-php">can</code> key in your <code
+                                    class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Kernel</span></code> class. Let's explore an
+                            example of using the <code class=" language-php">can</code> middleware to authorize that a
+                            user can update a blog post:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/post/{post}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// The current user may update the post...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'can:update,post'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In this example, we're passing the <code class=" language-php">can</code>
+                            middleware two arguments. The first is the name of the action we wish
+                            to authorize and the second is the route parameter we wish to pass to
+                            the policy method. In this case, since we are using <a
+                                    href="#implicit-binding">implicit model
+                                binding</a>, a <code class=" language-php">Post</code> model will be passed to the
+                            policy method. If the user is not authorized to perform the given action, a HTTP response
+                            with a <code class=" language-php"><span class="token number">403</span></code> status code
+                            will be generated by the middleware.</p>
+                        <h4>Actions That Don't Require Models</h4>
+                        <p>Again, some actions like <code class=" language-php">create</code>
+                            may not require a model instance. In these situations, you may pass a
+                            class name to the middleware. The class name will be used to determine
+                            which policy to use when authorizing the action:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">post</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/post'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The current user may create posts...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'can:create,App\Post'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="via-controller-helpers"></a></p>
+                        <h3 id="via-controller-helpers"><a href="#via-controller-helpers">Via Controller Helpers</a>
+                        </h3>
+                        <p>In addition to helpful methods provided to the <code class=" language-php">User</code> model,
+                            Laravel provides a helpful <code class=" language-php">authorize</code> method to any of
+                            your controllers which extend the <code class=" language-php">App\<span
+                                    class="token package">Http<span class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span></code> base class. Like the
+                            <code class=" language-php">can</code>
+                            method, this method accepts the name of the action you wish to
+                            authorize and the relevant model. If the action is not authorized, the <code
+                                    class=" language-php">authorize</code> method will throw an <code
+                                    class=" language-php">Illuminate\<span class="token package">Auth<span
+                                    class="token punctuation">\</span>Access<span class="token punctuation">\</span>AuthorizationException</span></code>,
+                            which the default Laravel exception handler will convert to an HTTP response with a <code
+                                    class=" language-php"><span class="token number">403</span></code> status code:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Update the given blog post.
+     *
+     * @param  Request  $request
+     * @param  Post  $post
+     * @return Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">authorize</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'update'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// The current user can update the blog post...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Actions That Don't Require Models</h4>
+                        <p>As previously discussed, some actions like <code class=" language-php">create</code> may not
+                            require a model instance. In these situations, you should pass a class name to the <code
+                                    class=" language-php">authorize</code> method. The class name will be used to
+                            determine which policy to use when authorizing the action:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Create a new blog post.
+ *
+ * @param  Request  $request
+ * @return Response
+ * @throws \Illuminate\Auth\Access\AuthorizationException
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">create</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">authorize</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">,</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// The current user can create blog posts...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Authorizing Resource Controllers</h4>
+                        <p>If you are utilizing <a href="#resource-controllers">resource
+                            controllers</a>, you may make use of the <code
+                                class=" language-php">authorizeResource</code> method in the controller's constructor.
+                            This method will attach the appropriate <code class=" language-php">can</code> middleware
+                            definitions to the resource controller's methods.</p>
+                        <p>The <code class=" language-php">authorizeResource</code> method
+                            accepts the model's class name as its first argument, and the name of
+                            the route / request parameter that will contain the model's ID as its
+                            second argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">authorizeResource</span><span
+                                    class="token punctuation">(</span>Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'post'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The following controller methods will be mapped to their corresponding policy method:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Controller Method</th>
+                                <th>Policy Method</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>index</td>
+                                <td>viewAny</td>
+                            </tr>
+                            <tr>
+                                <td>show</td>
+                                <td>view</td>
+                            </tr>
+                            <tr>
+                                <td>create</td>
+                                <td>create</td>
+                            </tr>
+                            <tr>
+                                <td>store</td>
+                                <td>create</td>
+                            </tr>
+                            <tr>
+                                <td>edit</td>
+                                <td>update</td>
+                            </tr>
+                            <tr>
+                                <td>update</td>
+                                <td>update</td>
+                            </tr>
+                            <tr>
+                                <td>destroy</td>
+                                <td>delete</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Authorization_files/lightbulb.svg"></div>
+                                <p class="content"> You may use the <code class=" language-php">make<span
+                                        class="token punctuation">:</span>policy</code> command with the <code
+                                        class=" language-php"><span class="token operator">--</span>model</code> option
+                                    to quickly generate a policy class for a given model: <code class=" language-php">php
+                                        artisan make<span class="token punctuation">:</span>policy PostPolicy <span
+                                                class="token operator">--</span>model<span
+                                                class="token operator">=</span>Post</code>.</p></div>
+                        </blockquote>
+                        <p><a name="via-blade-templates"></a></p>
+                        <h3 id="via-blade-templates"><a href="#via-blade-templates">Via Blade Templates</a></h3>
+                        <p>When writing Blade templates, you may wish to display a portion of
+                            the page only if the user is authorized to perform a given action. For
+                            example, you may wish to show an update form for a blog post only if the
+                            user can actually update the post. In this situation, you may use the <code
+                                    class=" language-php">@can</code> and <code class=" language-php">@cannot</code>
+                            family of directives:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">can</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Can Update The Post <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@<span class="token function">elsecan</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">,</span> App\<span class="token package">Post</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Can Create <span
+                                    class="token keyword">New</span> Post <span class="token operator">--</span><span
+                                    class="token operator">&gt;</span>
+@endcan
+
+@<span class="token function">cannot</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'update'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Cannot Update The Post <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@<span class="token function">elsecannot</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">,</span> App\<span class="token package">Post</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Cannot Create <span
+                                    class="token constant">A</span> <span class="token keyword">New</span> Post <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@endcannot</code></pre>
+                        <p>These directives are convenient shortcuts for writing <code class=" language-php">@<span
+                                class="token keyword">if</span></code> and <code class=" language-php">@unless</code>
+                            statements. The <code class=" language-php">@can</code> and <code class=" language-php">@cannot</code>
+                            statements above respectively translate to the following statements:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">user</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">can</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Can Update The Post <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@<span class="token keyword">endif</span>
+
+@unless <span class="token punctuation">(</span>Auth<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">can</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'update'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Cannot Update The Post <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@endunless</code></pre>
+                        <p>You may also determine if a user has any authorization ability from a given list of
+                            abilities. To accomplish this, use the <code class=" language-php">@canany</code> directive:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">canany</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'update'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'view'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'delete'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token variable">$post</span><span class="token punctuation">)</span>
+    <span class="token comment">// The current user can update, view, or delete the post</span>
+@<span class="token function">elsecanany</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> \<span
+                                    class="token package">App<span class="token punctuation">\</span>Post</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token comment">// The current user can create a post</span>
+@endcanany</code></pre>
+                        <h4>Actions That Don't Require Models</h4>
+                        <p>Like most of the other authorization methods, you may pass a class name to the <code
+                                class=" language-php">@can</code> and <code class=" language-php">@cannot</code>
+                            directives if the action does not require a model instance:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">can</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'create'</span><span
+                                class="token punctuation">,</span> App\<span class="token package">Post</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Can Create Posts <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@endcan
+
+@<span class="token function">cannot</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'create'</span><span
+                                    class="token punctuation">,</span> App\<span class="token package">Post</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> The Current User Can't Create Posts <span
+                                    class="token operator">--</span><span class="token operator">&gt;</span>
+@endcannot</code></pre>
+                        <p><a name="supplying-additional-context"></a></p>
+                        <h3 id="supplying-additional-context"><a href="#supplying-additional-context">Supplying
+                            Additional Context</a></h3>
+                        <p>When authorizing actions using policies, you may pass an array as the
+                            second argument to the various authorization functions and helpers. The
+                            first element in the array will be used to determine which policy
+                            should be invoked, while the rest of the array elements are passed as
+                            parameters to the policy method and can be used for additional context
+                            when making authorization decisions. For example, consider the following
+                            <code class=" language-php">PostPolicy</code> method definition which contains an additional
+                            <code class=" language-php"><span class="token variable">$category</span></code> parameter:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine if the given post can be updated by the user.
+ *
+ * @param  \App\User  $user
+ * @param  \App\Post  $post
+ * @param  int  $category
+ * @return bool
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span
+                                    class="token punctuation">,</span> int <span class="token variable">$category</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span> <span class="token operator">===</span> <span
+                                    class="token variable">$post</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">user_id</span> <span
+                                    class="token operator">&amp;&amp;</span>
+           <span class="token variable">$category</span> <span class="token operator">&gt;</span> <span
+                                    class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>When attempting to determine if the authenticated user can update a given post, we can invoke
+                            this policy method like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Update the given blog post.
+ *
+ * @param  Request  $request
+ * @param  Post  $post
+ * @return Response
+ * @throws \Illuminate\Auth\Access\AuthorizationException
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">authorize</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'update'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token variable">$post</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">input</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'category'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// The current user can update the blog post...</span>
+<span class="token punctuation">}</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

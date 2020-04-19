@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Broadcasting - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/broadcasting">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="02-Broadcasting_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="02-Broadcasting_files/app.css">
+
+    <!-- Load JS -->
+    <script src="02-Broadcasting_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="02-Broadcasting_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Broadcasting</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#concept-overview">Concept Overview</a>
+                                <ul>
+                                    <li><a href="#using-example-application">Using An Example Application</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#defining-broadcast-events">Defining Broadcast Events</a>
+                                <ul>
+                                    <li><a href="#broadcast-name">Broadcast Name</a></li>
+                                    <li><a href="#broadcast-data">Broadcast Data</a></li>
+                                    <li><a href="#broadcast-queue">Broadcast Queue</a></li>
+                                    <li><a href="#broadcast-conditions">Broadcast Conditions</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#authorizing-channels">Authorizing Channels</a>
+                                <ul>
+                                    <li><a href="#defining-authorization-routes">Defining Authorization Routes</a></li>
+                                    <li><a href="#defining-authorization-callbacks">Defining Authorization Callbacks</a>
+                                    </li>
+                                    <li><a href="#defining-channel-classes">Defining Channel Classes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#broadcasting-events">Broadcasting Events</a>
+                                <ul>
+                                    <li><a href="#only-to-others">Only To Others</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#receiving-broadcasts">Receiving Broadcasts</a>
+                                <ul>
+                                    <li><a href="#installing-laravel-echo">Installing Laravel Echo</a></li>
+                                    <li><a href="#listening-for-events">Listening For Events</a></li>
+                                    <li><a href="#leaving-a-channel">Leaving A Channel</a></li>
+                                    <li><a href="#namespaces">Namespaces</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#presence-channels">Presence Channels</a>
+                                <ul>
+                                    <li><a href="#authorizing-presence-channels">Authorizing Presence Channels</a></li>
+                                    <li><a href="#joining-presence-channels">Joining Presence Channels</a></li>
+                                    <li><a href="#broadcasting-to-presence-channels">Broadcasting To Presence
+                                        Channels</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#client-events">Client Events</a></li>
+                            <li><a href="#notifications">Notifications</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>In many modern web applications, WebSockets are used to implement
+                            realtime, live-updating user interfaces. When some data is updated on
+                            the server, a message is typically sent over a WebSocket connection to
+                            be handled by the client. This provides a more robust, efficient
+                            alternative to continually polling your application for changes.</p>
+                        <p>To assist you in building these types of applications, Laravel makes it easy to "broadcast"
+                            your <a href="https://laravel.com/docs/7.x/events">events</a>
+                            over a WebSocket connection. Broadcasting your Laravel events allows
+                            you to share the same event names between your server-side code and your
+                            client-side JavaScript application.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Broadcasting_files/lightbulb.svg"></div>
+                                <p class="content"> Before diving into event broadcasting, make sure you have read all
+                                    of the documentation regarding Laravel <a
+                                            href="https://laravel.com/docs/7.x/events">events and listeners</a>.</p>
+                            </div>
+                        </blockquote>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>All of your application's event broadcasting configuration is stored in the <code
+                                class=" language-php">config<span class="token operator">/</span>broadcasting<span
+                                class="token punctuation">.</span>php</code> configuration file. Laravel supports
+                            several broadcast drivers out of the box: <a href="https://pusher.com/channels">Pusher
+                                Channels</a>, <a href="https://laravel.com/docs/7.x/redis">Redis</a>, and a <code
+                                    class=" language-php">log</code> driver for local development and debugging.
+                            Additionally, a <code class=" language-php"><span class="token constant">null</span></code>
+                            driver is included which allows you to totally disable broadcasting. A
+                            configuration example is included for each of these drivers in the <code
+                                    class=" language-php">config<span class="token operator">/</span>broadcasting<span
+                                    class="token punctuation">.</span>php</code> configuration file.</p>
+                        <h4>Broadcast Service Provider</h4>
+                        <p>Before broadcasting any events, you will first need to register the <code
+                                class=" language-php">App\<span class="token package">Providers<span
+                                class="token punctuation">\</span>BroadcastServiceProvider</span></code>. In fresh
+                            Laravel applications, you only need to uncomment this provider in the <code
+                                    class=" language-php">providers</code> array of your <code class=" language-php">config<span
+                                    class="token operator">/</span>app<span class="token punctuation">.</span>php</code>
+                            configuration file. This provider will allow you to register the broadcast authorization
+                            routes and callbacks.</p>
+                        <h4>CSRF Token</h4>
+                        <p><a href="#installing-laravel-echo">Laravel Echo</a> will need access to the current session's
+                            CSRF token. You should verify that your application's <code
+                                    class=" language-php">head</code> HTML element defines a <code
+                                    class=" language-php">meta</code> tag containing the CSRF token:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>meta name<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"csrf-token"</span> content<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"{{ csrf_token() }}"</span><span
+                                class="token operator">&gt;</span></code></pre>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <h4>Pusher Channels</h4>
+                        <p>If you are broadcasting your events over <a href="https://pusher.com/channels">Pusher
+                            Channels</a>, you should install the Pusher Channels PHP SDK using the Composer package
+                            manager:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> pusher<span
+                                class="token operator">/</span>pusher<span class="token operator">-</span>php<span
+                                class="token operator">-</span>server <span class="token double-quoted-string string">"~4.0"</span></code></pre>
+                        <p>Next, you should configure your Channels credentials in the <code class=" language-php">config<span
+                                class="token operator">/</span>broadcasting<span
+                                class="token punctuation">.</span>php</code>
+                            configuration file. An example Channels configuration is already
+                            included in this file, allowing you to quickly specify your Channels
+                            key, secret, and application ID. The <code class=" language-php">config<span
+                                    class="token operator">/</span>broadcasting<span class="token punctuation">.</span>php</code>
+                            file's <code class=" language-php">pusher</code> configuration also allows you to specify
+                            additional <code class=" language-php">options</code> that are supported by Channels, such
+                            as the cluster:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'cluster'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'eu'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'useTLS'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token boolean constant">true</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>When using Channels and <a href="#installing-laravel-echo">Laravel Echo</a>, you should
+                            specify <code class=" language-php">pusher</code> as your desired broadcaster when
+                            instantiating the Echo instance in your <code class=" language-php">resources<span
+                                    class="token operator">/</span>js<span class="token operator">/</span>bootstrap<span
+                                    class="token punctuation">.</span>js</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">import <span
+                                class="token keyword">Echo</span> from <span class="token double-quoted-string string">"laravel-echo"</span><span
+                                class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>Pusher <span class="token operator">=</span> <span class="token keyword">require</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'pusher-js'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Finally, you will need to change your broadcast driver to <code
+                                class=" language-php">pusher</code> in your <code class=" language-php"><span
+                                class="token punctuation">.</span>env</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token constant">BROADCAST_DRIVER</span><span
+                                class="token operator">=</span>pusher</code></pre>
+                        <h4>Redis</h4>
+                        <p>If you are using the Redis broadcaster, you should either install the
+                            phpredis PHP extension via PECL or install the Predis library via
+                            Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> predis<span
+                                class="token operator">/</span>predis</code></pre>
+                        <p>Next, you should update your broadcast driver to <code class=" language-php">redis</code> in
+                            your <code class=" language-php"><span class="token punctuation">.</span>env</code> file:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token constant">BROADCAST_DRIVER</span><span
+                                class="token operator">=</span>redis</code></pre>
+                        <p>The Redis broadcaster will broadcast messages using Redis' pub / sub
+                            feature; however, you will need to pair this with a WebSocket server
+                            that can receive the messages from Redis and broadcast them to your
+                            WebSocket channels.</p>
+                        <p>When the Redis broadcaster publishes an event, it will be published
+                            on the event's specified channel names and the payload will be a JSON
+                            encoded string containing the event name, a <code class=" language-php">data</code> payload,
+                            and the user that generated the event's socket ID (if applicable).</p>
+                        <h4>Socket.IO</h4>
+                        <p>If you are going to pair the Redis broadcaster with a Socket.IO
+                            server, you will need to include the Socket.IO JavaScript client library
+                            in your application. You may install it via the NPM package manager:</p>
+                        <pre class=" language-php"><code class=" language-php">npm install <span class="token operator">--</span>save socket<span
+                                class="token punctuation">.</span>io<span
+                                class="token operator">-</span>client</code></pre>
+                        <p>Next, you will need to instantiate Echo with the <code class=" language-php">socket<span
+                                class="token punctuation">.</span>io</code> connector and a <code class=" language-php">host</code>.
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">import <span
+                                class="token keyword">Echo</span> from <span class="token double-quoted-string string">"laravel-echo"</span>
+
+window<span class="token punctuation">.</span>io <span class="token operator">=</span> <span class="token keyword">require</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'socket.io-client'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'socket.io'</span><span
+                                    class="token punctuation">,</span>
+    host<span class="token punctuation">:</span> window<span class="token punctuation">.</span>location<span
+                                    class="token punctuation">.</span>hostname <span
+                                    class="token operator">+</span> <span class="token single-quoted-string string">':6001'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Finally, you will need to run a compatible Socket.IO server. Laravel
+                            does not include a Socket.IO server implementation; however, a community
+                            driven Socket.IO server is currently maintained at the <a
+                                    href="https://github.com/tlaverdure/laravel-echo-server">tlaverdure/laravel-echo-server</a>
+                            GitHub repository.</p>
+                        <h4>Queue Prerequisites</h4>
+                        <p>Before broadcasting events, you will also need to configure and run a <a
+                                href="https://laravel.com/docs/7.x/queues">queue listener</a>. All event broadcasting is
+                            done via queued jobs so that the response time of your application is not seriously
+                            affected.</p>
+                        <p><a name="concept-overview"></a></p>
+                        <h2 id="concept-overview"><a href="#concept-overview">Concept Overview</a></h2>
+                        <p>Laravel's event broadcasting allows you to broadcast your server-side
+                            Laravel events to your client-side JavaScript application using a
+                            driver-based approach to WebSockets. Currently, Laravel ships with <a
+                                    href="https://pusher.com/channels">Pusher Channels</a> and Redis drivers. The events
+                            may be easily consumed on the client-side using the <a href="#installing-laravel-echo">Laravel
+                                Echo</a> Javascript package.</p>
+                        <p>Events are broadcast over "channels", which may be specified as
+                            public or private. Any visitor to your application may subscribe to a
+                            public channel without any authentication or authorization; however, in
+                            order to subscribe to a private channel, a user must be authenticated
+                            and authorized to listen on that channel.</p>
+                        <p><a name="using-example-application"></a></p>
+                        <h3 id="using-example-application"><a href="#using-example-application">Using An Example
+                            Application</a></h3>
+                        <p>Before diving into each component of event broadcasting, let's take a
+                            high level overview using an e-commerce store as an example. We won't
+                            discuss the details of configuring <a href="https://pusher.com/channels">Pusher Channels</a>
+                            or <a href="#installing-laravel-echo">Laravel Echo</a> since that will be discussed in
+                            detail in other sections of this documentation.</p>
+                        <p>In our application, let's assume we have a page that allows users to
+                            view the shipping status for their orders. Let's also assume that a <code
+                                    class=" language-php">ShippingStatusUpdated</code> event is fired when a shipping
+                            status update is processed by the application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token function">event</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">ShippingStatusUpdated</span><span
+                                class="token punctuation">(</span><span class="token variable">$update</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>The <code class=" language-php">ShouldBroadcast</code> Interface</h4>
+                        <p>When a user is viewing one of their orders, we don't want them to
+                            have to refresh the page to view status updates. Instead, we want to
+                            broadcast the updates to the application as they are created. So, we
+                            need to mark the <code class=" language-php">ShippingStatusUpdated</code> event with the
+                            <code class=" language-php">ShouldBroadcast</code> interface. This will instruct Laravel to
+                            broadcast the event when it is fired:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>Channel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>InteractsWithSockets</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>PresenceChannel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>PrivateChannel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>ShouldBroadcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ShippingStatusUpdated</span> <span
+                                    class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Information about the shipping status update.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$update</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">ShouldBroadcast</code> interface requires our event to define
+                            a <code class=" language-php">broadcastOn</code>
+                            method. This method is responsible for returning the channels that the
+                            event should broadcast on. An empty stub of this method is already
+                            defined on generated event classes, so we only need to fill in its
+                            details. We only want the creator of the order to be able to view status
+                            updates, so we will broadcast the event on a private channel that is
+                            tied to the order:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the channels the event should broadcast on.
+ *
+ * @return \Illuminate\Broadcasting\PrivateChannel
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PrivateChannel</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'order.'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">update</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">order_id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Authorizing Channels</h4>
+                        <p>Remember, users must be authorized to listen on private channels. We may define our channel
+                            authorization rules in the <code class=" language-php">routes<span
+                                    class="token operator">/</span>channels<span
+                                    class="token punctuation">.</span>php</code> file. In this example, we need to
+                            verify that any user attempting to listen on the private <code
+                                    class=" language-php">order<span class="token punctuation">.</span><span
+                                    class="token number">1</span></code> channel is actually the creator of the order:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">channel</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'order.{orderId}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$user</span><span
+                                class="token punctuation">,</span> <span class="token variable">$orderId</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span> <span class="token operator">===</span> Order<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">findOrNew</span><span class="token punctuation">(</span><span
+                                    class="token variable">$orderId</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">channel</code> method accepts two arguments: the name of the
+                            channel and a callback which returns <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code> or <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>
+                            indicating whether the user is authorized to listen on the channel.</p>
+                        <p>All authorization callbacks receive the currently authenticated user
+                            as their first argument and any additional wildcard parameters as their
+                            subsequent arguments. In this example, we are using the <code class=" language-php"><span
+                                    class="token punctuation">{</span>orderId<span
+                                    class="token punctuation">}</span></code> placeholder to indicate that the "ID"
+                            portion of the channel name is a wildcard.</p>
+                        <h4>Listening For Event Broadcasts</h4>
+                        <p>Next, all that remains is to listen for the event in our JavaScript
+                            application. We can do this using Laravel Echo. First, we'll use the <code
+                                    class=" language-php"><span class="token keyword">private</span></code> method to
+                            subscribe to the private channel. Then, we may use the <code
+                                    class=" language-php">listen</code> method to listen for the <code
+                                    class=" language-php">ShippingStatusUpdated</code> event. By default, all of the
+                            event's public properties will be included on the broadcast event:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token keyword">private</span><span class="token punctuation">(</span>`order<span
+                                class="token punctuation">.</span><span class="token variable">$</span><span
+                                class="token punctuation">{</span>orderId<span class="token punctuation">}</span>`<span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'ShippingStatusUpdated'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">(</span>e<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>e<span
+                                    class="token punctuation">.</span>update<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="defining-broadcast-events"></a></p>
+                        <h2 id="defining-broadcast-events"><a href="#defining-broadcast-events">Defining Broadcast
+                            Events</a></h2>
+                        <p>To inform Laravel that a given event should be broadcast, implement the <code
+                                class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>ShouldBroadcast</span></code>
+                            interface on the event class. This interface is already imported into
+                            all event classes generated by the framework so you may easily add it to
+                            any of your events.</p>
+                        <p>The <code class=" language-php">ShouldBroadcast</code> interface requires you to implement a
+                            single method: <code class=" language-php">broadcastOn</code>. The <code
+                                    class=" language-php">broadcastOn</code> method should return a channel or array of
+                            channels that the event should broadcast on. The channels should be instances of <code
+                                    class=" language-php">Channel</code>, <code
+                                    class=" language-php">PrivateChannel</code>, or <code class=" language-php">PresenceChannel</code>.
+                            Instances of <code class=" language-php">Channel</code> represent public channels that any
+                            user may subscribe to, while <code class=" language-php">PrivateChannels</code> and <code
+                                    class=" language-php">PresenceChannels</code> represent private channels that
+                            require <a href="#authorizing-channels">channel authorization</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Events</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>Channel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>InteractsWithSockets</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>PresenceChannel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>PrivateChannel</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>ShouldBroadcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ServerCreated</span> <span
+                                    class="token keyword">implements</span> <span class="token class-name">ShouldBroadcast</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token variable">$user</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new event instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">user</span> <span
+                                    class="token operator">=</span> <span class="token variable">$user</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return Channel|array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PrivateChannel</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Then, you only need to <a href="https://laravel.com/docs/7.x/events">fire the event</a> as
+                            you normally would. Once the event has been fired, a <a
+                                    href="https://laravel.com/docs/7.x/queues">queued job</a> will automatically
+                            broadcast the event over your specified broadcast driver.</p>
+                        <p><a name="broadcast-name"></a></p>
+                        <h3 id="broadcast-name"><a href="#broadcast-name">Broadcast Name</a></h3>
+                        <p>By default, Laravel will broadcast the event using the event's class
+                            name. However, you may customize the broadcast name by defining a <code
+                                    class=" language-php">broadcastAs</code> method on the event:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The event's broadcast name.
+ *
+ * @return string
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastAs</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span
+                                    class="token single-quoted-string string">'server.created'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you customize the broadcast name using the <code class=" language-php">broadcastAs</code>
+                            method, you should make sure to register your listener with a leading <code
+                                    class=" language-php"><span class="token punctuation">.</span></code> character.
+                            This will instruct Echo to not prepend the application's namespace to the event:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">.</span><span class="token function">listen</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'.server.created'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>e<span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="broadcast-data"></a></p>
+                        <h3 id="broadcast-data"><a href="#broadcast-data">Broadcast Data</a></h3>
+                        <p>When an event is broadcast, all of its <code class=" language-php"><span
+                                class="token keyword">public</span></code>
+                            properties are automatically serialized and broadcast as the event's
+                            payload, allowing you to access any of its public data from your
+                            JavaScript application. So, for example, if your event has a single
+                            public <code class=" language-php"><span class="token variable">$user</span></code> property
+                            that contains an Eloquent model, the event's broadcast payload would be:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"user"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Patrick Stewart"</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>However, if you wish to have more fine-grained control over your broadcast payload, you may
+                            add a <code class=" language-php">broadcastWith</code> method to your event. This method
+                            should return the array of data that you wish to broadcast as the event payload:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the data to broadcast.
+ *
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastWith</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="broadcast-queue"></a></p>
+                        <h3 id="broadcast-queue"><a href="#broadcast-queue">Broadcast Queue</a></h3>
+                        <p>By default, each broadcast event is placed on the default queue for the default queue
+                            connection specified in your <code class=" language-php">queue<span
+                                    class="token punctuation">.</span>php</code> configuration file. You may customize
+                            the queue used by the broadcaster by defining a <code
+                                    class=" language-php">broadcastQueue</code> property on your event class. This
+                            property should specify the name of the queue you wish to use when broadcasting:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The name of the queue on which to place the event.
+ *
+ * @var string
+ */</span>
+<span class="token keyword">public</span> <span class="token variable">$broadcastQueue</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'your-queue-name'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you want to broadcast your event using the <code class=" language-php">sync</code> queue
+                            instead of the default queue driver, you can implement the <code class=" language-php">ShouldBroadcastNow</code>
+                            interface instead of <code class=" language-php">ShouldBroadcast</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Broadcasting<span
+                                    class="token punctuation">\</span>ShouldBroadcastNow</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ShippingStatusUpdated</span> <span
+                                    class="token keyword">implements</span> <span class="token class-name">ShouldBroadcastNow</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="broadcast-conditions"></a></p>
+                        <h3 id="broadcast-conditions"><a href="#broadcast-conditions">Broadcast Conditions</a></h3>
+                        <p>Sometimes you want to broadcast your event only if a given condition is true. You may define
+                            these conditions by adding a <code class=" language-php">broadcastWhen</code> method to your
+                            event class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine if this event should broadcast.
+ *
+ * @return bool
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastWhen</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">value</span> <span class="token operator">&gt;</span> <span
+                                    class="token number">100</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="authorizing-channels"></a></p>
+                        <h2 id="authorizing-channels"><a href="#authorizing-channels">Authorizing Channels</a></h2>
+                        <p>Private channels require you to authorize that the currently
+                            authenticated user can actually listen on the channel. This is
+                            accomplished by making an HTTP request to your Laravel application with
+                            the channel name and allowing your application to determine if the user
+                            can listen on that channel. When using <a href="#installing-laravel-echo">Laravel Echo</a>,
+                            the HTTP request to authorize subscriptions to private channels will be
+                            made automatically; however, you do need to define the proper routes to
+                            respond to these requests.</p>
+                        <p><a name="defining-authorization-routes"></a></p>
+                        <h3 id="defining-authorization-routes"><a href="#defining-authorization-routes">Defining
+                            Authorization Routes</a></h3>
+                        <p>Thankfully, Laravel makes it easy to define the routes to respond to channel authorization
+                            requests. In the <code class=" language-php">BroadcastServiceProvider</code> included with
+                            your Laravel application, you will see a call to the <code
+                                    class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>routes</code> method. This method will register
+                            the <code class=" language-php"><span class="token operator">/</span>broadcasting<span
+                                    class="token operator">/</span>auth</code> route to handle authorization requests:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">routes</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>routes</code> method will automatically place its
+                            routes within the <code class=" language-php">web</code>
+                            middleware group; however, you may pass an array of route attributes to
+                            the method if you would like to customize the assigned attributes:</p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">routes</span><span
+                                class="token punctuation">(</span><span class="token variable">$attributes</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Customizing The Authorization Endpoint</h4>
+                        <p>By default, Echo will use the <code class=" language-php"><span
+                                class="token operator">/</span>broadcasting<span
+                                class="token operator">/</span>auth</code> endpoint to authorize channel access.
+                            However, you may specify your own authorization endpoint by passing the <code
+                                    class=" language-php">authEndpoint</code> configuration option to your Echo
+                            instance:</p>
+                        <pre class=" language-php"><code class=" language-php">window<span
+                                class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span><span
+                                    class="token punctuation">,</span>
+    authEndpoint<span class="token punctuation">:</span> <span class="token single-quoted-string string">'/custom/endpoint/auth'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="defining-authorization-callbacks"></a></p>
+                        <h3 id="defining-authorization-callbacks"><a href="#defining-authorization-callbacks">Defining
+                            Authorization Callbacks</a></h3>
+                        <p>Next, we need to define the logic that will actually perform the channel authorization. This
+                            is done in the <code class=" language-php">routes<span class="token operator">/</span>channels<span
+                                    class="token punctuation">.</span>php</code> file that is included with your
+                            application. In this file, you may use the <code class=" language-php">Broadcast<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>channel</code> method to register channel
+                            authorization callbacks:</p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">channel</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'order.{orderId}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$user</span><span
+                                class="token punctuation">,</span> <span class="token variable">$orderId</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span> <span class="token operator">===</span> Order<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">findOrNew</span><span class="token punctuation">(</span><span
+                                    class="token variable">$orderId</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">channel</code> method accepts two arguments: the name of the
+                            channel and a callback which returns <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code> or <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>
+                            indicating whether the user is authorized to listen on the channel.</p>
+                        <p>All authorization callbacks receive the currently authenticated user
+                            as their first argument and any additional wildcard parameters as their
+                            subsequent arguments. In this example, we are using the <code class=" language-php"><span
+                                    class="token punctuation">{</span>orderId<span
+                                    class="token punctuation">}</span></code> placeholder to indicate that the "ID"
+                            portion of the channel name is a wildcard.</p>
+                        <h4>Authorization Callback Model Binding</h4>
+                        <p>Just like HTTP routes, channel routes may also take advantage of implicit and explicit <a
+                                href="#route-model-binding">route model binding</a>.
+                            For example, instead of receiving the string or numeric order ID, you may request an actual
+                            <code class=" language-php">Order</code> model instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Order</span><span class="token punctuation">;</span>
+
+Broadcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">channel</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'order.{order}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Order <span
+                                    class="token variable">$order</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span> <span class="token operator">===</span> <span
+                                    class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">user_id</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Authorization Callback Authentication</h4>
+                        <p>Private and presence broadcast channels authenticate the current user
+                            via your application's default authentication guard. If the user is not
+                            authenticated, channel authorization is automatically denied and the
+                            authorization callback is never executed. However, you may assign
+                            multiple, custom guards that should authenticate the incoming request if
+                            necessary:</p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">channel</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'channel'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'guards'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'admin'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="defining-channel-classes"></a></p>
+                        <h3 id="defining-channel-classes"><a href="#defining-channel-classes">Defining Channel
+                            Classes</a></h3>
+                        <p>If your application is consuming many different channels, your <code class=" language-php">routes<span
+                                class="token operator">/</span>channels<span
+                                class="token punctuation">.</span>php</code>
+                            file could become bulky. So, instead of using Closures to authorize
+                            channels, you may use channel classes. To generate a channel class, use
+                            the <code class=" language-php">make<span class="token punctuation">:</span>channel</code>
+                            Artisan command. This command will place a new channel class in the <code
+                                    class=" language-php">App<span class="token operator">/</span>Broadcasting</code>
+                            directory.</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>channel OrderChannel</code></pre>
+                        <p>Next, register your channel in your <code class=" language-php">routes<span
+                                class="token operator">/</span>channels<span
+                                class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Broadcasting<span class="token punctuation">\</span>OrderChannel</span><span
+                                class="token punctuation">;</span>
+
+Broadcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">channel</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'order.{order}'</span><span
+                                    class="token punctuation">,</span> OrderChannel<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Finally, you may place the authorization logic for your channel in the channel class' <code
+                                class=" language-php">join</code> method. This <code class=" language-php">join</code>
+                            method will house the same logic you would have typically placed in
+                            your channel authorization Closure. You may also take advantage of
+                            channel model binding:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Broadcasting</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Order</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderChannel</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Create a new channel instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Authenticate the user's access to the channel.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Order  $order
+     * @return array|bool
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">join</span><span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Order <span
+                                    class="token variable">$order</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span> <span
+                                    class="token operator">===</span> <span class="token variable">$order</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">user_id</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Broadcasting_files/lightbulb.svg"></div>
+                                <p class="content"> Like many other classes in Laravel, channel classes will
+                                    automatically be resolved by the <a href="https://laravel.com/docs/7.x/container">service
+                                        container</a>. So, you may type-hint any dependencies required by your channel
+                                    in its constructor.</p></div>
+                        </blockquote>
+                        <p><a name="broadcasting-events"></a></p>
+                        <h2 id="broadcasting-events"><a href="#broadcasting-events">Broadcasting Events</a></h2>
+                        <p>Once you have defined an event and marked it with the <code class=" language-php">ShouldBroadcast</code>
+                            interface, you only need to fire the event using the <code
+                                    class=" language-php">event</code> function. The event dispatcher will notice that
+                            the event is marked with the <code class=" language-php">ShouldBroadcast</code> interface
+                            and will queue the event for broadcasting:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token function">event</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">ShippingStatusUpdated</span><span
+                                class="token punctuation">(</span><span class="token variable">$update</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="only-to-others"></a></p>
+                        <h3 id="only-to-others"><a href="#only-to-others">Only To Others</a></h3>
+                        <p>When building an application that utilizes event broadcasting, you may substitute the <code
+                                class=" language-php">event</code> function with the <code class=" language-php">broadcast</code>
+                            function. Like the <code class=" language-php">event</code> function, the <code
+                                    class=" language-php">broadcast</code> function dispatches the event to your
+                            server-side listeners:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token function">broadcast</span><span class="token punctuation">(</span><span
+                                class="token keyword">new</span> <span
+                                class="token class-name">ShippingStatusUpdated</span><span
+                                class="token punctuation">(</span><span class="token variable">$update</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>However, the <code class=" language-php">broadcast</code> function also exposes the <code
+                                class=" language-php">toOthers</code> method which allows you to exclude the current
+                            user from the broadcast's recipients:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token function">broadcast</span><span class="token punctuation">(</span><span
+                                class="token keyword">new</span> <span
+                                class="token class-name">ShippingStatusUpdated</span><span
+                                class="token punctuation">(</span><span class="token variable">$update</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">toOthers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>To better understand when you may want to use the <code class=" language-php">toOthers</code>
+                            method, let's imagine a task list application where a user may create a
+                            new task by entering a task name. To create a task, your application
+                            might make a request to a <code class=" language-php"><span class="token operator">/</span>task</code>
+                            end-point which broadcasts the task's creation and returns a JSON
+                            representation of the new task. When your JavaScript application
+                            receives the response from the end-point, it might directly insert the
+                            new task into its task list like so:</p>
+                        <pre class=" language-php"><code class=" language-php">axios<span
+                                class="token punctuation">.</span><span class="token function">post</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/task'</span><span
+                                class="token punctuation">,</span> task<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token punctuation">(</span>response<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        this<span class="token punctuation">.</span>tasks<span class="token punctuation">.</span><span
+                                    class="token function">push</span><span
+                                    class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>However, remember that we also broadcast the task's creation. If your
+                            JavaScript application is listening for this event in order to add
+                            tasks to the task list, you will have duplicate tasks in your list: one
+                            from the end-point and one from the broadcast. You may solve this by
+                            using the <code class=" language-php">toOthers</code> method to instruct the broadcaster to
+                            not broadcast the event to the current user.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="02-Broadcasting_files/exclamation.svg"></div>
+                                <p class="content"> Your event must use the <code class=" language-php">Illuminate\<span
+                                        class="token package">Broadcasting<span class="token punctuation">\</span>InteractsWithSockets</span></code>
+                                    trait in order to call the <code class=" language-php">toOthers</code> method.</p>
+                            </div>
+                        </blockquote>
+                        <h4>Configuration</h4>
+                        <p>When you initialize a Laravel Echo instance, a socket ID is assigned to the connection. If
+                            you are using <a href="https://vuejs.org/">Vue</a> and <a
+                                    href="https://github.com/mzabriskie/axios">Axios</a>, the socket ID will
+                            automatically be attached to every outgoing request as a <code class=" language-php"><span
+                                    class="token constant">X</span><span class="token operator">-</span>Socket<span
+                                    class="token operator">-</span><span class="token constant">ID</span></code> header.
+                            Then, when you call the <code class=" language-php">toOthers</code>
+                            method, Laravel will extract the socket ID from the header and instruct
+                            the broadcaster to not broadcast to any connections with that socket
+                            ID.</p>
+                        <p>If you are not using Vue and Axios, you will need to manually configure your JavaScript
+                            application to send the <code class=" language-php"><span
+                                    class="token constant">X</span><span class="token operator">-</span>Socket<span
+                                    class="token operator">-</span><span class="token constant">ID</span></code> header.
+                            You may retrieve the socket ID using the <code class=" language-php"><span
+                                    class="token keyword">Echo</span><span
+                                    class="token punctuation">.</span>socketId</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">var</span> socketId <span
+                                class="token operator">=</span> <span class="token keyword">Echo</span><span
+                                class="token punctuation">.</span><span class="token function">socketId</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="receiving-broadcasts"></a></p>
+                        <h2 id="receiving-broadcasts"><a href="#receiving-broadcasts">Receiving Broadcasts</a></h2>
+                        <p><a name="installing-laravel-echo"></a></p>
+                        <h3 id="installing-laravel-echo"><a href="#installing-laravel-echo">Installing Laravel Echo</a>
+                        </h3>
+                        <p>Laravel Echo is a JavaScript library that makes it painless to
+                            subscribe to channels and listen for events broadcast by Laravel. You
+                            may install Echo via the NPM package manager. In this example, we will
+                            also install the <code class=" language-php">pusher<span
+                                    class="token operator">-</span>js</code> package since we will be using the Pusher
+                            Channels broadcaster:</p>
+                        <pre class=" language-php"><code class=" language-php">npm install <span class="token operator">--</span>save laravel<span
+                                class="token operator">-</span><span class="token keyword">echo</span> pusher<span
+                                class="token operator">-</span>js</code></pre>
+                        <p>Once Echo is installed, you are ready to create a fresh Echo instance
+                            in your application's JavaScript. A great place to do this is at the
+                            bottom of the <code class=" language-php">resources<span
+                                    class="token operator">/</span>js<span class="token operator">/</span>bootstrap<span
+                                    class="token punctuation">.</span>js</code> file that is included with the Laravel
+                            framework:</p>
+                        <pre class=" language-php"><code class=" language-php">import <span
+                                class="token keyword">Echo</span> from <span class="token double-quoted-string string">"laravel-echo"</span>
+
+window<span class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When creating an Echo instance that uses the <code class=" language-php">pusher</code>
+                            connector, you may also specify a <code class=" language-php">cluster</code> as well as
+                            whether the connection must be made over TLS (by default, when <code class=" language-php">forceTLS</code>
+                            is <code class=" language-php"><span class="token boolean constant">false</span></code>, a
+                            non-TLS connection will be made if the page was loaded over HTTP, or as a fallback if a TLS
+                            connection fails):</p>
+                        <pre class=" language-php"><code class=" language-php">window<span
+                                class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span><span
+                                    class="token punctuation">,</span>
+    cluster<span class="token punctuation">:</span> <span class="token single-quoted-string string">'eu'</span><span
+                                    class="token punctuation">,</span>
+    forceTLS<span class="token punctuation">:</span> <span class="token boolean constant">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Using An Existing Client Instance</h4>
+                        <p>If you already have a Pusher Channels or Socket.io client instance
+                            that you would like Echo to utilize, you may pass it to Echo via the <code
+                                    class=" language-php">client</code> configuration option:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">const</span> client <span
+                                class="token operator">=</span> <span class="token keyword">require</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'pusher-js'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span><span
+                                    class="token punctuation">,</span>
+    client<span class="token punctuation">:</span> client
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="listening-for-events"></a></p>
+                        <h3 id="listening-for-events"><a href="#listening-for-events">Listening For Events</a></h3>
+                        <p>Once you have installed and instantiated Echo, you are ready to start listening for event
+                            broadcasts. First, use the <code class=" language-php">channel</code> method to retrieve an
+                            instance of a channel, then call the <code class=" language-php">listen</code> method to
+                            listen for a specified event:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">channel</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'orders'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'OrderShipped'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">(</span>e<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>e<span
+                                    class="token punctuation">.</span>order<span
+                                    class="token punctuation">.</span>name<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you would like to listen for events on a private channel, use the <code
+                                class=" language-php"><span class="token keyword">private</span></code> method instead.
+                            You may continue to chain calls to the <code class=" language-php">listen</code> method to
+                            listen for multiple events on a single channel:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token keyword">private</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'orders'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="leaving-a-channel"></a></p>
+                        <h3 id="leaving-a-channel"><a href="#leaving-a-channel">Leaving A Channel</a></h3>
+                        <p>To leave a channel, you may call the <code class=" language-php">leaveChannel</code> method
+                            on your Echo instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">leaveChannel</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'orders'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you would like to leave a channel and also its associated private and presence channels,
+                            you may call the <code class=" language-php">leave</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">leave</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'orders'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="namespaces"></a></p>
+                        <h3 id="namespaces"><a href="#namespaces">Namespaces</a></h3>
+                        <p>You may have noticed in the examples above that we did not specify
+                            the full namespace for the event classes. This is because Echo will
+                            automatically assume the events are located in the <code class=" language-php">App\<span
+                                    class="token package">Events</span></code> namespace. However, you may configure the
+                            root namespace when you instantiate Echo by passing a <code class=" language-php"><span
+                                    class="token keyword">namespace</span></code> configuration option:</p>
+                        <pre class=" language-php"><code class=" language-php">window<span
+                                class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'pusher'</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> <span class="token single-quoted-string string">'your-pusher-channels-key'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token keyword">namespace</span><span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'App.Other.Namespace'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may prefix event classes with a <code class=" language-php"><span
+                                class="token punctuation">.</span></code> when subscribing to them using Echo. This will
+                            allow you to always specify the fully-qualified class name:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">channel</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'orders'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'.Namespace\\Event\\Class'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">(</span>e<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="presence-channels"></a></p>
+                        <h2 id="presence-channels"><a href="#presence-channels">Presence Channels</a></h2>
+                        <p>Presence channels build on the security of private channels while
+                            exposing the additional feature of awareness of who is subscribed to the
+                            channel. This makes it easy to build powerful, collaborative
+                            application features such as notifying users when another user is
+                            viewing the same page.</p>
+                        <p><a name="authorizing-presence-channels"></a></p>
+                        <h3 id="authorizing-presence-channels"><a href="#authorizing-presence-channels">Authorizing
+                            Presence Channels</a></h3>
+                        <p>All presence channels are also private channels; therefore, users must be <a
+                                href="#authorizing-channels">authorized to access them</a>. However, when defining
+                            authorization callbacks for presence channels, you will not return <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code> if the
+                            user is authorized to join the channel. Instead, you should return an array of data about
+                            the user.</p>
+                        <p>The data returned by the authorization callback will be made
+                            available to the presence channel event listeners in your JavaScript
+                            application. If the user is not authorized to join the presence channel,
+                            you should return <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code> or <code
+                                    class=" language-php"><span class="token constant">null</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">channel</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'chat.{roomId}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$user</span><span
+                                class="token punctuation">,</span> <span class="token variable">$roomId</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">canJoinRoom</span><span
+                                    class="token punctuation">(</span><span class="token variable">$roomId</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">name</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="joining-presence-channels"></a></p>
+                        <h3 id="joining-presence-channels"><a href="#joining-presence-channels">Joining Presence
+                            Channels</a></h3>
+                        <p>To join a presence channel, you may use Echo's <code class=" language-php">join</code>
+                            method. The <code class=" language-php">join</code> method will return a <code
+                                    class=" language-php">PresenceChannel</code> implementation which, along with
+                            exposing the <code class=" language-php">listen</code> method, allows you to subscribe to
+                            the <code class=" language-php">here</code>, <code class=" language-php">joining</code>, and
+                            <code class=" language-php">leaving</code> events.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">join</span><span class="token punctuation">(</span>`chat<span
+                                class="token punctuation">.</span><span class="token variable">$</span><span
+                                class="token punctuation">{</span>roomId<span class="token punctuation">}</span>`<span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">here</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">(</span>users<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">joining</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">(</span>user<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>user<span
+                                    class="token punctuation">.</span>name<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">leaving</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">(</span>user<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>user<span
+                                    class="token punctuation">.</span>name<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">here</code> callback will be executed
+                            immediately once the channel is joined successfully, and will receive
+                            an array containing the user information for all of the other users
+                            currently subscribed to the channel. The <code class=" language-php">joining</code> method
+                            will be executed when a new user joins a channel, while the <code class=" language-php">leaving</code>
+                            method will be executed when a user leaves the channel.</p>
+                        <p><a name="broadcasting-to-presence-channels"></a></p>
+                        <h3 id="broadcasting-to-presence-channels"><a href="#broadcasting-to-presence-channels">Broadcasting
+                            To Presence Channels</a></h3>
+                        <p>Presence channels may receive events just like public or private
+                            channels. Using the example of a chatroom, we may want to broadcast <code
+                                    class=" language-php">NewMessage</code> events to the room's presence channel. To do
+                            so, we'll return an instance of <code class=" language-php">PresenceChannel</code> from the
+                            event's <code class=" language-php">broadcastOn</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the channels the event should broadcast on.
+ *
+ * @return Channel|array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">broadcastOn</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PresenceChannel</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'room.'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">message</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">room_id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Like public or private events, presence channel events may be broadcast using the <code
+                                class=" language-php">broadcast</code> function. As with other events, you may use the
+                            <code class=" language-php">toOthers</code> method to exclude the current user from
+                            receiving the broadcast:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token function">broadcast</span><span class="token punctuation">(</span><span
+                                class="token keyword">new</span> <span class="token class-name">NewMessage</span><span
+                                class="token punctuation">(</span><span class="token variable">$message</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token function">broadcast</span><span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">NewMessage</span><span
+                                    class="token punctuation">(</span><span class="token variable">$message</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">toOthers</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may listen for the join event via Echo's <code class=" language-php">listen</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token function">join</span><span class="token punctuation">(</span>`chat<span
+                                class="token punctuation">.</span><span class="token variable">$</span><span
+                                class="token punctuation">{</span>roomId<span class="token punctuation">}</span>`<span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">here</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">joining</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">leaving</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listen</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'NewMessage'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">(</span>e<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="client-events"></a></p>
+                        <h2 id="client-events"><a href="#client-events">Client Events</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Broadcasting_files/lightbulb.svg"></div>
+                                <p class="content"> When using <a href="https://pusher.com/channels">Pusher Channels</a>,
+                                    you must enable the "Client Events" option in the "App Settings" section of your <a
+                                            href="https://dashboard.pusher.com/">application dashboard</a> in order to
+                                    send client events.</p></div>
+                        </blockquote>
+                        <p>Sometimes you may wish to broadcast an event to other connected
+                            clients without hitting your Laravel application at all. This can be
+                            particularly useful for things like "typing" notifications, where you
+                            want to alert users of your application that another user is typing a
+                            message on a given screen.</p>
+                        <p>To broadcast client events, you may use Echo's <code class=" language-php">whisper</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token keyword">private</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'chat'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">whisper</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'typing'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span> this<span class="token punctuation">.</span>user<span
+                                    class="token punctuation">.</span>name
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>To listen for client events, you may use the <code
+                                class=" language-php">listenForWhisper</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token keyword">private</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'chat'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">listenForWhisper</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'typing'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">(</span>e<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>e<span class="token punctuation">.</span>name<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="notifications"></a></p>
+                        <h2 id="notifications"><a href="#notifications">Notifications</a></h2>
+                        <p>By pairing event broadcasting with <a href="https://laravel.com/docs/7.x/notifications">notifications</a>,
+                            your JavaScript application may receive new notifications as they occur
+                            without needing to refresh the page. First, be sure to read over the
+                            documentation on using <a
+                                    href="#broadcast-notifications">the
+                                broadcast notification channel</a>.</p>
+                        <p>Once you have configured a notification to use the broadcast channel, you may listen for the
+                            broadcast events using Echo's <code class=" language-php">notification</code> method.
+                            Remember, the channel name should match the class name of the entity receiving the
+                            notifications:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">Echo</span><span class="token punctuation">.</span><span
+                                class="token keyword">private</span><span class="token punctuation">(</span>`App<span
+                                class="token punctuation">.</span>User<span class="token punctuation">.</span><span
+                                class="token variable">$</span><span class="token punctuation">{</span>userId<span
+                                class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">notification</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">(</span>notification<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span
+                                    class="token punctuation">(</span>notification<span
+                                    class="token punctuation">.</span>type<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In this example, all notifications sent to <code class=" language-php">App\<span
+                                class="token package">User</span></code> instances via the <code class=" language-php">broadcast</code>
+                            channel would be received by the callback. A channel authorization callback for the <code
+                                    class=" language-php">App<span class="token punctuation">.</span>User<span
+                                    class="token punctuation">.</span><span class="token punctuation">{</span>id<span
+                                    class="token punctuation">}</span></code> channel is included in the default <code
+                                    class=" language-php">BroadcastServiceProvider</code> that ships with the Laravel
+                            framework.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

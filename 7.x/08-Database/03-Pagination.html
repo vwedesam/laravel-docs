@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Database: Pagination - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/pagination">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Pagination_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Pagination_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Pagination_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Pagination_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Database: Pagination</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#basic-usage">Basic Usage</a>
+                                <ul>
+                                    <li><a href="#paginating-query-builder-results">Paginating Query Builder Results</a>
+                                    </li>
+                                    <li><a href="#paginating-eloquent-results">Paginating Eloquent Results</a></li>
+                                    <li><a href="#manually-creating-a-paginator">Manually Creating A Paginator</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#displaying-pagination-results">Displaying Pagination Results</a>
+                                <ul>
+                                    <li><a href="#converting-results-to-json">Converting Results To JSON</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#customizing-the-pagination-view">Customizing The Pagination View</a></li>
+                            <li><a href="#paginator-instance-methods">Paginator Instance Methods</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>In other frameworks, pagination can be very painful. Laravel's paginator is integrated with
+                            the <a href="https://laravel.com/docs/7.x/queries">query builder</a> and <a
+                                    href="https://laravel.com/docs/7.x/eloquent">Eloquent ORM</a>
+                            and provides convenient, easy-to-use pagination of database results out
+                            of the box. The HTML generated by the paginator is compatible with the <a
+                                    href="https://getbootstrap.com/">Bootstrap CSS framework</a>.</p>
+                        <p><a name="basic-usage"></a></p>
+                        <h2 id="basic-usage"><a href="#basic-usage">Basic Usage</a></h2>
+                        <p><a name="paginating-query-builder-results"></a></p>
+                        <h3 id="paginating-query-builder-results"><a href="#paginating-query-builder-results">Paginating
+                            Query Builder Results</a></h3>
+                        <p>There are several ways to paginate items. The simplest is by using the <code
+                                class=" language-php">paginate</code> method on the <a
+                                href="https://laravel.com/docs/7.x/queries">query builder</a> or an <a
+                                href="https://laravel.com/docs/7.x/eloquent">Eloquent query</a>. The <code
+                                class=" language-php">paginate</code>
+                            method automatically takes care of setting the proper limit and offset
+                            based on the current page being viewed by the user. By default, the
+                            current page is detected by the value of the <code class=" language-php">page</code>
+                            query string argument on the HTTP request. This value is automatically
+                            detected by Laravel, and is also automatically inserted into links
+                            generated by the paginator.</p>
+                        <p>In this example, the only argument passed to the <code class=" language-php">paginate</code>
+                            method is the number of items you would like displayed "per page". In this case, let's
+                            specify that we would like to display <code class=" language-php"><span
+                                    class="token number">15</span></code> items per page:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>DB</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$users</span> <span class="token operator">=</span> <span
+                                    class="token constant">DB</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">table</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">paginate</span><span
+                                    class="token punctuation">(</span><span class="token number">15</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.index'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'users'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$users</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Pagination_files/exclamation.svg"></div>
+                                <p class="content"> Currently, pagination operations that use a <code
+                                        class=" language-php">groupBy</code> statement cannot be executed efficiently by
+                                    Laravel. If you need to use a <code class=" language-php">groupBy</code> with a
+                                    paginated result set, it is recommended that you query the database and create a
+                                    paginator manually.</p></div>
+                        </blockquote>
+                        <h4>"Simple Pagination"</h4>
+                        <p>If you only need to display simple "Next" and "Previous" links in your pagination view, you
+                            may use the <code class=" language-php">simplePaginate</code>
+                            method to perform a more efficient query. This is very useful for large
+                            datasets when you do not need to display a link for each page number
+                            when rendering your view:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> <span
+                                class="token constant">DB</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">table</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'users'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">simplePaginate</span><span
+                                class="token punctuation">(</span><span class="token number">15</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="paginating-eloquent-results"></a></p>
+                        <h3 id="paginating-eloquent-results"><a href="#paginating-eloquent-results">Paginating Eloquent
+                            Results</a></h3>
+                        <p>You may also paginate <a href="https://laravel.com/docs/7.x/eloquent">Eloquent</a> queries.
+                            In this example, we will paginate the <code class=" language-php">User</code> model with
+                            <code class=" language-php"><span class="token number">15</span></code> items per page. As
+                            you can see, the syntax is nearly identical to paginating query builder results:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> App\<span
+                                class="token package">User</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">paginate</span><span
+                                class="token punctuation">(</span><span class="token number">15</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may call <code class=" language-php">paginate</code> after setting other constraints on
+                            the query, such as <code class=" language-php">where</code> clauses:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">where</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'votes'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'&gt;'</span><span
+                                class="token punctuation">,</span> <span class="token number">100</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">paginate</span><span
+                                class="token punctuation">(</span><span class="token number">15</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also use the <code class=" language-php">simplePaginate</code> method when paginating
+                            Eloquent models:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">where</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'votes'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'&gt;'</span><span
+                                class="token punctuation">,</span> <span class="token number">100</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">simplePaginate</span><span
+                                class="token punctuation">(</span><span class="token number">15</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="manually-creating-a-paginator"></a></p>
+                        <h3 id="manually-creating-a-paginator"><a href="#manually-creating-a-paginator">Manually
+                            Creating A Paginator</a></h3>
+                        <p>Sometimes you may wish to create a pagination instance manually,
+                            passing it an array of items. You may do so by creating either an <code
+                                    class=" language-php">Illuminate\<span class="token package">Pagination<span
+                                    class="token punctuation">\</span>Paginator</span></code> or <code
+                                    class=" language-php">Illuminate\<span class="token package">Pagination<span
+                                    class="token punctuation">\</span>LengthAwarePaginator</span></code> instance,
+                            depending on your needs.</p>
+                        <p>The <code class=" language-php">Paginator</code> class does not need
+                            to know the total number of items in the result set; however, because of
+                            this, the class does not have methods for retrieving the index of the
+                            last page. The <code class=" language-php">LengthAwarePaginator</code> accepts almost the
+                            same arguments as the <code class=" language-php">Paginator</code>; however, it does require
+                            a count of the total number of items in the result set.</p>
+                        <p>In other words, the <code class=" language-php">Paginator</code> corresponds to the <code
+                                class=" language-php">simplePaginate</code> method on the query builder and Eloquent,
+                            while the <code class=" language-php">LengthAwarePaginator</code> corresponds to the <code
+                                    class=" language-php">paginate</code> method.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Pagination_files/exclamation.svg"></div>
+                                <p class="content">
+                                    When manually creating a paginator instance, you should manually
+                                    "slice" the array of results you pass to the paginator. If you're unsure
+                                    how to do this, check out the <a
+                                        href="https://secure.php.net/manual/en/function.array-slice.php">array_slice</a>
+                                    PHP function.</p></div>
+                        </blockquote>
+                        <p><a name="displaying-pagination-results"></a></p>
+                        <h2 id="displaying-pagination-results"><a href="#displaying-pagination-results">Displaying
+                            Pagination Results</a></h2>
+                        <p>When calling the <code class=" language-php">paginate</code> method, you will receive an
+                            instance of <code class=" language-php">Illuminate\<span
+                                    class="token package">Pagination<span class="token punctuation">\</span>LengthAwarePaginator</span></code>.
+                            When calling the <code class=" language-php">simplePaginate</code> method, you will receive
+                            an instance of <code class=" language-php">Illuminate\<span class="token package">Pagination<span
+                                    class="token punctuation">\</span>Paginator</span></code>.
+                            These objects provide several methods that describe the result set. In
+                            addition to these helpers methods, the paginator instances are iterators
+                            and may be looped as an array. So, once you have retrieved the results,
+                            you may display the results and render the page links using <a
+                                    href="https://laravel.com/docs/7.x/blade">Blade</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>div <span
+                                class="token keyword">class</span><span class="token operator">=</span><span
+                                class="token double-quoted-string string">"container"</span><span
+                                class="token operator">&gt;</span>
+    @<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$users</span> <span
+                                    class="token keyword">as</span> <span class="token variable">$user</span><span
+                                    class="token punctuation">)</span>
+        <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    @<span class="token keyword">endforeach</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">links</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">}</span><span
+                                    class="token punctuation">}</span></code></pre>
+                        <p>The <code class=" language-php">links</code> method will render the links to the rest of the
+                            pages in the result set. Each of these links will already contain the proper <code
+                                    class=" language-php">page</code> query string variable. Remember, the HTML
+                            generated by the <code class=" language-php">links</code> method is compatible with the <a
+                                    href="https://getbootstrap.com/">Bootstrap CSS framework</a>.</p>
+                        <h4>Customizing The Paginator URI</h4>
+                        <p>The <code class=" language-php">withPath</code> method allows you to
+                            customize the URI used by the paginator when generating links. For
+                            example, if you want the paginator to generate links like <code
+                                    class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//example.com/custom/url?page=N</span></code>, you should pass
+                            <code class=" language-php">custom<span class="token operator">/</span>url</code> to the
+                            <code class=" language-php">withPath</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$users</span> <span class="token operator">=</span> App\<span class="token package">User</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">paginate</span><span class="token punctuation">(</span><span
+                                    class="token number">15</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token variable">$users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">withPath</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'custom/url'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Appending To Pagination Links</h4>
+                        <p>You may append to the query string of pagination links using the <code class=" language-php">appends</code>
+                            method. For example, to append <code class=" language-php">sort<span class="token operator">=</span>votes</code>
+                            to each pagination link, you should make the following call to <code class=" language-php">appends</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">appends</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'sort'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'votes'</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">links</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+                        <p>If you wish to append all current query string values to the pagination links you may use the
+                            <code class=" language-php">withQueryString</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">withQueryString</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">links</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">}</span><span
+                                class="token punctuation">}</span></code></pre>
+                        <p>If you wish to append a "hash fragment" to the paginator's URLs, you may use the <code
+                                class=" language-php">fragment</code> method. For example, to append <code
+                                class=" language-php"><span class="token shell-comment comment">#foo</span></code> to
+                            the end of each pagination link, make the following call to the <code class=" language-php">fragment</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">fragment</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">links</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+                        <h4>Adjusting The Pagination Link Window</h4>
+                        <p>You may control how many additional links are displayed on each side
+                            of the paginator's URL "window". By default, three links are displayed
+                            on each side of the primary paginator links. However, you may control
+                            this number using the <code class=" language-php">onEachSide</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                class="token variable">$users</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">onEachSide</span><span
+                                class="token punctuation">(</span><span class="token number">5</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">links</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
+                        <p><a name="converting-results-to-json"></a></p>
+                        <h3 id="converting-results-to-json"><a href="#converting-results-to-json">Converting Results To
+                            JSON</a></h3>
+                        <p>The Laravel paginator result classes implement the <code
+                                class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Jsonable</span></code>
+                            Interface contract and expose the <code class=" language-php">toJson</code>
+                            method, so it's very easy to convert your pagination results to JSON.
+                            You may also convert a paginator instance to JSON by returning it from a
+                            route or controller action:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> App\<span class="token package">User</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">paginate</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The JSON from the paginator will include meta information such as <code
+                                class=" language-php">total</code>, <code class=" language-php">current_page</code>,
+                            <code class=" language-php">last_page</code>, and more. The actual result objects will be
+                            available via the <code class=" language-php">data</code> key in the JSON array. Here is an
+                            example of the JSON created by returning a paginator instance from a route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span>
+   <span class="token double-quoted-string string">"total"</span><span class="token punctuation">:</span> <span
+                                    class="token number">50</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"per_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">15</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"current_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"last_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">4</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"first_page_url"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://laravel.app?page=1"</span><span
+                                    class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"last_page_url"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://laravel.app?page=4"</span><span
+                                    class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"next_page_url"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://laravel.app?page=2"</span><span
+                                    class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"prev_page_url"</span><span class="token punctuation">:</span> <span
+                                    class="token constant">null</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"path"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://laravel.app"</span><span
+                                    class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"from"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"to"</span><span class="token punctuation">:</span> <span
+                                    class="token number">15</span><span class="token punctuation">,</span>
+   <span class="token double-quoted-string string">"data"</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Result Object</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Result Object</span>
+        <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="customizing-the-pagination-view"></a></p>
+                        <h2 id="customizing-the-pagination-view"><a href="#customizing-the-pagination-view">Customizing
+                            The Pagination View</a></h2>
+                        <p>By default, the views rendered to display the pagination links are
+                            compatible with the Bootstrap CSS framework. However, if you are not
+                            using Bootstrap, you are free to define your own views to render these
+                            links. When calling the <code class=" language-php">links</code> method on a paginator
+                            instance, pass the view name as the first argument to the method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                class="token variable">$paginator</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">links</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'view.name'</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">}</span><span
+                                class="token punctuation">}</span>
+
+<span class="token comment">// Passing data to the view...</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$paginator</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">links</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'view.name'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">}</span><span
+                                    class="token punctuation">}</span></code></pre>
+                        <p>However, the easiest way to customize the pagination views is by exporting them to your <code
+                                class=" language-php">resources<span class="token operator">/</span>views<span
+                                class="token operator">/</span>vendor</code> directory using the <code
+                                class=" language-php">vendor<span class="token punctuation">:</span>publish</code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>tag<span
+                                class="token operator">=</span>laravel<span
+                                class="token operator">-</span>pagination</code></pre>
+                        <p>This command will place the views in the <code class=" language-php">resources<span
+                                class="token operator">/</span>views<span class="token operator">/</span>vendor<span
+                                class="token operator">/</span>pagination</code> directory. The <code
+                                class=" language-php">bootstrap<span class="token operator">-</span><span
+                                class="token number">4.</span>blade<span class="token punctuation">.</span>php</code>
+                            file within this directory corresponds to the default pagination view. You may edit this
+                            file to modify the pagination HTML.</p>
+                        <p>If you would like to designate a different file as the default pagination view, you may use
+                            the paginator's <code class=" language-php">defaultView</code> and <code
+                                    class=" language-php">defaultSimpleView</code> methods within your <code
+                                    class=" language-php">AppServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Pagination<span class="token punctuation">\</span>Paginator</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Paginator<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">defaultView</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'view-name'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Paginator<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">defaultSimpleView</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'view-name'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="paginator-instance-methods"></a></p>
+                        <h2 id="paginator-instance-methods"><a href="#paginator-instance-methods">Paginator Instance
+                            Methods</a></h2>
+                        <p>Each paginator instance provides additional pagination information via the following
+                            methods:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">count</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the number of items for the current page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">currentPage</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the current page number.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">firstItem</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the result number of the first item in the results.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">getOptions</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the paginator options.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">getUrlRange</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token variable">$start</span><span class="token punctuation">,</span>
+                                    <span class="token variable">$end</span><span
+                                            class="token punctuation">)</span></code></td>
+                                <td>Create a range of pagination URLs.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">hasPages</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Determine if there are enough items to split into multiple pages.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">hasMorePages</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Determine if there is more items in the data store.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">items</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the items for the current page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">lastItem</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the result number of the last item in the results.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">lastPage</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the page number of the last available page. (Not available when using <code
+                                        class=" language-php">simplePaginate</code>).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">nextPageUrl</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the URL for the next page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">onFirstPage</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Determine if the paginator is on the first page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">perPage</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>The number of items to be shown per page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">previousPageUrl</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the URL for the previous page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">total</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Determine the total number of matching items in the data store. (Not available when
+                                    using <code class=" language-php">simplePaginate</code>).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">url</span><span class="token punctuation">(</span><span
+                                        class="token variable">$page</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the URL for a given page number.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">getPageName</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Get the query string variable used to store the page.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token variable">$results</span><span
+                                        class="token operator">-</span><span class="token operator">&gt;</span><span
+                                        class="token function">setPageName</span><span
+                                        class="token punctuation">(</span><span class="token variable">$name</span><span
+                                        class="token punctuation">)</span></code></td>
+                                <td>Set the query string variable used to store the page.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

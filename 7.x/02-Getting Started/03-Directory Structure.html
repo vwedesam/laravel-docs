@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Directory Structure - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/structure">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Directory%20Structure_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Directory%20Structure_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Directory%20Structure_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Directory%20Structure_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Directory Structure</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#the-root-directory">The Root Directory</a>
+                                <ul>
+                                    <li><a href="#the-root-app-directory">The <code class=" language-php">app</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-bootstrap-directory">The <code
+                                            class=" language-php">bootstrap</code> Directory</a></li>
+                                    <li><a href="#the-config-directory">The <code class=" language-php">config</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-database-directory">The <code
+                                            class=" language-php">database</code> Directory</a></li>
+                                    <li><a href="#the-public-directory">The <code class=" language-php"><span
+                                            class="token keyword">public</span></code> Directory</a></li>
+                                    <li><a href="#the-resources-directory">The <code
+                                            class=" language-php">resources</code> Directory</a></li>
+                                    <li><a href="#the-routes-directory">The <code class=" language-php">routes</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-storage-directory">The <code class=" language-php">storage</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-tests-directory">The <code class=" language-php">tests</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-vendor-directory">The <code class=" language-php">vendor</code>
+                                        Directory</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#the-app-directory">The App Directory</a>
+                                <ul>
+                                    <li><a href="#the-broadcasting-directory">The <code class=" language-php">Broadcasting</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-console-directory">The <code class=" language-php">Console</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-events-directory">The <code class=" language-php">Events</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-exceptions-directory">The <code
+                                            class=" language-php">Exceptions</code> Directory</a></li>
+                                    <li><a href="#the-http-directory">The <code class=" language-php">Http</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-jobs-directory">The <code class=" language-php">Jobs</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-listeners-directory">The <code
+                                            class=" language-php">Listeners</code> Directory</a></li>
+                                    <li><a href="#the-mail-directory">The <code class=" language-php">Mail</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-notifications-directory">The <code class=" language-php">Notifications</code>
+                                        Directory</a></li>
+                                    <li><a href="#the-policies-directory">The <code
+                                            class=" language-php">Policies</code> Directory</a></li>
+                                    <li><a href="#the-providers-directory">The <code
+                                            class=" language-php">Providers</code> Directory</a></li>
+                                    <li><a href="#the-rules-directory">The <code class=" language-php">Rules</code>
+                                        Directory</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>The default Laravel application structure is intended to provide a
+                            great starting point for both large and small applications. But you are
+                            free to organize your application however you like. Laravel imposes
+                            almost no restrictions on where any given class is located - as long as
+                            Composer can autoload the class.</p>
+                        <h4>Where Is The Models Directory?</h4>
+                        <p>When getting started with Laravel, many developers are confused by the lack of a <code
+                                class=" language-php">models</code>
+                            directory. However, the lack of such a directory is intentional. We
+                            find the word "models" ambiguous since it means many different things to
+                            many different people. Some developers refer to an application's
+                            "model" as the totality of all of its business logic, while others refer
+                            to "models" as classes that interact with a relational database.</p>
+                        <p>For this reason, we choose to place Eloquent models in the <code
+                                class=" language-php">app</code> directory by default, and allow the developer to place
+                            them somewhere else if they choose.</p>
+                        <p><a name="the-root-directory"></a></p>
+                        <h2 id="the-root-directory"><a href="#the-root-directory">The Root Directory</a></h2>
+                        <p><a name="the-root-app-directory"></a></p>
+                        <h4 id="the-root-app-directory"><a href="#the-root-app-directory">The App Directory</a></h4>
+                        <p>The <code class=" language-php">app</code> directory contains the
+                            core code of your application. We'll explore this directory in more
+                            detail soon; however, almost all of the classes in your application will
+                            be in this directory.</p>
+                        <p><a name="the-bootstrap-directory"></a></p>
+                        <h4 id="the-bootstrap-directory"><a href="#the-bootstrap-directory">The Bootstrap Directory</a>
+                        </h4>
+                        <p>The <code class=" language-php">bootstrap</code> directory contains the <code
+                                class=" language-php">app<span class="token punctuation">.</span>php</code> file which
+                            bootstraps the framework. This directory also houses a <code
+                                    class=" language-php">cache</code> directory which contains framework generated
+                            files for performance optimization such as the route and services cache files.</p>
+                        <p><a name="the-config-directory"></a></p>
+                        <h4 id="the-config-directory"><a href="#the-config-directory">The Config Directory</a></h4>
+                        <p>The <code class=" language-php">config</code> directory, as the name
+                            implies, contains all of your application's configuration files. It's a
+                            great idea to read through all of these files and familiarize yourself
+                            with all of the options available to you.</p>
+                        <p><a name="the-database-directory"></a></p>
+                        <h4 id="the-database-directory"><a href="#the-database-directory">The Database Directory</a>
+                        </h4>
+                        <p>The <code class=" language-php">database</code> directory contains
+                            your database migrations, model factories, and seeds. If you wish, you
+                            may also use this directory to hold an SQLite database.</p>
+                        <p><a name="the-public-directory"></a></p>
+                        <h4 id="the-public-directory"><a href="#the-public-directory">The Public Directory</a></h4>
+                        <p>The <code class=" language-php"><span class="token keyword">public</span></code> directory
+                            contains the <code class=" language-php">index<span
+                                    class="token punctuation">.</span>php</code>
+                            file, which is the entry point for all requests entering your
+                            application and configures autoloading. This directory also houses your
+                            assets such as images, JavaScript, and CSS.</p>
+                        <p><a name="the-resources-directory"></a></p>
+                        <h4 id="the-resources-directory"><a href="#the-resources-directory">The Resources Directory</a>
+                        </h4>
+                        <p>The <code class=" language-php">resources</code> directory contains
+                            your views as well as your raw, un-compiled assets such as LESS, SASS,
+                            or JavaScript. This directory also houses all of your language files.</p>
+                        <p><a name="the-routes-directory"></a></p>
+                        <h4 id="the-routes-directory"><a href="#the-routes-directory">The Routes Directory</a></h4>
+                        <p>The <code class=" language-php">routes</code> directory contains all
+                            of the route definitions for your application. By default, several route
+                            files are included with Laravel: <code class=" language-php">web<span
+                                    class="token punctuation">.</span>php</code>, <code class=" language-php">api<span
+                                    class="token punctuation">.</span>php</code>, <code
+                                    class=" language-php">console<span class="token punctuation">.</span>php</code> and
+                            <code class=" language-php">channels<span class="token punctuation">.</span>php</code>.</p>
+                        <p>The <code class=" language-php">web<span class="token punctuation">.</span>php</code> file
+                            contains routes that the <code class=" language-php">RouteServiceProvider</code> places in
+                            the <code class=" language-php">web</code>
+                            middleware group, which provides session state, CSRF protection, and
+                            cookie encryption. If your application does not offer a stateless,
+                            RESTful API, all of your routes will most likely be defined in the <code
+                                    class=" language-php">web<span class="token punctuation">.</span>php</code> file.
+                        </p>
+                        <p>The <code class=" language-php">api<span class="token punctuation">.</span>php</code> file
+                            contains routes that the <code class=" language-php">RouteServiceProvider</code> places in
+                            the <code class=" language-php">api</code>
+                            middleware group, which provides rate limiting. These routes are
+                            intended to be stateless, so requests entering the application through
+                            these routes are intended to be authenticated via tokens and will not
+                            have access to session state.</p>
+                        <p>The <code class=" language-php">console<span class="token punctuation">.</span>php</code>
+                            file is where you may define all of your Closure based console
+                            commands. Each Closure is bound to a command instance allowing a simple
+                            approach to interacting with each command's IO methods. Even though this
+                            file does not define HTTP routes, it defines console based entry points
+                            (routes) into your application.</p>
+                        <p>The <code class=" language-php">channels<span class="token punctuation">.</span>php</code>
+                            file is where you may register all of the event broadcasting channels that your application
+                            supports.</p>
+                        <p><a name="the-storage-directory"></a></p>
+                        <h4 id="the-storage-directory"><a href="#the-storage-directory">The Storage Directory</a></h4>
+                        <p>The <code class=" language-php">storage</code> directory contains
+                            your compiled Blade templates, file based sessions, file caches, and
+                            other files generated by the framework. This directory is segregated
+                            into <code class=" language-php">app</code>, <code class=" language-php">framework</code>,
+                            and <code class=" language-php">logs</code> directories. The <code
+                                    class=" language-php">app</code> directory may be used to store any files generated
+                            by your application. The <code class=" language-php">framework</code> directory is used to
+                            store framework generated files and caches. Finally, the <code
+                                    class=" language-php">logs</code> directory contains your application's log files.
+                        </p>
+                        <p>The <code class=" language-php">storage<span class="token operator">/</span>app<span
+                                class="token operator">/</span><span class="token keyword">public</span></code>
+                            directory may be used to store user-generated files, such as profile
+                            avatars, that should be publicly accessible. You should create a
+                            symbolic link at <code class=" language-php"><span class="token keyword">public</span><span
+                                    class="token operator">/</span>storage</code> which points to this directory. You
+                            may create the link using the <code class=" language-php">php artisan storage<span
+                                    class="token punctuation">:</span>link</code> command.</p>
+                        <p><a name="the-tests-directory"></a></p>
+                        <h4 id="the-tests-directory"><a href="#the-tests-directory">The Tests Directory</a></h4>
+                        <p>The <code class=" language-php">tests</code> directory contains your automated tests. An
+                            example <a href="https://phpunit.de/">PHPUnit</a> test is provided out of the box. Each test
+                            class should be suffixed with the word <code class=" language-php">Test</code>. You may run
+                            your tests using the <code class=" language-php">phpunit</code> or <code
+                                    class=" language-php">php vendor<span class="token operator">/</span>bin<span
+                                    class="token operator">/</span>phpunit</code> commands.</p>
+                        <p><a name="the-vendor-directory"></a></p>
+                        <h4 id="the-vendor-directory"><a href="#the-vendor-directory">The Vendor Directory</a></h4>
+                        <p>The <code class=" language-php">vendor</code> directory contains your <a
+                                href="https://getcomposer.org/">Composer</a> dependencies.</p>
+                        <p><a name="the-app-directory"></a></p>
+                        <h2 id="the-app-directory"><a href="#the-app-directory">The App Directory</a></h2>
+                        <p>The majority of your application is housed in the <code class=" language-php">app</code>
+                            directory. By default, this directory is namespaced under <code
+                                    class=" language-php">App</code> and is autoloaded by Composer using the <a
+                                    href="https://www.php-fig.org/psr/psr-4/">PSR-4 autoloading standard</a>.</p>
+                        <p>The <code class=" language-php">app</code> directory contains a variety of additional
+                            directories such as <code class=" language-php">Console</code>, <code class=" language-php">Http</code>,
+                            and <code class=" language-php">Providers</code>. Think of the <code class=" language-php">Console</code>
+                            and <code class=" language-php">Http</code>
+                            directories as providing an API into the core of your application. The
+                            HTTP protocol and CLI are both mechanisms to interact with your
+                            application, but do not actually contain application logic. In other
+                            words, they are two ways of issuing commands to your application. The <code
+                                    class=" language-php">Console</code> directory contains all of your Artisan
+                            commands, while the <code class=" language-php">Http</code> directory contains your
+                            controllers, middleware, and requests.</p>
+                        <p>A variety of other directories will be generated inside the <code
+                                class=" language-php">app</code> directory as you use the <code class=" language-php">make</code>
+                            Artisan commands to generate classes. So, for example, the <code
+                                    class=" language-php">app<span class="token operator">/</span>Jobs</code> directory
+                            will not exist until you execute the <code class=" language-php">make<span
+                                    class="token punctuation">:</span>job</code> Artisan command to generate a job
+                            class.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="03-Directory%20Structure_files/lightbulb.svg"></div>
+                                <p class="content"> Many of the classes in the <code class=" language-php">app</code>
+                                    directory can be generated by Artisan via commands. To review the available
+                                    commands, run the <code class=" language-php">php artisan <span
+                                            class="token keyword">list</span> make</code> command in your terminal.</p>
+                            </div>
+                        </blockquote>
+                        <p><a name="the-broadcasting-directory"></a></p>
+                        <h4 id="the-broadcasting-directory"><a href="#the-broadcasting-directory">The Broadcasting
+                            Directory</a></h4>
+                        <p>The <code class=" language-php">Broadcasting</code> directory contains all of the broadcast
+                            channel classes for your application. These classes are generated using the <code
+                                    class=" language-php">make<span class="token punctuation">:</span>channel</code>
+                            command. This directory does not exist by default, but will be created
+                            for you when you create your first channel. To learn more about
+                            channels, check out the documentation on <a
+                                    href="https://laravel.com/docs/7.x/broadcasting">event broadcasting</a>.</p>
+                        <p><a name="the-console-directory"></a></p>
+                        <h4 id="the-console-directory"><a href="#the-console-directory">The Console Directory</a></h4>
+                        <p>The <code class=" language-php">Console</code> directory contains all of the custom Artisan
+                            commands for your application. These commands may be generated using the <code
+                                    class=" language-php">make<span class="token punctuation">:</span>command</code>
+                            command. This directory also houses your console kernel, which is where your custom Artisan
+                            commands are registered and your <a href="https://laravel.com/docs/7.x/scheduling">scheduled
+                                tasks</a> are defined.</p>
+                        <p><a name="the-events-directory"></a></p>
+                        <h4 id="the-events-directory"><a href="#the-events-directory">The Events Directory</a></h4>
+                        <p>This directory does not exist by default, but will be created for you by the <code
+                                class=" language-php">event<span class="token punctuation">:</span>generate</code> and
+                            <code class=" language-php">make<span class="token punctuation">:</span>event</code> Artisan
+                            commands. The <code class=" language-php">Events</code> directory houses <a
+                                    href="https://laravel.com/docs/7.x/events">event classes</a>.
+                            Events may be used to alert other parts of your application that a
+                            given action has occurred, providing a great deal of flexibility and
+                            decoupling.</p>
+                        <p><a name="the-exceptions-directory"></a></p>
+                        <h4 id="the-exceptions-directory"><a href="#the-exceptions-directory">The Exceptions
+                            Directory</a></h4>
+                        <p>The <code class=" language-php">Exceptions</code> directory contains
+                            your application's exception handler and is also a good place to place
+                            any exceptions thrown by your application. If you would like to
+                            customize how your exceptions are logged or rendered, you should modify
+                            the <code class=" language-php">Handler</code> class in this directory.</p>
+                        <p><a name="the-http-directory"></a></p>
+                        <h4 id="the-http-directory"><a href="#the-http-directory">The Http Directory</a></h4>
+                        <p>The <code class=" language-php">Http</code> directory contains your
+                            controllers, middleware, and form requests. Almost all of the logic to
+                            handle requests entering your application will be placed in this
+                            directory.</p>
+                        <p><a name="the-jobs-directory"></a></p>
+                        <h4 id="the-jobs-directory"><a href="#the-jobs-directory">The Jobs Directory</a></h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">make<span class="token punctuation">:</span>job</code> Artisan
+                            command. The <code class=" language-php">Jobs</code> directory houses the <a
+                                    href="https://laravel.com/docs/7.x/queues">queueable jobs</a>
+                            for your application. Jobs may be queued by your application or run
+                            synchronously within the current request lifecycle. Jobs that run
+                            synchronously during the current request are sometimes referred to as
+                            "commands" since they are an implementation of the <a
+                                    href="https://en.wikipedia.org/wiki/Command_pattern">command pattern</a>.</p>
+                        <p><a name="the-listeners-directory"></a></p>
+                        <h4 id="the-listeners-directory"><a href="#the-listeners-directory">The Listeners Directory</a>
+                        </h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">event<span class="token punctuation">:</span>generate</code> or
+                            <code class=" language-php">make<span class="token punctuation">:</span>listener</code>
+                            Artisan commands. The <code class=" language-php">Listeners</code> directory contains the
+                            classes that handle your <a href="https://laravel.com/docs/7.x/events">events</a>. Event
+                            listeners receive an event instance and perform logic in response to the event being fired.
+                            For example, a <code class=" language-php">UserRegistered</code> event might be handled by a
+                            <code class=" language-php">SendWelcomeEmail</code> listener.</p>
+                        <p><a name="the-mail-directory"></a></p>
+                        <h4 id="the-mail-directory"><a href="#the-mail-directory">The Mail Directory</a></h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">make<span class="token punctuation">:</span>mail</code> Artisan
+                            command. The <code class=" language-php">Mail</code>
+                            directory contains all of your classes that represent emails sent by
+                            your application. Mail objects allow you to encapsulate all of the logic
+                            of building an email in a single, simple class that may be sent using
+                            the <code class=" language-php">Mail<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>send</code> method.</p>
+                        <p><a name="the-notifications-directory"></a></p>
+                        <h4 id="the-notifications-directory"><a href="#the-notifications-directory">The Notifications
+                            Directory</a></h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">make<span class="token punctuation">:</span>notification</code>
+                            Artisan command. The <code class=" language-php">Notifications</code>
+                            directory contains all of the "transactional" notifications that are
+                            sent by your application, such as simple notifications about events that
+                            happen within your application. Laravel's notification features
+                            abstracts sending notifications over a variety of drivers such as email,
+                            Slack, SMS, or stored in a database.</p>
+                        <p><a name="the-policies-directory"></a></p>
+                        <h4 id="the-policies-directory"><a href="#the-policies-directory">The Policies Directory</a>
+                        </h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">make<span class="token punctuation">:</span>policy</code>
+                            Artisan command. The <code class=" language-php">Policies</code>
+                            directory contains the authorization policy classes for your
+                            application. Policies are used to determine if a user can perform a
+                            given action against a resource. For more information, check out the <a
+                                    href="https://laravel.com/docs/7.x/authorization">authorization documentation</a>.
+                        </p>
+                        <p><a name="the-providers-directory"></a></p>
+                        <h4 id="the-providers-directory"><a href="#the-providers-directory">The Providers Directory</a>
+                        </h4>
+                        <p>The <code class=" language-php">Providers</code> directory contains all of the <a
+                                href="https://laravel.com/docs/7.x/providers">service providers</a>
+                            for your application. Service providers bootstrap your application by
+                            binding services in the service container, registering events, or
+                            performing any other tasks to prepare your application for incoming
+                            requests.</p>
+                        <p>In a fresh Laravel application, this directory will already contain
+                            several providers. You are free to add your own providers to this
+                            directory as needed.</p>
+                        <p><a name="the-rules-directory"></a></p>
+                        <h4 id="the-rules-directory"><a href="#the-rules-directory">The Rules Directory</a></h4>
+                        <p>This directory does not exist by default, but will be created for you if you execute the
+                            <code class=" language-php">make<span class="token punctuation">:</span>rule</code> Artisan
+                            command. The <code class=" language-php">Rules</code>
+                            directory contains the custom validation rule objects for your
+                            application. Rules are used to encapsulate complicated validation logic
+                            in a simple object. For more information, check out the <a
+                                    href="https://laravel.com/docs/7.x/validation">validation documentation</a>.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

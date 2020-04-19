@@ -1,0 +1,31 @@
+_carbonads_go({
+  "ads": [
+    {
+      "active": "1",
+      "ad_via_link": "https://buy.buysellads.com/checkout/new/?utm_source=laravel-com-carbon\u0026utm_medium=ad_via_link\u0026utm_campaign=in_unit\u0026utm_term=carbon",
+      "bannerid": "409623",
+      "creativeid": "426779",
+      "evenodd": "0",
+      "external_id": "30971",
+      "fallbackImage": "https://fallbacks.carbonads.com/nosvn/fallbacks/dabf8eec0afae2a669e68d8dc1092605.jpg",
+      "fallbackLink": "https://forge.laravel.com",
+      "fallbackTitle": "Deploy Laravel and PHP applications on DigitalOcean, Linode, \u0026 AWS.",
+      "height": "0",
+      "i": "0",
+      "identifier": "7bba828b2240e485242e6ab38906ebb7",
+      "longimp": "T45C3H4OTTTTTTTUZLQHATTTTTT3UFALZYTTTTTTTT5QVUETTTTTT",
+      "longlink": "TC5C3H4OTTTTTTTUZLQHATTTTTT3UFALZYTTTTTTTT5QVUETTTTTTBDW5JYFC5JGHRENVZI35JLCBR35K2UNBZSDHRWNB77SKHLFKGQJC67DTKJLCTYIC5QECKYIL5SHKKOI4KQLCT7D6KJMCASI6K7MFTRNCZI3FW7DC2JNC6YDC27S5TUC4GQLCYBI6537CYSIP5S3H7EIB23NCTSDTKJUCWYINA75K6OIPKQNC67ILK7SKH7LAYQRC67D523JC6AI653S2HLCKYQRF2WNV7I3ZRNC4R3RF2EN4BZ6FWRN4YZQKJGNYYZWFWRNCYZD23LIB5SJ53JDBKQSFRWDBBDW5JYFC5JGHRSU5R75K7ENC7Z42RUNNZID2RNLOYZMKJWNPSIDKMUCPRDU2R7CNZSE5QUNVRZD5J7IORZW2MGNCYZ253ENL7S5FMTWAUBIQM3HOJDQ52YCYYZ7ZR3N4AI42RUHOEZD5HBNLASQ5JWNOSLXVRNCOYI32JGMEN4XVMFHOMDHG3B6VQIM5JNMOASG5M7CC7QRV2EU6YIG2YIFPRD2ZRNNP7DQ5MNIBAD32HLHO7DQ52YCYYZ7",
+      "pixel": "https://ad.atdmt.com/i/img;adv=11202201390319;ec=11202225772358;c.a=23661037;p.a=265289675;a.a=460602751;s.a=5161393;as.a=127411928;idfa=;idfa_lat=;aaid=;aaid_lat=;cache=",
+      "rendering": "carbon",
+      "smallImage": "https://cdn4.buysellads.net/uu/1/61121/1585151450-20191021_260x200_compressed.png",
+      "statimp": "//srv.buysellads.com/ads/imp/x/GTND42QYCYSIEKJICYB4YKQMFTSDK2QEC67IPZ3JCWADK2JNCA7DLKQKC6BIE2JUCYBDEK3EHJWNBADLKM7UCBZG2Y",
+      "statlink": "//srv.buysellads.com/ads/click/x/GTND42QYCYSIEKJICYB4YKQMFTSDK2QEC67IPZ3JCWADK2JNCA7DLKQKC6BIE2JUCYBDEK3EHJNCLSIZ",
+      "timestamp": "1586765479",
+      "title": "Power-up the lifetime value of your app users with rewarded video ads",
+      "width": "0",
+      "zoneid": "31900",
+      "zonekey": "CKYILK3E"
+    },
+    {}
+  ]
+});

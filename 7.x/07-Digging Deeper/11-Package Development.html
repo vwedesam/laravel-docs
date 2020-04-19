@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Package Development - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/packages">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="11-Package%20Development_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="11-Package%20Development_files/app.css">
+
+    <!-- Load JS -->
+    <script src="11-Package%20Development_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="11-Package%20Development_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+            <a href="https://laravel.com/" class="logo">
+                <img class="mark" src="11-Package%20Development_files/logomark.svg" alt="Laravel">
+                <img class="type" src="11-Package%20Development_files/logotype.svg" alt="Laravel">
+            </a>
+            <nav>
+                <div class="navigation_contain" style="display: block;">
+                    <div class="docs_sidebar">
+                        <ul>
+                            <li>
+                                <h2>Prologue</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/releases">Release Notes</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/upgrade">Upgrade Guide</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/contributions">Contribution Guide</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Getting Started</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/installation">Installation</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/configuration">Configuration</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/structure">Directory Structure</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/homestead">Homestead</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/valet">Valet</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/deployment">Deployment</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Architecture Concepts</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/lifecycle">Request Lifecycle</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/container">Service Container</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/providers">Service Providers</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/facades">Facades</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/contracts">Contracts</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>The Basics</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/routing">Routing</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/middleware">Middleware</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/csrf">CSRF Protection</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/controllers">Controllers</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/requests">Requests</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/responses">Responses</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/views">Views</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/urls">URL Generation</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/session">Session</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/validation">Validation</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/errors">Error Handling</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/logging">Logging</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Frontend</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/blade">Blade Templates</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/localization">Localization</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/frontend">Frontend Scaffolding</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/mix">Compiling Assets</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Security</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/authentication">Authentication</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/authorization">Authorization</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/verification">Email Verification</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/encryption">Encryption</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/hashing">Hashing</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/passwords">Password Reset</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub--on">
+                                <h2>Digging Deeper</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/artisan">Artisan Console</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/broadcasting">Broadcasting</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/cache">Cache</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/collections">Collections</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/events">Events</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/filesystem">File Storage</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/helpers">Helpers</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/http-client">HTTP Client</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/mail">Mail</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/notifications">Notifications</a></li>
+                                    <li class="active"><a href="https://laravel.com/docs/7.x/packages">Package
+                                        Development</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/queues">Queues</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/scheduling">Task Scheduling</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Database</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/database">Getting Started</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/queries">Query Builder</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/pagination">Pagination</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/migrations">Migrations</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/seeding">Seeding</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/redis">Redis</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Eloquent ORM</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/eloquent">Getting Started</a></li>
+                                    <li>
+                                        <a href="https://laravel.com/docs/7.x/eloquent-relationships">Relationships</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/eloquent-collections">Collections</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/eloquent-mutators">Mutators</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/eloquent-resources">API Resources</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://laravel.com/docs/7.x/eloquent-serialization">Serialization</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Testing</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/testing">Getting Started</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/http-tests">HTTP Tests</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/console-tests">Console Tests</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/dusk">Browser Tests</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/database-testing">Database</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/mocking">Mocking</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2>Official Packages</h2>
+                                <ul>
+                                    <li><a href="https://laravel.com/docs/7.x/billing">Cashier (Stripe)</a></li>
+                                    <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                    </li>
+                                    <li><a href="https://laravel.com/docs/7.x/dusk">Dusk</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/envoy">Envoy</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/horizon">Horizon</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/passport">Passport</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/sanctum">Sanctum</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/scout">Scout</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/socialite">Socialite</a></li>
+                                    <li><a href="https://laravel.com/docs/7.x/telescope">Telescope</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <script async="" type="text/javascript" src="11-Package%20Development_files/carbon.js"
+                            id="_carbonads_js"></script>
+                    <div id="carbonads"><span><span class="carbon-wrap"><a
+                            href="https://srv.carbonads.net/ads/click/x/GTND42QYCYSIE2JNCYA4YKQMFTSDKK77CVAIPZ3JCWADK2JMCYBDP23KC6BIE2JUCYYI6K3EHJNCLSIZ?segment=placement:laravelcom;"
+                            class="carbon-img" target="_blank" rel="noopener sponsored"><img
+                            src="11-Package%20Development_files/1564610849-Atlas_Carbon_Ad_1.png"
+                            alt="ads via Carbon" style="max-width: 130px;" border="0"></a><a
+                            href="https://srv.carbonads.net/ads/click/x/GTND42QYCYSIE2JNCYA4YKQMFTSDKK77CVAIPZ3JCWADK2JMCYBDP23KC6BIE2JUCYYI6K3EHJNCLSIZ?segment=placement:laravelcom;"
+                            class="carbon-text" target="_blank" rel="noopener sponsored">MongoDB Atlas is the only true global, multi-cloud database service. Try now!</a></span><a
+                            href="http://carbonads.net/?utm_source=laravelcom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon"
+                            class="carbon-poweredby" target="_blank"
+                            rel="noopener sponsored">ads via Carbon</a></span></div>
+
+
+                </div>
+            </nav>
+            <div class="trigger_contain">
+                <a href="#" class="nav_trigger" aria-label="Menu">
+                    <div class="bar"></div>
+                </a>
+            </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Package Development</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#a-note-on-facades">A Note On Facades</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#package-discovery">Package Discovery</a></li>
+                            <li><a href="#service-providers">Service Providers</a></li>
+                            <li><a href="#resources">Resources</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#migrations">Migrations</a></li>
+                                    <li><a href="#factories">Factories</a></li>
+                                    <li><a href="#routes">Routes</a></li>
+                                    <li><a href="#translations">Translations</a></li>
+                                    <li><a href="#views">Views</a></li>
+                                    <li><a href="#view-components">View Components</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#commands">Commands</a></li>
+                            <li><a href="#public-assets">Public Assets</a></li>
+                            <li><a href="#publishing-file-groups">Publishing File Groups</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Packages are the primary way of adding functionality to Laravel.
+                            Packages might be anything from a great way to work with dates like <a
+                                    href="https://github.com/briannesbitt/Carbon">Carbon</a>, or an entire BDD testing
+                            framework like <a href="https://github.com/Behat/Behat">Behat</a>.</p>
+                        <p>There are different types of packages. Some packages are stand-alone,
+                            meaning they work with any PHP framework. Carbon and Behat are examples
+                            of stand-alone packages. Any of these packages may be used with Laravel
+                            by requesting them in your <code class=" language-php">composer<span
+                                    class="token punctuation">.</span>json</code> file.</p>
+                        <p>On the other hand, other packages are specifically intended for use
+                            with Laravel. These packages may have routes, controllers, views, and
+                            configuration specifically intended to enhance a Laravel application.
+                            This guide primarily covers the development of those packages that are
+                            Laravel specific.</p>
+                        <p><a name="a-note-on-facades"></a></p>
+                        <h3 id="a-note-on-facades"><a href="#a-note-on-facades">A Note On Facades</a></h3>
+                        <p>When writing a Laravel application, it generally does not matter if
+                            you use contracts or facades since both provide essentially equal levels
+                            of testability. However, when writing packages, your package will not
+                            typically have access to all of Laravel's testing helpers. If you would
+                            like to be able to write your package tests as if they existed inside a
+                            typical Laravel application, you may use the <a
+                                    href="https://github.com/orchestral/testbench">Orchestral Testbench</a> package.</p>
+                        <p><a name="package-discovery"></a></p>
+                        <h2 id="package-discovery"><a href="#package-discovery">Package Discovery</a></h2>
+                        <p>In a Laravel application's <code class=" language-php">config<span
+                                class="token operator">/</span>app<span class="token punctuation">.</span>php</code>
+                            configuration file, the <code class=" language-php">providers</code>
+                            option defines a list of service providers that should be loaded by
+                            Laravel. When someone installs your package, you will typically want
+                            your service provider to be included in this list. Instead of requiring
+                            users to manually add your service provider to the list, you may define
+                            the provider in the <code class=" language-php">extra</code> section of your package's <code
+                                    class=" language-php">composer<span class="token punctuation">.</span>json</code>
+                            file. In addition to service providers, you may also list any <a
+                                    href="https://laravel.com/docs/7.x/facades">facades</a> you would like to be
+                            registered:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token double-quoted-string string">"extra"</span><span class="token punctuation">:</span> <span
+                                class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"laravel"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"providers"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">[</span>
+            <span class="token double-quoted-string string">"Barryvdh\\Debugbar\\ServiceProvider"</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"aliases"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"Debugbar"</span><span
+                                    class="token punctuation">:</span> <span class="token double-quoted-string string">"Barryvdh\\Debugbar\\Facade"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+                        <p>Once your package has been configured for discovery, Laravel will
+                            automatically register its service providers and facades when it is
+                            installed, creating a convenient installation experience for your
+                            package's users.</p>
+                        <h3>Opting Out Of Package Discovery</h3>
+                        <p>If you are the consumer of a package and would like to disable
+                            package discovery for a package, you may list the package name in the <code
+                                    class=" language-php">extra</code> section of your application's <code
+                                    class=" language-php">composer<span class="token punctuation">.</span>json</code>
+                            file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token double-quoted-string string">"extra"</span><span class="token punctuation">:</span> <span
+                                class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"laravel"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"dont-discover"</span><span
+                                    class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token double-quoted-string string">"barryvdh/laravel-debugbar"</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+                        <p>You may disable package discovery for all packages using the <code
+                                class=" language-php"><span class="token operator">*</span></code> character inside of
+                            your application's <code class=" language-php">dont<span class="token operator">-</span>discover</code>
+                            directive:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token double-quoted-string string">"extra"</span><span class="token punctuation">:</span> <span
+                                class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"laravel"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"dont-discover"</span><span
+                                    class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token double-quoted-string string">"*"</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="service-providers"></a></p>
+                        <h2 id="service-providers"><a href="#service-providers">Service Providers</a></h2>
+                        <p><a href="https://laravel.com/docs/7.x/providers">Service providers</a>
+                            are the connection points between your package and Laravel. A service
+                            provider is responsible for binding things into Laravel's <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a> and informing
+                            Laravel where to load package resources such as views, configuration, and localization
+                            files.</p>
+                        <p>A service provider extends the <code class=" language-php">Illuminate\<span
+                                class="token package">Support<span
+                                class="token punctuation">\</span>ServiceProvider</span></code> class and contains two
+                            methods: <code class=" language-php">register</code> and <code
+                                    class=" language-php">boot</code>. The base <code class=" language-php">ServiceProvider</code>
+                            class is located in the <code class=" language-php">illuminate<span
+                                    class="token operator">/</span>support</code>
+                            Composer package, which you should add to your own package's
+                            dependencies. To learn more about the structure and purpose of service
+                            providers, check out <a href="https://laravel.com/docs/7.x/providers">their
+                                documentation</a>.</p>
+                        <p><a name="resources"></a></p>
+                        <h2 id="resources"><a href="#resources">Resources</a></h2>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>Typically, you will need to publish your package's configuration file to the application's
+                            own <code class=" language-php">config</code>
+                            directory. This will allow users of your package to easily override
+                            your default configuration options. To allow your configuration files to
+                            be published, call the <code class=" language-php">publishes</code> method from the <code
+                                    class=" language-php">boot</code> method of your service provider:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/path/to/config/courier.php'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">config_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'courier.php'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Now, when users of your package execute Laravel's <code class=" language-php">vendor<span
+                                class="token punctuation">:</span>publish</code>
+                            command, your file will be copied to the specified publish location.
+                            Once your configuration has been published, its values may be accessed
+                            like any other configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> <span
+                                class="token function">config</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'courier.option'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="11-Package%20Development_files/exclamation.svg"></div>
+                                <p class="content"> You should not define Closures in your configuration files. They can
+                                    not be serialized correctly when users execute the <code class=" language-php">config<span
+                                            class="token punctuation">:</span>cache</code> Artisan command.</p></div>
+                        </blockquote>
+                        <h4>Default Package Configuration</h4>
+                        <p>You may also merge your own package configuration file with the
+                            application's published copy. This will allow your users to define only
+                            the options they actually want to override in the published copy of the
+                            configuration. To merge the configurations, use the <code class=" language-php">mergeConfigFrom</code>
+                            method within your service provider's <code class=" language-php">register</code> method:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">mergeConfigFrom</span><span
+                                    class="token punctuation">(</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/path/to/config/courier.php'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'courier'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="11-Package%20Development_files/exclamation.svg"></div>
+                                <p class="content">
+                                    This method only merges the first level of the configuration array. If
+                                    your users partially define a multi-dimensional configuration array, the
+                                    missing options will not be merged.</p></div>
+                        </blockquote>
+                        <p><a name="routes"></a></p>
+                        <h3 id="routes"><a href="#routes">Routes</a></h3>
+                        <p>If your package contains routes, you may load them using the <code class=" language-php">loadRoutesFrom</code>
+                            method. This method will automatically determine if the application's
+                            routes are cached and will not load your routes file if the routes have
+                            already been cached:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">loadRoutesFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/routes.php'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="migrations"></a></p>
+                        <h3 id="migrations"><a href="#migrations">Migrations</a></h3>
+                        <p>If your package contains <a href="https://laravel.com/docs/7.x/migrations">database
+                            migrations</a>, you may use the <code class=" language-php">loadMigrationsFrom</code> method
+                            to inform Laravel how to load them. The <code
+                                    class=" language-php">loadMigrationsFrom</code> method accepts the path to your
+                            package's migrations as its only argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadMigrationsFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/migrations'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once your package's migrations have been registered, they will automatically be run when the
+                            <code class=" language-php">php artisan migrate</code> command is executed. You do not need
+                            to export them to the application's main <code class=" language-php">database<span
+                                    class="token operator">/</span>migrations</code> directory.</p>
+                        <p><a name="factories"></a></p>
+                        <h3 id="factories"><a href="#factories">Factories</a></h3>
+                        <p>If your package contains <a
+                                href="#writing-factories">database
+                            factories</a>, you may use the <code class=" language-php">loadFactoriesFrom</code> method
+                            to inform Laravel how to load them. The <code class=" language-php">loadFactoriesFrom</code>
+                            method accepts the path to your package's factories as its only argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadFactoriesFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/factories'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once your package's factories have been registered, you can use them in your application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token function">factory</span><span
+                                class="token punctuation">(</span>Package\<span class="token package">Namespace<span
+                                class="token punctuation">\</span>Model</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token keyword">class</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">create</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="translations"></a></p>
+                        <h3 id="translations"><a href="#translations">Translations</a></h3>
+                        <p>If your package contains <a href="https://laravel.com/docs/7.x/localization">translation
+                            files</a>, you may use the <code class=" language-php">loadTranslationsFrom</code> method to
+                            inform Laravel how to load them. For example, if your package is named <code
+                                    class=" language-php">courier</code>, you should add the following to your service
+                            provider's <code class=" language-php">boot</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadTranslationsFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/translations'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Package translations are referenced using the <code class=" language-php">package<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>file<span
+                                class="token punctuation">.</span>line</code> syntax convention. So, you may load the
+                            <code class=" language-php">courier</code> package's <code
+                                    class=" language-php">welcome</code> line from the <code class=" language-php">messages</code>
+                            file like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">echo</span> <span class="token function">trans</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'courier::messages.welcome'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Publishing Translations</h4>
+                        <p>If you would like to publish your package's translations to the application's <code
+                                class=" language-php">resources<span class="token operator">/</span>lang<span
+                                class="token operator">/</span>vendor</code> directory, you may use the service
+                            provider's <code class=" language-php">publishes</code> method. The <code
+                                    class=" language-php">publishes</code>
+                            method accepts an array of package paths and their desired publish
+                            locations. For example, to publish the translation files for the <code
+                                    class=" language-php">courier</code> package, you may do the following:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadTranslationsFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/translations'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/path/to/translations'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">resource_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'lang/vendor/courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Now, when users of your package execute Laravel's <code class=" language-php">vendor<span
+                                class="token punctuation">:</span>publish</code> Artisan command, your package's
+                            translations will be published to the specified publish location.</p>
+                        <p><a name="views"></a></p>
+                        <h3 id="views"><a href="#views">Views</a></h3>
+                        <p>To register your package's <a href="https://laravel.com/docs/7.x/views">views</a> with
+                            Laravel, you need to tell Laravel where the views are located. You may do this using the
+                            service provider's <code class=" language-php">loadViewsFrom</code> method. The <code
+                                    class=" language-php">loadViewsFrom</code> method accepts two arguments: the path to
+                            your view templates and your package's name. For example, if your package's name is <code
+                                    class=" language-php">courier</code>, you would add the following to your service
+                            provider's <code class=" language-php">boot</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadViewsFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/views'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Package views are referenced using the <code class=" language-php">package<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>view</code>
+                            syntax convention. So, once your view path is registered in a service provider, you may load
+                            the <code class=" language-php">admin</code> view from the <code class=" language-php">courier</code>
+                            package like so:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin'</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'courier::admin'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Overriding Package Views</h4>
+                        <p>When you use the <code class=" language-php">loadViewsFrom</code> method, Laravel actually
+                            registers two locations for your views: the application's <code class=" language-php">resources<span
+                                    class="token operator">/</span>views<span
+                                    class="token operator">/</span>vendor</code> directory and the directory you
+                            specify. So, using the <code class=" language-php">courier</code> example, Laravel will
+                            first check if a custom version of the view has been provided by the developer in <code
+                                    class=" language-php">resources<span class="token operator">/</span>views<span
+                                    class="token operator">/</span>vendor<span
+                                    class="token operator">/</span>courier</code>. Then, if the view has not been
+                            customized, Laravel will search the package view directory you specified in your call to
+                            <code class=" language-php">loadViewsFrom</code>. This makes it easy for package users to
+                            customize / override your package's views.</p>
+                        <h4>Publishing Views</h4>
+                        <p>If you would like to make your views available for publishing to the application's <code
+                                class=" language-php">resources<span class="token operator">/</span>views<span
+                                class="token operator">/</span>vendor</code> directory, you may use the service
+                            provider's <code class=" language-php">publishes</code> method. The <code
+                                    class=" language-php">publishes</code> method accepts an array of package view paths
+                            and their desired publish locations:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadViewsFrom</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/path/to/views'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/path/to/views'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">resource_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'views/vendor/courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Now, when users of your package execute Laravel's <code class=" language-php">vendor<span
+                                class="token punctuation">:</span>publish</code> Artisan command, your package's views
+                            will be copied to the specified publish location.</p>
+                        <p><a name="view-components"></a></p>
+                        <h3 id="view-components"><a href="#view-components">View Components</a></h3>
+                        <p>If your package contains <a href="#components">view
+                            components</a>, you may use the <code class=" language-php">loadViewComponentsAs</code>
+                            method to inform Laravel how to load them. The <code class=" language-php">loadViewComponentsAs</code>
+                            method accepts two arguments: the tag prefix for your view components
+                            and an array of your view components class. For example, if your
+                            package's prefix is <code class=" language-php">courier</code> and you have <code
+                                    class=" language-php">Alert</code> and <code class=" language-php">Button</code>
+                            view components, you would add the following to your service provider's <code
+                                    class=" language-php">boot</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">loadViewComponentsAs</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'courier'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        Alert<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        Button<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once your view components are registered in a service provider, you may reference them in
+                            your view like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>x<span
+                                class="token operator">-</span>courier<span class="token operator">-</span>alert <span
+                                class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>x<span class="token operator">-</span>courier<span
+                                    class="token operator">-</span>button <span class="token operator">/</span><span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p><a name="commands"></a></p>
+                        <h2 id="commands"><a href="#commands">Commands</a></h2>
+                        <p>To register your package's Artisan commands with Laravel, you may use the <code
+                                class=" language-php">commands</code>
+                            method. This method expects an array of command class names. Once the
+                            commands have been registered, you may execute them using the <a
+                                    href="https://laravel.com/docs/7.x/artisan">Artisan CLI</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap the application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">runningInConsole</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">commands</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+            FooCommand<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+            BarCommand<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="public-assets"></a></p>
+                        <h2 id="public-assets"><a href="#public-assets">Public Assets</a></h2>
+                        <p>Your package may have assets such as JavaScript, CSS, and images. To publish these assets to
+                            the application's <code class=" language-php"><span
+                                    class="token keyword">public</span></code> directory, use the service provider's
+                            <code class=" language-php">publishes</code> method. In this example, we will also add a
+                            <code class=" language-php"><span class="token keyword">public</span></code> asset group
+                            tag, which may be used to publish groups of related assets:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/path/to/assets'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">public_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'vendor/courier'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'public'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Now, when your package's users execute the <code class=" language-php">vendor<span
+                                class="token punctuation">:</span>publish</code>
+                            command, your assets will be copied to the specified publish location.
+                            Since you will typically need to overwrite the assets every time the
+                            package is updated, you may use the <code class=" language-php"><span
+                                    class="token operator">--</span>force</code> flag:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>tag<span
+                                class="token operator">=</span><span class="token keyword">public</span> <span
+                                class="token operator">--</span>force</code></pre>
+                        <p><a name="publishing-file-groups"></a></p>
+                        <h2 id="publishing-file-groups"><a href="#publishing-file-groups">Publishing File Groups</a>
+                        </h2>
+                        <p>You may want to publish groups of package assets and resources
+                            separately. For instance, you might want to allow your users to publish
+                            your package's configuration files without being forced to publish your
+                            package's assets. You may do this by "tagging" them when calling the <code
+                                    class=" language-php">publishes</code> method from a package's service provider. For
+                            example, let's use tags to define two publish groups in the <code
+                                    class=" language-php">boot</code> method of a package service provider:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/../config/package.php'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">config_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'package.php'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'config'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publishes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/../database/migrations/'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">database_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'migrations'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'migrations'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Now your users may publish these groups separately by referencing their tag when executing
+                            the <code class=" language-php">vendor<span class="token punctuation">:</span>publish</code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>tag<span
+                                class="token operator">=</span>config</code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

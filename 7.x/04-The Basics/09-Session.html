@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>HTTP Session - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/session">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="09-Session_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="09-Session_files/app.css">
+
+    <!-- Load JS -->
+    <script src="09-Session_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="09-Session_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>HTTP Session</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#using-the-session">Using The Session</a>
+                                <ul>
+                                    <li><a href="#retrieving-data">Retrieving Data</a></li>
+                                    <li><a href="#storing-data">Storing Data</a></li>
+                                    <li><a href="#flash-data">Flash Data</a></li>
+                                    <li><a href="#deleting-data">Deleting Data</a></li>
+                                    <li><a href="#regenerating-the-session-id">Regenerating The Session ID</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#adding-custom-session-drivers">Adding Custom Session Drivers</a>
+                                <ul>
+                                    <li><a href="#implementing-the-driver">Implementing The Driver</a></li>
+                                    <li><a href="#registering-the-driver">Registering The Driver</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Since HTTP driven applications are stateless, sessions provide a way
+                            to store information about the user across multiple requests. Laravel
+                            ships with a variety of session backends that are accessed through an
+                            expressive, unified API. Support for popular backends such as <a
+                                    href="https://memcached.org/">Memcached</a>, <a href="https://redis.io/">Redis</a>,
+                            and databases is included out of the box.</p>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>The session configuration file is stored at <code class=" language-php">config<span
+                                class="token operator">/</span>session<span class="token punctuation">.</span>php</code>.
+                            Be sure to review the options available to you in this file. By default, Laravel is
+                            configured to use the <code class=" language-php">file</code> session driver, which will
+                            work well for many applications.</p>
+                        <p>The session <code class=" language-php">driver</code> configuration
+                            option defines where session data will be stored for each request.
+                            Laravel ships with several great drivers out of the box:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li><code class=" language-php">file</code> - sessions are stored in <code
+                                        class=" language-php">storage<span class="token operator">/</span>framework<span
+                                        class="token operator">/</span>sessions</code>.
+                                </li>
+                                <li><code class=" language-php">cookie</code> - sessions are stored in secure, encrypted
+                                    cookies.
+                                </li>
+                                <li><code class=" language-php">database</code> - sessions are stored in a relational
+                                    database.
+                                </li>
+                                <li><code class=" language-php">memcached</code> / <code
+                                        class=" language-php">redis</code> - sessions are stored in one of these fast,
+                                    cache based stores.
+                                </li>
+                                <li><code class=" language-php"><span class="token keyword">array</span></code> -
+                                    sessions are stored in a PHP array and will not be persisted.
+                                </li>
+                            </ul>
+                        </div>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Session_files/lightbulb.svg"></div>
+                                <p class="content"> The array driver is used during <a
+                                        href="https://laravel.com/docs/7.x/testing">testing</a> and prevents the data
+                                    stored in the session from being persisted.</p></div>
+                        </blockquote>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <h4>Database</h4>
+                        <p>When using the <code class=" language-php">database</code> session driver, you will need to
+                            create a table to contain the session items. Below is an example <code
+                                    class=" language-php">Schema</code> declaration for the table:</p>
+                        <pre class=" language-php"><code class=" language-php">Schema<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">create</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'sessions'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$table</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">string</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">unique</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">unsignedInteger</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">nullable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">string</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'ip_address'</span><span
+                                    class="token punctuation">,</span> <span class="token number">45</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">nullable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">text</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_agent'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">nullable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">text</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'payload'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$table</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">integer</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'last_activity'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may use the <code class=" language-php">session<span class="token punctuation">:</span>table</code>
+                            Artisan command to generate this migration:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan session<span
+                                class="token punctuation">:</span>table
+
+php artisan migrate</code></pre>
+                        <h4>Redis</h4>
+                        <p>Before using Redis sessions with Laravel, you will need to either install the PhpRedis PHP
+                            extension via PECL or install the <code class=" language-php">predis<span
+                                    class="token operator">/</span>predis</code> package (~1.0) via Composer. For more
+                            information on configuring Redis, consult its <a
+                                    href="#configuration">Laravel documentation
+                                page</a>.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Session_files/lightbulb.svg"></div>
+                                <p class="content"> In the <code class=" language-php">session</code> configuration
+                                    file, the <code class=" language-php">connection</code> option may be used to
+                                    specify which Redis connection is used by the session.</p></div>
+                        </blockquote>
+                        <p><a name="using-the-session"></a></p>
+                        <h2 id="using-the-session"><a href="#using-the-session">Using The Session</a></h2>
+                        <p><a name="retrieving-data"></a></p>
+                        <h3 id="retrieving-data"><a href="#retrieving-data">Retrieving Data</a></h3>
+                        <p>There are two primary ways of working with session data in Laravel: the global <code
+                                class=" language-php">session</code> helper and via a <code class=" language-php">Request</code>
+                            instance. First, let's look at accessing the session via a <code class=" language-php">Request</code>
+                            instance, which can be type-hinted on a controller method. Remember,
+                            controller method dependencies are automatically injected via the
+                            Laravel <a href="https://laravel.com/docs/7.x/container">service container</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">session</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When you retrieve an item from the session, you may also pass a default value as the second
+                            argument to the <code class=" language-php">get</code> method. This default value will be
+                            returned if the specified key does not exist in the session. If you pass a <code
+                                    class=" language-php">Closure</code> as the default value to the <code
+                                    class=" language-php">get</code> method and the requested key does not exist, the
+                            <code class=" language-php">Closure</code> will be executed and its result returned:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> <span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'default'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$value</span> <span class="token operator">=</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>The Global Session Helper</h4>
+                        <p>You may also use the global <code class=" language-php">session</code> PHP function to
+                            retrieve and store data in the session. When the <code class=" language-php">session</code>
+                            helper is called with a single, string argument, it will return the
+                            value of that session key. When the helper is called with an array of
+                            key / value pairs, those values will be stored in the session:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'home'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Retrieve a piece of data from the session...</span>
+    <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Specifying a default value...</span>
+    <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Store a piece of data in the session...</span>
+    <span class="token function">session</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'key'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Session_files/lightbulb.svg"></div>
+                                <p class="content"> There is little practical difference between using the session via
+                                    an HTTP request instance versus using the global <code
+                                            class=" language-php">session</code> helper. Both methods are <a
+                                            href="https://laravel.com/docs/7.x/testing">testable</a> via the <code
+                                            class=" language-php">assertSessionHas</code> method which is available in
+                                    all of your test cases.</p></div>
+                        </blockquote>
+                        <h4>Retrieving All Session Data</h4>
+                        <p>If you would like to retrieve all the data in the session, you may use the <code
+                                class=" language-php">all</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$data</span> <span
+                                class="token operator">=</span> <span class="token variable">$request</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">session</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">all</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>Determining If An Item Exists In The Session</h4>
+                        <p>To determine if an item is present in the session, you may use the <code
+                                class=" language-php">has</code> method. The <code class=" language-php">has</code>
+                            method returns <code class=" language-php"><span class="token boolean constant">true</span></code>
+                            if the item is present and is not <code class=" language-php"><span class="token constant">null</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">has</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>To determine if an item is present in the session, even if its value is <code
+                                class=" language-php"><span class="token constant">null</span></code>, you may use the
+                            <code class=" language-php">exists</code> method. The <code
+                                    class=" language-php">exists</code> method returns <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code> if the item is present:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">exists</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="storing-data"></a></p>
+                        <h3 id="storing-data"><a href="#storing-data">Storing Data</a></h3>
+                        <p>To store data in the session, you will typically use the <code
+                                class=" language-php">put</code> method or the <code
+                                class=" language-php">session</code> helper:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Via a request instance...</span>
+<span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Via the global helper...</span>
+<span class="token function">session</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'key'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Pushing To Array Session Values</h4>
+                        <p>The <code class=" language-php">push</code> method may be used to push a new value onto a
+                            session value that is an array. For example, if the <code class=" language-php">user<span
+                                    class="token punctuation">.</span>teams</code> key contains an array of team names,
+                            you may push a new value onto the array like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">push</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user.teams'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'developers'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Retrieving &amp; Deleting An Item</h4>
+                        <p>The <code class=" language-php">pull</code> method will retrieve and delete an item from the
+                            session in a single statement:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$value</span> <span class="token operator">=</span> <span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">pull</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'default'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="flash-data"></a></p>
+                        <h3 id="flash-data"><a href="#flash-data">Flash Data</a></h3>
+                        <p>Sometimes you may wish to store items in the session only for the next request. You may do so
+                            using the <code class=" language-php">flash</code>
+                            method. Data stored in the session using this method will be available
+                            immediately and during the subsequent HTTP request. After the subsequent
+                            HTTP request, the flashed data will be deleted. Flash data is primarily
+                            useful for short-lived status messages:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">flash</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'status'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Task was successful!'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you need to keep your flash data around for several requests, you may use the <code
+                                class=" language-php">reflash</code>
+                            method, which will keep all of the flash data for an additional
+                            request. If you only need to keep specific flash data, you may use the <code
+                                    class=" language-php">keep</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">reflash</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">keep</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'username'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'email'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="deleting-data"></a></p>
+                        <h3 id="deleting-data"><a href="#deleting-data">Deleting Data</a></h3>
+                        <p>The <code class=" language-php">forget</code> method will remove a piece of data from the
+                            session. If you would like to remove all data from the session, you may use the <code
+                                    class=" language-php">flush</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Forget a single key...</span>
+<span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">forget</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Forget multiple keys...</span>
+<span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">forget</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'key1'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'key2'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">session</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">flush</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="regenerating-the-session-id"></a></p>
+                        <h3 id="regenerating-the-session-id"><a href="#regenerating-the-session-id">Regenerating The
+                            Session ID</a></h3>
+                        <p>Regenerating the session ID is often done in order to prevent malicious users from exploiting
+                            a <a href="https://owasp.org/www-community/attacks/Session_fixation">session fixation</a>
+                            attack on your application.</p>
+                        <p>Laravel automatically regenerates the session ID during authentication if you are using the
+                            built-in <code class=" language-php">LoginController</code>; however, if you need to
+                            manually regenerate the session ID, you may use the <code
+                                    class=" language-php">regenerate</code> method.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">session</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">regenerate</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="adding-custom-session-drivers"></a></p>
+                        <h2 id="adding-custom-session-drivers"><a href="#adding-custom-session-drivers">Adding Custom
+                            Session Drivers</a></h2>
+                        <p><a name="implementing-the-driver"></a></p>
+                        <h4 id="implementing-the-driver"><a href="#implementing-the-driver">Implementing The Driver</a>
+                        </h4>
+                        <p>Your custom session driver should implement the <code class=" language-php">SessionHandlerInterface</code>.
+                            This interface contains just a few simple methods we need to implement.
+                            A stubbed MongoDB implementation looks something like this:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Extensions</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MongoSessionHandler</span> <span
+                                    class="token keyword">implements</span> <span class="token class-name"><span
+                                    class="token punctuation">\</span>SessionHandlerInterface</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">open</span><span
+                                    class="token punctuation">(</span><span class="token variable">$savePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$sessionName</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">close</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">read</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$sessionId</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">write</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$sessionId</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$data</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">destroy</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$sessionId</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">gc</span><span
+                                    class="token punctuation">(</span><span class="token variable">$lifetime</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Session_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    Laravel does not ship with a directory to contain your extensions. You
+                                    are free to place them anywhere you like. In this example, we have
+                                    created an <code class=" language-php">Extensions</code> directory to house the
+                                    <code class=" language-php">MongoSessionHandler</code>.</p></div>
+                        </blockquote>
+                        <p>Since the purpose of these methods is not readily understandable, let's quickly cover what
+                            each of the methods do:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li>The <code class=" language-php">open</code> method would typically be used in file
+                                    based session store systems. Since Laravel ships with a <code class=" language-php">file</code>
+                                    session driver, you will almost never need to put anything in this
+                                    method. You can leave it as an empty stub. It is a fact of poor
+                                    interface design (which we'll discuss later) that PHP requires us to
+                                    implement this method.
+                                </li>
+                                <li>The <code class=" language-php">close</code> method, like the <code
+                                        class=" language-php">open</code> method, can also usually be disregarded. For
+                                    most drivers, it is not needed.
+                                </li>
+                                <li>The <code class=" language-php">read</code> method should return the string version
+                                    of the session data associated with the given <code class=" language-php"><span
+                                            class="token variable">$sessionId</span></code>.
+                                    There is no need to do any serialization or other encoding when
+                                    retrieving or storing session data in your driver, as Laravel will
+                                    perform the serialization for you.
+                                </li>
+                                <li>The <code class=" language-php">write</code> method should write the given <code
+                                        class=" language-php"><span class="token variable">$data</span></code> string
+                                    associated with the <code class=" language-php"><span class="token variable">$sessionId</span></code>
+                                    to some persistent storage system, such as MongoDB, Dynamo, etc.
+                                    Again, you should not perform any serialization - Laravel will have
+                                    already handled that for you.
+                                </li>
+                                <li>The <code class=" language-php">destroy</code> method should remove the data
+                                    associated with the <code class=" language-php"><span class="token variable">$sessionId</span></code>
+                                    from persistent storage.
+                                </li>
+                                <li>The <code class=" language-php">gc</code> method should destroy all session data
+                                    that is older than the given <code class=" language-php"><span
+                                            class="token variable">$lifetime</span></code>, which is a UNIX timestamp.
+                                    For self-expiring systems like Memcached and Redis, this method may be left empty.
+                                </li>
+                            </ul>
+                        </div>
+                        <p><a name="registering-the-driver"></a></p>
+                        <h4 id="registering-the-driver"><a href="#registering-the-driver">Registering The Driver</a>
+                        </h4>
+                        <p>Once your driver has been implemented, you are ready to register it
+                            with the framework. To add additional drivers to Laravel's session
+                            backend, you may use the <code class=" language-php">extend</code> method on the <code
+                                    class=" language-php">Session</code> <a href="https://laravel.com/docs/7.x/facades">facade</a>.
+                            You should call the <code class=" language-php">extend</code> method from the <code
+                                    class=" language-php">boot</code> method of a <a
+                                    href="https://laravel.com/docs/7.x/providers">service provider</a>. You may do this
+                            from the existing <code class=" language-php">AppServiceProvider</code> or create an
+                            entirely new provider:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Extensions<span
+                                    class="token punctuation">\</span>MongoSessionHandler</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Session</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SessionServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Session<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">extend</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'mongo'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Return implementation of SessionHandlerInterface...</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">MongoSessionHandler</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once the session driver has been registered, you may use the <code class=" language-php">mongo</code>
+                            driver in your <code class=" language-php">config<span class="token operator">/</span>session<span
+                                    class="token punctuation">.</span>php</code> configuration file.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

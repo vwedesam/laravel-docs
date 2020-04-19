@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Horizon - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/horizon">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Horizon_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Horizon_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Horizon_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Horizon_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Horizon</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#installation">Installation</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#dashboard-authorization">Dashboard Authorization</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#upgrading-horizon">Upgrading Horizon</a></li>
+                            <li><a href="#running-horizon">Running Horizon</a>
+                                <ul>
+                                    <li><a href="#deploying-horizon">Deploying Horizon</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#tags">Tags</a></li>
+                            <li><a href="#notifications">Notifications</a></li>
+                            <li><a href="#metrics">Metrics</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Horizon provides a beautiful dashboard and code-driven configuration
+                            for your Laravel powered Redis queues. Horizon allows you to easily
+                            monitor key metrics of your queue system such as job throughput,
+                            runtime, and job failures.</p>
+                        <p>All of your worker configuration is stored in a single, simple
+                            configuration file, allowing your configuration to stay in source
+                            control where your entire team can collaborate.</p>
+                        <p align="center">
+                            <img src="04-Horizon_files/Test.png" width="600" height="481"></p>
+                        <p><a name="installation"></a></p>
+                        <h2 id="installation"><a href="#installation">Installation</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Horizon_files/exclamation.svg"></div>
+                                <p class="content"> You should ensure that your queue connection is set to <code
+                                        class=" language-php">redis</code> in your <code
+                                        class=" language-php">queue</code> configuration file.</p></div>
+                        </blockquote>
+                        <p>You may use Composer to install Horizon into your Laravel project:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>horizon</code></pre>
+                        <p>After installing Horizon, publish its assets using the <code
+                                class=" language-php">horizon<span class="token punctuation">:</span>install</code>
+                            Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon<span
+                                class="token punctuation">:</span>install</code></pre>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>After publishing Horizon's assets, its primary configuration file will be located at <code
+                                class=" language-php">config<span class="token operator">/</span>horizon<span
+                                class="token punctuation">.</span>php</code>.
+                            This configuration file allows you to configure your worker options and
+                            each configuration option includes a description of its purpose, so be
+                            sure to thoroughly explore this file.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Horizon_files/exclamation.svg"></div>
+                                <p class="content"> You should ensure that the <code
+                                        class=" language-php">environments</code> portion of your <code
+                                        class=" language-php">horizon</code> configuration file contains an entry for
+                                    each environment on which you plan to run Horizon.</p></div>
+                        </blockquote>
+                        <h4>Balance Options</h4>
+                        <p>Horizon allows you to choose from three balancing strategies: <code class=" language-php">simple</code>,
+                            <code class=" language-php">auto</code>, and <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>. The <code class=" language-php">simple</code>
+                            strategy, which is the configuration file's default, splits incoming jobs evenly between
+                            processes:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'balance'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token single-quoted-string string">'simple'</span><span
+                                class="token punctuation">,</span></code></pre>
+                        <p>The <code class=" language-php">auto</code> strategy adjusts the number of worker processes
+                            per queue based on the current workload of the queue. For example, if your <code
+                                    class=" language-php">notifications</code> queue has 1,000 waiting jobs while your
+                            <code class=" language-php">render</code> queue is empty, Horizon will allocate more workers
+                            to your <code class=" language-php">notifications</code> queue until it is empty. When the
+                            <code class=" language-php">balance</code> option is set to <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>, the
+                            default Laravel behavior will be used, which processes queues in the order they are listed
+                            in your configuration.</p>
+                        <p>When using the <code class=" language-php">auto</code> strategy, you may define the <code
+                                class=" language-php">minProcesses</code> and <code
+                                class=" language-php">maxProcesses</code> configuration options to control the minimum
+                            and maximum number of processes Horizon should scale up and down to:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'environments'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'production'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'supervisor-1'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'connection'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'queue'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'balance'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'auto'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'minProcesses'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'maxProcesses'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">10</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'tries'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">3</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Job Trimming</h4>
+                        <p>The <code class=" language-php">horizon</code> configuration file
+                            allows you to configure how long recent and failed jobs should be
+                            persisted (in minutes). By default, recent jobs are kept for one hour
+                            while failed jobs are kept for a week:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'trim'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'recent'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">60</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'failed'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">10080</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="dashboard-authorization"></a></p>
+                        <h3 id="dashboard-authorization"><a href="#dashboard-authorization">Dashboard Authorization</a>
+                        </h3>
+                        <p>Horizon exposes a dashboard at <code class=" language-php"><span
+                                class="token operator">/</span>horizon</code>. By default, you will only be able to
+                            access this dashboard in the <code class=" language-php">local</code> environment. Within
+                            your <code class=" language-php">app<span class="token operator">/</span>Providers<span
+                                    class="token operator">/</span>HorizonServiceProvider<span
+                                    class="token punctuation">.</span>php</code> file, there is a <code
+                                    class=" language-php">gate</code> method. This authorization gate controls access to
+                            Horizon in <strong>non-local</strong> environments. You are free to modify this gate as
+                            needed to restrict access to your Horizon installation:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register the Horizon gate.
+ *
+ * This gate determines who can access Horizon in non-local environments.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">gate</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Gate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">define</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'viewHorizon'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">in_array</span><span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'taylor@laravel.com'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Horizon_files/exclamation.svg"></div>
+                                <p class="content"> Remember that Laravel injects the <em>authenticated</em>
+                                    user to the Gate automatically. If your app is providing Horizon
+                                    security via another method, such as IP restrictions, then your Horizon
+                                    users may not need to "login". Therefore, you will need to change <code
+                                            class=" language-php"><span class="token keyword">function</span> <span
+                                            class="token punctuation">(</span><span
+                                            class="token variable">$user</span><span class="token punctuation">)</span></code>
+                                    above to <code class=" language-php"><span class="token keyword">function</span>
+                                        <span class="token punctuation">(</span><span
+                                                class="token variable">$user</span> <span
+                                                class="token operator">=</span> <span class="token constant">null</span><span
+                                                class="token punctuation">)</span></code> to force Laravel to not
+                                    require authentication.</p></div>
+                        </blockquote>
+                        <p><a name="upgrading-horizon"></a></p>
+                        <h2 id="upgrading-horizon"><a href="#upgrading-horizon">Upgrading Horizon</a></h2>
+                        <p>When upgrading to a new major version of Horizon, it's important that you carefully review <a
+                                href="https://github.com/laravel/horizon/blob/master/UPGRADE.md">the upgrade guide</a>.
+                        </p>
+                        <p>In addition, you should re-publish Horizon's assets:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon<span
+                                class="token punctuation">:</span>publish</code></pre>
+                        <p><a name="running-horizon"></a></p>
+                        <h2 id="running-horizon"><a href="#running-horizon">Running Horizon</a></h2>
+                        <p>Once you have configured your workers in the <code class=" language-php">config<span
+                                class="token operator">/</span>horizon<span class="token punctuation">.</span>php</code>
+                            configuration file, you may start Horizon using the <code
+                                    class=" language-php">horizon</code> Artisan command. This single command will start
+                            all of your configured workers:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon</code></pre>
+                        <p>You may pause the Horizon process and instruct it to continue processing jobs using the <code
+                                class=" language-php">horizon<span class="token punctuation">:</span>pause</code> and
+                            <code class=" language-php">horizon<span class="token punctuation">:</span><span
+                                    class="token keyword">continue</span></code> Artisan commands:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon<span
+                                class="token punctuation">:</span>pause
+
+<span class="token package">php</span> artisan horizon<span class="token punctuation">:</span><span
+                                    class="token keyword">continue</span></code></pre>
+                        <p>You may check the current status of the Horizon process using the <code
+                                class=" language-php">horizon<span class="token punctuation">:</span>status</code>
+                            Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon<span
+                                class="token punctuation">:</span>status</code></pre>
+                        <p>You may gracefully terminate the master Horizon process on your machine using the <code
+                                class=" language-php">horizon<span class="token punctuation">:</span>terminate</code>
+                            Artisan command. Any jobs that Horizon is currently processing will be completed and then
+                            Horizon will exit:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan horizon<span
+                                class="token punctuation">:</span>terminate</code></pre>
+                        <p><a name="deploying-horizon"></a></p>
+                        <h3 id="deploying-horizon"><a href="#deploying-horizon">Deploying Horizon</a></h3>
+                        <p>If you are deploying Horizon to a live server, you should configure a process monitor to
+                            monitor the <code class=" language-php">php artisan horizon</code>
+                            command and restart it if it quits unexpectedly. When deploying fresh
+                            code to your server, you will need to instruct the master Horizon
+                            process to terminate so it can be restarted by your process monitor and
+                            receive your code changes.</p>
+                        <h4>Installing Supervisor</h4>
+                        <p>Supervisor is a process monitor for the Linux operating system, and will automatically
+                            restart your <code class=" language-php">horizon</code> process if it fails. To install
+                            Supervisor on Ubuntu, you may use the following command:</p>
+                        <pre class=" language-php"><code class=" language-php">sudo apt<span
+                                class="token operator">-</span>get install supervisor</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Horizon_files/lightbulb.svg"></div>
+                                <p class="content"> If configuring Supervisor yourself sounds overwhelming, consider
+                                    using <a href="https://forge.laravel.com/">Laravel Forge</a>, which will
+                                    automatically install and configure Supervisor for your Laravel projects.</p></div>
+                        </blockquote>
+                        <h4>Supervisor Configuration</h4>
+                        <p>Supervisor configuration files are typically stored in the <code class=" language-php"><span
+                                class="token operator">/</span>etc<span class="token operator">/</span>supervisor<span
+                                class="token operator">/</span>conf<span class="token punctuation">.</span>d</code>
+                            directory. Within this directory, you may create any number of
+                            configuration files that instruct supervisor how your processes should
+                            be monitored. For example, let's create a <code class=" language-php">horizon<span
+                                    class="token punctuation">.</span>conf</code> file that starts and monitors a <code
+                                    class=" language-php">horizon</code> process:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">[</span>program<span
+                                class="token punctuation">:</span>horizon<span class="token punctuation">]</span>
+process_name<span class="token operator">=</span><span class="token operator">%</span><span
+                                    class="token punctuation">(</span>program_name<span
+                                    class="token punctuation">)</span>s
+command<span class="token operator">=</span>php <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>forge<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>com<span class="token operator">/</span>artisan horizon
+autostart<span class="token operator">=</span><span class="token boolean constant">true</span>
+autorestart<span class="token operator">=</span><span class="token boolean constant">true</span>
+user<span class="token operator">=</span>forge
+redirect_stderr<span class="token operator">=</span><span class="token boolean constant">true</span>
+stdout_logfile<span class="token operator">=</span><span class="token operator">/</span>home<span
+                                    class="token operator">/</span>forge<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>com<span
+                                    class="token operator">/</span>horizon<span class="token punctuation">.</span>log
+stopwaitsecs<span class="token operator">=</span><span class="token number">3600</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Horizon_files/exclamation.svg"></div>
+                                <p class="content"> You should ensure that the value of <code class=" language-php">stopwaitsecs</code>
+                                    is greater than the number of seconds consumed by your longest running
+                                    job. Otherwise, Supervisor may kill the job before it is finished
+                                    processing.</p></div>
+                        </blockquote>
+                        <h4>Starting Supervisor</h4>
+                        <p>Once the configuration file has been created, you may update the
+                            Supervisor configuration and start the processes using the following
+                            commands:</p>
+                        <pre class=" language-php"><code class=" language-php">sudo supervisorctl reread
+
+sudo supervisorctl update
+
+sudo supervisorctl start horizon</code></pre>
+                        <p>For more information on Supervisor, consult the <a href="http://supervisord.org/index.html">Supervisor
+                            documentation</a>.</p>
+                        <p><a name="tags"></a></p>
+                        <h2 id="tags"><a href="#tags">Tags</a></h2>
+                        <p>Horizon allows you to assign “tags” to jobs, including mailables,
+                            event broadcasts, notifications, and queued event listeners. In fact,
+                            Horizon will intelligently and automatically tag most jobs depending on
+                            the Eloquent models that are attached to the job. For example, take a
+                            look at the following job:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Video</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span
+                                    class="token punctuation">\</span>Queueable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Bus<span class="token punctuation">\</span>Dispatchable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>InteractsWithQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">RenderVideo</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span
+                                    class="token punctuation">,</span> InteractsWithQueue<span
+                                    class="token punctuation">,</span> Queueable<span class="token punctuation">,</span> SerializesModels<span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The video instance.
+     *
+     * @var \App\Video
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$video</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new job instance.
+     *
+     * @param  \App\Video  $video
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Video <span
+                                    class="token variable">$video</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">video</span> <span
+                                    class="token operator">=</span> <span class="token variable">$video</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Execute the job.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>If this job is queued with an <code class=" language-php">App\<span class="token package">Video</span></code>
+                            instance that has an <code class=" language-php">id</code> of <code
+                                    class=" language-php"><span class="token number">1</span></code>, it will
+                            automatically receive the tag <code class=" language-php">App\<span class="token package">Video</span><span
+                                    class="token punctuation">:</span><span class="token number">1</span></code>.
+                            This is because Horizon will examine the job's properties for any
+                            Eloquent models. If Eloquent models are found, Horizon will
+                            intelligently tag the job using the model's class name and primary key:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$video</span> <span class="token operator">=</span> App\<span
+                                class="token package">Video</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+App\<span class="token package">Jobs<span class="token punctuation">\</span>RenderVideo</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$video</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Manually Tagging</h4>
+                        <p>If you would like to manually define the tags for one of your queueable objects, you may
+                            define a <code class=" language-php">tags</code> method on the class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span
+                                class="token class-name">RenderVideo</span> <span
+                                class="token keyword">implements</span> <span
+                                class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Get the tags that should be assigned to the job.
+     *
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">tags</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'render'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'video:'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">video</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="notifications"></a></p>
+                        <h2 id="notifications"><a href="#notifications">Notifications</a></h2>
+                        <blockquote>
+                            <p><strong>Note:</strong> When configuring Horizon to send Slack or SMS notifications, you
+                                should review the <a href="https://laravel.com/docs/7.x/notifications">prerequisites for
+                                    the relevant notification driver</a>.</p>
+                        </blockquote>
+                        <p>If you would like to be notified when one of your queues has a long wait time, you may use
+                            the <code class=" language-php">Horizon<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>routeMailNotificationsTo</code>, <code
+                                    class=" language-php">Horizon<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>routeSlackNotificationsTo</code>, and <code
+                                    class=" language-php">Horizon<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>routeSmsNotificationsTo</code> methods. You may
+                            call these methods from your application's <code class=" language-php">HorizonServiceProvider</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Horizon<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">routeMailNotificationsTo</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'example@example.com'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+Horizon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">routeSlackNotificationsTo</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'slack-webhook-url'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'#channel'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+Horizon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">routeSmsNotificationsTo</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'15556667777'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Configuring Notification Wait Time Thresholds</h4>
+                        <p>You may configure how many seconds are considered a "long wait" within your <code
+                                class=" language-php">config<span class="token operator">/</span>horizon<span
+                                class="token punctuation">.</span>php</code> configuration file. The <code
+                                class=" language-php">waits</code> configuration option within this file allows you to
+                            control the long wait threshold for each connection / queue combination:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'waits'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'redis:default'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">60</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="metrics"></a></p>
+                        <h2 id="metrics"><a href="#metrics">Metrics</a></h2>
+                        <p>Horizon includes a metrics dashboard which provides information on
+                            your job and queue wait times and throughput. In order to populate this
+                            dashboard, you should configure Horizon's <code class=" language-php">snapshot</code>
+                            Artisan command to run every five minutes via your application's <a
+                                    href="https://laravel.com/docs/7.x/scheduling">scheduler</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Define the application's command schedule.
+ *
+ * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+ * @return void
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">schedule</span><span
+                                    class="token punctuation">(</span>Schedule <span
+                                    class="token variable">$schedule</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$schedule</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">command</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'horizon:snapshot'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">everyFiveMinutes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

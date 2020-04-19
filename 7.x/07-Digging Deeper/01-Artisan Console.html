@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Artisan Console - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/artisan">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="01-Artisan%20Console_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="01-Artisan%20Console_files/app.css">
+
+    <!-- Load JS -->
+    <script src="01-Artisan%20Console_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="01-Artisan%20Console_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Artisan Console</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#tinker">Tinker (REPL)</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#writing-commands">Writing Commands</a>
+                                <ul>
+                                    <li><a href="#generating-commands">Generating Commands</a></li>
+                                    <li><a href="#command-structure">Command Structure</a></li>
+                                    <li><a href="#closure-commands">Closure Commands</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#defining-input-expectations">Defining Input Expectations</a>
+                                <ul>
+                                    <li><a href="#arguments">Arguments</a></li>
+                                    <li><a href="#options">Options</a></li>
+                                    <li><a href="#input-arrays">Input Arrays</a></li>
+                                    <li><a href="#input-descriptions">Input Descriptions</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#command-io">Command I/O</a>
+                                <ul>
+                                    <li><a href="#retrieving-input">Retrieving Input</a></li>
+                                    <li><a href="#prompting-for-input">Prompting For Input</a></li>
+                                    <li><a href="#writing-output">Writing Output</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#registering-commands">Registering Commands</a></li>
+                            <li><a href="#programmatically-executing-commands">Programmatically Executing Commands</a>
+                                <ul>
+                                    <li><a href="#calling-commands-from-other-commands">Calling Commands From Other
+                                        Commands</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#stub-customization">Stub Customization</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Artisan is the command-line interface included with Laravel. It
+                            provides a number of helpful commands that can assist you while you
+                            build your application. To view a list of all available Artisan
+                            commands, you may use the <code class=" language-php"><span
+                                    class="token keyword">list</span></code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan <span class="token keyword">list</span></code></pre>
+                        <p>Every command also includes a "help" screen which displays and
+                            describes the command's available arguments and options. To view a help
+                            screen, precede the name of the command with <code class=" language-php">help</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan help migrate</code></pre>
+                        <p><a name="tinker"></a></p>
+                        <h3 id="tinker"><a href="#tinker">Tinker (REPL)</a></h3>
+                        <p>Laravel Tinker is a powerful REPL for the Laravel framework, powered by the <a
+                                href="https://github.com/bobthecow/psysh">PsySH</a> package.</p>
+                        <h4>Installation</h4>
+                        <p>All Laravel applications include Tinker by default. However, you may install it manually if
+                            needed using Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>tinker</code></pre>
+                        <h4>Usage</h4>
+                        <p>Tinker allows you to interact with your entire Laravel application on
+                            the command line, including the Eloquent ORM, jobs, events, and more.
+                            To enter the Tinker environment, run the <code class=" language-php">tinker</code> Artisan
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan tinker</code></pre>
+                        <p>You can publish Tinker's configuration file using the <code class=" language-php">vendor<span
+                                class="token punctuation">:</span>publish</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>provider<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"Laravel\Tinker\TinkerServiceProvider"</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Artisan%20Console_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">dispatch</code> helper function and
+                                    <code class=" language-php">dispatch</code> method on the <code
+                                            class=" language-php">Dispatchable</code> class depends on garbage
+                                    collection to place the job on the queue. Therefore, when using tinker, you should
+                                    use <code class=" language-php">Bus<span class="token punctuation">:</span><span
+                                            class="token punctuation">:</span>dispatch</code> or <code
+                                            class=" language-php">Queue<span class="token punctuation">:</span><span
+                                            class="token punctuation">:</span>push</code> to dispatch jobs.</p></div>
+                        </blockquote>
+                        <h4>Command Whitelist</h4>
+                        <p>Tinker utilizes a white-list to determine which Artisan commands are
+                            allowed to be run within its shell. By default, you may run the <code class=" language-php">clear<span
+                                    class="token operator">-</span>compiled</code>, <code
+                                    class=" language-php">down</code>, <code class=" language-php">env</code>, <code
+                                    class=" language-php">inspire</code>, <code class=" language-php">migrate</code>,
+                            <code class=" language-php">optimize</code>, and <code class=" language-php">up</code>
+                            commands. If you would like to white-list more commands you may add them to the <code
+                                    class=" language-php">commands</code> array in your <code class=" language-php">tinker<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'commands'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token comment">// App\Console\Commands\ExampleCommand::class,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Alias Blacklist</h4>
+                        <p>Typically, Tinker automatically aliases classes as you require them
+                            in Tinker. However, you may wish to never alias some classes. You may
+                            accomplish this by listing the classes in the <code class=" language-php">dont_alias</code>
+                            array of your <code class=" language-php">tinker<span class="token punctuation">.</span>php</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'dont_alias'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    App\<span class="token package">User</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="writing-commands"></a></p>
+                        <h2 id="writing-commands"><a href="#writing-commands">Writing Commands</a></h2>
+                        <p>In addition to the commands provided with Artisan, you may also build
+                            your own custom commands. Commands are typically stored in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Console<span class="token operator">/</span>Commands</code>
+                            directory; however, you are free to choose your own storage location as long as your
+                            commands can be loaded by Composer.</p>
+                        <p><a name="generating-commands"></a></p>
+                        <h3 id="generating-commands"><a href="#generating-commands">Generating Commands</a></h3>
+                        <p>To create a new command, use the <code class=" language-php">make<span
+                                class="token punctuation">:</span>command</code> Artisan command. This command will
+                            create a new command class in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Console<span class="token operator">/</span>Commands</code>
+                            directory. Don't worry if this directory does not exist in your
+                            application, since it will be created the first time you run the <code
+                                    class=" language-php">make<span class="token punctuation">:</span>command</code>
+                            Artisan command. The generated command will include the default set of properties and
+                            methods that are present on all commands:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>command SendEmails</code></pre>
+                        <p><a name="command-structure"></a></p>
+                        <h3 id="command-structure"><a href="#command-structure">Command Structure</a></h3>
+                        <p>After generating your command, you should fill in the <code
+                                class=" language-php">signature</code> and <code
+                                class=" language-php">description</code> properties of the class, which will be used
+                            when displaying your command on the <code class=" language-php"><span class="token keyword">list</span></code>
+                            screen. The <code class=" language-php">handle</code> method will be called when your
+                            command is executed. You may place your command logic in this method.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Artisan%20Console_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    For greater code reuse, it is good practice to keep your console
+                                    commands light and let them defer to application services to accomplish
+                                    their tasks. In the example below, note that we inject a service class
+                                    to do the "heavy lifting" of sending the e-mails.</p></div>
+                        </blockquote>
+                        <p>Let's take a look at an example command. Note that we are able to inject any dependencies we
+                            need into the command's <code class=" language-php">handle</code> method. The Laravel <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a> will
+                            automatically inject all dependencies that are type-hinted in this method's signature:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Console<span
+                                    class="token punctuation">\</span>Commands</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>DripEmailer</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Console<span
+                                    class="token punctuation">\</span>Command</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SendEmails</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Command</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'email:send {user}'</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The console command description.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$description</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'Send drip e-mails to a user'</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new command instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">parent</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Execute the console command.
+     *
+     * @param  \App\DripEmailer  $drip
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span>DripEmailer <span
+                                    class="token variable">$drip</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$drip</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">send</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">argument</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="closure-commands"></a></p>
+                        <h3 id="closure-commands"><a href="#closure-commands">Closure Commands</a></h3>
+                        <p>Closure based commands provide an alternative to defining console
+                            commands as classes. In the same way that route Closures are an
+                            alternative to controllers, think of command Closures as an alternative
+                            to command classes. Within the <code class=" language-php">commands</code> method of your
+                            <code class=" language-php">app<span class="token operator">/</span>Console<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file, Laravel loads the <code
+                                    class=" language-php">routes<span class="token operator">/</span>console<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register the Closure based commands for the application.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">commands</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">require</span> <span class="token function">base_path</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'routes/console.php'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Even though this file does not define HTTP routes, it defines console
+                            based entry points (routes) into your application. Within this file,
+                            you may define all of your Closure based routes using the <code class=" language-php">Artisan<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>command</code> method. The <code
+                                    class=" language-php">command</code> method accepts two arguments: the <a
+                                    href="#defining-input-expectations">command signature</a> and a Closure which
+                            receives the commands arguments and options:</p>
+                        <pre class=" language-php"><code class=" language-php">Artisan<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">command</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'build {project}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$project</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">info</span><span
+                                    class="token punctuation">(</span><span class="token double-quoted-string string">"Building <span
+                                    class="token interpolation"><span class="token punctuation">{</span><span
+                                    class="token variable">$project</span><span
+                                    class="token punctuation">}</span></span>!"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The Closure is bound to the underlying command instance, so you have
+                            full access to all of the helper methods you would typically be able to
+                            access on a full command class.</p>
+                        <h4>Type-Hinting Dependencies</h4>
+                        <p>In addition to receiving your command's arguments and options,
+                            command Closures may also type-hint additional dependencies that you
+                            would like resolved out of the <a href="https://laravel.com/docs/7.x/container">service
+                                container</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>DripEmailer</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Artisan<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">command</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'email:send {user}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>DripEmailer <span
+                                    class="token variable">$drip</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token variable">$drip</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">send</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Closure Command Descriptions</h4>
+                        <p>When defining a Closure based command, you may use the <code
+                                class=" language-php">describe</code> method to add a description to the command. This
+                            description will be displayed when you run the <code class=" language-php">php artisan <span
+                                    class="token keyword">list</span></code> or <code class=" language-php">php artisan
+                                help</code> commands:</p>
+                        <pre class=" language-php"><code class=" language-php">Artisan<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">command</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'build {project}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$project</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">info</span><span
+                                    class="token punctuation">(</span><span class="token double-quoted-string string">"Building <span
+                                    class="token interpolation"><span class="token punctuation">{</span><span
+                                    class="token variable">$project</span><span
+                                    class="token punctuation">}</span></span>!"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">describe</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Build the project'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="defining-input-expectations"></a></p>
+                        <h2 id="defining-input-expectations"><a href="#defining-input-expectations">Defining Input
+                            Expectations</a></h2>
+                        <p>When writing console commands, it is common to gather input from the
+                            user through arguments or options. Laravel makes it very convenient to
+                            define the input you expect from the user using the <code
+                                    class=" language-php">signature</code> property on your commands. The <code
+                                    class=" language-php">signature</code> property allows you to define the name,
+                            arguments, and options for the command in a single, expressive, route-like syntax.</p>
+                        <p><a name="arguments"></a></p>
+                        <h3 id="arguments"><a href="#arguments">Arguments</a></h3>
+                        <p>All user supplied arguments and options are wrapped in curly braces. In the following
+                            example, the command defines one <strong>required</strong> argument: <code
+                                    class=" language-php">user</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'email:send {user}'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may also make arguments optional and define default values for arguments:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Optional argument...</span>
+email<span class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                    class="token operator">?</span><span class="token punctuation">}</span>
+
+<span class="token comment">// Optional argument with default value...</span>
+email<span class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                    class="token operator">=</span>foo<span
+                                    class="token punctuation">}</span></code></pre>
+                        <p><a name="options"></a></p>
+                        <h3 id="options"><a href="#options">Options</a></h3>
+                        <p>Options, like arguments, are another form of user input. Options are prefixed by two hyphens
+                            (<code class=" language-php"><span class="token operator">--</span></code>)
+                            when they are specified on the command line. There are two types of
+                            options: those that receive a value and those that don't. Options that
+                            don't receive a value serve as a boolean "switch". Let's take a look at
+                            an example of this type of option:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'email:send {user} {--queue}'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In this example, the <code class=" language-php"><span class="token operator">--</span>queue</code>
+                            switch may be specified when calling the Artisan command. If the <code
+                                    class=" language-php"><span class="token operator">--</span>queue</code> switch is
+                            passed, the value of the option will be <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code>. Otherwise, the value will be
+                            <code class=" language-php"><span class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan email<span
+                                class="token punctuation">:</span>send <span class="token number">1</span> <span
+                                class="token operator">--</span>queue</code></pre>
+                        <p><a name="options-with-values"></a></p>
+                        <h4 id="options-with-values"><a href="#options-with-values">Options With Values</a></h4>
+                        <p>Next, let's take a look at an option that expects a value. If the
+                            user must specify a value for an option, suffix the option name with a <code
+                                    class=" language-php"><span class="token operator">=</span></code> sign:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'email:send {user} {--queue=}'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In this example, the user may pass a value for the option like so:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan email<span
+                                class="token punctuation">:</span>send <span class="token number">1</span> <span
+                                class="token operator">--</span>queue<span class="token operator">=</span><span
+                                class="token keyword">default</span></code></pre>
+                        <p>You may assign default values to options by specifying the default
+                            value after the option name. If no option value is passed by the user,
+                            the default value will be used:</p>
+                        <pre class=" language-php"><code class=" language-php">email<span
+                                class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                class="token punctuation">}</span> <span class="token punctuation">{</span><span
+                                class="token operator">--</span>queue<span class="token operator">=</span><span
+                                class="token keyword">default</span><span
+                                class="token punctuation">}</span></code></pre>
+                        <p><a name="option-shortcuts"></a></p>
+                        <h4 id="option-shortcuts"><a href="#option-shortcuts">Option Shortcuts</a></h4>
+                        <p>To assign a shortcut when defining an option, you may specify it
+                            before the option name and use a | delimiter to separate the shortcut
+                            from the full option name:</p>
+                        <pre class=" language-php"><code class=" language-php">email<span
+                                class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                class="token punctuation">}</span> <span class="token punctuation">{</span><span
+                                class="token operator">--</span><span class="token constant">Q</span><span
+                                class="token operator">|</span>queue<span
+                                class="token punctuation">}</span></code></pre>
+                        <p><a name="input-arrays"></a></p>
+                        <h3 id="input-arrays"><a href="#input-arrays">Input Arrays</a></h3>
+                        <p>If you would like to define arguments or options to expect array inputs, you may use the
+                            <code class=" language-php"><span class="token operator">*</span></code> character. First,
+                            let's take a look at an example that specifies an array argument:</p>
+                        <pre class=" language-php"><code class=" language-php">email<span
+                                class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                class="token operator">*</span><span class="token punctuation">}</span></code></pre>
+                        <p>When calling this method, the <code class=" language-php">user</code> arguments may be passed
+                            in order to the command line. For example, the following command will set the value of <code
+                                    class=" language-php">user</code> to <code class=" language-php"><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan email<span
+                                class="token punctuation">:</span>send foo bar</code></pre>
+                        <p>When defining an option that expects an array input, each option
+                            value passed to the command should be prefixed with the option name:</p>
+                        <pre class=" language-php"><code class=" language-php">email<span
+                                class="token punctuation">:</span>send <span class="token punctuation">{</span>user<span
+                                class="token punctuation">}</span> <span class="token punctuation">{</span><span
+                                class="token operator">--</span>id<span class="token operator">=</span><span
+                                class="token operator">*</span><span class="token punctuation">}</span>
+
+php artisan email<span class="token punctuation">:</span>send <span class="token operator">--</span>id<span
+                                    class="token operator">=</span><span class="token number">1</span> <span
+                                    class="token operator">--</span>id<span class="token operator">=</span><span
+                                    class="token number">2</span></code></pre>
+                        <p><a name="input-descriptions"></a></p>
+                        <h3 id="input-descriptions"><a href="#input-descriptions">Input Descriptions</a></h3>
+                        <p>You may assign descriptions to input arguments and options by
+                            separating the parameter from the description using a colon. If you need
+                            a little extra room to define your command, feel free to spread the
+                            definition across multiple lines:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The name and signature of the console command.
+ *
+ * @var string
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$signature</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'email:send
+                        {user : The ID of the user}
+                        {--queue= : Whether the job should be queued}'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="command-io"></a></p>
+                        <h2 id="command-io"><a href="#command-io">Command I/O</a></h2>
+                        <p><a name="retrieving-input"></a></p>
+                        <h3 id="retrieving-input"><a href="#retrieving-input">Retrieving Input</a></h3>
+                        <p>While your command is executing, you will obviously need to access
+                            the values for the arguments and options accepted by your command. To do
+                            so, you may use the <code class=" language-php">argument</code> and <code
+                                    class=" language-php">option</code> methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$userId</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">argument</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you need to retrieve all of the arguments as an <code class=" language-php"><span
+                                class="token keyword">array</span></code>, call the <code class=" language-php">arguments</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$arguments</span> <span class="token operator">=</span> <span
+                                class="token variable">$this</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">arguments</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>Options may be retrieved just as easily as arguments using the <code class=" language-php">option</code>
+                            method. To retrieve all of the options as an array, call the <code class=" language-php">options</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Retrieve a specific option...</span>
+<span class="token variable">$queueName</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">option</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'queue'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Retrieve all options...</span>
+<span class="token variable">$options</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">options</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If the argument or option does not exist, <code class=" language-php"><span
+                                class="token constant">null</span></code> will be returned.</p>
+                        <p><a name="prompting-for-input"></a></p>
+                        <h3 id="prompting-for-input"><a href="#prompting-for-input">Prompting For Input</a></h3>
+                        <p>In addition to displaying output, you may also ask the user to provide input during the
+                            execution of your command. The <code class=" language-php">ask</code> method will prompt the
+                            user with the given question, accept their input, and then return the user's input back to
+                            your command:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">ask</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'What is your name?'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>The <code class=" language-php">secret</code> method is similar to <code
+                                class=" language-php">ask</code>,
+                            but the user's input will not be visible to them as they type in the
+                            console. This method is useful when asking for sensitive information
+                            such as a password:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$password</span> <span class="token operator">=</span> <span
+                                class="token variable">$this</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">secret</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'What is the password?'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Asking For Confirmation</h4>
+                        <p>If you need to ask the user for a simple confirmation, you may use the <code
+                                class=" language-php">confirm</code> method. By default, this method will return <code
+                                class=" language-php"><span class="token boolean constant">false</span></code>. However,
+                            if the user enters <code class=" language-php">y</code> or <code
+                                    class=" language-php">yes</code> in response to the prompt, the method will return
+                            <code class=" language-php"><span class="token boolean constant">true</span></code>.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                class="token variable">$this</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">confirm</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Do you wish to continue?'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Auto-Completion</h4>
+                        <p>The <code class=" language-php">anticipate</code> method can be used
+                            to provide auto-completion for possible choices. The user can still
+                            choose any answer, regardless of the auto-completion hints:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">anticipate</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'What is your name?'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'Taylor'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Dayle'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may pass a Closure as the second argument to the <code
+                                class=" language-php">anticipate</code>
+                            method. The Closure will be called each time the user types an input
+                            character. The Closure should accept a string parameter containing the
+                            user's input so far, and return an array of options for auto-completion:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">anticipate</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'What is your name?'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$input</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Return auto-completion options...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Multiple Choice Questions</h4>
+                        <p>If you need to give the user a predefined set of choices, you may use the <code
+                                class=" language-php">choice</code> method. You may set the array index of the default
+                            value to be returned if no option is chosen:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">choice</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'What is your name?'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'Taylor'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Dayle'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token variable">$defaultIndex</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>In addition, the <code class=" language-php">choice</code> method
+                            accepts optional fourth and fifth arguments for determining the maximum
+                            number of attempts to select a valid response and whether multiple
+                            selections are permitted:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">choice</span><span class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'What is your name?'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token single-quoted-string string">'Taylor'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'Dayle'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token variable">$defaultIndex</span><span class="token punctuation">,</span>
+    <span class="token variable">$maxAttempts</span> <span class="token operator">=</span> <span class="token constant">null</span><span
+                                    class="token punctuation">,</span>
+    <span class="token variable">$allowMultipleSelections</span> <span class="token operator">=</span> <span
+                                    class="token boolean constant">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="writing-output"></a></p>
+                        <h3 id="writing-output"><a href="#writing-output">Writing Output</a></h3>
+                        <p>To send output to the console, use the <code class=" language-php">line</code>, <code
+                                class=" language-php">info</code>, <code class=" language-php">comment</code>, <code
+                                class=" language-php">question</code> and <code class=" language-php">error</code>
+                            methods. Each of these methods will use appropriate ANSI colors for
+                            their purpose. For example, let's display some general information to
+                            the user. Typically, the <code class=" language-php">info</code> method will display in the
+                            console as green text:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">info</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Display this on the screen'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>To display an error message, use the <code class=" language-php">error</code> method. Error
+                            message text is typically displayed in red:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">error</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'Something went wrong!'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you would like to display plain, uncolored console output, use the <code
+                                class=" language-php">line</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">line</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'Display this on the screen'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Table Layouts</h4>
+                        <p>The <code class=" language-php">table</code> method makes it easy to
+                            correctly format multiple rows / columns of data. Just pass in the
+                            headers and rows to the method. The width and height will be dynamically
+                            calculated based on the given data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$headers</span> <span class="token operator">=</span> <span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'Name'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Email'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> App\<span
+                                    class="token package">User</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">all</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'email'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">toArray</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">table</span><span
+                                    class="token punctuation">(</span><span class="token variable">$headers</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Progress Bars</h4>
+                        <p>For long running tasks, it could be helpful to show a progress
+                            indicator. Using the output object, we can start, advance and stop the
+                            Progress Bar. First, define the total number of steps the process will
+                            iterate through. Then, advance the Progress Bar after processing each
+                            item:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> App\<span
+                                class="token package">User</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">all</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$bar</span> <span class="token operator">=</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">output</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">createProgressBar</span><span
+                                    class="token punctuation">(</span><span class="token function">count</span><span
+                                    class="token punctuation">(</span><span class="token variable">$users</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$bar</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">start</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$users</span> <span class="token keyword">as</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">performTask</span><span
+                                    class="token punctuation">(</span><span class="token variable">$user</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$bar</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">advance</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$bar</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">finish</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>For more advanced options, check out the <a
+                                href="https://symfony.com/doc/current/components/console/helpers/progressbar.html">Symfony
+                            Progress Bar component documentation</a>.</p>
+                        <p><a name="registering-commands"></a></p>
+                        <h2 id="registering-commands"><a href="#registering-commands">Registering Commands</a></h2>
+                        <p>Because of the <code class=" language-php">load</code> method call in your console kernel's
+                            <code class=" language-php">commands</code> method, all commands within the <code
+                                    class=" language-php">app<span class="token operator">/</span>Console<span
+                                    class="token operator">/</span>Commands</code> directory will automatically be
+                            registered with Artisan. In fact, you are free to make additional calls to the <code
+                                    class=" language-php">load</code> method to scan other directories for Artisan
+                            commands:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Register the commands for the application.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">commands</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">load</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/Commands'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">load</span><span
+                                    class="token punctuation">(</span><span class="token constant">__DIR__</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/MoreCommands'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>You may also manually register commands by adding its class name to the <code
+                                class=" language-php"><span class="token variable">$commands</span></code> property of
+                            your <code class=" language-php">app<span class="token operator">/</span>Console<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file. When Artisan boots, all the
+                            commands listed in this property will be resolved by the <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a> and registered
+                            with Artisan:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">protected</span> <span
+                                class="token variable">$commands</span> <span class="token operator">=</span> <span
+                                class="token punctuation">[</span>
+    Commands\<span class="token package">SendEmails</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="programmatically-executing-commands"></a></p>
+                        <h2 id="programmatically-executing-commands"><a href="#programmatically-executing-commands">Programmatically
+                            Executing Commands</a></h2>
+                        <p>Sometimes you may wish to execute an Artisan command outside of the
+                            CLI. For example, you may wish to fire an Artisan command from a route
+                            or controller. You may use the <code class=" language-php">call</code> method on the <code
+                                    class=" language-php">Artisan</code> facade to accomplish this. The <code
+                                    class=" language-php">call</code>
+                            method accepts either the command's name or class as the first
+                            argument, and an array of command parameters as the second argument. The
+                            exit code will be returned:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/foo'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token variable">$exitCode</span> <span class="token operator">=</span> Artisan<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">call</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'email:send'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--queue'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'default'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may pass the entire Artisan command to the <code class=" language-php">call</code>
+                            method as a string:</p>
+                        <pre class=" language-php"><code class=" language-php">Artisan<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">call</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'email:send 1 --queue=default'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Using the <code class=" language-php">queue</code> method on the <code class=" language-php">Artisan</code>
+                            facade, you may even queue Artisan commands so they are processed in the background by your
+                            <a href="https://laravel.com/docs/7.x/queues">queue workers</a>. Before using this method,
+                            make sure you have configured your queue and are running a queue listener:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/foo'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Artisan<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">queue</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'email:send'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--queue'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'default'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also specify the connection or queue the Artisan command should be dispatched to:</p>
+                        <pre class=" language-php"><code class=" language-php">Artisan<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">queue</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'email:send'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--queue'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'default'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onConnection</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">onQueue</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'commands'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Passing Array Values</h4>
+                        <p>If your command defines an option that accepts an array, you may pass an array of values to
+                            that option:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/foo'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token variable">$exitCode</span> <span class="token operator">=</span> Artisan<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">call</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'email:send'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span><span class="token number">5</span><span
+                                    class="token punctuation">,</span> <span class="token number">13</span><span
+                                    class="token punctuation">]</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Passing Boolean Values</h4>
+                        <p>If you need to specify the value of an option that does not accept string values, such as the
+                            <code class=" language-php"><span class="token operator">--</span>force</code> flag on the
+                            <code class=" language-php">migrate<span class="token punctuation">:</span>refresh</code>
+                            command, you should pass <code class=" language-php"><span class="token boolean constant">true</span></code>
+                            or <code class=" language-php"><span class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$exitCode</span> <span
+                                class="token operator">=</span> Artisan<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">call</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'migrate:refresh'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'--force'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="calling-commands-from-other-commands"></a></p>
+                        <h3 id="calling-commands-from-other-commands"><a href="#calling-commands-from-other-commands">Calling
+                            Commands From Other Commands</a></h3>
+                        <p>Sometimes you may wish to call other commands from an existing Artisan command. You may do so
+                            using the <code class=" language-php">call</code> method. This <code class=" language-php">call</code>
+                            method accepts the command name and an array of command parameters:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Execute the console command.
+ *
+ * @return mixed
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">call</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'email:send'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--queue'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'default'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you would like to call another console command and suppress all of its output, you may use
+                            the <code class=" language-php">callSilent</code> method. The <code class=" language-php">callSilent</code>
+                            method has the same signature as the <code class=" language-php">call</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">callSilent</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'email:send'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'user'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--queue'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'default'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="stub-customization"></a></p>
+                        <h2 id="stub-customization"><a href="#stub-customization">Stub Customization</a></h2>
+                        <p>The Artisan console's <code class=" language-php">make</code>
+                            commands are used to create a variety of classes, such as controllers,
+                            jobs, migrations, and tests. These classes are generated using "stub"
+                            files that are populated with values based on your input. However, you
+                            may sometimes wish to make small changes to files generated by Artisan.
+                            To accomplish this, you may use the <code class=" language-php">stub<span
+                                    class="token punctuation">:</span>publish</code> command to publish the most common
+                            stubs for customization:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan stub<span
+                                class="token punctuation">:</span>publish</code></pre>
+                        <p>The published stubs will be located within a <code class=" language-php">stubs</code>
+                            directory in the root of your application. Any changes you make to
+                            these stubs will be reflected when you generate their corresponding
+                            classes using Artisan <code class=" language-php">make</code> commands.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

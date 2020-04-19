@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Middleware - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/middleware">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="02-Middleware_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="02-Middleware_files/app.css">
+
+    <!-- Load JS -->
+    <script src="02-Middleware_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="02-Middleware_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Middleware</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#defining-middleware">Defining Middleware</a></li>
+                            <li><a href="#registering-middleware">Registering Middleware</a>
+                                <ul>
+                                    <li><a href="#global-middleware">Global Middleware</a></li>
+                                    <li><a href="#assigning-middleware-to-routes">Assigning Middleware To Routes</a>
+                                    </li>
+                                    <li><a href="#middleware-groups">Middleware Groups</a></li>
+                                    <li><a href="#sorting-middleware">Sorting Middleware</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#middleware-parameters">Middleware Parameters</a></li>
+                            <li><a href="#terminable-middleware">Terminable Middleware</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Middleware provide a convenient mechanism for filtering HTTP requests
+                            entering your application. For example, Laravel includes a middleware
+                            that verifies the user of your application is authenticated. If the user
+                            is not authenticated, the middleware will redirect the user to the
+                            login screen. However, if the user is authenticated, the middleware will
+                            allow the request to proceed further into the application.</p>
+                        <p>Additional middleware can be written to perform a variety of tasks
+                            besides authentication. A CORS middleware might be responsible for
+                            adding the proper headers to all responses leaving your application. A
+                            logging middleware might log all incoming requests to your application.</p>
+                        <p>There are several middleware included in the Laravel framework,
+                            including middleware for authentication and CSRF protection. All of
+                            these middleware are located in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Middleware</code> directory.</p>
+                        <p><a name="defining-middleware"></a></p>
+                        <h2 id="defining-middleware"><a href="#defining-middleware">Defining Middleware</a></h2>
+                        <p>To create a new middleware, use the <code class=" language-php">make<span
+                                class="token punctuation">:</span>middleware</code> Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>middleware CheckAge</code></pre>
+                        <p>This command will place a new <code class=" language-php">CheckAge</code> class within your
+                            <code class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Middleware</code> directory. In this middleware, we
+                            will only allow access to the route if the supplied <code class=" language-php">age</code>
+                            is greater than 200. Otherwise, we will redirect the users back to the <code
+                                    class=" language-php">home</code> URI:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CheckAge</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">age</span> <span class="token operator">&lt;=</span> <span
+                                    class="token number">200</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">redirect</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'home'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>As you can see, if the given <code class=" language-php">age</code> is less than or equal to
+                            <code class=" language-php"><span class="token number">200</span></code>,
+                            the middleware will return an HTTP redirect to the client; otherwise,
+                            the request will be passed further into the application. To pass the
+                            request deeper into the application (allowing the middleware to "pass"),
+                            call the <code class=" language-php"><span class="token variable">$next</span></code>
+                            callback with the <code class=" language-php"><span
+                                    class="token variable">$request</span></code>.</p>
+                        <p>It's best to envision middleware as a series of "layers" HTTP
+                            requests must pass through before they hit your application. Each layer
+                            can examine the request and even reject it entirely.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Middleware_files/lightbulb.svg"></div>
+                                <p class="content"> All middleware are resolved via the <a
+                                        href="https://laravel.com/docs/7.x/container">service container</a>, so you may
+                                    type-hint any dependencies you need within a middleware's constructor.</p></div>
+                        </blockquote>
+                        <h3>Before &amp; After Middleware</h3>
+                        <p>Whether a middleware runs before or after a request depends on the
+                            middleware itself. For example, the following middleware would perform
+                            some task <strong>before</strong> the request is handled by the application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">BeforeMiddleware</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Perform action</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>However, this middleware would perform its task <strong>after</strong> the request is handled
+                            by the application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AfterMiddleware</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span> <span class="token operator">=</span> <span
+                                    class="token variable">$next</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token comment">// Perform action</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$response</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="registering-middleware"></a></p>
+                        <h2 id="registering-middleware"><a href="#registering-middleware">Registering Middleware</a>
+                        </h2>
+                        <p><a name="global-middleware"></a></p>
+                        <h3 id="global-middleware"><a href="#global-middleware">Global Middleware</a></h3>
+                        <p>If you want a middleware to run during every HTTP request to your application, list the
+                            middleware class in the <code class=" language-php"><span
+                                    class="token variable">$middleware</span></code> property of your <code
+                                    class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> class.</p>
+                        <p><a name="assigning-middleware-to-routes"></a></p>
+                        <h3 id="assigning-middleware-to-routes"><a href="#assigning-middleware-to-routes">Assigning
+                            Middleware To Routes</a></h3>
+                        <p>If you would like to assign middleware to specific routes, you should first assign the
+                            middleware a key in your <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file. By default, the <code
+                                    class=" language-php"><span class="token variable">$routeMiddleware</span></code>
+                            property of this class contains entries for the middleware included
+                            with Laravel. To add your own, append it to this list and assign it a
+                            key of your choosing:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Within App\Http\Kernel Class...</span>
+
+<span class="token keyword">protected</span> <span class="token variable">$routeMiddleware</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'auth'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">App<span
+                                    class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>Authenticate</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'auth.basic'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>AuthenticateWithBasicAuth</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'bindings'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>SubstituteBindings</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'cache.headers'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>SetCacheHeaders</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'can'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>Authorize</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'guest'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">App<span
+                                    class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>RedirectIfAuthenticated</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'signed'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>ValidateSignature</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'throttle'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>ThrottleRequests</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'verified'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>EnsureEmailIsVerified</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p>Once the middleware has been defined in the HTTP kernel, you may use the <code
+                                class=" language-php">middleware</code> method to assign middleware to a route:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin/profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may also assign multiple middleware to the route:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'first'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'second'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>When assigning middleware, you may also pass the fully qualified class name:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>CheckAge</span><span
+                                class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'admin/profile'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span class="token punctuation">(</span>CheckAge<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="middleware-groups"></a></p>
+                        <h3 id="middleware-groups"><a href="#middleware-groups">Middleware Groups</a></h3>
+                        <p>Sometimes you may want to group several middleware under a single key
+                            to make them easier to assign to routes. You may do this using the <code
+                                    class=" language-php"><span class="token variable">$middlewareGroups</span></code>
+                            property of your HTTP kernel.</p>
+                        <p>Out of the box, Laravel comes with <code class=" language-php">web</code> and <code
+                                class=" language-php">api</code> middleware groups that contain common middleware you
+                            may want to apply to your web UI and API routes:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The application's route middleware groups.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$middlewareGroups</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'web'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        \<span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>EncryptCookies</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        \<span class="token package">Illuminate<span class="token punctuation">\</span>Cookie<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>AddQueuedCookiesToResponse</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        \<span class="token package">Illuminate<span class="token punctuation">\</span>Session<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>StartSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        \<span class="token package">Illuminate<span class="token punctuation">\</span>View<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>ShareErrorsFromSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        \<span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>VerifyCsrfToken</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+        \<span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'api'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'throttle:60,1'</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'auth:api'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p>Middleware groups may be assigned to routes and controller actions
+                            using the same syntax as individual middleware. Again, middleware groups
+                            make it more convenient to assign many middleware to a route at once:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">group</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'middleware'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'subscribed'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">group</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Middleware_files/lightbulb.svg"></div>
+                                <p class="content"> Out of the box, the <code class=" language-php">web</code>
+                                    middleware group is automatically applied to your <code class=" language-php">routes<span
+                                            class="token operator">/</span>web<span class="token punctuation">.</span>php</code>
+                                    file by the <code class=" language-php">RouteServiceProvider</code>.</p></div>
+                        </blockquote>
+                        <p><a name="sorting-middleware"></a></p>
+                        <h3 id="sorting-middleware"><a href="#sorting-middleware">Sorting Middleware</a></h3>
+                        <p>Rarely, you may need your middleware to execute in a specific order
+                            but not have control over their order when they are assigned to the
+                            route. In this case, you may specify your middleware priority using the <code
+                                    class=" language-php"><span class="token variable">$middlewarePriority</span></code>
+                            property of your <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The priority-sorted list of middleware.
+ *
+ * This forces non-global middleware to always be in the given order.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$middlewarePriority</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Session<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>StartSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>View<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>ShareErrorsFromSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>AuthenticatesRequests</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>ThrottleRequests</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Session<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>AuthenticateSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Auth<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authorize</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="middleware-parameters"></a></p>
+                        <h2 id="middleware-parameters"><a href="#middleware-parameters">Middleware Parameters</a></h2>
+                        <p>Middleware can also receive additional parameters. For example, if
+                            your application needs to verify that the authenticated user has a given
+                            "role" before performing a given action, you could create a <code class=" language-php">CheckRole</code>
+                            middleware that receives a role name as an additional argument.</p>
+                        <p>Additional middleware parameters will be passed to the middleware after the <code
+                                class=" language-php"><span class="token variable">$next</span></code> argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CheckRole</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string  $role
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$role</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token operator">!</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">hasRole</span><span
+                                    class="token punctuation">(</span><span class="token variable">$role</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Redirect...</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Middleware parameters may be specified when defining the route by separating the middleware
+                            name and parameters with a <code class=" language-php"><span
+                                    class="token punctuation">:</span></code>. Multiple parameters should be delimited
+                            by commas:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'post/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$id</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'role:editor'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="terminable-middleware"></a></p>
+                        <h2 id="terminable-middleware"><a href="#terminable-middleware">Terminable Middleware</a></h2>
+                        <p>Sometimes a middleware may need to do some work after the HTTP response has been sent to the
+                            browser. If you define a <code class=" language-php">terminate</code> method on your
+                            middleware and your web server is using FastCGI, the <code
+                                    class=" language-php">terminate</code> method will automatically be called after the
+                            response is sent to the browser:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Session<span class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">StartSession</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">terminate</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$response</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Store the session data...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">terminate</code> method should
+                            receive both the request and the response. Once you have defined a
+                            terminable middleware, you should add it to the list of route or global
+                            middleware in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file.</p>
+                        <p>When calling the <code class=" language-php">terminate</code> method on your middleware,
+                            Laravel will resolve a fresh instance of the middleware from the <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a>. If you would
+                            like to use the same middleware instance when the <code class=" language-php">handle</code>
+                            and <code class=" language-php">terminate</code> methods are called, register the middleware
+                            with the container using the container's <code class=" language-php">singleton</code>
+                            method. Typically this should be done in the <code class=" language-php">register</code>
+                            method of your <code class=" language-php">AppServiceProvider<span
+                                    class="token punctuation">.</span>php</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>TerminableMiddleware</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Register any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">singleton</span><span class="token punctuation">(</span>TerminableMiddleware<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Controllers - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/controllers">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Controllers_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Controllers_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Controllers_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Controllers_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Controllers</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#basic-controllers">Basic Controllers</a>
+                                <ul>
+                                    <li><a href="#defining-controllers">Defining Controllers</a></li>
+                                    <li><a href="#controllers-and-namespaces">Controllers &amp; Namespaces</a></li>
+                                    <li><a href="#single-action-controllers">Single Action Controllers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#controller-middleware">Controller Middleware</a></li>
+                            <li><a href="#resource-controllers">Resource Controllers</a>
+                                <ul>
+                                    <li><a href="#restful-partial-resource-routes">Partial Resource Routes</a></li>
+                                    <li><a href="#restful-nested-resources">Nested Resources</a></li>
+                                    <li><a href="#restful-naming-resource-routes">Naming Resource Routes</a></li>
+                                    <li><a href="#restful-naming-resource-route-parameters">Naming Resource Route
+                                        Parameters</a></li>
+                                    <li><a href="#restful-localizing-resource-uris">Localizing Resource URIs</a></li>
+                                    <li><a href="#restful-supplementing-resource-controllers">Supplementing Resource
+                                        Controllers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#dependency-injection-and-controllers">Dependency Injection &amp;
+                                Controllers</a></li>
+                            <li><a href="#route-caching">Route Caching</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Instead of defining all of your request handling logic as Closures in
+                            route files, you may wish to organize this behavior using Controller
+                            classes. Controllers can group related request handling logic into a
+                            single class. Controllers are stored in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Controllers</code>
+                            directory.</p>
+                        <p><a name="basic-controllers"></a></p>
+                        <h2 id="basic-controllers"><a href="#basic-controllers">Basic Controllers</a></h2>
+                        <p><a name="defining-controllers"></a></p>
+                        <h3 id="defining-controllers"><a href="#defining-controllers">Defining Controllers</a></h3>
+                        <p>Below is an example of a basic controller class. Note that the
+                            controller extends the base controller class included with Laravel. The
+                            base class provides a few convenience methods such as the <code class=" language-php">middleware</code>
+                            method, which may be used to attach middleware to controller actions:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">findOrFail</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You can define a route to this controller action like so:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'UserController@show'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Now, when a request matches the specified route URI, the <code
+                                class=" language-php">show</code> method on the <code class=" language-php">UserController</code>
+                            class will be executed. The route parameters will also be passed to the method.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Controllers_files/lightbulb.svg"></div>
+                                <p class="content"> Controllers are not <strong>required</strong> to extend a base
+                                    class. However, you will not have access to convenience features such as the <code
+                                            class=" language-php">middleware</code>, <code class=" language-php">validate</code>,
+                                    and <code class=" language-php">dispatch</code> methods.</p></div>
+                        </blockquote>
+                        <p><a name="controllers-and-namespaces"></a></p>
+                        <h3 id="controllers-and-namespaces"><a href="#controllers-and-namespaces">Controllers &amp;
+                            Namespaces</a></h3>
+                        <p>It is very important to note that we did not need to specify the full
+                            controller namespace when defining the controller route. Since the <code
+                                    class=" language-php">RouteServiceProvider</code>
+                            loads your route files within a route group that contains the
+                            namespace, we only specified the portion of the class name that comes
+                            after the <code class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Controllers</span></code> portion of the
+                            namespace.</p>
+                        <p>If you choose to nest your controllers deeper into the <code class=" language-php">App\<span
+                                class="token package">Http<span
+                                class="token punctuation">\</span>Controllers</span></code> directory, use the specific
+                            class name relative to the <code class=" language-php">App\<span
+                                    class="token package">Http<span class="token punctuation">\</span>Controllers</span></code>
+                            root namespace. So, if your full controller class is <code class=" language-php">App\<span
+                                    class="token package">Http<span class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Photos<span class="token punctuation">\</span>AdminController</span></code>,
+                            you should register routes to the controller like so:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'Photos\AdminController@method'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="single-action-controllers"></a></p>
+                        <h3 id="single-action-controllers"><a href="#single-action-controllers">Single Action
+                            Controllers</a></h3>
+                        <p>If you would like to define a controller that only handles a single action, you may place a
+                            single <code class=" language-php">__invoke</code> method on the controller:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ShowProfile</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__invoke</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">findOrFail</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When registering routes for single action controllers, you do not need to specify a
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'ShowProfile'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may generate an invokable controller by using the <code class=" language-php"><span
+                                class="token operator">--</span>invokable</code> option of the <code
+                                class=" language-php">make<span class="token punctuation">:</span>controller</code>
+                            Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>controller ShowProfile <span
+                                class="token operator">--</span>invokable</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Controllers_files/lightbulb.svg"></div>
+                                <p class="content"> Controller stubs may be customized using <a
+                                        href="#stub-customization">stub
+                                    publishing</a></p></div>
+                        </blockquote>
+                        <p><a name="controller-middleware"></a></p>
+                        <h2 id="controller-middleware"><a href="#controller-middleware">Controller Middleware</a></h2>
+                        <p><a href="https://laravel.com/docs/7.x/middleware">Middleware</a> may be assigned to the
+                            controller's routes in your route files:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'profile'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'UserController@show'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">middleware</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>However, it is more convenient to specify middleware within your controller's constructor.
+                            Using the <code class=" language-php">middleware</code>
+                            method from your controller's constructor, you may easily assign
+                            middleware to the controller's action. You may even restrict the
+                            middleware to only certain methods on the controller class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span
+                                class="token class-name">UserController</span> <span
+                                class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'log'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">only</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'index'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'subscribed'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">except</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'store'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Controllers also allow you to register middleware using a Closure.
+                            This provides a convenient way to define a middleware for a single
+                            controller without defining an entire middleware class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                class="token variable">$next</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Controllers_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    You may assign middleware to a subset of controller actions; however,
+                                    it may indicate your controller is growing too large. Instead, consider
+                                    breaking your controller into multiple, smaller controllers.</p></div>
+                        </blockquote>
+                        <p><a name="resource-controllers"></a></p>
+                        <h2 id="resource-controllers"><a href="#resource-controllers">Resource Controllers</a></h2>
+                        <p>Laravel resource routing assigns the typical "CRUD" routes to a
+                            controller with a single line of code. For example, you may wish to
+                            create a controller that handles all HTTP requests for "photos" stored
+                            by your application. Using the <code class=" language-php">make<span
+                                    class="token punctuation">:</span>controller</code> Artisan command, we can quickly
+                            create such a controller:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>controller PhotoController <span
+                                class="token operator">--</span>resource</code></pre>
+                        <p>This command will generate a controller at <code class=" language-php">app<span
+                                class="token operator">/</span>Http<span class="token operator">/</span>Controllers<span
+                                class="token operator">/</span>PhotoController<span class="token punctuation">.</span>php</code>.
+                            The controller will contain a method for each of the available resource operations.</p>
+                        <p>Next, you may register a resourceful route to the controller:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>This single route declaration creates multiple routes to handle a
+                            variety of actions on the resource. The generated controller will
+                            already have methods stubbed for each of these actions, including notes
+                            informing you of the HTTP verbs and URIs they handle.</p>
+                        <p>You may register many resource controllers at once by passing an array to the <code
+                                class=" language-php">resources</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resources</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'photos'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'posts'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'PostController'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Actions Handled By Resource Controller</h4>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Verb</th>
+                                <th>URI</th>
+                                <th>Action</th>
+                                <th>Route Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos</code></td>
+                                <td>index</td>
+                                <td>photos.index</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span>create</code></td>
+                                <td>create</td>
+                                <td>photos.create</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos</code></td>
+                                <td>store</td>
+                                <td>photos.store</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span class="token punctuation">}</span></code>
+                                </td>
+                                <td>show</td>
+                                <td>photos.show</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span
+                                        class="token punctuation">}</span><span
+                                        class="token operator">/</span>edit</code></td>
+                                <td>edit</td>
+                                <td>photos.edit</td>
+                            </tr>
+                            <tr>
+                                <td>PUT/PATCH</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span class="token punctuation">}</span></code>
+                                </td>
+                                <td>update</td>
+                                <td>photos.update</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span class="token punctuation">}</span></code>
+                                </td>
+                                <td>destroy</td>
+                                <td>photos.destroy</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <h4>Specifying The Resource Model</h4>
+                        <p>If you are using route model binding and would like the resource
+                            controller's methods to type-hint a model instance, you may use the <code
+                                    class=" language-php"><span class="token operator">--</span>model</code> option when
+                            generating the controller:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>controller PhotoController <span
+                                class="token operator">--</span>resource <span
+                                class="token operator">--</span>model<span
+                                class="token operator">=</span>Photo</code></pre>
+                        <h4>Spoofing Form Methods</h4>
+                        <p>Since HTML forms can't make <code class=" language-php"><span
+                                class="token constant">PUT</span></code>, <code class=" language-php"><span
+                                class="token constant">PATCH</span></code>, or <code class=" language-php"><span
+                                class="token constant">DELETE</span></code> requests, you will need to add a hidden
+                            <code class=" language-php">_method</code> field to spoof these HTTP verbs. The <code
+                                    class=" language-php">@method</code> Blade directive can create this field for you:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>form action<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"/foo/bar"</span> method<span
+                                class="token operator">=</span><span
+                                class="token double-quoted-string string">"POST"</span><span
+                                class="token operator">&gt;</span>
+    @<span class="token function">method</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'PUT'</span><span
+                                    class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>form<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p><a name="restful-partial-resource-routes"></a></p>
+                        <h3 id="restful-partial-resource-routes"><a href="#restful-partial-resource-routes">Partial
+                            Resource Routes</a></h3>
+                        <p>When declaring a resource route, you may specify a subset of actions
+                            the controller should handle instead of the full set of default actions:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">only</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'index'</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'show'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">resource</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'photos'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">except</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'create'</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'store'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'update'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'destroy'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>API Resource Routes</h4>
+                        <p>When declaring resource routes that will be consumed by APIs, you
+                            will commonly want to exclude routes that present HTML templates such as
+                            <code class=" language-php">create</code> and <code class=" language-php">edit</code>. For
+                            convenience, you may use the <code class=" language-php">apiResource</code> method to
+                            automatically exclude these two routes:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">apiResource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may register many API resource controllers at once by passing an array to the <code
+                                class=" language-php">apiResources</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">apiResources</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'photos'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'posts'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'PostController'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>To quickly generate an API resource controller that does not include the <code
+                                class=" language-php">create</code> or <code class=" language-php">edit</code> methods,
+                            use the <code class=" language-php"><span class="token operator">--</span>api</code> switch
+                            when executing the <code class=" language-php">make<span class="token punctuation">:</span>controller</code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>controller <span
+                                class="token constant">API</span><span
+                                class="token operator">/</span>PhotoController <span class="token operator">--</span>api</code></pre>
+                        <p><a name="restful-nested-resources"></a></p>
+                        <h3 id="restful-nested-resources"><a href="#restful-nested-resources">Nested Resources</a></h3>
+                        <p>Sometimes you may need to define routes to a nested resource. For
+                            example, a photo resource may have multiple comments that may be
+                            attached to the photo. To nest the resource controllers, use "dot"
+                            notation in your route declaration:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos.comments'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoCommentController'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>This route will register a nested resource that may be accessed with URIs like the
+                            following:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">/</span>photos<span
+                                class="token operator">/</span><span class="token punctuation">{</span>photo<span
+                                class="token punctuation">}</span><span class="token operator">/</span>comments<span
+                                class="token operator">/</span><span class="token punctuation">{</span>comment<span
+                                class="token punctuation">}</span></code></pre>
+                        <h4>Shallow Nesting</h4>
+                        <p>Often, it is not entirely necessary to have both the parent and the
+                            child IDs within a URI since the child ID is already a unique
+                            identifier. When using unique identifier such as auto-incrementing
+                            primary keys to identify your models in URI segments, you may choose to
+                            use "shallow nesting":</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos.comments'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'CommentController'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">shallow</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>The route definition above will define the following routes:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Verb</th>
+                                <th>URI</th>
+                                <th>Action</th>
+                                <th>Route Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span
+                                        class="token punctuation">}</span><span class="token operator">/</span>comments</code>
+                                </td>
+                                <td>index</td>
+                                <td>photos.comments.index</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span
+                                        class="token punctuation">}</span><span
+                                        class="token operator">/</span>comments<span class="token operator">/</span>create</code>
+                                </td>
+                                <td>create</td>
+                                <td>photos.comments.create</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>photos<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>photo<span
+                                        class="token punctuation">}</span><span class="token operator">/</span>comments</code>
+                                </td>
+                                <td>store</td>
+                                <td>photos.comments.store</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>comments<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>comment<span
+                                        class="token punctuation">}</span></code></td>
+                                <td>show</td>
+                                <td>comments.show</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>comments<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>comment<span
+                                        class="token punctuation">}</span><span
+                                        class="token operator">/</span>edit</code></td>
+                                <td>edit</td>
+                                <td>comments.edit</td>
+                            </tr>
+                            <tr>
+                                <td>PUT/PATCH</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>comments<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>comment<span
+                                        class="token punctuation">}</span></code></td>
+                                <td>update</td>
+                                <td>comments.update</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td><code class=" language-php"><span class="token operator">/</span>comments<span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">{</span>comment<span
+                                        class="token punctuation">}</span></code></td>
+                                <td>destroy</td>
+                                <td>comments.destroy</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><a name="restful-naming-resource-routes"></a></p>
+                        <h3 id="restful-naming-resource-routes"><a href="#restful-naming-resource-routes">Naming
+                            Resource Routes</a></h3>
+                        <p>By default, all resource controller actions have a route name; however, you can override
+                            these names by passing a <code class=" language-php">names</code> array with your options:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">names</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'create'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'photos.build'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="restful-naming-resource-route-parameters"></a></p>
+                        <h3 id="restful-naming-resource-route-parameters"><a
+                                href="#restful-naming-resource-route-parameters">Naming Resource Route Parameters</a>
+                        </h3>
+                        <p>By default, <code class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>resource</code>
+                            will create the route parameters for your resource routes based on the
+                            "singularized" version of the resource name. You can easily override
+                            this on a per resource basis by using the <code class=" language-php">parameters</code>
+                            method. The array passed into the <code class=" language-php">parameters</code> method
+                            should be an associative array of resource names and parameter names:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">resource</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'users'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'AdminUserController'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">parameters</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'admin_user'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The example above generates the following URIs for the resource's <code
+                                class=" language-php">show</code> route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">/</span>users<span
+                                class="token operator">/</span><span class="token punctuation">{</span>admin_user<span
+                                class="token punctuation">}</span></code></pre>
+                        <p><a name="restful-localizing-resource-uris"></a></p>
+                        <h3 id="restful-localizing-resource-uris"><a href="#restful-localizing-resource-uris">Localizing
+                            Resource URIs</a></h3>
+                        <p>By default, <code class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>resource</code> will create resource URIs using
+                            English verbs. If you need to localize the <code class=" language-php">create</code> and
+                            <code class=" language-php">edit</code> action verbs, you may use the <code
+                                    class=" language-php">Route<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>resourceVerbs</code> method. This may be done in
+                            the <code class=" language-php">boot</code> method of your <code class=" language-php">AppServiceProvider</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Route</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">resourceVerbs</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'create'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'crear'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'edit'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'editar'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once the verbs have been customized, a resource route registration such as <code
+                                class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">resource</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'fotos'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                class="token punctuation">)</span></code> will produce the following URIs:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">/</span>fotos<span
+                                class="token operator">/</span>crear
+
+<span class="token operator">/</span>fotos<span class="token operator">/</span><span class="token punctuation">{</span>foto<span
+                                    class="token punctuation">}</span><span class="token operator">/</span>editar</code></pre>
+                        <p><a name="restful-supplementing-resource-controllers"></a></p>
+                        <h3 id="restful-supplementing-resource-controllers"><a
+                                href="#restful-supplementing-resource-controllers">Supplementing Resource
+                            Controllers</a></h3>
+                        <p>If you need to add additional routes to a resource controller beyond
+                            the default set of resource routes, you should define those routes
+                            before your call to <code class=" language-php">Route<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>resource</code>; otherwise, the routes defined by
+                            the <code class=" language-php">resource</code> method may unintentionally take precedence
+                            over your supplemental routes:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'photos/popular'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController@method'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">resource</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'photos'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'PhotoController'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Controllers_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    Remember to keep your controllers focused. If you find yourself
+                                    routinely needing methods outside of the typical set of resource
+                                    actions, consider splitting your controller into two, smaller
+                                    controllers.</p></div>
+                        </blockquote>
+                        <p><a name="dependency-injection-and-controllers"></a></p>
+                        <h2 id="dependency-injection-and-controllers"><a href="#dependency-injection-and-controllers">Dependency
+                            Injection &amp; Controllers</a></h2>
+                        <h4>Constructor Injection</h4>
+                        <p>The Laravel <a href="https://laravel.com/docs/7.x/container">service container</a>
+                            is used to resolve all Laravel controllers. As a result, you are able
+                            to type-hint any dependencies your controller may need in its
+                            constructor. The declared dependencies will automatically be resolved
+                            and injected into the controller instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Repositories<span
+                                    class="token punctuation">\</span>UserRepository</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The user repository instance.
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>UserRepository <span
+                                    class="token variable">$users</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">users</span> <span
+                                    class="token operator">=</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You may also type-hint any <a href="https://laravel.com/docs/7.x/contracts">Laravel
+                            contract</a>.
+                            If the container can resolve it, you can type-hint it. Depending on
+                            your application, injecting your dependencies into your controller may
+                            provide better testability.</p>
+                        <h4>Method Injection</h4>
+                        <p>In addition to constructor injection, you may also type-hint
+                            dependencies on your controller's methods. A common use-case for method
+                            injection is injecting the <code class=" language-php">Illuminate\<span
+                                    class="token package">Http<span
+                                    class="token punctuation">\</span>Request</span></code> instance into your
+                            controller methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>If your controller method is also expecting input from a route
+                            parameter, list your route arguments after your other dependencies. For
+                            example, if your route is defined like so:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">put</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'UserController@update'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may still type-hint the <code class=" language-php">Illuminate\<span
+                                class="token package">Http<span class="token punctuation">\</span>Request</span></code>
+                            and access your <code class=" language-php">id</code> parameter by defining your controller
+                            method as follows:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Update the given user.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$id</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="route-caching"></a></p>
+                        <h2 id="route-caching"><a href="#route-caching">Route Caching</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Controllers_files/exclamation.svg"></div>
+                                <p class="content"> Closure based routes cannot be cached. To use route caching, you
+                                    must convert any Closure routes to controller classes.</p></div>
+                        </blockquote>
+                        <p>If your application is exclusively using controller based routes, you
+                            should take advantage of Laravel's route cache. Using the route cache
+                            will drastically decrease the amount of time it takes to register all of
+                            your application's routes. In some cases, your route registration may
+                            even be up to 100x faster. To generate a route cache, just execute the <code
+                                    class=" language-php">route<span class="token punctuation">:</span>cache</code>
+                            Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan route<span
+                                class="token punctuation">:</span>cache</code></pre>
+                        <p>After running this command, your cached routes file will be loaded on
+                            every request. Remember, if you add any new routes you will need to
+                            generate a fresh route cache. Because of this, you should only run the <code
+                                    class=" language-php">route<span class="token punctuation">:</span>cache</code>
+                            command during your project's deployment.</p>
+                        <p>You may use the <code class=" language-php">route<span class="token punctuation">:</span>clear</code>
+                            command to clear the route cache:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan route<span
+                                class="token punctuation">:</span>clear</code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

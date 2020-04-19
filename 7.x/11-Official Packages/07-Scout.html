@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Scout - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/scout">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="07-Scout_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="07-Scout_files/app.css">
+
+    <!-- Load JS -->
+    <script src="07-Scout_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="07-Scout_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Scout</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#installation">Installation</a>
+                                <ul>
+                                    <li><a href="#queueing">Queueing</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#configuration">Configuration</a>
+                                <ul>
+                                    <li><a href="#configuring-model-indexes">Configuring Model Indexes</a></li>
+                                    <li><a href="#configuring-searchable-data">Configuring Searchable Data</a></li>
+                                    <li><a href="#configuring-the-model-id">Configuring The Model ID</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#indexing">Indexing</a>
+                                <ul>
+                                    <li><a href="#batch-import">Batch Import</a></li>
+                                    <li><a href="#adding-records">Adding Records</a></li>
+                                    <li><a href="#updating-records">Updating Records</a></li>
+                                    <li><a href="#removing-records">Removing Records</a></li>
+                                    <li><a href="#pausing-indexing">Pausing Indexing</a></li>
+                                    <li><a href="#conditionally-searchable-model-instances">Conditionally Searchable
+                                        Model Instances</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#searching">Searching</a>
+                                <ul>
+                                    <li><a href="#where-clauses">Where Clauses</a></li>
+                                    <li><a href="#pagination">Pagination</a></li>
+                                    <li><a href="#soft-deleting">Soft Deleting</a></li>
+                                    <li><a href="#customizing-engine-searches">Customizing Engine Searches</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#custom-engines">Custom Engines</a></li>
+                            <li><a href="#builder-macros">Builder Macros</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel Scout provides a simple, driver based solution for adding full-text search to your <a
+                                href="https://laravel.com/docs/7.x/eloquent">Eloquent models</a>. Using model observers,
+                            Scout will automatically keep your search indexes in sync with your Eloquent records.</p>
+                        <p>Currently, Scout ships with an <a href="https://www.algolia.com/">Algolia</a> driver;
+                            however, writing custom drivers is simple and you are free to extend Scout with your own
+                            search implementations.</p>
+                        <p><a name="installation"></a></p>
+                        <h2 id="installation"><a href="#installation">Installation</a></h2>
+                        <p>First, install Scout via the Composer package manager:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>scout</code></pre>
+                        <p>After installing Scout, you should publish the Scout configuration using the <code
+                                class=" language-php">vendor<span class="token punctuation">:</span>publish</code>
+                            Artisan command. This command will publish the <code class=" language-php">scout<span
+                                    class="token punctuation">.</span>php</code> configuration file to your <code
+                                    class=" language-php">config</code> directory:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>provider<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"Laravel\Scout\ScoutServiceProvider"</span></code></pre>
+                        <p>Finally, add the <code class=" language-php">Laravel\<span class="token package">Scout<span
+                                class="token punctuation">\</span>Searchable</span></code>
+                            trait to the model you would like to make searchable. This trait will
+                            register a model observer to keep the model in sync with your search
+                            driver:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span
+                                    class="token punctuation">\</span>Scout<span class="token punctuation">\</span>Searchable</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Post</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Searchable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="queueing"></a></p>
+                        <h3 id="queueing"><a href="#queueing">Queueing</a></h3>
+                        <p>While not strictly required to use Scout, you should strongly consider configuring a <a
+                                href="https://laravel.com/docs/7.x/queues">queue driver</a>
+                            before using the library. Running a queue worker will allow Scout to
+                            queue all operations that sync your model information to your search
+                            indexes, providing much better response times for your application's web
+                            interface.</p>
+                        <p>Once you have configured a queue driver, set the value of the <code class=" language-php">queue</code>
+                            option in your <code class=" language-php">config<span
+                                    class="token operator">/</span>scout<span
+                                    class="token punctuation">.</span>php</code> configuration file to <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'queue'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token boolean constant">true</span><span
+                                class="token punctuation">,</span></code></pre>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <h4>Algolia</h4>
+                        <p>When using the Algolia driver, you should configure your Algolia <code class=" language-php">id</code>
+                            and <code class=" language-php">secret</code> credentials in your <code
+                                    class=" language-php">config<span class="token operator">/</span>scout<span
+                                    class="token punctuation">.</span>php</code>
+                            configuration file. Once your credentials have been configured, you
+                            will also need to install the Algolia PHP SDK via the Composer package
+                            manager:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> algolia<span
+                                class="token operator">/</span>algoliasearch<span
+                                class="token operator">-</span>client<span class="token operator">-</span>php<span
+                                class="token punctuation">:</span><span class="token operator">^</span><span
+                                class="token number">2.2</span></code></pre>
+                        <p><a name="configuration"></a></p>
+                        <h2 id="configuration"><a href="#configuration">Configuration</a></h2>
+                        <p><a name="configuring-model-indexes"></a></p>
+                        <h3 id="configuring-model-indexes"><a href="#configuring-model-indexes">Configuring Model
+                            Indexes</a></h3>
+                        <p>Each Eloquent model is synced with a given search "index", which
+                            contains all of the searchable records for that model. In other words,
+                            you can think of each index like a MySQL table. By default, each model
+                            will be persisted to an index matching the model's typical "table" name.
+                            Typically, this is the plural form of the model name; however, you are
+                            free to customize the model's index by overriding the <code class=" language-php">searchableAs</code>
+                            method on the model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span
+                                    class="token punctuation">\</span>Scout<span class="token punctuation">\</span>Searchable</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Post</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Searchable</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Get the index name for the model.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">searchableAs</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span
+                                    class="token single-quoted-string string">'posts_index'</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="configuring-searchable-data"></a></p>
+                        <h3 id="configuring-searchable-data"><a href="#configuring-searchable-data">Configuring
+                            Searchable Data</a></h3>
+                        <p>By default, the entire <code class=" language-php">toArray</code>
+                            form of a given model will be persisted to its search index. If you
+                            would like to customize the data that is synchronized to the search
+                            index, you may override the <code class=" language-php">toSearchableArray</code> method on
+                            the model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span
+                                    class="token punctuation">\</span>Scout<span class="token punctuation">\</span>Searchable</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Post</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Searchable</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toSearchableArray</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">toArray</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Customize array...</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$array</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="configuring-the-model-id"></a></p>
+                        <h3 id="configuring-the-model-id"><a href="#configuring-the-model-id">Configuring The Model
+                            ID</a></h3>
+                        <p>By default, Scout will use the primary key of the model as the unique
+                            ID stored in the search index. If you need to customize this behavior,
+                            you may override the <code class=" language-php">getScoutKey</code> and the <code
+                                    class=" language-php">getScoutKeyName</code> methods on the model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span
+                                    class="token punctuation">\</span>Scout<span class="token punctuation">\</span>Searchable</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Searchable</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Get the value used to index the model.
+     *
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getScoutKey</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">email</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+     <span class="token comment">/**
+     * Get the key name used to index the model.
+     *
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getScoutKeyName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token single-quoted-string string">'email'</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="indexing"></a></p>
+                        <h2 id="indexing"><a href="#indexing">Indexing</a></h2>
+                        <p><a name="batch-import"></a></p>
+                        <h3 id="batch-import"><a href="#batch-import">Batch Import</a></h3>
+                        <p>If you are installing Scout into an existing project, you may already
+                            have database records you need to import into your search driver. Scout
+                            provides an <code class=" language-php">import</code> Artisan command that you may use to
+                            import all of your existing records into your search indexes:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan scout<span
+                                class="token punctuation">:</span>import <span
+                                class="token double-quoted-string string">"App\Post"</span></code></pre>
+                        <p>The <code class=" language-php">flush</code> command may be used to remove all of a model's
+                            records from your search indexes:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan scout<span
+                                class="token punctuation">:</span>flush <span class="token double-quoted-string string">"App\Post"</span></code></pre>
+                        <p><a name="adding-records"></a></p>
+                        <h3 id="adding-records"><a href="#adding-records">Adding Records</a></h3>
+                        <p>Once you have added the <code class=" language-php">Laravel\<span class="token package">Scout<span
+                                class="token punctuation">\</span>Searchable</span></code> trait to a model, all you
+                            need to do is <code class=" language-php">save</code> a model instance and it will
+                            automatically be added to your search index. If you have configured Scout to <a
+                                    href="#queueing">use queues</a> this operation will be performed in the background
+                            by your queue worker:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$order</span> <span class="token operator">=</span> <span
+                                class="token keyword">new</span> <span class="token class-name">App<span
+                                class="token punctuation">\</span>Order</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ...</span>
+
+<span class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Adding Via Query</h4>
+                        <p>If you would like to add a collection of models to your search index via an Eloquent query,
+                            you may chain the <code class=" language-php">searchable</code> method onto an Eloquent
+                            query. The <code class=" language-php">searchable</code> method will <a
+                                    href="#chunking-results">chunk the results</a>
+                            of the query and add the records to your search index. Again, if you
+                            have configured Scout to use queues, all of the chunks will be added in
+                            the background by your queue workers:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Adding via Eloquent query...</span>
+App\<span class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'price'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'&gt;'</span><span
+                                    class="token punctuation">,</span> <span class="token number">100</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also add records via relationships...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">orders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also add records via collections...</span>
+<span class="token variable">$orders</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">searchable</code> method can be
+                            considered an "upsert" operation. In other words, if the model record is
+                            already in your index, it will be updated. If it does not exist in the
+                            search index, it will be added to the index.</p>
+                        <p><a name="updating-records"></a></p>
+                        <h3 id="updating-records"><a href="#updating-records">Updating Records</a></h3>
+                        <p>To update a searchable model, you only need to update the model instance's properties and
+                            <code class=" language-php">save</code> the model to your database. Scout will automatically
+                            persist the changes to your search index:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$order</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Update the order...</span>
+
+<span class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may also use the <code class=" language-php">searchable</code>
+                            method on an Eloquent query to update a collection of models. If the
+                            models do not exist in your search index, they will be created:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Updating via Eloquent query...</span>
+App\<span class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'price'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'&gt;'</span><span
+                                    class="token punctuation">,</span> <span class="token number">100</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also update via relationships...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">orders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also update via collections...</span>
+<span class="token variable">$orders</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="removing-records"></a></p>
+                        <h3 id="removing-records"><a href="#removing-records">Removing Records</a></h3>
+                        <p>To remove a record from your index, <code class=" language-php">delete</code> the model from
+                            the database. This form of removal is even compatible with <a
+                                    href="#soft-deleting">soft deleted</a> models:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$order</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you do not want to retrieve the model before deleting the record, you may use the <code
+                                class=" language-php">unsearchable</code> method on an Eloquent query instance or
+                            collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Removing via Eloquent query...</span>
+App\<span class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'price'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'&gt;'</span><span
+                                    class="token punctuation">,</span> <span class="token number">100</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">unsearchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also remove via relationships...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">orders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">unsearchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// You may also remove via collections...</span>
+<span class="token variable">$orders</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">unsearchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="pausing-indexing"></a></p>
+                        <h3 id="pausing-indexing"><a href="#pausing-indexing">Pausing Indexing</a></h3>
+                        <p>Sometimes you may need to perform a batch of Eloquent operations on a
+                            model without syncing the model data to your search index. You may do
+                            this using the <code class=" language-php">withoutSyncingToSearch</code>
+                            method. This method accepts a single callback which will be immediately
+                            executed. Any model operations that occur within the callback will not
+                            be synced to the model's index:</p>
+                        <pre class=" language-php"><code class=" language-php">App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span
+                                class="token function">withoutSyncingToSearch</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Perform model actions...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="conditionally-searchable-model-instances"></a></p>
+                        <h3 id="conditionally-searchable-model-instances"><a
+                                href="#conditionally-searchable-model-instances">Conditionally Searchable Model
+                            Instances</a></h3>
+                        <p>Sometimes you may need to only make a model searchable under certain conditions. For example,
+                            imagine you have <code class=" language-php">App\<span
+                                    class="token package">Post</span></code>
+                            model that may be in one of two states: "draft" and "published". You
+                            may only want to allow "published" posts to be searchable. To accomplish
+                            this, you may define a <code class=" language-php">shouldBeSearchable</code> method on your
+                            model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span
+                                class="token function">shouldBeSearchable</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">isPublished</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>The <code class=" language-php">shouldBeSearchable</code> method is only applied when
+                            manipulating models through the <code class=" language-php">save</code> method, queries, or
+                            relationships. Directly making models or collections searchable using the <code
+                                    class=" language-php">searchable</code> method will override the result of the <code
+                                    class=" language-php">shouldBeSearchable</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Will respect "shouldBeSearchable"...</span>
+App\<span class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'price'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'&gt;'</span><span
+                                    class="token punctuation">,</span> <span class="token number">100</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">orders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// Will override "shouldBeSearchable"...</span>
+<span class="token variable">$orders</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">searchable</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="searching"></a></p>
+                        <h2 id="searching"><a href="#searching">Searching</a></h2>
+                        <p>You may begin searching a model using the <code class=" language-php">search</code> method.
+                            The search method accepts a single string that will be used to search your models. You
+                            should then chain the <code class=" language-php">get</code> method onto the search query to
+                            retrieve the Eloquent models that match the given search query:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>Since Scout searches return a collection of Eloquent models, you may
+                            even return the results directly from a route or controller and they
+                            will automatically be converted to JSON:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Request</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/search'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> App\<span class="token package">Order</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">search</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">search</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you would like to get the raw results before they are converted to Eloquent models, you
+                            should use the <code class=" language-php">raw</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">raw</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>Search queries will typically be performed on the index specified by the model's <a
+                                href="#configuring-model-indexes"><code class=" language-php">searchableAs</code></a>
+                            method. However, you may use the <code class=" language-php">within</code> method to specify
+                            a custom index that should be searched instead:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">within</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'tv_shows_popularity_desc'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="where-clauses"></a></p>
+                        <h3 id="where-clauses"><a href="#where-clauses">Where Clauses</a></h3>
+                        <p>Scout allows you to add simple "where" clauses to your search
+                            queries. Currently, these clauses only support basic numeric equality
+                            checks, and are primarily useful for scoping search queries by a tenant
+                            ID. Since a search index is not a relational database, more advanced
+                            "where" clauses are not currently supported:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">where</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                class="token punctuation">,</span> <span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="pagination"></a></p>
+                        <h3 id="pagination"><a href="#pagination">Pagination</a></h3>
+                        <p>In addition to retrieving a collection of models, you may paginate your search results using
+                            the <code class=" language-php">paginate</code> method. This method will return a <code
+                                    class=" language-php">Paginator</code> instance just as if you had <a
+                                    href="https://laravel.com/docs/7.x/pagination">paginated a traditional Eloquent
+                                query</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">paginate</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>You may specify how many models to retrieve per page by passing the amount as the first
+                            argument to the <code class=" language-php">paginate</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">paginate</span><span
+                                class="token punctuation">(</span><span class="token number">15</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Once you have retrieved the results, you may display the results and render the page links
+                            using <a href="https://laravel.com/docs/7.x/blade">Blade</a> just as if you had paginated a
+                            traditional Eloquent query:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>div <span
+                                class="token keyword">class</span><span class="token operator">=</span><span
+                                class="token double-quoted-string string">"container"</span><span
+                                class="token operator">&gt;</span>
+    @<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$orders</span> <span
+                                    class="token keyword">as</span> <span class="token variable">$order</span><span
+                                    class="token punctuation">)</span>
+        <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$order</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">price</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    @<span class="token keyword">endforeach</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$orders</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">links</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">}</span><span
+                                    class="token punctuation">}</span></code></pre>
+                        <p><a name="soft-deleting"></a></p>
+                        <h3 id="soft-deleting"><a href="#soft-deleting">Soft Deleting</a></h3>
+                        <p>If your indexed models are <a href="#soft-deleting">soft
+                            deleting</a> and you need to search your soft deleted models, set the <code
+                                class=" language-php">soft_delete</code> option of the <code class=" language-php">config<span
+                                class="token operator">/</span>scout<span class="token punctuation">.</span>php</code>
+                            configuration file to <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'soft_delete'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token boolean constant">true</span><span
+                                class="token punctuation">,</span></code></pre>
+                        <p>When this configuration option is <code class=" language-php"><span
+                                class="token boolean constant">true</span></code>, Scout will not remove soft deleted
+                            models from the search index. Instead, it will set a hidden <code class=" language-php">__soft_deleted</code>
+                            attribute on the indexed record. Then, you may use the <code class=" language-php">withTrashed</code>
+                            or <code class=" language-php">onlyTrashed</code> methods to retrieve the soft deleted
+                            records when searching:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Include trashed records when retrieving results...</span>
+<span class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                    class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">search</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withTrashed</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Only include trashed records when retrieving results...</span>
+<span class="token variable">$orders</span> <span class="token operator">=</span> App\<span
+                                    class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">search</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">onlyTrashed</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="07-Scout_files/lightbulb.svg"></div>
+                                <p class="content"> When a soft deleted model is permanently deleted using <code
+                                        class=" language-php">forceDelete</code>, Scout will remove it from the search
+                                    index automatically.</p></div>
+                        </blockquote>
+                        <p><a name="customizing-engine-searches"></a></p>
+                        <h3 id="customizing-engine-searches"><a href="#customizing-engine-searches">Customizing Engine
+                            Searches</a></h3>
+                        <p>If you need to customize the search behavior of an engine you may pass a callback as the
+                            second argument to the <code class=" language-php">search</code>
+                            method. For example, you could use this callback to add geo-location
+                            data to your search options before the search query is passed to
+                            Algolia:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Algolia<span
+                                class="token punctuation">\</span>AlgoliaSearch<span class="token punctuation">\</span>SearchIndex</span><span
+                                class="token punctuation">;</span>
+
+App\<span class="token package">Order</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">search</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>SearchIndex <span
+                                    class="token variable">$algolia</span><span class="token punctuation">,</span> string <span
+                                    class="token variable">$query</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">array</span> <span class="token variable">$options</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$options</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'body'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'query'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'bool'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'filter'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'geo_distance'</span><span
+                                    class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'distance'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'1000km'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'location'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'lat'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">36</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'lon'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">111</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$algolia</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">search</span><span class="token punctuation">(</span><span
+                                    class="token variable">$query</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$options</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="custom-engines"></a></p>
+                        <h2 id="custom-engines"><a href="#custom-engines">Custom Engines</a></h2>
+                        <h4>Writing The Engine</h4>
+                        <p>If one of the built-in Scout search engines doesn't fit your needs,
+                            you may write your own custom engine and register it with Scout. Your
+                            engine should extend the <code class=" language-php">Laravel\<span class="token package">Scout<span
+                                    class="token punctuation">\</span>Engines<span class="token punctuation">\</span>Engine</span></code>
+                            abstract class. This abstract class contains eight methods your custom engine must
+                            implement:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Laravel<span
+                                class="token punctuation">\</span>Scout<span
+                                class="token punctuation">\</span>Builder</span><span class="token punctuation">;</span>
+
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">update</span><span class="token punctuation">(</span><span
+                                    class="token variable">$models</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">delete</span><span class="token punctuation">(</span><span
+                                    class="token variable">$models</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">search</span><span class="token punctuation">(</span>Builder <span
+                                    class="token variable">$builder</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">paginate</span><span class="token punctuation">(</span>Builder <span
+                                    class="token variable">$builder</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$perPage</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$page</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">mapIds</span><span class="token punctuation">(</span><span
+                                    class="token variable">$results</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">map</span><span
+                                    class="token punctuation">(</span>Builder <span
+                                    class="token variable">$builder</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$results</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$model</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">getTotalCount</span><span
+                                    class="token punctuation">(</span><span class="token variable">$results</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">abstract</span> <span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">flush</span><span class="token punctuation">(</span><span
+                                    class="token variable">$model</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may find it helpful to review the implementations of these methods on the <code
+                                class=" language-php">Laravel\<span class="token package">Scout<span
+                                class="token punctuation">\</span>Engines<span class="token punctuation">\</span>AlgoliaEngine</span></code>
+                            class. This class will provide you with a good starting point for
+                            learning how to implement each of these methods in your own engine.</p>
+                        <h4>Registering The Engine</h4>
+                        <p>Once you have written your custom engine, you may register it with Scout using the <code
+                                class=" language-php">extend</code> method of the Scout engine manager. You should call
+                            the <code class=" language-php">extend</code> method from the <code class=" language-php">boot</code>
+                            method of your <code class=" language-php">AppServiceProvider</code> or any other service
+                            provider used by your application. For example, if you have written a <code
+                                    class=" language-php">MySqlSearchEngine</code>, you may register it like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Laravel<span
+                                class="token punctuation">\</span>Scout<span class="token punctuation">\</span>EngineManager</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>EngineManager<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">extend</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'mysql'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MySqlSearchEngine</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once your engine has been registered, you may specify it as your default Scout <code
+                                class=" language-php">driver</code> in your <code class=" language-php">config<span
+                                class="token operator">/</span>scout<span class="token punctuation">.</span>php</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'driver'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'mysql'</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="builder-macros"></a></p>
+                        <h2 id="builder-macros"><a href="#builder-macros">Builder Macros</a></h2>
+                        <p>If you would like to define a custom builder method, you may use the <code
+                                class=" language-php">macro</code> method on the <code
+                                class=" language-php">Laravel\<span class="token package">Scout<span
+                                class="token punctuation">\</span>Builder</span></code> class. Typically, "macros"
+                            should be defined within a <a href="https://laravel.com/docs/7.x/providers">service
+                                provider's</a> <code class=" language-php">boot</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Response</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span
+                                    class="token punctuation">\</span>Scout<span class="token punctuation">\</span>Builder</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ScoutMacroServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register the application's scout macros.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Builder<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">macro</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'count'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">engine</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">getTotalCount</span><span class="token punctuation">(</span>
+                <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">engine</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">search</span><span class="token punctuation">(</span><span
+                                    class="token variable">$this</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">macro</code> function accepts a name
+                            as its first argument, and a Closure as its second. The macro's Closure
+                            will be executed when calling the macro name from a <code
+                                    class=" language-php">Laravel\<span class="token package">Scout<span
+                                    class="token punctuation">\</span>Builder</span></code> implementation:</p>
+                        <pre class=" language-php"><code class=" language-php">App\<span
+                                class="token package">Order</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">search</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'Star Trek'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">count</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

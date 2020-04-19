@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Service Container - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/container">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="02-Service%20Container_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="02-Service%20Container_files/app.css">
+
+    <!-- Load JS -->
+    <script src="02-Service%20Container_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="02-Service%20Container_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Service Container</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#binding">Binding</a>
+                                <ul>
+                                    <li><a href="#binding-basics">Binding Basics</a></li>
+                                    <li><a href="#binding-interfaces-to-implementations">Binding Interfaces To
+                                        Implementations</a></li>
+                                    <li><a href="#contextual-binding">Contextual Binding</a></li>
+                                    <li><a href="#tagging">Tagging</a></li>
+                                    <li><a href="#extending-bindings">Extending Bindings</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#resolving">Resolving</a>
+                                <ul>
+                                    <li><a href="#the-make-method">The Make Method</a></li>
+                                    <li><a href="#automatic-injection">Automatic Injection</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#container-events">Container Events</a></li>
+                            <li><a href="#psr-11">PSR-11</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>The Laravel service container is a powerful tool for managing class
+                            dependencies and performing dependency injection. Dependency injection
+                            is a fancy phrase that essentially means this: class dependencies are
+                            "injected" into the class via the constructor or, in some cases,
+                            "setter" methods.</p>
+                        <p>Let's look at a simple example:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Repositories<span
+                                    class="token punctuation">\</span>UserRepository</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The user repository implementation.
+     *
+     * @var UserRepository
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>UserRepository <span
+                                    class="token variable">$users</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">users</span> <span
+                                    class="token operator">=</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">users</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user.profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>In this example, the <code class=" language-php">UserController</code> needs to retrieve
+                            users from a data source. So, we will <strong>inject</strong> a service that is able to
+                            retrieve users. In this context, our <code class=" language-php">UserRepository</code> most
+                            likely uses <a href="https://laravel.com/docs/7.x/eloquent">Eloquent</a>
+                            to retrieve user information from the database. However, since the
+                            repository is injected, we are able to easily swap it out with another
+                            implementation. We are also able to easily "mock", or create a dummy
+                            implementation of the <code class=" language-php">UserRepository</code> when testing our
+                            application.</p>
+                        <p>A deep understanding of the Laravel service container is essential to
+                            building a powerful, large application, as well as for contributing to
+                            the Laravel core itself.</p>
+                        <p><a name="binding"></a></p>
+                        <h2 id="binding"><a href="#binding">Binding</a></h2>
+                        <p><a name="binding-basics"></a></p>
+                        <h3 id="binding-basics"><a href="#binding-basics">Binding Basics</a></h3>
+                        <p>Almost all of your service container bindings will be registered within <a
+                                href="https://laravel.com/docs/7.x/providers">service providers</a>, so most of these
+                            examples will demonstrate using the container in that context.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="02-Service%20Container_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    There is no need to bind classes into the container if they do not
+                                    depend on any interfaces. The container does not need to be instructed
+                                    on how to build these objects, since it can automatically resolve these
+                                    objects using reflection.</p></div>
+                        </blockquote>
+                        <h4>Simple Bindings</h4>
+                        <p>Within a service provider, you always have access to the container via the <code
+                                class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span></code> property. We can register a binding using the
+                            <code class=" language-php">bind</code> method, passing the class or interface name that we
+                            wish to register along with a <code class=" language-php">Closure</code> that returns an
+                            instance of the class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">bind</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$app</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name"><span class="token punctuation">\</span>HelpSpot<span
+                                    class="token punctuation">\</span>API</span><span class="token punctuation">(</span><span
+                                    class="token variable">$app</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">make</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'HttpClient'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Note that we receive the container itself as an argument to the
+                            resolver. We can then use the container to resolve sub-dependencies of
+                            the object we are building.</p>
+                        <h4>Binding A Singleton</h4>
+                        <p>The <code class=" language-php">singleton</code> method binds a class
+                            or interface into the container that should only be resolved one time.
+                            Once a singleton binding is resolved, the same object instance will be
+                            returned on subsequent calls into the container:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">singleton</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$app</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name"><span class="token punctuation">\</span>HelpSpot<span
+                                    class="token punctuation">\</span>API</span><span class="token punctuation">(</span><span
+                                    class="token variable">$app</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">make</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'HttpClient'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Binding Instances</h4>
+                        <p>You may also bind an existing object instance into the container using the <code
+                                class=" language-php">instance</code> method. The given instance will always be returned
+                            on subsequent calls into the container:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$api</span> <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name"><span class="token punctuation">\</span>HelpSpot<span
+                                class="token punctuation">\</span>API</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">HttpClient</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">instance</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$api</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Binding Primitives</h4>
+                        <p>Sometimes you may have a class that receives some injected classes,
+                            but also needs an injected primitive value such as an integer. You may
+                            easily use contextual binding to inject any value your class may need:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">when</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'App\Http\Controllers\UserController'</span><span
+                                class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">needs</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'$variableName'</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">give</span><span class="token punctuation">(</span><span
+                                    class="token variable">$value</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="binding-interfaces-to-implementations"></a></p>
+                        <h3 id="binding-interfaces-to-implementations"><a href="#binding-interfaces-to-implementations">Binding
+                            Interfaces To Implementations</a></h3>
+                        <p>A very powerful feature of the service container is its ability to
+                            bind an interface to a given implementation. For example, let's assume
+                            we have an <code class=" language-php">EventPusher</code> interface and a <code
+                                    class=" language-php">RedisEventPusher</code> implementation. Once we have coded our
+                            <code class=" language-php">RedisEventPusher</code> implementation of this interface, we can
+                            register it with the service container like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">bind</span><span
+                                class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'App\Contracts\EventPusher'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'App\Services\RedisEventPusher'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>This statement tells the container that it should inject the <code class=" language-php">RedisEventPusher</code>
+                            when a class needs an implementation of <code class=" language-php">EventPusher</code>. Now
+                            we can type-hint the <code class=" language-php">EventPusher</code> interface in a
+                            constructor, or any other location where dependencies are injected by the service container:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>EventPusher</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Create a new class instance.
+ *
+ * @param  EventPusher  $pusher
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>EventPusher <span
+                                    class="token variable">$pusher</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">pusher</span> <span
+                                    class="token operator">=</span> <span class="token variable">$pusher</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="contextual-binding"></a></p>
+                        <h3 id="contextual-binding"><a href="#contextual-binding">Contextual Binding</a></h3>
+                        <p>Sometimes you may have two classes that utilize the same interface,
+                            but you wish to inject different implementations into each class. For
+                            example, two controllers may depend on different implementations of the <code
+                                    class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                    class="token punctuation">\</span>Filesystem<span class="token punctuation">\</span>Filesystem</span></code>
+                            <a href="https://laravel.com/docs/7.x/contracts">contract</a>. Laravel provides a simple,
+                            fluent interface for defining this behavior:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers<span
+                                class="token punctuation">\</span>PhotoController</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>UploadController</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>VideoController</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Filesystem<span class="token punctuation">\</span>Filesystem</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Storage</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">when</span><span class="token punctuation">(</span>PhotoController<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">needs</span><span
+                                    class="token punctuation">(</span>Filesystem<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">give</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> Storage<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">disk</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'local'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">when</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>VideoController<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span> UploadController<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">needs</span><span
+                                    class="token punctuation">(</span>Filesystem<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">give</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> Storage<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">disk</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'s3'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="tagging"></a></p>
+                        <h3 id="tagging"><a href="#tagging">Tagging</a></h3>
+                        <p>Occasionally, you may need to resolve all of a certain "category" of
+                            binding. For example, perhaps you are building a report aggregator that
+                            receives an array of many different <code class=" language-php">Report</code> interface
+                            implementations. After registering the <code class=" language-php">Report</code>
+                            implementations, you can assign them a tag using the <code class=" language-php">tag</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">bind</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'SpeedReport'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">bind</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'MemoryReport'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">tag</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'SpeedReport'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'MemoryReport'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'reports'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Once the services have been tagged, you may easily resolve them all via the <code
+                                class=" language-php">tagged</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">bind</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'ReportAggregator'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$app</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ReportAggregator</span><span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">tagged</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'reports'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="extending-bindings"></a></p>
+                        <h3 id="extending-bindings"><a href="#extending-bindings">Extending Bindings</a></h3>
+                        <p>The <code class=" language-php">extend</code> method allows the
+                            modification of resolved services. For example, when a service is
+                            resolved, you may run additional code to decorate or configure the
+                            service. The <code class=" language-php">extend</code> method accepts a
+                            Closure, which should return the modified service, as its only argument.
+                            The Closure receives the service being resolved and the container
+                            instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">extend</span><span
+                                class="token punctuation">(</span>Service<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token keyword">class</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$service</span><span
+                                class="token punctuation">,</span> <span class="token variable">$app</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DecoratedService</span><span
+                                    class="token punctuation">(</span><span class="token variable">$service</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="resolving"></a></p>
+                        <h2 id="resolving"><a href="#resolving">Resolving</a></h2>
+                        <p><a name="the-make-method"></a></p>
+                        <h4 id="the-make-method"><a href="#the-make-method">The <code class=" language-php">make</code>
+                            Method</a></h4>
+                        <p>You may use the <code class=" language-php">make</code> method to resolve a class instance
+                            out of the container. The <code class=" language-php">make</code> method accepts the name of
+                            the class or interface you wish to resolve:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$api</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">make</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you are in a location of your code that does not have access to the <code
+                                class=" language-php"><span class="token variable">$app</span></code> variable, you may
+                            use the global <code class=" language-php">resolve</code> helper:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$api</span> <span
+                                class="token operator">=</span> <span class="token function">resolve</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If some of your class' dependencies are not resolvable via the
+                            container, you may inject them by passing them as an associative array
+                            into the <code class=" language-php">makeWith</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$api</span> <span
+                                class="token operator">=</span> <span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">makeWith</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HelpSpot\API'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'id'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token number">1</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="automatic-injection"></a></p>
+                        <h4 id="automatic-injection"><a href="#automatic-injection">Automatic Injection</a></h4>
+                        <p>Alternatively, and importantly, you may "type-hint" the dependency in
+                            the constructor of a class that is resolved by the container, including
+                            <a href="https://laravel.com/docs/7.x/controllers">controllers</a>, <a
+                                    href="https://laravel.com/docs/7.x/events">event listeners</a>, <a
+                                    href="https://laravel.com/docs/7.x/middleware">middleware</a>, and more.
+                            Additionally, you may type-hint dependencies in the <code
+                                    class=" language-php">handle</code> method of <a
+                                    href="https://laravel.com/docs/7.x/queues">queued jobs</a>. In practice, this is how
+                            most of your objects should be resolved by the container.</p>
+                        <p>For example, you may type-hint a repository defined by your
+                            application in a controller's constructor. The repository will
+                            automatically be resolved and injected into the class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Users<span
+                                    class="token punctuation">\</span>Repository</span> <span
+                                    class="token keyword">as</span> UserRepository<span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The user repository instance.
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>UserRepository <span
+                                    class="token variable">$users</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">users</span> <span
+                                    class="token operator">=</span> <span class="token variable">$users</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Show the user with the given ID.
+     *
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">show</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="container-events"></a></p>
+                        <h2 id="container-events"><a href="#container-events">Container Events</a></h2>
+                        <p>The service container fires an event each time it resolves an object. You may listen to this
+                            event using the <code class=" language-php">resolving</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">app</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">resolving</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$object</span><span
+                                class="token punctuation">,</span> <span class="token variable">$app</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Called when container resolves object of any type...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">resolving</span><span
+                                    class="token punctuation">(</span>\<span class="token package">HelpSpot<span
+                                    class="token punctuation">\</span>API</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$api</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$app</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Called when container resolves objects of type "HelpSpot\API"...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>As you can see, the object being resolved will be passed to the
+                            callback, allowing you to set any additional properties on the object
+                            before it is given to its consumer.</p>
+                        <p><a name="psr-11"></a></p>
+                        <h2 id="psr-11"><a href="#psr-11">PSR-11</a></h2>
+                        <p>Laravel's service container implements the <a
+                                href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md">PSR-11</a>
+                            interface. Therefore, you may type-hint the PSR-11 container interface to obtain an instance
+                            of the Laravel container:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Psr<span
+                                class="token punctuation">\</span>Container<span class="token punctuation">\</span>ContainerInterface</span><span
+                                class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/'</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span>ContainerInterface <span
+                                    class="token variable">$container</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$service</span> <span class="token operator">=</span> <span class="token variable">$container</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Service'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>An exception is thrown if the given identifier can't be resolved. The exception will be an
+                            instance of <code class=" language-php">Psr\<span class="token package">Container<span
+                                    class="token punctuation">\</span>NotFoundExceptionInterface</span></code> if the
+                            identifier was never bound. If the identifier was bound but was unable to be resolved, an
+                            instance of <code class=" language-php">Psr\<span class="token package">Container<span
+                                    class="token punctuation">\</span>ContainerExceptionInterface</span></code> will be
+                            thrown.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

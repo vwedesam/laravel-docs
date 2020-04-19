@@ -1,0 +1,30 @@
+_carbonads_go({
+  "ads": [
+    {
+      "active": "1",
+      "ad_via_link": "https://buy.buysellads.com/checkout/new/?utm_source=laravel-com-carbon\u0026utm_medium=ad_via_link\u0026utm_campaign=in_unit\u0026utm_term=carbon",
+      "bannerid": "409651",
+      "creativeid": "426831",
+      "evenodd": "0",
+      "external_id": "30986",
+      "fallbackImage": "https://fallbacks.carbonads.com/nosvn/fallbacks/dabf8eec0afae2a669e68d8dc1092605.jpg",
+      "fallbackLink": "https://forge.laravel.com",
+      "fallbackTitle": "Deploy Laravel and PHP applications on DigitalOcean, Linode, \u0026 AWS.",
+      "height": "0",
+      "i": "0",
+      "identifier": "7bba828b2240e485242e6ab38906ebb7",
+      "longimp": "T45C3H4OTTTTTT3IZLQHATTTTTT6XFALZYTTTTTTTT5QVUETTTTTT",
+      "longlink": "TC5C3H4OTTTTTT3IZLQHATTTTTT6XFALZYTTTTTTTT5QVUETTTTTTBDW5JYFC5JGHRINOZIE2JBU6YZK52WN5BDWH7JNOSQGVKYDT53NCVSI6",
+      "rendering": "carbon",
+      "smallImage": "https://cdn4.buysellads.net/uu/1/60297/1586554423-FreeApril---BSA.jpg",
+      "statimp": "//srv.buysellads.com/ads/imp/x/GTND42QYCYSIEKJICYB4YKQMFTSDK2QEC6SDCZ3JCWADK2JNCA7IVK7KC6BIE2JUCYBDEK3EHJWNBADLKM7UCBZG2Y",
+      "statlink": "//srv.buysellads.com/ads/click/x/GTND42QYCYSIEKJICYB4YKQMFTSDK2QEC6SDCZ3JCWADK2JNCA7IVK7KC6BIE2JUCYBDEK3EHJNCLSIZ",
+      "timestamp": "1586765186",
+      "title": "Make the most of your time at home get free access to Pluralsight all month long",
+      "width": "0",
+      "zoneid": "31900",
+      "zonekey": "CKYILK3E"
+    },
+    {}
+  ]
+});

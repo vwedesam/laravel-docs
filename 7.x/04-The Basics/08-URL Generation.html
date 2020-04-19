@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>URL Generation - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/urls">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="08-URL%20Generation_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="08-URL%20Generation_files/app.css">
+
+    <!-- Load JS -->
+    <script src="08-URL%20Generation_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="08-URL%20Generation_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>URL Generation</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#the-basics">The Basics</a>
+                                <ul>
+                                    <li><a href="#generating-basic-urls">Generating Basic URLs</a></li>
+                                    <li><a href="#accessing-the-current-url">Accessing The Current URL</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#urls-for-named-routes">URLs For Named Routes</a>
+                                <ul>
+                                    <li><a href="#signed-urls">Signed URLs</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#urls-for-controller-actions">URLs For Controller Actions</a></li>
+                            <li><a href="#default-values">Default Values</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel provides several helpers to assist you in generating URLs for
+                            your application. These are mainly helpful when building links in your
+                            templates and API responses, or when generating redirect responses to
+                            another part of your application.</p>
+                        <p><a name="the-basics"></a></p>
+                        <h2 id="the-basics"><a href="#the-basics">The Basics</a></h2>
+                        <p><a name="generating-basic-urls"></a></p>
+                        <h3 id="generating-basic-urls"><a href="#generating-basic-urls">Generating Basic URLs</a></h3>
+                        <p>The <code class=" language-php">url</code> helper may be used to
+                            generate arbitrary URLs for your application. The generated URL will
+                            automatically use the scheme (HTTP or HTTPS) and host from the current
+                            request:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$post</span> <span
+                                class="token operator">=</span> App\<span class="token package">Post</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token double-quoted-string string">"/posts/<span
+                                    class="token interpolation"><span class="token punctuation">{</span><span
+                                    class="token variable">$post</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">id</span><span
+                                    class="token punctuation">}</span></span>"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// http://example.com/posts/1</span></code></pre>
+                        <p><a name="accessing-the-current-url"></a></p>
+                        <h3 id="accessing-the-current-url"><a href="#accessing-the-current-url">Accessing The Current
+                            URL</a></h3>
+                        <p>If no path is provided to the <code class=" language-php">url</code> helper, a <code
+                                class=" language-php">Illuminate\<span class="token package">Routing<span
+                                class="token punctuation">\</span>UrlGenerator</span></code> instance is returned,
+                            allowing you to access information about the current URL:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Get the current URL without the query string...</span>
+<span class="token keyword">echo</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">current</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Get the current URL including the query string...</span>
+<span class="token keyword">echo</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">full</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Get the full URL for the previous request...</span>
+<span class="token keyword">echo</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">previous</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Each of these methods may also be accessed via the <code class=" language-php"><span
+                                class="token constant">URL</span></code> <a href="https://laravel.com/docs/7.x/facades">facade</a>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>URL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token constant">URL</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">current</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="urls-for-named-routes"></a></p>
+                        <h2 id="urls-for-named-routes"><a href="#urls-for-named-routes">URLs For Named Routes</a></h2>
+                        <p>The <code class=" language-php">route</code> helper may be used to
+                            generate URLs to named routes. Named routes allow you to generate URLs
+                            without being coupled to the actual URL defined on the route. Therefore,
+                            if the route's URL changes, no changes need to be made to your <code class=" language-php">route</code>
+                            function calls. For example, imagine your application contains a route defined like the
+                            following:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/post/{post}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'post.show'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>To generate a URL to this route, you may use the <code class=" language-php">route</code>
+                            helper like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">echo</span> <span class="token function">route</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'post.show'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'post'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token number">1</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// http://example.com/post/1</span></code></pre>
+                        <p>You will often be generating URLs using the primary key of <a
+                                href="https://laravel.com/docs/7.x/eloquent">Eloquent models</a>. For this reason, you
+                            may pass Eloquent models as parameter values. The <code class=" language-php">route</code>
+                            helper will automatically extract the model's primary key:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">echo</span> <span class="token function">route</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'post.show'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'post'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$post</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">route</code> helper may also be used to generate URLs for
+                            routes with multiple parameters:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/post/{post}/comment/{comment}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'comment.show'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'comment.show'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'post'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'comment'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">3</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// http://example.com/post/1/comment/3</span></code></pre>
+                        <p><a name="signed-urls"></a></p>
+                        <h3 id="signed-urls"><a href="#signed-urls">Signed URLs</a></h3>
+                        <p>Laravel allows you to easily create "signed" URLs to named routes.
+                            These URLs have a "signature" hash appended to the query string which
+                            allows Laravel to verify that the URL has not been modified since it was
+                            created. Signed URLs are especially useful for routes that are publicly
+                            accessible yet need a layer of protection against URL manipulation.</p>
+                        <p>For example, you might use signed URLs to implement a public
+                            "unsubscribe" link that is emailed to your customers. To create a signed
+                            URL to a named route, use the <code class=" language-php">signedRoute</code> method of the
+                            <code class=" language-php"><span class="token constant">URL</span></code> facade:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>URL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token constant">URL</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">signedRoute</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'unsubscribe'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you would like to generate a temporary signed route URL that expires, you may use the
+                            <code class=" language-php">temporarySignedRoute</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>URL</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token constant">URL</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">temporarySignedRoute</span><span
+                                    class="token punctuation">(</span>
+    <span class="token single-quoted-string string">'unsubscribe'</span><span class="token punctuation">,</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">addMinutes</span><span
+                                    class="token punctuation">(</span><span class="token number">30</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Validating Signed Route Requests</h4>
+                        <p>To verify that an incoming request has a valid signature, you should call the <code
+                                class=" language-php">hasValidSignature</code> method on the incoming <code
+                                class=" language-php">Request</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Request</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/unsubscribe/{user}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">hasValidSignature</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">abort</span><span class="token punctuation">(</span><span
+                                    class="token number">401</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'unsubscribe'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may assign the <code class=" language-php">Illuminate\<span
+                                class="token package">Routing<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>ValidateSignature</span></code> middleware to the
+                            route. If it is not already present, you should assign this middleware a key in your HTTP
+                            kernel's <code class=" language-php">routeMiddleware</code> array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$routeMiddleware</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'signed'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Routing<span class="token punctuation">\</span>Middleware<span
+                                    class="token punctuation">\</span>ValidateSignature</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p>Once you have registered the middleware in your kernel, you may
+                            attach it to a route. If the incoming request does not have a valid
+                            signature, the middleware will automatically return a <code class=" language-php"><span
+                                    class="token number">403</span></code> error response:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">post</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/unsubscribe/{user}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>Request <span
+                                class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'unsubscribe'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'signed'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="urls-for-controller-actions"></a></p>
+                        <h2 id="urls-for-controller-actions"><a href="#urls-for-controller-actions">URLs For Controller
+                            Actions</a></h2>
+                        <p>The <code class=" language-php">action</code> function generates a
+                            URL for the given controller action. You do not need to pass the full
+                            namespace of the controller. Instead, pass the controller class name
+                            relative to the <code class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Controllers</span></code> namespace:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span
+                                class="token operator">=</span> <span class="token function">action</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'HomeController@index'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also reference actions with a "callable" array syntax:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers<span
+                                class="token punctuation">\</span>HomeController</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$url</span> <span class="token operator">=</span> <span
+                                    class="token function">action</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>HomeController<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'index'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If the controller method accepts route parameters, you may pass them as the second argument
+                            to the function:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$url</span> <span
+                                class="token operator">=</span> <span class="token function">action</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'UserController@profile'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'id'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token number">1</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="default-values"></a></p>
+                        <h2 id="default-values"><a href="#default-values">Default Values</a></h2>
+                        <p>For some applications, you may wish to specify request-wide default
+                            values for certain URL parameters. For example, imagine many of your
+                            routes define a <code class=" language-php"><span
+                                    class="token punctuation">{</span>locale<span
+                                    class="token punctuation">}</span></code> parameter:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/{locale}/posts'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'post.index'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>It is cumbersome to always pass the <code class=" language-php">locale</code> every time you
+                            call the <code class=" language-php">route</code> helper. So, you may use the <code
+                                    class=" language-php"><span class="token constant">URL</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>defaults</code>
+                            method to define a default value for this parameter that will always be
+                            applied during the current request. You may wish to call this method
+                            from a <a href="#assigning-middleware-to-routes">route
+                                middleware</a> so that you have access to the current request:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Closure</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>URL</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SetDefaultLocaleForUrls</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token constant">URL</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">defaults</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'locale'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">locale</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once the default value for the <code class=" language-php">locale</code> parameter has been
+                            set, you are no longer required to pass its value when generating URLs via the <code
+                                    class=" language-php">route</code> helper.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

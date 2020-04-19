@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Release Notes - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/releases">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="01-Release%20Notes_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="01-Release%20Notes_files/app.css">
+
+    <!-- Load JS -->
+    <script src="01-Release%20Notes_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="01-Release%20Notes_files/CKYILK3E.json"></script>
+</head>
+
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Release Notes</h1>
+                        <ul>
+                            <li><a href="#versioning-scheme">Versioning Scheme</a></li>
+                            <li><a href="#support-policy">Support Policy</a></li>
+                            <li><a href="#laravel-7">Laravel 7</a></li>
+                        </ul>
+                        <p><a name="versioning-scheme"></a></p>
+                        <h2 id="versioning-scheme"><a href="#versioning-scheme">Versioning Scheme</a></h2>
+                        <p>Laravel and its other first-party packages follow <a href="https://semver.org/">Semantic
+                            Versioning</a>.
+                            Major framework releases are released every six months (~February and
+                            ~August), while minor and patch releases may be released as often as
+                            every week. Minor and patch releases should <strong>never</strong> contain breaking changes.
+                        </p>
+                        <p>When referencing the Laravel framework or its components from your
+                            application or package, you should always use a version constraint such
+                            as <code class=" language-php"><span class="token operator">^</span><span
+                                    class="token number">7.0</span></code>,
+                            since major releases of Laravel do include breaking changes. However,
+                            we strive to always ensure you may update to a new major release in one
+                            day or less.</p>
+                        <p><a name="support-policy"></a></p>
+                        <h2 id="support-policy"><a href="#support-policy">Support Policy</a></h2>
+                        <p>For LTS releases, such as Laravel 6, bug fixes are provided for 2
+                            years and security fixes are provided for 3 years. These releases
+                            provide the longest window of support and maintenance. For general
+                            releases, bug fixes are provided for 6 months and security fixes are
+                            provided for 1 year. For all additional libraries, including Lumen, only
+                            the latest release receives bug fixes. In addition, please review the
+                            database versions <a href="#introduction">supported by
+                                Laravel</a>.</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Release</th>
+                                <th>Bug Fixes Until</th>
+                                <th>Security Fixes Until</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>5.5 (LTS)</td>
+                                <td>August 30th, 2017</td>
+                                <td>August 30th, 2019</td>
+                                <td>August 30th, 2020</td>
+                            </tr>
+                            <tr>
+                                <td>5.6</td>
+                                <td>February 7th, 2018</td>
+                                <td>August 7th, 2018</td>
+                                <td>February 7th, 2019</td>
+                            </tr>
+                            <tr>
+                                <td>5.7</td>
+                                <td>September 4th, 2018</td>
+                                <td>March 4th, 2019</td>
+                                <td>September 4th, 2019</td>
+                            </tr>
+                            <tr>
+                                <td>5.8</td>
+                                <td>February 26th, 2019</td>
+                                <td>August 26th, 2019</td>
+                                <td>February 26th, 2020</td>
+                            </tr>
+                            <tr>
+                                <td>6 (LTS)</td>
+                                <td>September 3rd, 2019</td>
+                                <td>September 3rd, 2021</td>
+                                <td>September 3rd, 2022</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>March 3rd, 2020</td>
+                                <td>September 3rd, 2020</td>
+                                <td>March 3rd, 2021</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><a name="laravel-7"></a></p>
+                        <h2 id="laravel-7"><a href="#laravel-7">Laravel 7</a></h2>
+                        <p>Laravel 7 continues the improvements made in Laravel 6.x by
+                            introducing Laravel Sanctum, routing speed improvements, custom Eloquent
+                            casts, Blade component tags, fluent string operations, a developer
+                            focused HTTP client, first-party CORS support, improved scoping for
+                            route model binding, stub customization, database queue improvements,
+                            multiple mail drivers, query-time casts, a new <code class=" language-php">artisan
+                                test</code> command, and a variety of other bug fixes and usability improvements.</p>
+                        <h3>Laravel Sanctum</h3>
+                        <p><em>Laravel Sanctum was built by <a href="https://github.com/taylorotwell">Taylor Otwell</a></em>.
+                        </p>
+                        <p>Laravel Sanctum provides a featherweight authentication system for
+                            SPAs (single page applications), mobile applications, and simple, token
+                            based APIs. Sanctum allows each user of your application to generate
+                            multiple API tokens for their account. These tokens may be granted
+                            abilities / scopes which specify which actions the tokens are allowed to
+                            perform.</p>
+                        <p>For more information on Laravel Sanctum, consult the <a
+                                href="https://laravel.com/docs/7.x/sanctum">Sanctum documentation</a>.</p>
+                        <h3>Custom Eloquent Casts</h3>
+                        <p><em>Custom Eloquent casts was contributed by <a href="https://github.com/taylorotwell">Taylor
+                            Otwell</a></em>.</p>
+                        <p>Laravel has a variety of built-in, helpful cast types; however, you
+                            may occasionally need to define your own cast types. You may now
+                            accomplish this by defining a class that implements the <code class=" language-php">CastsAttributes</code>
+                            interface.</p>
+                        <p>Classes that implement this interface must define a <code class=" language-php">get</code>
+                            and <code class=" language-php">set</code> methods. The <code
+                                    class=" language-php">get</code> method is responsible for transforming a raw value
+                            from the database into a cast value, while the <code class=" language-php">set</code>
+                            method should transform a cast value into a raw value that can be
+                            stored in the database. As an example, we will re-implement the built-in
+                            <code class=" language-php">json</code> cast type as a custom cast type:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Casts</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span
+                                    class="token punctuation">\</span>CastsAttributes</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Json</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">CastsAttributes</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Cast the given value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">json_decode</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  array  $value
+     * @param  array  $attributes
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">set</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">json_encode</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once you have defined a custom cast type, you may attach it to a model attribute using its
+                            class name:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Casts<span
+                                    class="token punctuation">\</span>Json</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Json<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>To learn how to write custom Eloquent casts, including custom casts that cast to value
+                            objects, please consult the <a
+                                    href="#custom-casts">Eloquent
+                                documentation</a>.</p>
+                        <h3>Blade Component Tags &amp; Improvements</h3>
+                        <p><em>Blade component tags were contributed by <a href="https://spatie.be/">Spatie</a>, <a
+                                href="https://twitter.com/marcelpociot">Marcel Pociot</a>, <a
+                                href="https://twitter.com/calebporzio">Caleb Porzio</a>, <a
+                                href="https://twitter.com/driesvints">Dries Vints</a>, and <a
+                                href="https://github.com/taylorotwell">Taylor Otwell</a></em>.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Release%20Notes_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    Blade components have been overhauled to allow tag based rendering,
+                                    attribute management, component classes, inline view components, and
+                                    more. Since the overhaul of Blade components is so extensive, please
+                                    consult the <a href="#components">full Blade
+                                    component documentation</a> to learn about this feature.</p></div>
+                        </blockquote>
+                        <p>In summary, a component may now have an associated class which
+                            specifies the data it accepts. All public properties and methods defined
+                            on the component class will automatically be made available to the
+                            component view. Any additional HTML attributes specified on the
+                            component may be managed using the automatically included <code class=" language-php"><span
+                                    class="token variable">$attributes</span></code> variable, which is an attribute bag
+                            instance.</p>
+                        <p>In this example, we will assume that an <code class=" language-php">App\<span
+                                class="token package">View<span class="token punctuation">\</span>Components<span
+                                class="token punctuation">\</span>Alert</span></code> component has been defined like
+                            so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>View<span
+                                    class="token punctuation">\</span>Components</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>View<span
+                                    class="token punctuation">\</span>Component</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Alert</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Component</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The alert type.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$type</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create the component instance.
+     *
+     * @param  string  $type
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span class="token variable">$type</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">type</span> <span
+                                    class="token operator">=</span> <span class="token variable">$type</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the class for the given alert type.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">classForType</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">type</span> <span
+                                    class="token operator">==</span> <span class="token single-quoted-string string">'danger'</span> <span
+                                    class="token operator">?</span> <span class="token single-quoted-string string">'alert-danger'</span> <span
+                                    class="token punctuation">:</span> <span class="token single-quoted-string string">'alert-warning'</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\View\View|string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">render</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'components.alert'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>And, assuming the component's Blade template has been defined like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token operator">&lt;</span><span class="token operator">!</span><span
+                                class="token operator">--</span> <span class="token operator">/</span>resources<span
+                                class="token operator">/</span>views<span class="token operator">/</span>components<span
+                                class="token operator">/</span>alert<span class="token punctuation">.</span>blade<span
+                                class="token punctuation">.</span>php <span class="token operator">--</span><span
+                                class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"alert {{ <span
+                                    class="token interpolation"><span class="token variable">$classForType</span></span> }}"</span> <span
+                                    class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$attributes</span> <span
+                                    class="token punctuation">}</span><span class="token punctuation">}</span><span
+                                    class="token operator">&gt;</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$heading</span> <span
+                                    class="token punctuation">}</span><span class="token punctuation">}</span>
+
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$slot</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+                        <p>The component may be rendered in another Blade view using the component's tag:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>x<span
+                                class="token operator">-</span>alert type<span class="token operator">=</span><span
+                                class="token double-quoted-string string">"error"</span> <span class="token keyword">class</span><span
+                                class="token operator">=</span><span
+                                class="token double-quoted-string string">"mb-4"</span><span
+                                class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>x<span class="token operator">-</span>slot name<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"heading"</span><span
+                                    class="token operator">&gt;</span>
+        Alert content<span class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>x<span class="token operator">-</span>slot<span
+                                    class="token operator">&gt;</span>
+
+    <span class="token keyword">Default</span> slot content<span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>x<span class="token operator">-</span>alert<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p>As mentioned, this is just a very small sample of the functionality
+                            of the Blade component overhaul in Laravel 7 and does not demonstrate
+                            anonymous components, inline view components, and a variety of other
+                            features. Please consult the <a href="#components">full
+                                Blade component documentation</a> to learn about this feature.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Release%20Notes_files/exclamation.svg"></div>
+                                <p class="content"> The previous <code class=" language-php">@component</code> syntax
+                                    for Blade components has not and will not be removed.</p></div>
+                        </blockquote>
+                        <h3>HTTP Client</h3>
+                        <p><em>The HTTP client is a wrapper of Guzzle and was contributed by <a
+                                href="https://twitter.com/adamwathan">Adam Wathan</a>, <a
+                                href="https://twitter.com/gonedark">Jason McCreary</a>, and <a
+                                href="https://github.com/taylorotwell">Taylor Otwell</a></em>.</p>
+                        <p>Laravel now provides an expressive, minimal API around the <a
+                                href="http://docs.guzzlephp.org/en/stable/">Guzzle HTTP client</a>,
+                            allowing you to quickly make outgoing HTTP requests to communicate with
+                            other web applications. Laravel's wrapper around Guzzle is focused on
+                            its most common use cases and a wonderful developer experience. For
+                            example, the client makes it a breeze to <code class=" language-php"><span
+                                    class="token constant">POST</span></code> and interface with JSON data:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Http</span><span class="token punctuation">;</span>
+
+<span class="token variable">$response</span> <span class="token operator">=</span> Http<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">withHeaders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'X-First'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'X-Second'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">post</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'http://test.com/users'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'Taylor'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token variable">$response</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">]</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In addition, the HTTP client provides fantastic, ergonomic testing functionality:</p>
+                        <pre class=" language-php"><code class=" language-php">Http<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">fake</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token comment">// Stub a JSON response for GitHub endpoints...</span>
+    <span class="token single-quoted-string string">'github.com/*'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Http<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">response</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token number">200</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'Headers'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">,</span>
+
+    <span class="token comment">// Stub a string response for Google endpoints...</span>
+    <span class="token single-quoted-string string">'google.com/*'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Http<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">response</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Hello World'</span><span
+                                    class="token punctuation">,</span> <span class="token number">200</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'Headers'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">,</span>
+
+    <span class="token comment">// Stub a series of responses for Facebook endpoints...</span>
+    <span class="token single-quoted-string string">'facebook.com/*'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Http<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">sequence</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+                            <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">push</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Hello World'</span><span
+                                    class="token punctuation">,</span> <span class="token number">200</span><span
+                                    class="token punctuation">)</span>
+                            <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">push</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'foo'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token number">200</span><span class="token punctuation">)</span>
+                            <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">pushStatus</span><span
+                                    class="token punctuation">(</span><span class="token number">404</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>To learn more about all of the features of the HTTP client, please consult the <a
+                                href="https://laravel.com/docs/7.x/http-client">HTTP client documentation</a>.</p>
+                        <h3>Fluent String Operations</h3>
+                        <p><em>Fluent string operations were contributed by <a href="https://twitter.com/taylorotwell">Taylor
+                            Otwell</a></em>.</p>
+                        <p>You are likely familiar with Laravel's existing <code class=" language-php">Illuminate\<span
+                                class="token package">Support<span class="token punctuation">\</span>Str</span></code>
+                            class, which provides a variety of helpful string manipulation
+                            functions. Laravel 7 now offers a more object-oriented, fluent string
+                            manipulation library built on top of these functions. You may create a
+                            fluent <code class=" language-php">Illuminate\<span class="token package">Support<span
+                                    class="token punctuation">\</span>Stringable</span></code> object using the <code
+                                    class=" language-php">Str<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>of</code> method. A variety of methods may then be
+                            chained onto the object to manipulate the string:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span
+                                class="token punctuation">(</span>string<span
+                                class="token punctuation">)</span> Str<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">of</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'  Laravel Framework 6.x '</span><span
+                                class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">trim</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">replace</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'6.x'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'7.x'</span><span
+                                    class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">slug</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>For more information on the methods available via fluent string manipulation, please consult
+                            its <a href="#fluent-strings">full documentation</a>.
+                        </p>
+                        <h3>Route Model Binding Improvements</h3>
+                        <p><em>Route model binding improvements were contributed by <a
+                                href="https://twitter.com/taylorotwell">Taylor Otwell</a></em>.</p>
+                        <h4>Key Customization</h4>
+                        <p>Sometimes you may wish to resolve Eloquent models using a column other than <code
+                                class=" language-php">id</code>. To do so, Laravel 7 allows you to specify the column in
+                            the route parameter definition:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'api/posts/{post:slug}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>App\<span class="token package">Post</span> <span
+                                class="token variable">$post</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Automatic Scoping</h4>
+                        <p>Sometimes, when implicitly binding multiple Eloquent models in a
+                            single route definition, you may wish to scope the second Eloquent model
+                            such that it must be a child of the first Eloquent model. For example,
+                            consider this situation that retrieves a blog post by slug for a
+                            specific user:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'api/users/{user}/posts/{post:slug}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When using a custom keyed implicit binding as a nested route
+                            parameter, Laravel 7 will automatically scope the query to retrieve the
+                            nested model by its parent using conventions to guess the relationship
+                            name on the parent. In this case, it will be assumed that the <code class=" language-php">User</code>
+                            model has a relationship named <code class=" language-php">posts</code> (the plural of the
+                            route parameter name) which can be used to retrieve the <code
+                                    class=" language-php">Post</code> model.</p>
+                        <p>For more information on route model binding, please consult the <a
+                                href="#route-model-binding">routing
+                            documentation</a>.</p>
+                        <h3>Multiple Mail Drivers</h3>
+                        <p><em>Multiple mail driver support was contributed by <a
+                                href="https://twitter.com/taylorotwell">Taylor Otwell</a></em>.</p>
+                        <p>Laravel 7 allows the configuration of multiple "mailers" for a single application. Each
+                            mailer configured within the <code class=" language-php">mail</code>
+                            configuration file may have its own options and even its own unique
+                            "transport", allowing your application to use different email services
+                            to send certain email messages. For example, your application might use
+                            Postmark to send transactional mail while using Amazon SES to send bulk
+                            mail.</p>
+                        <p>By default, Laravel will use the mailer configured as the <code class=" language-php"><span
+                                class="token keyword">default</span></code> mailer in your <code class=" language-php">mail</code>
+                            configuration file. However, you may use the <code class=" language-php">mailer</code>
+                            method to send a message using a specific mailer configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">Mail<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">mailer</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'postmark'</span><span
+                                class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">send</span><span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h3>Route Caching Speed Improvements</h3>
+                        <p><em>The route caching speed improvements were contributed by upstream <a
+                                href="https://symfony.com/">Symfony</a> contributors and <a
+                                href="https://twitter.com/driesvints">Dries Vints</a></em>.</p>
+                        <p>Laravel 7 includes a new method of matching compiled, cached routes that have been cached
+                            using the <code class=" language-php">route<span
+                                    class="token punctuation">:</span>cache</code> Artisan command. On large
+                            applications (for example, applications with 800 or more routes), these improvements can
+                            result in a <strong>2x speed improvement</strong> in requests per second on a simple "Hello
+                            World" benchmark. No changes to your application are required.</p>
+                        <h3>CORS Support</h3>
+                        <p><em>CORS support was contributed by <a href="https://twitter.com/barryvdh">Barry vd.
+                            Heuvel</a></em>.</p>
+                        <p>Laravel 7 includes first-party support for configuring Cross-Origin Resource Sharing (CORS)
+                            <code class=" language-php"><span class="token constant">OPTIONS</span></code> request
+                            responses by integrating the popular Laravel CORS package written by Barry vd. Heuvel. A new
+                            <code class=" language-php">cors</code> configuration is included in the <a
+                                    href="https://github.com/laravel/laravel/blob/develop/config/cors.php">default
+                                Laravel application skeleton</a>.</p>
+                        <p>For more information on CORS support in Laravel 7.x, please consult the <a
+                                href="#cors">CORS documentation</a>.</p>
+                        <h3>Query Time Casts</h3>
+                        <p><em>Query time casting was contributed by <a href="https://github.com/mpbarlow">Matt
+                            Barlow</a></em>.</p>
+                        <p>Sometimes you may need to apply casts while executing a query, such
+                            as when selecting a raw value from a table. For example, consider the
+                            following query:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">select</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users.*'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">selectRaw</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'MAX(created_at)'</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whereColumn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'users.id'</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">last_posted_at</code> attribute on the results of this query
+                            will be a raw string. It would be convenient if we could apply a <code
+                                    class=" language-php">date</code> cast to this attribute when executing the query.
+                            To accomplish this, we may use the <code class=" language-php">withCasts</code> method
+                            provided by Laravel 7:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">select</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users.*'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">selectRaw</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'MAX(created_at)'</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whereColumn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'users.id'</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">withCasts</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'date'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h3>MySQL 8+ Database Queue Improvements</h3>
+                        <p><em>MySQL database queue improvements were contributed by <a
+                                href="https://github.com/themsaid">Mohamed Said</a></em>.</p>
+                        <p>In previous releases of Laravel, the <code class=" language-php">database</code>
+                            queue was not considered robust enough for production usage, due to
+                            deadlocks. However, Laravel 7 provides improvements to applications
+                            using MySQL 8+ as their database backed queue. By using the <code
+                                    class=" language-php"><span class="token keyword">FOR</span> <span
+                                    class="token constant">UPDATE</span> <span class="token constant">SKIP</span> <span
+                                    class="token constant">LOCKED</span></code> clause and other SQL enhancements, the
+                            <code class=" language-php">database</code> driver may now safely be used in higher volume
+                            production applications.</p>
+                        <h3>Artisan <code class=" language-php">test</code> Command</h3>
+                        <p><em>The <code class=" language-php">test</code> command was contributed by <a
+                                href="https://twitter.com/enunomaduro">Nuno Maduro</a></em>.</p>
+                        <p>In addition to the <code class=" language-php">phpunit</code> command, you may now use the
+                            <code class=" language-php">test</code>
+                            Artisan command to run your tests. The Artisan test runner provides
+                            beautiful console UX and more information regarding the test that is
+                            currently running. In addition, the runner will automatically stop on
+                            the first test failure:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan test</code></pre>
+                        <p align="center">
+                            <img src="01-Release%20Notes_files/Screen_Shot_2020-02-19_at_2_002.png"></p>
+                        <p>Any arguments that can be passed to the <code class=" language-php">phpunit</code> command
+                            may also be passed to the Artisan <code class=" language-php">test</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan test <span
+                                class="token operator">--</span>group<span class="token operator">=</span>feature</code></pre>
+                        <h3>Markdown Mail Template Improvements</h3>
+                        <p><em>Markdown mail template improvements were contributed by <a
+                                href="https://twitter.com/taylorotwell">Taylor Otwell</a></em>.</p>
+                        <p>The default Markdown mail template has received a fresh, more modern
+                            design based on the Tailwind CSS color palette. Of course, this template
+                            can be published and customized according to your application's needs:</p>
+                        <p align="center">
+                            <img src="01-Release%20Notes_files/Screen_Shot_2020-02-19_at_2.png"></p>
+                        <p>For more information on Markdown mail, please consult the <a
+                                href="#markdown-mailables">mail documentation</a>.</p>
+                        <h3>Stub Customization</h3>
+                        <p><em>Stub customization was contributed by <a href="https://twitter.com/taylorotwell">Taylor
+                            Otwell</a></em>.</p>
+                        <p>The Artisan console's <code class=" language-php">make</code>
+                            commands are used to create a variety of classes, such as controllers,
+                            jobs, migrations, and tests. These classes are generated using "stub"
+                            files that are populated with values based on your input. However, you
+                            may sometimes wish to make small changes to files generated by Artisan.
+                            To accomplish this, Laravel 7 provides the <code class=" language-php">stub<span
+                                    class="token punctuation">:</span>publish</code> command to publish the most common
+                            stubs for customization:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan stub<span
+                                class="token punctuation">:</span>publish</code></pre>
+                        <p>The published stubs will be located within a <code class=" language-php">stubs</code>
+                            directory in the root of your application. Any changes you make to
+                            these stubs will be reflected when you generate their corresponding
+                            classes using Artisan <code class=" language-php">make</code> commands.</p>
+                        <h3>Queue <code class=" language-php">maxExceptions</code> Configuration</h3>
+                        <p><em>The <code class=" language-php">maxExceptions</code> property was contributed by <a
+                                href="https://twitter.com/themsaid">Mohamed Said</a></em>.</p>
+                        <p>Sometimes you may wish to specify that a job may be attempted many
+                            times, but should fail if the retries are triggered by a given number of
+                            exceptions. In Laravel 7, you may define a <code class=" language-php">maxExceptions</code>
+                            property on your job class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$tries</span> <span
+                                    class="token operator">=</span> <span class="token number">25</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The maximum number of exceptions to allow before failing.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$maxExceptions</span> <span
+                                    class="token operator">=</span> <span class="token number">3</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Execute the job.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">throttle</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">allow</span><span
+                                    class="token punctuation">(</span><span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">every</span><span
+                                    class="token punctuation">(</span><span class="token number">60</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">then</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Lock obtained, process the podcast...</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Unable to obtain lock...</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">release</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>In this example, the job is released for ten seconds if the
+                            application is unable to obtain a Redis lock and will continue to be
+                            retried up to 25 times. However, the job will fail if three unhandled
+                            exceptions are thrown by the job.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

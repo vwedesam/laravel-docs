@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Envoy - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/envoy">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="03-Envoy_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="03-Envoy_files/app.css">
+
+    <!-- Load JS -->
+    <script src="03-Envoy_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="03-Envoy_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Envoy</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#installation">Installation</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#writing-tasks">Writing Tasks</a>
+                                <ul>
+                                    <li><a href="#setup">Setup</a></li>
+                                    <li><a href="#variables">Variables</a></li>
+                                    <li><a href="#stories">Stories</a></li>
+                                    <li><a href="#multiple-servers">Multiple Servers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#running-tasks">Running Tasks</a>
+                                <ul>
+                                    <li><a href="#confirming-task-execution">Confirming Task Execution</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#notifications">Notifications</a>
+                                <ul>
+                                    <li><a href="#slack">Slack</a></li>
+                                    <li><a href="#discord">Discord</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p><a href="https://github.com/laravel/envoy">Laravel Envoy</a> provides
+                            a clean, minimal syntax for defining common tasks you run on your
+                            remote servers. Using Blade style syntax, you can easily setup tasks for
+                            deployment, Artisan commands, and more. Currently, Envoy only supports
+                            the Mac and Linux operating systems.</p>
+                        <p><a name="installation"></a></p>
+                        <h3 id="installation"><a href="#installation">Installation</a></h3>
+                        <p>First, install Envoy using the Composer <code class=" language-php"><span
+                                class="token keyword">global</span> <span class="token keyword">require</span></code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">global</span> <span
+                                class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>envoy</code></pre>
+                        <p>Since global Composer libraries can sometimes cause package version conflicts, you may wish
+                            to consider using <code class=" language-php">cgr</code>, which is a drop-in replacement for
+                            the <code class=" language-php">composer <span class="token keyword">global</span> <span
+                                    class="token keyword">require</span></code> command. The <code
+                                    class=" language-php">cgr</code> library's installation instructions can be <a
+                                    href="https://github.com/consolidation-org/cgr">found on GitHub</a>.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="03-Envoy_files/exclamation.svg"></div>
+                                <p class="content"> Make sure to place the <code class=" language-php"><span
+                                        class="token operator">~</span><span class="token operator">/</span><span
+                                        class="token punctuation">.</span>composer<span class="token operator">/</span>vendor<span
+                                        class="token operator">/</span>bin</code> directory in your PATH so the <code
+                                        class=" language-php">envoy</code> executable is found when running the <code
+                                        class=" language-php">envoy</code> command in your terminal.</p></div>
+                        </blockquote>
+                        <h4>Updating Envoy</h4>
+                        <p>You may also use Composer to keep your Envoy installation up to date. Issuing the <code
+                                class=" language-php">composer <span class="token keyword">global</span> update</code>
+                            command will update all of your globally installed Composer packages:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">global</span> update</code></pre>
+                        <p><a name="writing-tasks"></a></p>
+                        <h2 id="writing-tasks"><a href="#writing-tasks">Writing Tasks</a></h2>
+                        <p>All of your Envoy tasks should be defined in an <code class=" language-php">Envoy<span
+                                class="token punctuation">.</span>blade<span
+                                class="token punctuation">.</span>php</code> file in the root of your project. Here's an
+                            example to get you started:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'web'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'user@192.168.1.1'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span>
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'on'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+    ls <span class="token operator">-</span>la
+@endtask</code></pre>
+                        <p>As you can see, an array of <code class=" language-php">@servers</code> is defined at the top
+                            of the file, allowing you to reference these servers in the <code
+                                    class=" language-php">on</code> option of your task declarations. Within your <code
+                                    class=" language-php">@task</code> declarations, you should place the Bash code that
+                            should run on your server when the task is executed.</p>
+                        <p>You can force a script to run locally by specifying the server's IP address as <code
+                                class=" language-php"><span class="token number">127.0</span><span class="token number">.0</span><span
+                                class="token number">.1</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'localhost'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'127.0.0.1'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+                        <p><a name="setup"></a></p>
+                        <h3 id="setup"><a href="#setup">Setup</a></h3>
+                        <p>Sometimes, you may need to execute some PHP code before executing your Envoy tasks. You may
+                            use the <code class=" language-php">@setup</code> directive to declare variables and do
+                            other general PHP work before any of your other tasks are executed:</p>
+                        <pre class=" language-php"><code class=" language-php">@setup
+    <span class="token variable">$now</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">DateTime</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token variable">$environment</span> <span class="token operator">=</span> <span class="token keyword">isset</span><span
+                                    class="token punctuation">(</span><span class="token variable">$env</span><span
+                                    class="token punctuation">)</span> <span class="token operator">?</span> <span
+                                    class="token variable">$env</span> <span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"testing"</span><span
+                                    class="token punctuation">;</span>
+@endsetup</code></pre>
+                        <p>If you need to require other PHP files before your task is executed, you may use the <code
+                                class=" language-php">@<span class="token keyword">include</span></code> directive at
+                            the top of your <code class=" language-php">Envoy<span class="token punctuation">.</span>blade<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token keyword">include</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'vendor/autoload.php'</span><span
+                                class="token punctuation">)</span>
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token shell-comment comment"># ...</span>
+@endtask</code></pre>
+                        <p>You may also import other Envoy files so their stories and tasks are
+                            added to yours. After they have been imported, you may execute the tasks
+                            in those files as if they were defined in your own. You should use the <code
+                                    class=" language-php">@import</code> directive at the top of your <code
+                                    class=" language-php">Envoy<span class="token punctuation">.</span>blade<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">import</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'package/Envoy.blade.php'</span><span
+                                class="token punctuation">)</span></code></pre>
+                        <p><a name="variables"></a></p>
+                        <h3 id="variables"><a href="#variables">Variables</a></h3>
+                        <p>If needed, you may pass option values into Envoy tasks using the command line:</p>
+                        <pre class=" language-php"><code class=" language-php">envoy run deploy <span
+                                class="token operator">--</span>branch<span class="token operator">=</span>master</code></pre>
+                        <p>You may access the options in your tasks via Blade's "echo" syntax. You may also use <code
+                                class=" language-php"><span class="token keyword">if</span></code> statements and loops
+                            within your tasks. For example, let's verify the presence of the <code
+                                    class=" language-php"><span class="token variable">$branch</span></code> variable
+                            before executing the <code class=" language-php">git pull</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'web'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.1'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'deploy'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'on'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'web'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+    cd site
+
+    @<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$branch</span><span class="token punctuation">)</span>
+        git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$branch</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    @<span class="token keyword">endif</span>
+
+    php artisan migrate
+@endtask</code></pre>
+                        <p><a name="stories"></a></p>
+                        <h3 id="stories"><a href="#stories">Stories</a></h3>
+                        <p>Stories group a set of tasks under a single, convenient name,
+                            allowing you to group small, focused tasks into large tasks. For
+                            instance, a <code class=" language-php">deploy</code> story may run the <code
+                                    class=" language-php">git</code> and <code class=" language-php">composer</code>
+                            tasks by listing the task names within its definition:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'web'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.1'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">story</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'deploy'</span><span
+                                    class="token punctuation">)</span>
+    git
+    composer
+@endstory
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'git'</span><span
+                                    class="token punctuation">)</span>
+    git pull origin master
+@endtask
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'composer'</span><span
+                                    class="token punctuation">)</span>
+    composer install
+@endtask</code></pre>
+                        <p>Once the story has been written, you may run it just like a typical task:</p>
+                        <pre class=" language-php"><code class=" language-php">envoy run deploy</code></pre>
+                        <p><a name="multiple-servers"></a></p>
+                        <h3 id="multiple-servers"><a href="#multiple-servers">Multiple Servers</a></h3>
+                        <p>Envoy allows you to easily run a task across multiple servers. First, add additional servers
+                            to your <code class=" language-php">@servers</code>
+                            declaration. Each server should be assigned a unique name. Once you
+                            have defined your additional servers, list each of the servers in the
+                            task's <code class=" language-php">on</code> array:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'web-1'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.1'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'web-2'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.2'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'deploy'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'on'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'web-1'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'web-2'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$branch</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+                        <h4>Parallel Execution</h4>
+                        <p>By default, tasks will be executed on each server serially. In other
+                            words, a task will finish running on the first server before proceeding
+                            to execute on the second server. If you would like to run a task across
+                            multiple servers in parallel, add the <code class=" language-php">parallel</code> option to
+                            your task declaration:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">servers</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'web-1'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.1'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'web-2'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'192.168.1.2'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span>
+
+@<span class="token function">task</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'deploy'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'on'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'web-1'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'web-2'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'parallel'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$branch</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+                        <p><a name="running-tasks"></a></p>
+                        <h2 id="running-tasks"><a href="#running-tasks">Running Tasks</a></h2>
+                        <p>To run a task or story that is defined in your <code class=" language-php">Envoy<span
+                                class="token punctuation">.</span>blade<span
+                                class="token punctuation">.</span>php</code> file, execute Envoy's <code
+                                class=" language-php">run</code>
+                            command, passing the name of the task or story you would like to
+                            execute. Envoy will run the task and display the output from the servers
+                            as the task is running:</p>
+                        <pre class=" language-php"><code class=" language-php">envoy run deploy</code></pre>
+                        <p><a name="confirming-task-execution"></a></p>
+                        <h3 id="confirming-task-execution"><a href="#confirming-task-execution">Confirming Task
+                            Execution</a></h3>
+                        <p>If you would like to be prompted for confirmation before running a given task on your
+                            servers, you should add the <code class=" language-php">confirm</code> directive to your
+                            task declaration. This option is particularly useful for destructive operations:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span class="token function">task</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'deploy'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'on'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'web'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'confirm'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token boolean constant">true</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span>
+    cd site
+    git pull origin <span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token variable">$branch</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+    php artisan migrate
+@endtask</code></pre>
+                        <p><a name="notifications"></a></p>
+                        <h2 id="notifications"><a href="#notifications">Notifications</a></h2>
+                        <p><a name="slack"></a></p>
+                        <h3 id="slack"><a href="#slack">Slack</a></h3>
+                        <p>Envoy also supports sending notifications to <a href="https://slack.com/">Slack</a> after
+                            each task is executed. The <code class=" language-php">@slack</code>
+                            directive accepts a Slack hook URL and a channel name. You may retrieve
+                            your webhook URL by creating an "Incoming WebHooks" integration in your
+                            Slack control panel. You should pass the entire webhook URL into the <code
+                                    class=" language-php">@slack</code> directive:</p>
+                        <pre class=" language-php"><code class=" language-php">@finished
+    @<span class="token function">slack</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'webhook-url'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'#bots'</span><span
+                                    class="token punctuation">)</span>
+@endfinished</code></pre>
+                        <p>You may provide one of the following as the channel argument:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li>To send the notification to a channel: <code class=" language-php"><span
+                                        class="token shell-comment comment">#channel</span></code></li>
+                                <li>To send the notification to a user: <code class=" language-php">@user</code></li>
+                            </ul>
+                        </div>
+                        <p><a name="discord"></a></p>
+                        <h3 id="discord"><a href="#discord">Discord</a></h3>
+                        <p>Envoy also supports sending notifications to <a href="https://discord.com/">Discord</a> after
+                            each task is executed. The <code class=" language-php">@discord</code>
+                            directive accepts a Discord hook URL and a message. You may retrieve
+                            your webhook URL by creating a "Webhook" in your Server Settings and
+                            choosing which channel the webhook should post to. You should pass the
+                            entire Webhook URL into the <code class=" language-php">@discord</code> directive:</p>
+                        <pre class=" language-php"><code class=" language-php">@finished
+    @<span class="token function">discord</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'discord-webhook-url'</span><span
+                                    class="token punctuation">)</span>
+@endfinished</code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

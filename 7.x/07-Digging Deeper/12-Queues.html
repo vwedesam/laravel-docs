@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Queues - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/queues">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="12-Queues_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="12-Queues_files/app.css">
+
+    <!-- Load JS -->
+    <script src="12-Queues_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="12-Queues_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Queues</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#connections-vs-queues">Connections Vs. Queues</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Notes &amp; Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#creating-jobs">Creating Jobs</a>
+                                <ul>
+                                    <li><a href="#generating-job-classes">Generating Job Classes</a></li>
+                                    <li><a href="#class-structure">Class Structure</a></li>
+                                    <li><a href="#job-middleware">Job Middleware</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#dispatching-jobs">Dispatching Jobs</a>
+                                <ul>
+                                    <li><a href="#delayed-dispatching">Delayed Dispatching</a></li>
+                                    <li><a href="#synchronous-dispatching">Synchronous Dispatching</a></li>
+                                    <li><a href="#job-chaining">Job Chaining</a></li>
+                                    <li><a href="#customizing-the-queue-and-connection">Customizing The Queue &amp;
+                                        Connection</a></li>
+                                    <li><a href="#max-job-attempts-and-timeout">Specifying Max Job Attempts / Timeout
+                                        Values</a></li>
+                                    <li><a href="#rate-limiting">Rate Limiting</a></li>
+                                    <li><a href="#error-handling">Error Handling</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#queueing-closures">Queueing Closures</a></li>
+                            <li><a href="#running-the-queue-worker">Running The Queue Worker</a>
+                                <ul>
+                                    <li><a href="#queue-priorities">Queue Priorities</a></li>
+                                    <li><a href="#queue-workers-and-deployment">Queue Workers &amp; Deployment</a></li>
+                                    <li><a href="#job-expirations-and-timeouts">Job Expirations &amp; Timeouts</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#supervisor-configuration">Supervisor Configuration</a></li>
+                            <li><a href="#dealing-with-failed-jobs">Dealing With Failed Jobs</a>
+                                <ul>
+                                    <li><a href="#cleaning-up-after-failed-jobs">Cleaning Up After Failed Jobs</a></li>
+                                    <li><a href="#failed-job-events">Failed Job Events</a></li>
+                                    <li><a href="#retrying-failed-jobs">Retrying Failed Jobs</a></li>
+                                    <li><a href="#ignoring-missing-models">Ignoring Missing Models</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#job-events">Job Events</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> Laravel now offers Horizon, a beautiful dashboard and configuration
+                                    system for your Redis powered queues. Check out the full <a
+                                            href="https://laravel.com/docs/7.x/horizon">Horizon documentation</a> for
+                                    more information.</p></div>
+                        </blockquote>
+                        <p>Laravel queues provide a unified API across a variety of different
+                            queue backends, such as Beanstalk, Amazon SQS, Redis, or even a
+                            relational database. Queues allow you to defer the processing of a time
+                            consuming task, such as sending an email, until a later time. Deferring
+                            these time consuming tasks drastically speeds up web requests to your
+                            application.</p>
+                        <p>The queue configuration file is stored in <code class=" language-php">config<span
+                                class="token operator">/</span>queue<span class="token punctuation">.</span>php</code>.
+                            In this file you will find connection configurations for each of the
+                            queue drivers that are included with the framework, which includes a
+                            database, <a href="https://beanstalkd.github.io/">Beanstalkd</a>, <a
+                                    href="https://aws.amazon.com/sqs/">Amazon SQS</a>, <a
+                                    href="https://redis.io/">Redis</a>, and a synchronous driver that will execute jobs
+                            immediately (for local use). A <code class=" language-php"><span
+                                    class="token constant">null</span></code> queue driver is also included which
+                            discards queued jobs.</p>
+                        <p><a name="connections-vs-queues"></a></p>
+                        <h3 id="connections-vs-queues"><a href="#connections-vs-queues">Connections Vs. Queues</a></h3>
+                        <p>Before getting started with Laravel queues, it is important to
+                            understand the distinction between "connections" and "queues". In your <code
+                                    class=" language-php">config<span class="token operator">/</span>queue<span
+                                    class="token punctuation">.</span>php</code> configuration file, there is a <code
+                                    class=" language-php">connections</code>
+                            configuration option. This option defines a particular connection to a
+                            backend service such as Amazon SQS, Beanstalk, or Redis. However, any
+                            given queue connection may have multiple "queues" which may be thought
+                            of as different stacks or piles of queued jobs.</p>
+                        <p>Note that each connection configuration example in the <code
+                                class=" language-php">queue</code> configuration file contains a <code
+                                class=" language-php">queue</code>
+                            attribute. This is the default queue that jobs will be dispatched to
+                            when they are sent to a given connection. In other words, if you
+                            dispatch a job without explicitly defining which queue it should be
+                            dispatched to, the job will be placed on the queue that is defined in
+                            the <code class=" language-php">queue</code> attribute of the connection configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// This job is sent to the default queue...</span>
+Job<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// This job is sent to the "emails" queue...</span>
+Job<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">onQueue</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'emails'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Some applications may not need to ever push jobs onto multiple
+                            queues, instead preferring to have one simple queue. However, pushing
+                            jobs to multiple queues can be especially useful for applications that
+                            wish to prioritize or segment how jobs are processed, since the Laravel
+                            queue worker allows you to specify which queues it should process by
+                            priority. For example, if you push jobs to a <code class=" language-php">high</code> queue,
+                            you may run a worker that gives them higher processing priority:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>queue<span
+                                class="token operator">=</span>high<span class="token punctuation">,</span><span
+                                class="token keyword">default</span></code></pre>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Notes &amp;
+                            Prerequisites</a></h3>
+                        <h4>Database</h4>
+                        <p>In order to use the <code class=" language-php">database</code> queue driver, you will need a
+                            database table to hold the jobs. To generate a migration that creates this table, run the
+                            <code class=" language-php">queue<span class="token punctuation">:</span>table</code>
+                            Artisan command. Once the migration has been created, you may migrate your database using
+                            the <code class=" language-php">migrate</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>table
+
+php artisan migrate</code></pre>
+                        <h4>Redis</h4>
+                        <p>In order to use the <code class=" language-php">redis</code> queue driver, you should
+                            configure a Redis database connection in your <code class=" language-php">config<span
+                                    class="token operator">/</span>database<span
+                                    class="token punctuation">.</span>php</code> configuration file.</p>
+                        <p><strong>Redis Cluster</strong></p>
+                        <p>If your Redis queue connection uses a Redis Cluster, your queue names must contain a <a
+                                href="https://redis.io/topics/cluster-spec#keys-hash-tags">key hash tag</a>. This is
+                            required in order to ensure all of the Redis keys for a given queue are placed into the same
+                            hash slot:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'connection'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'queue'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'{default}'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'retry_after'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">90</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><strong>Blocking</strong></p>
+                        <p>When using the Redis queue, you may use the <code class=" language-php">block_for</code>
+                            configuration option to specify how long the driver should wait for a
+                            job to become available before iterating through the worker loop and
+                            re-polling the Redis database.</p>
+                        <p>Adjusting this value based on your queue load can be more efficient
+                            than continually polling the Redis database for new jobs. For instance,
+                            you may set the value to <code class=" language-php"><span
+                                    class="token number">5</span></code> to indicate that the driver should block for
+                            five seconds while waiting for a job to become available:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'redis'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'connection'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'queue'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'default'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'retry_after'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">90</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'block_for'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token number">5</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> Setting <code class=" language-php">block_for</code> to <code
+                                        class=" language-php"><span class="token number">0</span></code> will cause
+                                    queue workers to block indefinitely until a job is available. This will also prevent
+                                    signals such as <code class=" language-php"><span
+                                            class="token constant">SIGTERM</span></code> from being handled until the
+                                    next job has been processed.</p></div>
+                        </blockquote>
+                        <h4>Other Driver Prerequisites</h4>
+                        <p>The following dependencies are needed for the listed queue drivers:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li>Amazon SQS: <code class=" language-php">aws<span
+                                        class="token operator">/</span>aws<span class="token operator">-</span>sdk<span
+                                        class="token operator">-</span>php <span class="token operator">~</span><span
+                                        class="token number">3.0</span></code></li>
+                                <li>Beanstalkd: <code class=" language-php">pda<span class="token operator">/</span>pheanstalk
+                                    <span class="token operator">~</span><span class="token number">4.0</span></code>
+                                </li>
+                                <li>Redis: <code class=" language-php">predis<span class="token operator">/</span>predis
+                                    <span class="token operator">~</span><span class="token number">1.0</span></code> or
+                                    phpredis PHP extension
+                                </li>
+                            </ul>
+                        </div>
+                        <p><a name="creating-jobs"></a></p>
+                        <h2 id="creating-jobs"><a href="#creating-jobs">Creating Jobs</a></h2>
+                        <p><a name="generating-job-classes"></a></p>
+                        <h3 id="generating-job-classes"><a href="#generating-job-classes">Generating Job Classes</a>
+                        </h3>
+                        <p>By default, all of the queueable jobs for your application are stored in the <code
+                                class=" language-php">app<span class="token operator">/</span>Jobs</code> directory. If
+                            the <code class=" language-php">app<span class="token operator">/</span>Jobs</code>
+                            directory doesn't exist, it will be created when you run the <code class=" language-php">make<span
+                                    class="token punctuation">:</span>job</code> Artisan command. You may generate a new
+                            queued job using the Artisan CLI:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>job ProcessPodcast</code></pre>
+                        <p>The generated class will implement the <code class=" language-php">Illuminate\<span
+                                class="token package">Contracts<span class="token punctuation">\</span>Queue<span
+                                class="token punctuation">\</span>ShouldQueue</span></code> interface, indicating to
+                            Laravel that the job should be pushed onto the queue to run asynchronously.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> Job stubs may be customized using <a
+                                        href="#stub-customization">stub
+                                    publishing</a></p></div>
+                        </blockquote>
+                        <p><a name="class-structure"></a></p>
+                        <h3 id="class-structure"><a href="#class-structure">Class Structure</a></h3>
+                        <p>Job classes are very simple, normally containing only a <code
+                                class=" language-php">handle</code>
+                            method which is called when the job is processed by the queue. To get
+                            started, let's take a look at an example job class. In this example,
+                            we'll pretend we manage a podcast publishing service and need to process
+                            the uploaded podcast files before they are published:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>AudioProcessor</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Podcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span
+                                    class="token punctuation">\</span>Queueable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Bus<span class="token punctuation">\</span>Dispatchable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>InteractsWithQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span
+                                    class="token punctuation">,</span> InteractsWithQueue<span
+                                    class="token punctuation">,</span> Queueable<span class="token punctuation">,</span> SerializesModels<span
+                                    class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token variable">$podcast</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new job instance.
+     *
+     * @param  Podcast  $podcast
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Podcast <span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">podcast</span> <span
+                                    class="token operator">=</span> <span class="token variable">$podcast</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Execute the job.
+     *
+     * @param  AudioProcessor  $processor
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span>AudioProcessor <span class="token variable">$processor</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Process uploaded podcast...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>In this example, note that we were able to pass an <a
+                                href="https://laravel.com/docs/7.x/eloquent">Eloquent model</a> directly into the queued
+                            job's constructor. Because of the <code class=" language-php">SerializesModels</code>
+                            trait that the job is using, Eloquent models and their loaded
+                            relationships will be gracefully serialized and unserialized when the
+                            job is processing. If your queued job accepts an Eloquent model in its
+                            constructor, only the identifier for the model will be serialized onto
+                            the queue. When the job is actually handled, the queue system will
+                            automatically re-retrieve the full model instance and its loaded
+                            relationships from the database. It's all totally transparent to your
+                            application and prevents issues that can arise from serializing full
+                            Eloquent model instances.</p>
+                        <p>The <code class=" language-php">handle</code> method is called when the job is processed by
+                            the queue. Note that we are able to type-hint dependencies on the <code
+                                    class=" language-php">handle</code> method of the job. The Laravel <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a> automatically
+                            injects these dependencies.</p>
+                        <p>If you would like to take total control over how the container injects dependencies into the
+                            <code class=" language-php">handle</code> method, you may use the container's <code
+                                    class=" language-php">bindMethod</code> method. The <code class=" language-php">bindMethod</code>
+                            method accepts a callback which receives the job and the container. Within the callback, you
+                            are free to invoke the <code class=" language-php">handle</code> method however you wish.
+                            Typically, you should call this method from a <a
+                                    href="https://laravel.com/docs/7.x/providers">service provider</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Jobs<span class="token punctuation">\</span>ProcessPodcast</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">bindMethod</span><span class="token punctuation">(</span>ProcessPodcast<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'@handle'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$job</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$app</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$job</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">handle</span><span class="token punctuation">(</span><span
+                                    class="token variable">$app</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">make</span><span
+                                    class="token punctuation">(</span>AudioProcessor<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> Binary data, such as raw image contents, should be passed through
+                                    the <code class=" language-php">base64_encode</code>
+                                    function before being passed to a queued job. Otherwise, the job may
+                                    not properly serialize to JSON when being placed on the queue.</p></div>
+                        </blockquote>
+                        <h4>Handling Relationships</h4>
+                        <p>Because loaded relationships also get serialized, the serialized job
+                            string can become quite large. To prevent relations from being
+                            serialized, you can call the <code class=" language-php">withoutRelations</code>
+                            method on the model when setting a property value. This method will
+                            return an instance of the model with no loaded relationships:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Create a new job instance.
+ *
+ * @param  \App\Podcast  $podcast
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Podcast <span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">podcast</span> <span
+                                    class="token operator">=</span> <span class="token variable">$podcast</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">withoutRelations</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="job-middleware"></a></p>
+                        <h3 id="job-middleware"><a href="#job-middleware">Job Middleware</a></h3>
+                        <p>Job middleware allow you to wrap custom logic around the execution of
+                            queued jobs, reducing boilerplate in the jobs themselves. For example,
+                            consider the following <code class=" language-php">handle</code> method which leverages
+                            Laravel's Redis rate limiting features to allow only one job to process every five seconds:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Execute the job.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">throttle</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">block</span><span
+                                    class="token punctuation">(</span><span class="token number">0</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">allow</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">every</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">then</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token function">info</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'Lock obtained...'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Handle job...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">// Could not obtain lock...</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">release</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>While this code is valid, the structure of the <code class=" language-php">handle</code>
+                            method becomes noisy since it is cluttered with Redis rate limiting
+                            logic. In addition, this rate limiting logic must be duplicated for any
+                            other jobs that we want to rate limit.</p>
+                        <p>Instead of rate limiting in the handle method, we could define a job
+                            middleware that handles rate limiting. Laravel does not have a default
+                            location for job middleware, so you are welcome to place job middleware
+                            anywhere in your application. In this example, we will place the
+                            middleware in a <code class=" language-php">app<span
+                                    class="token operator">/</span>Jobs<span
+                                    class="token operator">/</span>Middleware</code> directory:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Redis</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">RateLimited</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Process the queued job.
+     *
+     * @param  mixed  $job
+     * @param  callable  $next
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$job</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">throttle</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">block</span><span class="token punctuation">(</span><span
+                                    class="token number">0</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">allow</span><span class="token punctuation">(</span><span
+                                    class="token number">1</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">every</span><span class="token punctuation">(</span><span
+                                    class="token number">5</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">then</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token keyword">use</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$job</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// Lock obtained...</span>
+
+                    <span class="token variable">$next</span><span class="token punctuation">(</span><span
+                                    class="token variable">$job</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token keyword">use</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$job</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">// Could not obtain lock...</span>
+
+                    <span class="token variable">$job</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">release</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>As you can see, like <a href="https://laravel.com/docs/7.x/middleware">route middleware</a>,
+                            job middleware receive the job being processed and a callback that should be invoked to
+                            continue processing the job.</p>
+                        <p>After creating job middleware, they may be attached to a job by returning them from the job's
+                            <code class=" language-php">middleware</code> method. This method does not exist on jobs
+                            scaffolded by the <code class=" language-php">make<span class="token punctuation">:</span>job</code>
+                            Artisan command, so you will need to add it to your own job class definition:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Jobs<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>RateLimited</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Get the middleware the job should pass through.
+ *
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">RateLimited</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="dispatching-jobs"></a></p>
+                        <h2 id="dispatching-jobs"><a href="#dispatching-jobs">Dispatching Jobs</a></h2>
+                        <p>Once you have written your job class, you may dispatch it using the <code
+                                class=" language-php">dispatch</code> method on the job itself. The arguments passed to
+                            the <code class=" language-php">dispatch</code> method will be given to the job's
+                            constructor:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>ProcessPodcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new podcast.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create podcast...</span>
+
+        ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>If you would like to conditionally dispatch a job, you may use the <code
+                                class=" language-php">dispatchIf</code> and <code
+                                class=" language-php">dispatchUnless</code> methods:</p>
+                        <pre class=" language-php"><code class=" language-php">ProcessPodcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">dispatchIf</span><span class="token punctuation">(</span><span
+                                class="token variable">$accountActive</span> <span
+                                class="token operator">===</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">,</span> <span class="token variable">$podcast</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatchUnless</span><span class="token punctuation">(</span><span
+                                    class="token variable">$accountSuspended</span> <span
+                                    class="token operator">===</span> <span
+                                    class="token boolean constant">false</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="delayed-dispatching"></a></p>
+                        <h3 id="delayed-dispatching"><a href="#delayed-dispatching">Delayed Dispatching</a></h3>
+                        <p>If you would like to delay the execution of a queued job, you may use the <code
+                                class=" language-php">delay</code>
+                            method when dispatching a job. For example, let's specify that a job
+                            should not be available for processing until 10 minutes after it has
+                            been dispatched:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>ProcessPodcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new podcast.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create podcast...</span>
+
+        ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">delay</span><span class="token punctuation">(</span><span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">addMinutes</span><span
+                                    class="token punctuation">(</span><span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> The Amazon SQS queue service has a maximum delay time of 15
+                                    minutes.</p></div>
+                        </blockquote>
+                        <h4>Dispatching After The Response Is Sent To Browser</h4>
+                        <p>Alternatively, the <code class=" language-php">dispatchAfterResponse</code>
+                            method delays dispatching a job until after the response is sent to the
+                            user's browser. This will still allow the user to begin using the
+                            application even though a queued job is still executing. This should
+                            typically only be used for jobs that take about a second, such as
+                            sending an email:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Jobs<span class="token punctuation">\</span>SendNotification</span><span
+                                class="token punctuation">;</span>
+
+SendNotification<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatchAfterResponse</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may <code class=" language-php">dispatch</code> a Closure and chain the <code
+                                class=" language-php">afterResponse</code> method onto the helper to execute a Closure
+                            after the response has been sent to the browser:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Mail<span class="token punctuation">\</span>WelcomeMessage</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Mail</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Mail<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'taylor@laravel.com'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">send</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">WelcomeMessage</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">afterResponse</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="synchronous-dispatching"></a></p>
+                        <h3 id="synchronous-dispatching"><a href="#synchronous-dispatching">Synchronous Dispatching</a>
+                        </h3>
+                        <p>If you would like to dispatch a job immediately (synchronously), you may use the <code
+                                class=" language-php">dispatchNow</code> method. When using this method, the job will
+                            not be queued and will be run immediately within the current process:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>ProcessPodcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new podcast.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create podcast...</span>
+
+        ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatchNow</span><span
+                                    class="token punctuation">(</span><span class="token variable">$podcast</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="job-chaining"></a></p>
+                        <h3 id="job-chaining"><a href="#job-chaining">Job Chaining</a></h3>
+                        <p>Job chaining allows you to specify a list of queued jobs that should
+                            be run in sequence after the primary job has executed successfully. If
+                            one job in the sequence fails, the rest of the jobs will not be run. To
+                            execute a queued job chain, you may use the <code class=" language-php">withChain</code>
+                            method on any of your dispatchable jobs:</p>
+                        <pre class=" language-php"><code class=" language-php">ProcessPodcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">withChain</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">OptimizePodcast</span><span
+                                    class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">ReleasePodcast</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In addition to chaining job class instances, you may also chain Closures:</p>
+                        <pre class=" language-php"><code class=" language-php">ProcessPodcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">withChain</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">OptimizePodcast</span><span
+                                    class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">ReleasePodcast</span><span
+                                    class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        Podcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">update</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> Deleting jobs using the <code class=" language-php"><span
+                                        class="token variable">$this</span><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">delete</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code> method will not prevent chained jobs
+                                    from being processed. The chain will only stop executing if a job in the chain
+                                    fails.</p></div>
+                        </blockquote>
+                        <h4>Chain Connection &amp; Queue</h4>
+                        <p>If you would like to specify the default connection and queue that should be used for the
+                            chained jobs, you may use the <code class=" language-php">allOnConnection</code> and <code
+                                    class=" language-php">allOnQueue</code>
+                            methods. These methods specify the queue connection and queue name that
+                            should be used unless the queued job is explicitly assigned a different
+                            connection / queue:</p>
+                        <pre class=" language-php"><code class=" language-php">ProcessPodcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">withChain</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">OptimizePodcast</span><span
+                                    class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">ReleasePodcast</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">allOnConnection</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'redis'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">allOnQueue</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'podcasts'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="customizing-the-queue-and-connection"></a></p>
+                        <h3 id="customizing-the-queue-and-connection"><a href="#customizing-the-queue-and-connection">Customizing
+                            The Queue &amp; Connection</a></h3>
+                        <h4>Dispatching To A Particular Queue</h4>
+                        <p>By pushing jobs to different queues, you may "categorize" your queued
+                            jobs and even prioritize how many workers you assign to various queues.
+                            Keep in mind, this does not push jobs to different queue "connections"
+                            as defined by your queue configuration file, but only to specific queues
+                            within a single connection. To specify the queue, use the <code class=" language-php">onQueue</code>
+                            method when dispatching the job:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>ProcessPodcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new podcast.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create podcast...</span>
+
+        ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onQueue</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'processing'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Dispatching To A Particular Connection</h4>
+                        <p>If you are working with multiple queue connections, you may specify
+                            which connection to push a job to. To specify the connection, use the <code
+                                    class=" language-php">onConnection</code> method when dispatching the job:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span
+                                    class="token punctuation">\</span>ProcessPodcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Store a new podcast.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create podcast...</span>
+
+        ProcessPodcast<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onConnection</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'sqs'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You may chain the <code class=" language-php">onConnection</code> and <code
+                                class=" language-php">onQueue</code> methods to specify the connection and the queue for
+                            a job:</p>
+                        <pre class=" language-php"><code class=" language-php">ProcessPodcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                class="token variable">$podcast</span><span class="token punctuation">)</span>
+              <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onConnection</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'sqs'</span><span
+                                    class="token punctuation">)</span>
+              <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onQueue</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'processing'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may specify the <code class=" language-php">connection</code> as a
+                            property on the job class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The queue connection that should handle the job.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$connection</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'sqs'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="max-job-attempts-and-timeout"></a></p>
+                        <h3 id="max-job-attempts-and-timeout"><a href="#max-job-attempts-and-timeout">Specifying Max Job
+                            Attempts / Timeout Values</a></h3>
+                        <h4>Max Attempts</h4>
+                        <p>One approach to specifying the maximum number of times a job may be attempted is via the
+                            <code class=" language-php"><span class="token operator">--</span>tries</code> switch on the
+                            Artisan command line:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>tries<span
+                                class="token operator">=</span><span class="token number">3</span></code></pre>
+                        <p>However, you may take a more granular approach by defining the
+                            maximum number of attempts on the job class itself. If the maximum
+                            number of attempts is specified on the job, it will take precedence over
+                            the value provided on the command line:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$tries</span> <span
+                                    class="token operator">=</span> <span class="token number">5</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="time-based-attempts"></a></p>
+                        <h4 id="time-based-attempts"><a href="#time-based-attempts">Time Based Attempts</a></h4>
+                        <p>As an alternative to defining how many times a job may be attempted
+                            before it fails, you may define a time at which the job should timeout.
+                            This allows a job to be attempted any number of times within a given
+                            time frame. To define the time at which a job should timeout, add a <code
+                                    class=" language-php">retryUntil</code> method to your job class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine the time at which the job should timeout.
+ *
+ * @return \DateTime
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retryUntil</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">now</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">addSeconds</span><span
+                                    class="token punctuation">(</span><span class="token number">5</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> You may also define a <code class=" language-php">retryUntil</code>
+                                    method on your queued event listeners.</p></div>
+                        </blockquote>
+                        <h4>Max Exceptions</h4>
+                        <p>Sometimes you may wish to specify that a job may be attempted many
+                            times, but should fail if the retries are triggered by a given number of
+                            exceptions. To accomplish this, you may define a <code
+                                    class=" language-php">maxExceptions</code> property on your job class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$tries</span> <span
+                                    class="token operator">=</span> <span class="token number">25</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The maximum number of exceptions to allow before failing.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$maxExceptions</span> <span
+                                    class="token operator">=</span> <span class="token number">3</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Execute the job.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Redis<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">throttle</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">allow</span><span
+                                    class="token punctuation">(</span><span class="token number">10</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">every</span><span
+                                    class="token punctuation">(</span><span class="token number">60</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">then</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Lock obtained, process the podcast...</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Unable to obtain lock...</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">release</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>In this example, the job is released for ten seconds if the
+                            application is unable to obtain a Redis lock and will continue to be
+                            retried up to 25 times. However, the job will fail if three unhandled
+                            exceptions are thrown by the job.</p>
+                        <h4>Timeout</h4>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">timeout</code> feature is optimized
+                                    for PHP 7.1+ and the <code class=" language-php">pcntl</code> PHP extension.</p>
+                            </div>
+                        </blockquote>
+                        <p>Likewise, the maximum number of seconds that jobs can run may be specified using the <code
+                                class=" language-php"><span class="token operator">--</span>timeout</code> switch on the
+                            Artisan command line:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span
+                                class="token operator">--</span>timeout<span class="token operator">=</span><span
+                                class="token number">30</span></code></pre>
+                        <p>However, you may also define the maximum number of seconds a job
+                            should be allowed to run on the job class itself. If the timeout is
+                            specified on the job, it will take precedence over any timeout specified
+                            on the command line:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$timeout</span> <span class="token operator">=</span> <span
+                                    class="token number">120</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="rate-limiting"></a></p>
+                        <h3 id="rate-limiting"><a href="#rate-limiting">Rate Limiting</a></h3>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> This feature requires that your application can interact with a <a
+                                        href="https://laravel.com/docs/7.x/redis">Redis server</a>.</p></div>
+                        </blockquote>
+                        <p>If your application interacts with Redis, you may throttle your
+                            queued jobs by time or concurrency. This feature can be of assistance
+                            when your queued jobs are interacting with APIs that are also rate
+                            limited.</p>
+                        <p>For example, using the <code class=" language-php">throttle</code>
+                            method, you may throttle a given type of job to only run 10 times every
+                            60 seconds. If a lock can not be obtained, you should typically release
+                            the job back onto the queue so it can be retried later:</p>
+                        <pre class=" language-php"><code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">throttle</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">allow</span><span
+                                class="token punctuation">(</span><span class="token number">10</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">every</span><span
+                                class="token punctuation">(</span><span class="token number">60</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">then</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Job logic...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Could not obtain lock...</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">release</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> In the example above, the <code class=" language-php">key</code>
+                                    may be any string that uniquely identifies the type of job you would
+                                    like to rate limit. For example, you may wish to construct the key based
+                                    on the class name of the job and the IDs of the Eloquent models it
+                                    operates on.</p></div>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> Releasing a throttled job back onto the queue will still increment
+                                    the job's total number of <code class=" language-php">attempts</code>.</p></div>
+                        </blockquote>
+                        <p>Alternatively, you may specify the maximum number of workers that may
+                            simultaneously process a given job. This can be helpful when a queued
+                            job is modifying a resource that should only be modified by one job at a
+                            time. For example, using the <code class=" language-php">funnel</code> method, you may limit
+                            jobs of a given type to only be processed by one worker at a time:</p>
+                        <pre class=" language-php"><code class=" language-php">Redis<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">funnel</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'key'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">limit</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">then</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Job logic...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Could not obtain lock...</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">release</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    When using rate limiting, the number of attempts your job will need to
+                                    run successfully can be hard to determine. Therefore, it is useful to
+                                    combine rate limiting with <a href="#time-based-attempts">time based attempts</a>.
+                                </p></div>
+                        </blockquote>
+                        <p><a name="error-handling"></a></p>
+                        <h3 id="error-handling"><a href="#error-handling">Error Handling</a></h3>
+                        <p>If an exception is thrown while the job is being processed, the job
+                            will automatically be released back onto the queue so it may be
+                            attempted again. The job will continue to be released until it has been
+                            attempted the maximum number of times allowed by your application. The
+                            maximum number of attempts is defined by the <code class=" language-php"><span
+                                    class="token operator">--</span>tries</code> switch used on the <code
+                                    class=" language-php">queue<span class="token punctuation">:</span>work</code>
+                            Artisan command. Alternatively, the maximum number of attempts may be
+                            defined on the job class itself. More information on running the queue
+                            worker <a href="#running-the-queue-worker">can be found below</a>.</p>
+                        <p><a name="queueing-closures"></a></p>
+                        <h2 id="queueing-closures"><a href="#queueing-closures">Queueing Closures</a></h2>
+                        <p>Instead of dispatching a job class to the queue, you may also
+                            dispatch a Closure. This is great for quick, simple tasks that need to
+                            be executed outside of the current request cycle:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$podcast</span> <span class="token operator">=</span> App\<span
+                                class="token package">Podcast</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token keyword">use</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$podcast</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$podcast</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">publish</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When dispatching Closures to the queue, the Closure's code contents
+                            is cryptographically signed so it can not be modified in transit.</p>
+                        <p><a name="running-the-queue-worker"></a></p>
+                        <h2 id="running-the-queue-worker"><a href="#running-the-queue-worker">Running The Queue
+                            Worker</a></h2>
+                        <p>Laravel includes a queue worker that will process new jobs as they are pushed onto the queue.
+                            You may run the worker using the <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>work</code> Artisan command. Note that once the
+                            <code class=" language-php">queue<span class="token punctuation">:</span>work</code> command
+                            has started, it will continue to run until it is manually stopped or you close your
+                            terminal:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> To keep the <code class=" language-php">queue<span
+                                        class="token punctuation">:</span>work</code> process running permanently in the
+                                    background, you should use a process monitor such as <a
+                                            href="#supervisor-configuration">Supervisor</a> to ensure that the queue
+                                    worker does not stop running.</p></div>
+                        </blockquote>
+                        <p>Remember, queue workers are long-lived processes and store the booted
+                            application state in memory. As a result, they will not notice changes
+                            in your code base after they have been started. So, during your
+                            deployment process, be sure to <a href="#queue-workers-and-deployment">restart your queue
+                                workers</a>.
+                            In addition, remember that any static state created or modified by your
+                            application will not be automatically reset between jobs.</p>
+                        <p>Alternatively, you may run the <code class=" language-php">queue<span
+                                class="token punctuation">:</span>listen</code> command. When using the <code
+                                class=" language-php">queue<span class="token punctuation">:</span>listen</code>
+                            command, you don't have to manually restart the worker when you want to
+                            reload your updated code or reset the application state; however, this
+                            command is not as efficient as <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>work</code>:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>listen</code></pre>
+                        <h4>Specifying The Connection &amp; Queue</h4>
+                        <p>You may also specify which queue connection the worker should utilize. The connection name
+                            passed to the <code class=" language-php">work</code> command should correspond to one of
+                            the connections defined in your <code class=" language-php">config<span
+                                    class="token operator">/</span>queue<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work redis</code></pre>
+                        <p>You may customize your queue worker even further by only processing
+                            particular queues for a given connection. For example, if all of your
+                            emails are processed in an <code class=" language-php">emails</code> queue on your <code
+                                    class=" language-php">redis</code> queue connection, you may issue the following
+                            command to start a worker that only processes that queue:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work redis <span class="token operator">--</span>queue<span
+                                class="token operator">=</span>emails</code></pre>
+                        <h4>Processing A Single Job</h4>
+                        <p>The <code class=" language-php"><span class="token operator">--</span>once</code> option may
+                            be used to instruct the worker to only process a single job from the queue:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>once</code></pre>
+                        <h4>Processing All Queued Jobs &amp; Then Exiting</h4>
+                        <p>The <code class=" language-php"><span class="token operator">--</span>stop<span
+                                class="token operator">-</span>when<span class="token operator">-</span><span
+                                class="token keyword">empty</span></code>
+                            option may be used to instruct the worker to process all jobs and then
+                            exit gracefully. This option can be useful when working Laravel queues
+                            within a Docker container if you wish to shutdown the container after
+                            the queue is empty:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>stop<span
+                                class="token operator">-</span>when<span class="token operator">-</span><span
+                                class="token keyword">empty</span></code></pre>
+                        <h4>Resource Considerations</h4>
+                        <p>Daemon queue workers do not "reboot" the framework before processing
+                            each job. Therefore, you should free any heavy resources after each job
+                            completes. For example, if you are doing image manipulation with the GD
+                            library, you should free the memory with <code class=" language-php">imagedestroy</code>
+                            when you are done.</p>
+                        <p><a name="queue-priorities"></a></p>
+                        <h3 id="queue-priorities"><a href="#queue-priorities">Queue Priorities</a></h3>
+                        <p>Sometimes you may wish to prioritize how your queues are processed. For example, in your
+                            <code class=" language-php">config<span class="token operator">/</span>queue<span
+                                    class="token punctuation">.</span>php</code> you may set the default <code
+                                    class=" language-php">queue</code> for your <code class=" language-php">redis</code>
+                            connection to <code class=" language-php">low</code>. However, occasionally you may wish to
+                            push a job to a <code class=" language-php">high</code> priority queue like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token function">dispatch</span><span class="token punctuation">(</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">Job</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">onQueue</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'high'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>To start a worker that verifies that all of the <code class=" language-php">high</code> queue
+                            jobs are processed before continuing to any jobs on the <code
+                                    class=" language-php">low</code> queue, pass a comma-delimited list of queue names
+                            to the <code class=" language-php">work</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>queue<span
+                                class="token operator">=</span>high<span
+                                class="token punctuation">,</span>low</code></pre>
+                        <p><a name="queue-workers-and-deployment"></a></p>
+                        <h3 id="queue-workers-and-deployment"><a href="#queue-workers-and-deployment">Queue Workers
+                            &amp; Deployment</a></h3>
+                        <p>Since queue workers are long-lived processes, they will not pick up
+                            changes to your code without being restarted. So, the simplest way to
+                            deploy an application using queue workers is to restart the workers
+                            during your deployment process. You may gracefully restart all of the
+                            workers by issuing the <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>restart</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>restart</code></pre>
+                        <p>This command will instruct all queue workers to gracefully "die"
+                            after they finish processing their current job so that no existing jobs
+                            are lost. Since the queue workers will die when the <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>restart</code> command is executed, you should be
+                            running a process manager such as <a href="#supervisor-configuration">Supervisor</a> to
+                            automatically restart the queue workers.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> The queue uses the <a href="https://laravel.com/docs/7.x/cache">cache</a>
+                                    to store restart signals, so you should verify a cache driver is
+                                    properly configured for your application before using this feature.</p></div>
+                        </blockquote>
+                        <p><a name="job-expirations-and-timeouts"></a></p>
+                        <h3 id="job-expirations-and-timeouts"><a href="#job-expirations-and-timeouts">Job Expirations
+                            &amp; Timeouts</a></h3>
+                        <h4>Job Expiration</h4>
+                        <p>In your <code class=" language-php">config<span class="token operator">/</span>queue<span
+                                class="token punctuation">.</span>php</code> configuration file, each queue connection
+                            defines a <code class=" language-php">retry_after</code>
+                            option. This option specifies how many seconds the queue connection
+                            should wait before retrying a job that is being processed. For example,
+                            if the value of <code class=" language-php">retry_after</code> is set to <code
+                                    class=" language-php"><span class="token number">90</span></code>,
+                            the job will be released back onto the queue if it has been processing
+                            for 90 seconds without being deleted. Typically, you should set the <code
+                                    class=" language-php">retry_after</code> value to the maximum number of seconds your
+                            jobs should reasonably take to complete processing.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> The only queue connection which does not contain a <code
+                                        class=" language-php">retry_after</code> value is Amazon SQS. SQS will retry the
+                                    job based on the <a
+                                            href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Default
+                                        Visibility Timeout</a> which is managed within the AWS console.</p></div>
+                        </blockquote>
+                        <h4>Worker Timeouts</h4>
+                        <p>The <code class=" language-php">queue<span class="token punctuation">:</span>work</code>
+                            Artisan command exposes a <code class=" language-php"><span class="token operator">--</span>timeout</code>
+                            option. The <code class=" language-php"><span class="token operator">--</span>timeout</code>
+                            option specifies how long the Laravel queue master process will wait
+                            before killing off a child queue worker that is processing a job.
+                            Sometimes a child queue process can become "frozen" for various reasons.
+                            The <code class=" language-php"><span class="token operator">--</span>timeout</code> option
+                            removes frozen processes that have exceeded that specified time limit:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span
+                                class="token operator">--</span>timeout<span class="token operator">=</span><span
+                                class="token number">60</span></code></pre>
+                        <p>The <code class=" language-php">retry_after</code> configuration option and the <code
+                                class=" language-php"><span class="token operator">--</span>timeout</code>
+                            CLI option are different, but work together to ensure that jobs are not
+                            lost and that jobs are only successfully processed once.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php"><span
+                                        class="token operator">--</span>timeout</code> value should always be at least
+                                    several seconds shorter than your <code class=" language-php">retry_after</code>
+                                    configuration value. This will ensure that a worker processing a given job is always
+                                    killed before the job is retried. If your <code class=" language-php"><span
+                                            class="token operator">--</span>timeout</code> option is longer than your
+                                    <code class=" language-php">retry_after</code> configuration value, your jobs may be
+                                    processed twice.</p></div>
+                        </blockquote>
+                        <h4>Worker Sleep Duration</h4>
+                        <p>When jobs are available on the queue, the worker will keep processing jobs with no delay in
+                            between them. However, the <code class=" language-php">sleep</code>
+                            option determines how long (in seconds) the worker will "sleep" if
+                            there are no new jobs available. While sleeping, the worker will not
+                            process any new jobs - the jobs will be processed after the worker wakes
+                            up again.</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work <span class="token operator">--</span>sleep<span
+                                class="token operator">=</span><span class="token number">3</span></code></pre>
+                        <p><a name="supervisor-configuration"></a></p>
+                        <h2 id="supervisor-configuration"><a href="#supervisor-configuration">Supervisor
+                            Configuration</a></h2>
+                        <h4>Installing Supervisor</h4>
+                        <p>Supervisor is a process monitor for the Linux operating system, and will automatically
+                            restart your <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>work</code> process if it fails. To install
+                            Supervisor on Ubuntu, you may use the following command:</p>
+                        <pre class=" language-php"><code class=" language-php">sudo apt<span
+                                class="token operator">-</span>get install supervisor</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="12-Queues_files/lightbulb.svg"></div>
+                                <p class="content"> If configuring Supervisor yourself sounds overwhelming, consider
+                                    using <a href="https://forge.laravel.com/">Laravel Forge</a>, which will
+                                    automatically install and configure Supervisor for your Laravel projects.</p></div>
+                        </blockquote>
+                        <h4>Configuring Supervisor</h4>
+                        <p>Supervisor configuration files are typically stored in the <code class=" language-php"><span
+                                class="token operator">/</span>etc<span class="token operator">/</span>supervisor<span
+                                class="token operator">/</span>conf<span class="token punctuation">.</span>d</code>
+                            directory. Within this directory, you may create any number of
+                            configuration files that instruct supervisor how your processes should
+                            be monitored. For example, let's create a <code class=" language-php">laravel<span
+                                    class="token operator">-</span>worker<span
+                                    class="token punctuation">.</span>conf</code> file that starts and monitors a <code
+                                    class=" language-php">queue<span class="token punctuation">:</span>work</code>
+                            process:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">[</span>program<span
+                                class="token punctuation">:</span>laravel<span
+                                class="token operator">-</span>worker<span class="token punctuation">]</span>
+process_name<span class="token operator">=</span><span class="token operator">%</span><span
+                                    class="token punctuation">(</span>program_name<span
+                                    class="token punctuation">)</span>s_<span class="token operator">%</span><span
+                                    class="token punctuation">(</span>process_num<span
+                                    class="token punctuation">)</span><span class="token number">02</span>d
+command<span class="token operator">=</span>php <span class="token operator">/</span>home<span
+                                    class="token operator">/</span>forge<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>com<span class="token operator">/</span>artisan queue<span
+                                    class="token punctuation">:</span>work sqs <span class="token operator">--</span>sleep<span
+                                    class="token operator">=</span><span class="token number">3</span> <span
+                                    class="token operator">--</span>tries<span class="token operator">=</span><span
+                                    class="token number">3</span>
+autostart<span class="token operator">=</span><span class="token boolean constant">true</span>
+autorestart<span class="token operator">=</span><span class="token boolean constant">true</span>
+user<span class="token operator">=</span>forge
+numprocs<span class="token operator">=</span><span class="token number">8</span>
+redirect_stderr<span class="token operator">=</span><span class="token boolean constant">true</span>
+stdout_logfile<span class="token operator">=</span><span class="token operator">/</span>home<span
+                                    class="token operator">/</span>forge<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>com<span
+                                    class="token operator">/</span>worker<span class="token punctuation">.</span>log
+stopwaitsecs<span class="token operator">=</span><span class="token number">3600</span></code></pre>
+                        <p>In this example, the <code class=" language-php">numprocs</code> directive will instruct
+                            Supervisor to run 8 <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>work</code> processes and monitor all of them,
+                            automatically restarting them if they fail. You should change the <code
+                                    class=" language-php">queue<span class="token punctuation">:</span>work sqs</code>
+                            portion of the <code class=" language-php">command</code> directive to reflect your desired
+                            queue connection.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> You should ensure that the value of <code class=" language-php">stopwaitsecs</code>
+                                    is greater than the number of seconds consumed by your longest running
+                                    job. Otherwise, Supervisor may kill the job before it is finished
+                                    processing.</p></div>
+                        </blockquote>
+                        <h4>Starting Supervisor</h4>
+                        <p>Once the configuration file has been created, you may update the
+                            Supervisor configuration and start the processes using the following
+                            commands:</p>
+                        <pre class=" language-php"><code class=" language-php">sudo supervisorctl reread
+
+sudo supervisorctl update
+
+sudo supervisorctl start laravel<span class="token operator">-</span>worker<span class="token punctuation">:</span><span
+                                    class="token operator">*</span></code></pre>
+                        <p>For more information on Supervisor, consult the <a href="http://supervisord.org/index.html">Supervisor
+                            documentation</a>.</p>
+                        <p><a name="dealing-with-failed-jobs"></a></p>
+                        <h2 id="dealing-with-failed-jobs"><a href="#dealing-with-failed-jobs">Dealing With Failed
+                            Jobs</a></h2>
+                        <p>Sometimes your queued jobs will fail. Don't worry, things don't
+                            always go as planned! Laravel includes a convenient way to specify the
+                            maximum number of times a job should be attempted. After a job has
+                            exceeded this amount of attempts, it will be inserted into the <code class=" language-php">failed_jobs</code>
+                            database table. To create a migration for the <code class=" language-php">failed_jobs</code>
+                            table, you may use the <code class=" language-php">queue<span
+                                    class="token punctuation">:</span>failed<span
+                                    class="token operator">-</span>table</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>failed<span class="token operator">-</span>table
+
+php artisan migrate</code></pre>
+                        <p>Then, when running your <a href="#running-the-queue-worker">queue worker</a>, you can specify
+                            the maximum number of times a job should be attempted using the <code class=" language-php"><span
+                                    class="token operator">--</span>tries</code> switch on the <code
+                                    class=" language-php">queue<span class="token punctuation">:</span>work</code>
+                            command. If you do not specify a value for the <code class=" language-php"><span
+                                    class="token operator">--</span>tries</code> option, jobs will only be attempted
+                            once:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work redis <span class="token operator">--</span>tries<span
+                                class="token operator">=</span><span class="token number">3</span></code></pre>
+                        <p>In addition, you may specify how many seconds Laravel should wait before retrying a job that
+                            has failed using the <code class=" language-php"><span class="token operator">--</span>delay</code>
+                            option. By default, a job is retried immediately:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>work redis <span class="token operator">--</span>tries<span
+                                class="token operator">=</span><span class="token number">3</span> <span
+                                class="token operator">--</span>delay<span class="token operator">=</span><span
+                                class="token number">3</span></code></pre>
+                        <p>If you would like to configure the failed job retry delay on a per-job basis, you may do so
+                            by defining a <code class=" language-php">retryAfter</code> property on your queued job
+                            class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The number of seconds to wait before retrying the job.
+ *
+ * @var int
+ */</span>
+<span class="token keyword">public</span> <span class="token variable">$retryAfter</span> <span
+                                    class="token operator">=</span> <span class="token number">3</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="cleaning-up-after-failed-jobs"></a></p>
+                        <h3 id="cleaning-up-after-failed-jobs"><a href="#cleaning-up-after-failed-jobs">Cleaning Up
+                            After Failed Jobs</a></h3>
+                        <p>You may define a <code class=" language-php">failed</code> method
+                            directly on your job class, allowing you to perform job specific
+                            clean-up when a failure occurs. This is the perfect location to send an
+                            alert to your users or revert any actions performed by the job. The <code
+                                    class=" language-php">Exception</code> that caused the job to fail will be passed to
+                            the <code class=" language-php">failed</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>AudioProcessor</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Podcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Exception</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span
+                                    class="token punctuation">\</span>Queueable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>InteractsWithQueue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProcessPodcast</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">InteractsWithQueue</span><span
+                                    class="token punctuation">,</span> Queueable<span class="token punctuation">,</span> SerializesModels<span
+                                    class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token variable">$podcast</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new job instance.
+     *
+     * @param  Podcast  $podcast
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Podcast <span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">podcast</span> <span
+                                    class="token operator">=</span> <span class="token variable">$podcast</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Execute the job.
+     *
+     * @param  AudioProcessor  $processor
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span>AudioProcessor <span class="token variable">$processor</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Process uploaded podcast...</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * The job failed to process.
+     *
+     * @param  Exception  $exception
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">failed</span><span
+                                    class="token punctuation">(</span>Exception <span
+                                    class="token variable">$exception</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Send user notification of failure, etc...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="12-Queues_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">failed</code> method will not be
+                                    called if the job was dispatched using the <code
+                                            class=" language-php">dispatchNow</code> method.</p></div>
+                        </blockquote>
+                        <p><a name="failed-job-events"></a></p>
+                        <h3 id="failed-job-events"><a href="#failed-job-events">Failed Job Events</a></h3>
+                        <p>If you would like to register an event that will be called when a job fails, you may use the
+                            <code class=" language-php">Queue<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>failing</code> method. This event is a great
+                            opportunity to notify your team via email or <a href="https://www.slack.com/">Slack</a>. For
+                            example, we may attach a callback to this event from the <code class=" language-php">AppServiceProvider</code>
+                            that is included with Laravel:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Queue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>Events<span class="token punctuation">\</span>JobFailed</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AppServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Queue<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">failing</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span>JobFailed <span
+                                    class="token variable">$event</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// $event-&gt;connectionName</span>
+            <span class="token comment">// $event-&gt;job</span>
+            <span class="token comment">// $event-&gt;exception</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="retrying-failed-jobs"></a></p>
+                        <h3 id="retrying-failed-jobs"><a href="#retrying-failed-jobs">Retrying Failed Jobs</a></h3>
+                        <p>To view all of your failed jobs that have been inserted into your <code
+                                class=" language-php">failed_jobs</code> database table, you may use the <code
+                                class=" language-php">queue<span class="token punctuation">:</span>failed</code> Artisan
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>failed</code></pre>
+                        <p>The <code class=" language-php">queue<span class="token punctuation">:</span>failed</code>
+                            command will list the job ID, connection, queue, and failure time. The
+                            job ID may be used to retry the failed job. For instance, to retry a
+                            failed job that has an ID of <code class=" language-php"><span class="token number">5</span></code>,
+                            issue the following command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>retry <span class="token number">5</span></code></pre>
+                        <p>To retry all of your failed jobs, execute the <code class=" language-php">queue<span
+                                class="token punctuation">:</span>retry</code> command and pass <code
+                                class=" language-php">all</code> as the ID:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>retry all</code></pre>
+                        <p>If you would like to delete a failed job, you may use the <code
+                                class=" language-php">queue<span class="token punctuation">:</span>forget</code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>forget <span
+                                class="token number">5</span></code></pre>
+                        <p>To delete all of your failed jobs, you may use the <code class=" language-php">queue<span
+                                class="token punctuation">:</span>flush</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan queue<span
+                                class="token punctuation">:</span>flush</code></pre>
+                        <p><a name="ignoring-missing-models"></a></p>
+                        <h3 id="ignoring-missing-models"><a href="#ignoring-missing-models">Ignoring Missing Models</a>
+                        </h3>
+                        <p>When injecting an Eloquent model into a job, it is automatically
+                            serialized before being placed on the queue and restored when the job is
+                            processed. However, if the model has been deleted while the job was
+                            waiting to be processed by a worker, your job may fail with a <code class=" language-php">ModelNotFoundException</code>.
+                        </p>
+                        <p>For convenience, you may choose to automatically delete jobs with missing models by setting
+                            your job's <code class=" language-php">deleteWhenMissingModels</code> property to <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Delete the job if its models no longer exist.
+ *
+ * @var bool
+ */</span>
+<span class="token keyword">public</span> <span class="token variable">$deleteWhenMissingModels</span> <span
+                                    class="token operator">=</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="job-events"></a></p>
+                        <h2 id="job-events"><a href="#job-events">Job Events</a></h2>
+                        <p>Using the <code class=" language-php">before</code> and <code
+                                class=" language-php">after</code> methods on the <code
+                                class=" language-php">Queue</code> <a
+                                href="https://laravel.com/docs/7.x/facades">facade</a>,
+                            you may specify callbacks to be executed before or after a queued job
+                            is processed. These callbacks are a great opportunity to perform
+                            additional logging or increment statistics for a dashboard. Typically,
+                            you should call these methods from a <a href="https://laravel.com/docs/7.x/providers">service
+                                provider</a>. For example, we may use the <code
+                                    class=" language-php">AppServiceProvider</code> that is included with Laravel:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Queue</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>Events<span class="token punctuation">\</span>JobProcessed</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>Events<span class="token punctuation">\</span>JobProcessing</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AppServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Queue<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">before</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span>JobProcessing <span
+                                    class="token variable">$event</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// $event-&gt;connectionName</span>
+            <span class="token comment">// $event-&gt;job</span>
+            <span class="token comment">// $event-&gt;job-&gt;payload()</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Queue<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">after</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span>JobProcessed <span
+                                    class="token variable">$event</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// $event-&gt;connectionName</span>
+            <span class="token comment">// $event-&gt;job</span>
+            <span class="token comment">// $event-&gt;job-&gt;payload()</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Using the <code class=" language-php">looping</code> method on the <code
+                                class=" language-php">Queue</code> <a
+                                href="https://laravel.com/docs/7.x/facades">facade</a>,
+                            you may specify callbacks that execute before the worker attempts to
+                            fetch a job from a queue. For example, you might register a Closure to
+                            rollback any transactions that were left open by a previously failed
+                            job:</p>
+                        <pre class=" language-php"><code class=" language-php">Queue<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">looping</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span
+                                    class="token constant">DB</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">transactionLevel</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token operator">&gt;</span> <span class="token number">0</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token constant">DB</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">rollBack</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

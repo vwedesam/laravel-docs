@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Authentication - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/authentication">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="01-Authentication_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="01-Authentication_files/app.css">
+
+    <!-- Load JS -->
+    <script src="01-Authentication_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="01-Authentication_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Authentication</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#introduction-database-considerations">Database Considerations</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#authentication-quickstart">Authentication Quickstart</a>
+                                <ul>
+                                    <li><a href="#included-routing">Routing</a></li>
+                                    <li><a href="#included-views">Views</a></li>
+                                    <li><a href="#included-authenticating">Authenticating</a></li>
+                                    <li><a href="#retrieving-the-authenticated-user">Retrieving The Authenticated
+                                        User</a></li>
+                                    <li><a href="#protecting-routes">Protecting Routes</a></li>
+                                    <li><a href="#password-confirmation">Password Confirmation</a></li>
+                                    <li><a href="#login-throttling">Login Throttling</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#authenticating-users">Manually Authenticating Users</a>
+                                <ul>
+                                    <li><a href="#remembering-users">Remembering Users</a></li>
+                                    <li><a href="#other-authentication-methods">Other Authentication Methods</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#http-basic-authentication">HTTP Basic Authentication</a>
+                                <ul>
+                                    <li><a href="#stateless-http-basic-authentication">Stateless HTTP Basic
+                                        Authentication</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#logging-out">Logging Out</a>
+                                <ul>
+                                    <li><a href="#invalidating-sessions-on-other-devices">Invalidating Sessions On Other
+                                        Devices</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="https://github.com/laravel/socialite">Social Authentication</a></li>
+                            <li><a href="#adding-custom-guards">Adding Custom Guards</a>
+                                <ul>
+                                    <li><a href="#closure-request-guards">Closure Request Guards</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#adding-custom-user-providers">Adding Custom User Providers</a>
+                                <ul>
+                                    <li><a href="#the-user-provider-contract">The User Provider Contract</a></li>
+                                    <li><a href="#the-authenticatable-contract">The Authenticatable Contract</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#events">Events</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Authentication_files/lightbulb.svg"></div>
+                                <p class="content"><strong>Want to get started fast?</strong> Install the <code
+                                        class=" language-php">laravel<span class="token operator">/</span>ui</code>
+                                    Composer package and run <code class=" language-php">php artisan ui vue <span
+                                            class="token operator">--</span>auth</code> in a fresh Laravel application.
+                                    After migrating your database, navigate your browser to <code class=" language-php">http<span
+                                            class="token punctuation">:</span><span class="token comment">//your-app.test/register</span></code>
+                                    or any other URL that is assigned to your application. These commands
+                                    will take care of scaffolding your entire authentication system!</p></div>
+                        </blockquote>
+                        <p>Laravel makes implementing authentication very simple. In fact,
+                            almost everything is configured for you out of the box. The
+                            authentication configuration file is located at <code class=" language-php">config<span
+                                    class="token operator">/</span>auth<span
+                                    class="token punctuation">.</span>php</code>, which contains several well documented
+                            options for tweaking the behavior of the authentication services.</p>
+                        <p>At its core, Laravel's authentication facilities are made up of
+                            "guards" and "providers". Guards define how users are authenticated for
+                            each request. For example, Laravel ships with a <code class=" language-php">session</code>
+                            guard which maintains state using session storage and cookies.</p>
+                        <p>Providers define how users are retrieved from your persistent
+                            storage. Laravel ships with support for retrieving users using Eloquent
+                            and the database query builder. However, you are free to define
+                            additional providers as needed for your application.</p>
+                        <p>Don't worry if this all sounds confusing now! Many applications will
+                            never need to modify the default authentication configuration.</p>
+                        <p><a name="introduction-database-considerations"></a></p>
+                        <h3 id="introduction-database-considerations"><a href="#introduction-database-considerations">Database
+                            Considerations</a></h3>
+                        <p>By default, Laravel includes an <code class=" language-php">App\<span class="token package">User</span></code>
+                            <a href="https://laravel.com/docs/7.x/eloquent">Eloquent model</a> in your <code
+                                    class=" language-php">app</code>
+                            directory. This model may be used with the default Eloquent
+                            authentication driver. If your application is not using Eloquent, you
+                            may use the <code class=" language-php">database</code> authentication driver which uses the
+                            Laravel query builder.</p>
+                        <p>When building the database schema for the <code class=" language-php">App\<span
+                                class="token package">User</span></code>
+                            model, make sure the password column is at least 60 characters in
+                            length. Maintaining the default string column length of 255 characters
+                            would be a good choice.</p>
+                        <p>Also, you should verify that your <code class=" language-php">users</code> (or equivalent)
+                            table contains a nullable, string <code class=" language-php">remember_token</code>
+                            column of 100 characters. This column will be used to store a token for
+                            users that select the "remember me" option when logging into your
+                            application.</p>
+                        <p><a name="authentication-quickstart"></a></p>
+                        <h2 id="authentication-quickstart"><a href="#authentication-quickstart">Authentication
+                            Quickstart</a></h2>
+                        <p><a name="included-routing"></a></p>
+                        <h3 id="included-routing"><a href="#included-routing">Routing</a></h3>
+                        <p>Laravel's <code class=" language-php">laravel<span class="token operator">/</span>ui</code>
+                            package provides a quick way to scaffold all of the routes and views you need for
+                            authentication using a few simple commands:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>ui
+
+php artisan ui vue <span class="token operator">--</span>auth</code></pre>
+                        <p>This command should be used on fresh applications and will install a
+                            layout view, registration and login views, as well as routes for all
+                            authentication end-points. A <code class=" language-php">HomeController</code> will also be
+                            generated to handle post-login requests to your application's dashboard.</p>
+                        <p>The <code class=" language-php">laravel<span class="token operator">/</span>ui</code> package
+                            also generates several pre-built authentication controllers, which are located in the <code
+                                    class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Auth</span></code> namespace. The <code
+                                    class=" language-php">RegisterController</code> handles new user registration, the
+                            <code class=" language-php">LoginController</code> handles authentication, the <code
+                                    class=" language-php">ForgotPasswordController</code> handles e-mailing links for
+                            resetting passwords, and the <code class=" language-php">ResetPasswordController</code>
+                            contains the logic to reset passwords. Each of these controllers uses a
+                            trait to include their necessary methods. For many applications, you
+                            will not need to modify these controllers at all.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Authentication_files/lightbulb.svg"></div>
+                                <p class="content"> If your application doesn’t need registration, you may disable it by
+                                    removing the newly created <code class=" language-php">RegisterController</code> and
+                                    modifying your route declaration: <code class=" language-php">Auth<span
+                                            class="token punctuation">:</span><span
+                                            class="token punctuation">:</span><span class="token function">routes</span><span
+                                            class="token punctuation">(</span><span
+                                            class="token punctuation">[</span><span
+                                            class="token single-quoted-string string">'register'</span> <span
+                                            class="token operator">=</span><span class="token operator">&gt;</span>
+                                        <span class="token boolean constant">false</span><span
+                                                class="token punctuation">]</span><span
+                                                class="token punctuation">)</span><span
+                                                class="token punctuation">;</span></code>.</p></div>
+                        </blockquote>
+                        <h4>Creating Applications Including Authentication</h4>
+                        <p>If you are starting a brand new application and would like to include the authentication
+                            scaffolding, you may use the <code class=" language-php"><span
+                                    class="token operator">--</span>auth</code>
+                            directive when creating your application. This command will create a
+                            new application with all of the authentication scaffolding compiled and
+                            installed:</p>
+                        <pre class=" language-php"><code class=" language-php">laravel <span
+                                class="token keyword">new</span> <span class="token class-name">blog</span> <span
+                                class="token operator">--</span>auth</code></pre>
+                        <p><a name="included-views"></a></p>
+                        <h3 id="included-views"><a href="#included-views">Views</a></h3>
+                        <p>As mentioned in the previous section, the <code class=" language-php">laravel<span
+                                class="token operator">/</span>ui</code> package's <code class=" language-php">php
+                            artisan ui vue <span class="token operator">--</span>auth</code> command will create all of
+                            the views you need for authentication and place them in the <code class=" language-php">resources<span
+                                    class="token operator">/</span>views<span class="token operator">/</span>auth</code>
+                            directory.</p>
+                        <p>The <code class=" language-php">ui</code> command will also create a <code
+                                class=" language-php">resources<span class="token operator">/</span>views<span
+                                class="token operator">/</span>layouts</code>
+                            directory containing a base layout for your application. All of these
+                            views use the Bootstrap CSS framework, but you are free to customize
+                            them however you wish.</p>
+                        <p><a name="included-authenticating"></a></p>
+                        <h3 id="included-authenticating"><a href="#included-authenticating">Authenticating</a></h3>
+                        <p>Now that you have routes and views setup for the included
+                            authentication controllers, you are ready to register and authenticate
+                            new users for your application! You may access your application in a
+                            browser since the authentication controllers already contain the logic
+                            (via their traits) to authenticate existing users and store new users in
+                            the database.</p>
+                        <h4>Path Customization</h4>
+                        <p>When a user is successfully authenticated, they will be redirected to the <code
+                                class=" language-php"><span class="token operator">/</span>home</code> URI. You can
+                            customize the post-authentication redirect path using the <code class=" language-php"><span
+                                    class="token constant">HOME</span></code> constant defined in your <code
+                                    class=" language-php">RouteServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">const</span> <span class="token constant">HOME</span> <span
+                                class="token operator">=</span> <span
+                                class="token single-quoted-string string">'/home'</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you need more robust customization of the response returned when a user is authenticated,
+                            Laravel provides an empty <code class=" language-php"><span class="token function">authenticated</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span></code>
+                            method that may be overwritten if desired:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The user has been authenticated.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  mixed  $user
+ * @return mixed
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">authenticated</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">response</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Username Customization</h4>
+                        <p>By default, Laravel uses the <code class=" language-php">email</code> field for
+                            authentication. If you would like to customize this, you may define a <code
+                                    class=" language-php">username</code> method on your <code class=" language-php">LoginController</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span class="token function">username</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'username'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Guard Customization</h4>
+                        <p>You may also customize the "guard" that is used to authenticate and register users. To get
+                            started, define a <code class=" language-php">guard</code> method on your <code
+                                    class=" language-php">LoginController</code>, <code class=" language-php">RegisterController</code>,
+                            and <code class=" language-php">ResetPasswordController</code>. The method should return a
+                            guard instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Auth</span><span class="token punctuation">;</span>
+
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">guard</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Auth<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">guard</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'guard-name'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Validation / Storage Customization</h4>
+                        <p>To modify the form fields that are required when a new user registers
+                            with your application, or to customize how new users are stored into
+                            your database, you may modify the <code class=" language-php">RegisterController</code>
+                            class. This class is responsible for validating and creating new users of your application.
+                        </p>
+                        <p>The <code class=" language-php">validator</code> method of the <code class=" language-php">RegisterController</code>
+                            contains the validation rules for new users of the application. You are free to modify this
+                            method as you wish.</p>
+                        <p>The <code class=" language-php">create</code> method of the <code class=" language-php">RegisterController</code>
+                            is responsible for creating new <code class=" language-php">App\<span class="token package">User</span></code>
+                            records in your database using the <a href="https://laravel.com/docs/7.x/eloquent">Eloquent
+                                ORM</a>. You are free to modify this method according to the needs of your database.</p>
+                        <p><a name="retrieving-the-authenticated-user"></a></p>
+                        <h3 id="retrieving-the-authenticated-user"><a href="#retrieving-the-authenticated-user">Retrieving
+                            The Authenticated User</a></h3>
+                        <p>You may access the authenticated user via the <code class=" language-php">Auth</code> facade:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Auth</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Get the currently authenticated user...</span>
+<span class="token variable">$user</span> <span class="token operator">=</span> Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Get the currently authenticated user's ID...</span>
+<span class="token variable">$id</span> <span class="token operator">=</span> Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">id</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, once a user is authenticated, you may access the authenticated user via an
+                            <code class=" language-php">Illuminate\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Request</span></code> instance. Remember,
+                            type-hinted classes will automatically be injected into your controller methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ProfileController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Update the user's profile.
+     *
+     * @param  Request  $request
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">update</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// $request-&gt;user() returns an instance of the authenticated user...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Determining If The Current User Is Authenticated</h4>
+                        <p>To determine if the user is already logged into your application, you may use the <code
+                                class=" language-php">check</code> method on the <code class=" language-php">Auth</code>
+                            facade, which will return <code class=" language-php"><span class="token boolean constant">true</span></code>
+                            if the user is authenticated:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Auth</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">check</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">// The user is logged in...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Authentication_files/lightbulb.svg"></div>
+                                <p class="content"> Even though it is possible to determine if a user is authenticated
+                                    using the <code class=" language-php">check</code>
+                                    method, you will typically use a middleware to verify that the user is
+                                    authenticated before allowing the user access to certain routes /
+                                    controllers. To learn more about this, check out the documentation on <a
+                                            href="#protecting-routes">protecting
+                                        routes</a>.</p></div>
+                        </blockquote>
+                        <p><a name="protecting-routes"></a></p>
+                        <h3 id="protecting-routes"><a href="#protecting-routes">Protecting Routes</a></h3>
+                        <p><a href="https://laravel.com/docs/7.x/middleware">Route middleware</a> can be used to only
+                            allow authenticated users to access a given route. Laravel ships with an <code
+                                    class=" language-php">auth</code> middleware, which is defined at <code
+                                    class=" language-php">Illuminate\<span class="token package">Auth<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>Authenticate</span></code>.
+                            Since this middleware is already registered in your HTTP kernel, all
+                            you need to do is attach the middleware to a route definition:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Only authenticated users may enter...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you are using <a href="https://laravel.com/docs/7.x/controllers">controllers</a>, you may
+                            call the <code class=" language-php">middleware</code> method from the controller's
+                            constructor instead of attaching it in the route definition directly:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span
+                                class="token function">__construct</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Redirecting Unauthenticated Users</h4>
+                        <p>When the <code class=" language-php">auth</code> middleware detects an unauthorized user, it
+                            will redirect the user to the <code class=" language-php">login</code> <a
+                                    href="#named-routes">named route</a>. You may
+                            modify this behavior by updating the <code class=" language-php">redirectTo</code> function
+                            in your <code class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Middleware<span class="token operator">/</span>Authenticate<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the path the user should be redirected to.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return string
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">redirectTo</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'login'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Specifying A Guard</h4>
+                        <p>When attaching the <code class=" language-php">auth</code> middleware
+                            to a route, you may also specify which guard should be used to
+                            authenticate the user. The guard specified should correspond to one of
+                            the keys in the <code class=" language-php">guards</code> array of your <code
+                                    class=" language-php">auth<span class="token punctuation">.</span>php</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span
+                                class="token function">__construct</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth:api'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="password-confirmation"></a></p>
+                        <h3 id="password-confirmation"><a href="#password-confirmation">Password Confirmation</a></h3>
+                        <p>Sometimes, you may wish to require the user to confirm their password
+                            before accessing a specific area of your application. For example, you
+                            may require this before the user modifies any billing settings within
+                            the application.</p>
+                        <p>To accomplish this, Laravel provides a <code class=" language-php">password<span
+                                class="token punctuation">.</span>confirm</code> middleware. Attaching the <code
+                                class=" language-php">password<span class="token punctuation">.</span>confirm</code>
+                            middleware to a route will redirect users to a screen where they need to confirm their
+                            password before they can continue:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/settings/security'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Users must confirm their password before continuing...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'auth'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'password.confirm'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>After the user has successfully confirmed their password, the user is
+                            redirected to the route they originally tried to access. By default,
+                            after confirming their password, the user will not have to confirm their
+                            password again for three hours. You are free to customize the length of
+                            time before the user must re-confirm their password using the <code class=" language-php">auth<span
+                                    class="token punctuation">.</span>password_timeout</code> configuration option.</p>
+                        <p><a name="login-throttling"></a></p>
+                        <h3 id="login-throttling"><a href="#login-throttling">Login Throttling</a></h3>
+                        <p>If you are using Laravel's built-in <code class=" language-php">LoginController</code> class,
+                            the <code class=" language-php">Illuminate\<span class="token package">Foundation<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>ThrottlesLogins</span></code>
+                            trait will already be included in your controller. By default, the user
+                            will not be able to login for one minute if they fail to provide the
+                            correct credentials after several attempts. The throttling is unique to
+                            the user's username / e-mail address and their IP address.</p>
+                        <p><a name="authenticating-users"></a></p>
+                        <h2 id="authenticating-users"><a href="#authenticating-users">Manually Authenticating Users</a>
+                        </h2>
+                        <p>Note that you are not required to use the authentication controllers
+                            included with Laravel. If you choose to remove these controllers, you
+                            will need to manage user authentication using the Laravel authentication
+                            classes directly. Don't worry, it's a cinch!</p>
+                        <p>We will access Laravel's authentication services via the <code
+                                class=" language-php">Auth</code> <a
+                                href="https://laravel.com/docs/7.x/facades">facade</a>, so we'll need to make sure to
+                            import the <code class=" language-php">Auth</code> facade at the top of the class. Next,
+                            let's check out the <code class=" language-php">attempt</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">LoginController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request $request
+     *
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">authenticate</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$credentials</span> <span class="token operator">=</span> <span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">only</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'email'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'password'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">attempt</span><span class="token punctuation">(</span><span
+                                    class="token variable">$credentials</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Authentication passed...</span>
+            <span class="token keyword">return</span> <span class="token function">redirect</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">intended</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'dashboard'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">attempt</code> method accepts an
+                            array of key / value pairs as its first argument. The values in the
+                            array will be used to find the user in your database table. So, in the
+                            example above, the user will be retrieved by the value of the <code class=" language-php">email</code>
+                            column. If the user is found, the hashed password stored in the database will be compared
+                            with the <code class=" language-php">password</code> value passed to the method via the
+                            array. You should not hash the password specified as the <code class=" language-php">password</code>
+                            value, since the framework will automatically hash the value before
+                            comparing it to the hashed password in the database. If the two hashed
+                            passwords match an authenticated session will be started for the user.</p>
+                        <p>The <code class=" language-php">attempt</code> method will return <code
+                                class=" language-php"><span class="token boolean constant">true</span></code> if
+                            authentication was successful. Otherwise, <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code> will be returned.</p>
+                        <p>The <code class=" language-php">intended</code> method on the
+                            redirector will redirect the user to the URL they were attempting to
+                            access before being intercepted by the authentication middleware. A
+                            fallback URI may be given to this method in case the intended
+                            destination is not available.</p>
+                        <h4>Specifying Additional Conditions</h4>
+                        <p>If you wish, you may also add extra conditions to the authentication
+                            query in addition to the user's e-mail and password. For example, we may
+                            verify that user is marked as "active":</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">attempt</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'email'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$email</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'password'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$password</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'active'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token number">1</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// The user is active, not suspended, and exists.</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Authentication_files/exclamation.svg"></div>
+                                <p class="content"> In these examples, <code class=" language-php">email</code>
+                                    is not a required option, it is merely used as an example. You should
+                                    use whatever column name corresponds to a "username" in your database.</p></div>
+                        </blockquote>
+                        <h4>Accessing Specific Guard Instances</h4>
+                        <p>You may specify which guard instance you would like to utilize using the <code
+                                class=" language-php">guard</code> method on the <code class=" language-php">Auth</code>
+                            facade. This allows you to manage authentication for separate parts of
+                            your application using entirely separate authenticatable models or user
+                            tables.</p>
+                        <p>The guard name passed to the <code class=" language-php">guard</code> method should
+                            correspond to one of the guards configured in your <code class=" language-php">auth<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">guard</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin'</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">attempt</span><span class="token punctuation">(</span><span
+                                class="token variable">$credentials</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Logging Out</h4>
+                        <p>To log users out of your application, you may use the <code
+                                class=" language-php">logout</code> method on the <code
+                                class=" language-php">Auth</code> facade. This will clear the authentication information
+                            in the user's session:</p>
+                        <pre class=" language-php"><code class=" language-php">Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">logout</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="remembering-users"></a></p>
+                        <h3 id="remembering-users"><a href="#remembering-users">Remembering Users</a></h3>
+                        <p>If you would like to provide "remember me" functionality in your
+                            application, you may pass a boolean value as the second argument to the <code
+                                    class=" language-php">attempt</code> method, which will keep the user authenticated
+                            indefinitely, or until they manually logout. Your <code class=" language-php">users</code>
+                            table must include the string <code class=" language-php">remember_token</code> column,
+                            which will be used to store the "remember me" token.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">attempt</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'email'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$email</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'password'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$password</span><span class="token punctuation">]</span><span
+                                class="token punctuation">,</span> <span class="token variable">$remember</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// The user is being remembered...</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Authentication_files/lightbulb.svg"></div>
+                                <p class="content"> If you are using the built-in <code class=" language-php">LoginController</code>
+                                    that is shipped with Laravel, the proper logic to "remember" users is already
+                                    implemented by the traits used by the controller.</p></div>
+                        </blockquote>
+                        <p>If you are "remembering" users, you may use the <code
+                                class=" language-php">viaRemember</code> method to determine if the user was
+                            authenticated using the "remember me" cookie:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">viaRemember</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="other-authentication-methods"></a></p>
+                        <h3 id="other-authentication-methods"><a href="#other-authentication-methods">Other
+                            Authentication Methods</a></h3>
+                        <h4>Authenticate A User Instance</h4>
+                        <p>If you need to log an existing user instance into your application, you may call the <code
+                                class=" language-php">login</code> method with the user instance. The given object must
+                            be an implementation of the <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Auth<span
+                                    class="token punctuation">\</span>Authenticatable</span></code> <a
+                                    href="https://laravel.com/docs/7.x/contracts">contract</a>. The <code
+                                    class=" language-php">App\<span class="token package">User</span></code> model
+                            included with Laravel already implements this interface:</p>
+                        <pre class=" language-php"><code class=" language-php">Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">login</span><span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">// Login and "remember" the given user...</span>
+Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">login</span><span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may specify the guard instance you would like to use:</p>
+                        <pre class=" language-php"><code class=" language-php">Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">guard</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin'</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">login</span><span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <h4>Authenticate A User By ID</h4>
+                        <p>To log a user into the application by their ID, you may use the <code class=" language-php">loginUsingId</code>
+                            method. This method accepts the primary key of the user you wish to authenticate:</p>
+                        <pre class=" language-php"><code class=" language-php">Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">loginUsingId</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">// Login and "remember" the given user...</span>
+Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">loginUsingId</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Authenticate A User Once</h4>
+                        <p>You may use the <code class=" language-php">once</code> method to log
+                            a user into the application for a single request. No sessions or
+                            cookies will be utilized, which means this method may be helpful when
+                            building a stateless API:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span>Auth<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">once</span><span class="token punctuation">(</span><span
+                                class="token variable">$credentials</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="http-basic-authentication"></a></p>
+                        <h2 id="http-basic-authentication"><a href="#http-basic-authentication">HTTP Basic
+                            Authentication</a></h2>
+                        <p><a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic
+                            Authentication</a>
+                            provides a quick way to authenticate users of your application without
+                            setting up a dedicated "login" page. To get started, attach the <code class=" language-php">auth<span
+                                    class="token punctuation">.</span>basic</code> <a
+                                    href="https://laravel.com/docs/7.x/middleware">middleware</a> to your route. The
+                            <code class=" language-php">auth<span class="token punctuation">.</span>basic</code>
+                            middleware is included with the Laravel framework, so you do not need to define it:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Only authenticated users may enter...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth.basic'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Once the middleware has been attached to the route, you will
+                            automatically be prompted for credentials when accessing the route in
+                            your browser. By default, the <code class=" language-php">auth<span
+                                    class="token punctuation">.</span>basic</code> middleware will use the <code
+                                    class=" language-php">email</code> column on the user record as the "username".</p>
+                        <h4>A Note On FastCGI</h4>
+                        <p>If you are using PHP FastCGI, HTTP Basic authentication may not work
+                            correctly out of the box. The following lines should be added to your <code
+                                    class=" language-php"><span class="token punctuation">.</span>htaccess</code> file:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">RewriteCond <span class="token operator">%</span><span
+                                class="token punctuation">{</span><span class="token constant">HTTP</span><span
+                                class="token punctuation">:</span>Authorization<span class="token punctuation">}</span> <span
+                                class="token operator">^</span><span class="token punctuation">(</span><span
+                                class="token punctuation">.</span><span class="token operator">+</span><span
+                                class="token punctuation">)</span>$
+RewriteRule <span class="token punctuation">.</span><span class="token operator">*</span> <span
+                                    class="token operator">-</span> <span class="token punctuation">[</span><span
+                                    class="token constant">E</span><span class="token operator">=</span><span
+                                    class="token constant">HTTP_AUTHORIZATION</span><span
+                                    class="token punctuation">:</span><span class="token operator">%</span><span
+                                    class="token punctuation">{</span><span class="token constant">HTTP</span><span
+                                    class="token punctuation">:</span>Authorization<span
+                                    class="token punctuation">}</span><span
+                                    class="token punctuation">]</span></code></pre>
+                        <p><a name="stateless-http-basic-authentication"></a></p>
+                        <h3 id="stateless-http-basic-authentication"><a href="#stateless-http-basic-authentication">Stateless
+                            HTTP Basic Authentication</a></h3>
+                        <p>You may also use HTTP Basic Authentication without setting a user
+                            identifier cookie in the session, which is particularly useful for API
+                            authentication. To do so, <a href="https://laravel.com/docs/7.x/middleware">define a
+                                middleware</a> that calls the <code class=" language-php">onceBasic</code> method. If no
+                            response is returned by the <code class=" language-php">onceBasic</code> method, the request
+                            may be passed further into the application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Middleware</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthenticateOnceWithBasicAuth</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Auth<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">onceBasic</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token operator">?</span><span class="token punctuation">:</span> <span
+                                    class="token variable">$next</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Next, <a href="#registering-middleware">register the
+                            route middleware</a> and attach it to a route:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'api/user'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Only authenticated users may enter...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'auth.basic.once'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="logging-out"></a></p>
+                        <h2 id="logging-out"><a href="#logging-out">Logging Out</a></h2>
+                        <p>To manually log users out of your application, you may use the <code class=" language-php">logout</code>
+                            method on the <code class=" language-php">Auth</code> facade. This will clear the
+                            authentication information in the user's session:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Auth</span><span class="token punctuation">;</span>
+
+Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">logout</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="invalidating-sessions-on-other-devices"></a></p>
+                        <h3 id="invalidating-sessions-on-other-devices"><a
+                                href="#invalidating-sessions-on-other-devices">Invalidating Sessions On Other
+                            Devices</a></h3>
+                        <p>Laravel also provides a mechanism for invalidating and "logging out" a
+                            user's sessions that are active on other devices without invalidating
+                            the session on their current device. This feature is typically utilized
+                            when a user is changing or updating their password and you would like to
+                            invalidate sessions on other devices while keeping the current device
+                            authenticated.</p>
+                        <p>Before getting started, you should make sure that the <code class=" language-php">Illuminate\<span
+                                class="token package">Session<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>AuthenticateSession</span></code> middleware is
+                            present and un-commented in your <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> class' <code
+                                    class=" language-php">web</code> middleware group:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'web'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token comment">// ...</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Session<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>AuthenticateSession</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>Then, you may use the <code class=" language-php">logoutOtherDevices</code> method on the
+                            <code class=" language-php">Auth</code>
+                            facade. This method requires the user to provide their current
+                            password, which your application should accept through an input form:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Auth</span><span class="token punctuation">;</span>
+
+Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">logoutOtherDevices</span><span
+                                    class="token punctuation">(</span><span class="token variable">$password</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>When the <code class=" language-php">logoutOtherDevices</code> method
+                            is invoked, the user's other sessions will be invalidated entirely,
+                            meaning they will be "logged out" of all guards they were previously
+                            authenticated by.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Authentication_files/exclamation.svg"></div>
+                                <p class="content"> When using the <code
+                                        class=" language-php">AuthenticateSession</code> middleware in combination with
+                                    a custom route name for the <code class=" language-php">login</code> route, you must
+                                    override the <code class=" language-php">unauthenticated</code> method on your
+                                    application's exception handler to properly redirect users to your login page.</p>
+                            </div>
+                        </blockquote>
+                        <p><a name="adding-custom-guards"></a></p>
+                        <h2 id="adding-custom-guards"><a href="#adding-custom-guards">Adding Custom Guards</a></h2>
+                        <p>You may define your own authentication guards using the <code
+                                class=" language-php">extend</code> method on the <code
+                                class=" language-php">Auth</code> facade. You should place this call to <code
+                                class=" language-php">extend</code> within a <a
+                                href="https://laravel.com/docs/7.x/providers">service provider</a>. Since Laravel
+                            already ships with an <code class=" language-php">AuthServiceProvider</code>, we can place
+                            the code in that provider:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Services<span class="token punctuation">\</span>Auth<span
+                                    class="token punctuation">\</span>JwtGuard</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Support<span class="token punctuation">\</span>Providers<span
+                                    class="token punctuation">\</span>AuthServiceProvider</span> <span
+                                    class="token keyword">as</span> ServiceProvider<span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">extend</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'jwt'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$name</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">array</span> <span
+                                    class="token variable">$config</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Return an instance of Illuminate\Contracts\Auth\Guard...</span>
+
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">JwtGuard</span><span class="token punctuation">(</span>Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">createUserProvider</span><span
+                                    class="token punctuation">(</span><span class="token variable">$config</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'provider'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>As you can see in the example above, the callback passed to the <code class=" language-php">extend</code>
+                            method should return an implementation of <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Auth<span
+                                    class="token punctuation">\</span>Guard</span></code>.
+                            This interface contains a few methods you will need to implement to
+                            define a custom guard. Once your custom guard has been defined, you may
+                            use this guard in the <code class=" language-php">guards</code> configuration of your <code
+                                    class=" language-php">auth<span class="token punctuation">.</span>php</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'guards'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'api'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'jwt'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'provider'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="closure-request-guards"></a></p>
+                        <h3 id="closure-request-guards"><a href="#closure-request-guards">Closure Request Guards</a>
+                        </h3>
+                        <p>The simplest way to implement a custom, HTTP request based authentication system is by using
+                            the <code class=" language-php">Auth<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>viaRequest</code> method. This method allows you
+                            to quickly define your authentication process using a single Closure.</p>
+                        <p>To get started, call the <code class=" language-php">Auth<span
+                                class="token punctuation">:</span><span
+                                class="token punctuation">:</span>viaRequest</code> method within the <code
+                                class=" language-php">boot</code> method of your <code class=" language-php">AuthServiceProvider</code>.
+                            The <code class=" language-php">viaRequest</code>
+                            method accepts an authentication driver name as its first argument.
+                            This name can be any string that describes your custom guard. The second
+                            argument passed to the method should be a Closure that receives the
+                            incoming HTTP request and returns a user instance or, if authentication
+                            fails, <code class=" language-php"><span class="token constant">null</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * Register any application authentication / authorization services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">viaRequest</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'custom-token'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'token'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">token</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">first</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once your custom authentication driver has been defined, you use it as a driver within <code
+                                class=" language-php">guards</code> configuration of your <code class=" language-php">auth<span
+                                class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'guards'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'api'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'custom-token'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="adding-custom-user-providers"></a></p>
+                        <h2 id="adding-custom-user-providers"><a href="#adding-custom-user-providers">Adding Custom User
+                            Providers</a></h2>
+                        <p>If you are not using a traditional relational database to store your
+                            users, you will need to extend Laravel with your own authentication user
+                            provider. We will use the <code class=" language-php">provider</code> method on the <code
+                                    class=" language-php">Auth</code> facade to define a custom user provider:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Extensions<span
+                                    class="token punctuation">\</span>RiakUserProvider</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Support<span class="token punctuation">\</span>Providers<span
+                                    class="token punctuation">\</span>AuthServiceProvider</span> <span
+                                    class="token keyword">as</span> ServiceProvider<span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AuthServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application authentication / authorization services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">registerPolicies</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        Auth<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">provider</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'riak'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">array</span> <span
+                                    class="token variable">$config</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">// Return an instance of Illuminate\Contracts\Auth\UserProvider...</span>
+
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">RiakUserProvider</span><span
+                                    class="token punctuation">(</span><span class="token variable">$app</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">make</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'riak.connection'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>After you have registered the provider using the <code class=" language-php">provider</code>
+                            method, you may switch to the new user provider in your <code
+                                    class=" language-php">auth<span class="token punctuation">.</span>php</code>
+                            configuration file. First, define a <code class=" language-php">provider</code> that uses
+                            your new driver:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'providers'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'riak'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>Finally, you may use this provider in your <code class=" language-php">guards</code>
+                            configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'guards'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'web'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'driver'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'session'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'provider'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="the-user-provider-contract"></a></p>
+                        <h3 id="the-user-provider-contract"><a href="#the-user-provider-contract">The User Provider
+                            Contract</a></h3>
+                        <p>The <code class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Auth<span class="token punctuation">\</span>UserProvider</span></code>
+                            implementations are only responsible for fetching a <code
+                                    class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                    class="token punctuation">\</span>Auth<span class="token punctuation">\</span>Authenticatable</span></code>
+                            implementation out of a persistent storage system, such as MySQL, Riak,
+                            etc. These two interfaces allow the Laravel authentication mechanisms
+                            to continue functioning regardless of how the user data is stored or
+                            what type of class is used to represent it.</p>
+                        <p>Let's take a look at the <code class=" language-php">Illuminate\<span class="token package">Contracts<span
+                                class="token punctuation">\</span>Auth<span class="token punctuation">\</span>UserProvider</span></code>
+                            contract:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">UserProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveById</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$identifier</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveByToken</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$identifier</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$token</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">updateRememberToken</span><span
+                                    class="token punctuation">(</span>Authenticatable <span
+                                    class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$token</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">retrieveByCredentials</span><span
+                                    class="token punctuation">(</span><span class="token keyword">array</span> <span
+                                    class="token variable">$credentials</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">validateCredentials</span><span
+                                    class="token punctuation">(</span>Authenticatable <span
+                                    class="token variable">$user</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">array</span> <span
+                                    class="token variable">$credentials</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The <code class=" language-php">retrieveById</code> function typically receives a key
+                            representing the user, such as an auto-incrementing ID from a MySQL database. The <code
+                                    class=" language-php">Authenticatable</code> implementation matching the ID should
+                            be retrieved and returned by the method.</p>
+                        <p>The <code class=" language-php">retrieveByToken</code> function retrieves a user by their
+                            unique <code class=" language-php"><span class="token variable">$identifier</span></code>
+                            and "remember me" <code class=" language-php"><span
+                                    class="token variable">$token</span></code>, stored in a field <code
+                                    class=" language-php">remember_token</code>. As with the previous method, the <code
+                                    class=" language-php">Authenticatable</code> implementation should be returned.</p>
+                        <p>The <code class=" language-php">updateRememberToken</code> method updates the <code
+                                class=" language-php"><span class="token variable">$user</span></code> field <code
+                                class=" language-php">remember_token</code> with the new <code
+                                class=" language-php"><span class="token variable">$token</span></code>. A fresh token
+                            is assigned on a successful "remember me" login attempt or when the user is logging out.</p>
+                        <p>The <code class=" language-php">retrieveByCredentials</code> method receives the array of
+                            credentials passed to the <code class=" language-php">Auth<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>attempt</code>
+                            method when attempting to sign into an application. The method should
+                            then "query" the underlying persistent storage for the user matching
+                            those credentials. Typically, this method will run a query with a
+                            "where" condition on <code class=" language-php"><span
+                                    class="token variable">$credentials</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'username'</span><span
+                                    class="token punctuation">]</span></code>. The method should then return an
+                            implementation of <code class=" language-php">Authenticatable</code>. <strong>This method
+                                should not attempt to do any password validation or authentication.</strong></p>
+                        <p>The <code class=" language-php">validateCredentials</code> method should compare the given
+                            <code class=" language-php"><span class="token variable">$user</span></code> with the <code
+                                    class=" language-php"><span class="token variable">$credentials</span></code> to
+                            authenticate the user. For example, this method should probably use <code
+                                    class=" language-php">Hash<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>check</code> to compare the value of <code
+                                    class=" language-php"><span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">getAuthPassword</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code> to
+                            the value of <code class=" language-php"><span
+                                    class="token variable">$credentials</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'password'</span><span
+                                    class="token punctuation">]</span></code>. This method should return <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code> or
+                            <code class=" language-php"><span class="token boolean constant">false</span></code>
+                            indicating on whether the password is valid.</p>
+                        <p><a name="the-authenticatable-contract"></a></p>
+                        <h3 id="the-authenticatable-contract"><a href="#the-authenticatable-contract">The
+                            Authenticatable Contract</a></h3>
+                        <p>Now that we have explored each of the methods on the <code
+                                class=" language-php">UserProvider</code>, let's take a look at the <code
+                                class=" language-php">Authenticatable</code> contract. Remember, the provider should
+                            return implementations of this interface from the <code
+                                    class=" language-php">retrieveById</code>, <code class=" language-php">retrieveByToken</code>,
+                            and <code class=" language-php">retrieveByCredentials</code> methods:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Illuminate<span
+                                    class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Auth</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Authenticatable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAuthIdentifierName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAuthIdentifier</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getAuthPassword</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberToken</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setRememberToken</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRememberTokenName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>This interface is simple. The <code class=" language-php">getAuthIdentifierName</code> method
+                            should return the name of the "primary key" field of the user and the <code
+                                    class=" language-php">getAuthIdentifier</code>
+                            method should return the "primary key" of the user. In a MySQL
+                            back-end, again, this would be the auto-incrementing primary key. The <code
+                                    class=" language-php">getAuthPassword</code>
+                            should return the user's hashed password. This interface allows the
+                            authentication system to work with any User class, regardless of what
+                            ORM or storage abstraction layer you are using. By default, Laravel
+                            includes a <code class=" language-php">User</code> class in the <code class=" language-php">app</code>
+                            directory which implements this interface, so you may consult this class for an
+                            implementation example.</p>
+                        <p><a name="events"></a></p>
+                        <h2 id="events"><a href="#events">Events</a></h2>
+                        <p>Laravel raises a variety of <a href="https://laravel.com/docs/7.x/events">events</a> during
+                            the authentication process. You may attach listeners to these events in your <code
+                                    class=" language-php">EventServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$listen</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Registered'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogRegisteredUser'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Attempting'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogAuthenticationAttempt'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Authenticated'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogAuthenticated'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Login'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogSuccessfulLogin'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Failed'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogFailedLogin'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Logout'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogSuccessfulLogout'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\Lockout'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogLockout'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+    <span class="token single-quoted-string string">'Illuminate\Auth\Events\PasswordReset'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogPasswordReset'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

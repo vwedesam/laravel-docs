@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Facades - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/facades">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Facades_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Facades_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Facades_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Facades_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Facades</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#when-to-use-facades">When To Use Facades</a>
+                                <ul>
+                                    <li><a href="#facades-vs-dependency-injection">Facades Vs. Dependency Injection</a>
+                                    </li>
+                                    <li><a href="#facades-vs-helper-functions">Facades Vs. Helper Functions</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#how-facades-work">How Facades Work</a></li>
+                            <li><a href="#real-time-facades">Real-Time Facades</a></li>
+                            <li><a href="#facade-class-reference">Facade Class Reference</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Facades provide a "static" interface to classes that are available in the application's <a
+                                href="https://laravel.com/docs/7.x/container">service container</a>.
+                            Laravel ships with many facades which provide access to almost all of
+                            Laravel's features. Laravel facades serve as "static proxies" to
+                            underlying classes in the service container, providing the benefit of a
+                            terse, expressive syntax while maintaining more testability and
+                            flexibility than traditional static methods.</p>
+                        <p>All of Laravel's facades are defined in the <code class=" language-php">Illuminate\<span
+                                class="token package">Support<span
+                                class="token punctuation">\</span>Facades</span></code> namespace. So, we can easily
+                            access a facade like so:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/cache'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> Cache<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Throughout the Laravel documentation, many of the examples will use facades to demonstrate
+                            various features of the framework.</p>
+                        <p><a name="when-to-use-facades"></a></p>
+                        <h2 id="when-to-use-facades"><a href="#when-to-use-facades">When To Use Facades</a></h2>
+                        <p>Facades have many benefits. They provide a terse, memorable syntax
+                            that allows you to use Laravel's features without remembering long class
+                            names that must be injected or configured manually. Furthermore,
+                            because of their unique usage of PHP's dynamic methods, they are easy to
+                            test.</p>
+                        <p>However, some care must be taken when using facades. The primary
+                            danger of facades is class scope creep. Since facades are so easy to use
+                            and do not require injection, it can be easy to let your classes
+                            continue to grow and use many facades in a single class. Using
+                            dependency injection, this potential is mitigated by the visual feedback
+                            a large constructor gives you that your class is growing too large. So,
+                            when using facades, pay special attention to the size of your class so
+                            that its scope of responsibility stays narrow.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Facades_files/lightbulb.svg"></div>
+                                <p class="content"> When building a third-party package that interacts with Laravel,
+                                    it's better to inject <a href="https://laravel.com/docs/7.x/contracts">Laravel
+                                        contracts</a>
+                                    instead of using facades. Since packages are built outside of Laravel
+                                    itself, you will not have access to Laravel's facade testing helpers.</p></div>
+                        </blockquote>
+                        <p><a name="facades-vs-dependency-injection"></a></p>
+                        <h3 id="facades-vs-dependency-injection"><a href="#facades-vs-dependency-injection">Facades Vs.
+                            Dependency Injection</a></h3>
+                        <p>One of the primary benefits of dependency injection is the ability to
+                            swap implementations of the injected class. This is useful during
+                            testing since you can inject a mock or stub and assert that various
+                            methods were called on the stub.</p>
+                        <p>Typically, it would not be possible to mock or stub a truly static
+                            class method. However, since facades use dynamic methods to proxy method
+                            calls to objects resolved from the service container, we actually can
+                            test facades just as we would test an injected class instance. For
+                            example, given the following route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/cache'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> Cache<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>We can write the following test to verify that the <code class=" language-php">Cache<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>get</code>
+                            method was called with the argument we expected:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * A basic functional test example.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">shouldReceive</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'get'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">with</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">andReturn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">visit</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/cache'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">see</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="facades-vs-helper-functions"></a></p>
+                        <h3 id="facades-vs-helper-functions"><a href="#facades-vs-helper-functions">Facades Vs. Helper
+                            Functions</a></h3>
+                        <p>In addition to facades, Laravel includes a variety of "helper"
+                            functions which can perform common tasks like generating views, firing
+                            events, dispatching jobs, or sending HTTP responses. Many of these
+                            helper functions perform the same function as a corresponding facade.
+                            For example, this facade call and helper call are equivalent:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> View<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">make</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'profile'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>There is absolutely no practical difference between facades and
+                            helper functions. When using helper functions, you may still test them
+                            exactly as you would the corresponding facade. For example, given the
+                            following route:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/cache'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">cache</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Under the hood, the <code class=" language-php">cache</code> helper is going to call the
+                            <code class=" language-php">get</code> method on the class underlying the <code
+                                    class=" language-php">Cache</code>
+                            facade. So, even though we are using the helper function, we can write
+                            the following test to verify that the method was called with the
+                            argument we expected:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * A basic functional test example.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">testBasicExample</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Cache<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">shouldReceive</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'get'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">with</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">andReturn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">visit</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/cache'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">see</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="how-facades-work"></a></p>
+                        <h2 id="how-facades-work"><a href="#how-facades-work">How Facades Work</a></h2>
+                        <p>In a Laravel application, a facade is a class that provides access to
+                            an object from the container. The machinery that makes this work is in
+                            the <code class=" language-php">Facade</code> class. Laravel's facades, and any custom
+                            facades you create, will extend the base <code class=" language-php">Illuminate\<span
+                                    class="token package">Support<span class="token punctuation">\</span>Facades<span
+                                    class="token punctuation">\</span>Facade</span></code> class.</p>
+                        <p>The <code class=" language-php">Facade</code> base class makes use of the <code
+                                class=" language-php"><span class="token function">__callStatic</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span></code>
+                            magic-method to defer calls from your facade to an object resolved from
+                            the container. In the example below, a call is made to the Laravel
+                            cache system. By glancing at this code, one might assume that the static
+                            method <code class=" language-php">get</code> is being called on the <code
+                                    class=" language-php">Cache</code> class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Cache</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">showProfile</span><span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$user</span> <span class="token operator">=</span> Cache<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user:'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'user'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$user</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Notice that near the top of the file we are "importing" the <code
+                                class=" language-php">Cache</code> facade. This facade serves as a proxy to accessing
+                            the underlying implementation of the <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Cache<span
+                                    class="token punctuation">\</span>Factory</span></code> interface. Any calls we make
+                            using the facade will be passed to the underlying instance of Laravel's cache service.</p>
+                        <p>If we look at that <code class=" language-php">Illuminate\<span class="token package">Support<span
+                                class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Cache</span></code> class, you'll see that there is no
+                            static method <code class=" language-php">get</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span
+                                class="token class-name">Cache</span> <span class="token keyword">extends</span> <span
+                                class="token class-name">Facade</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Get the registered name of the component.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span
+                                    class="token function">getFacadeAccessor</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span> <span class="token keyword">return</span> <span
+                                    class="token single-quoted-string string">'cache'</span><span
+                                    class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Instead, the <code class=" language-php">Cache</code> facade extends the base <code
+                                class=" language-php">Facade</code> class and defines the method <code
+                                class=" language-php"><span class="token function">getFacadeAccessor</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span></code>. This
+                            method's job is to return the name of a service container binding. When a user references
+                            any static method on the <code class=" language-php">Cache</code> facade, Laravel resolves
+                            the <code class=" language-php">cache</code> binding from the <a
+                                    href="https://laravel.com/docs/7.x/container">service container</a> and runs the
+                            requested method (in this case, <code class=" language-php">get</code>) against that object.
+                        </p>
+                        <p><a name="real-time-facades"></a></p>
+                        <h2 id="real-time-facades"><a href="#real-time-facades">Real-Time Facades</a></h2>
+                        <p>Using real-time facades, you may treat any class in your application
+                            as if it were a facade. To illustrate how this can be used, let's
+                            examine an alternative. For example, let's assume our <code
+                                    class=" language-php">Podcast</code> model has a <code
+                                    class=" language-php">publish</code> method. However, in order to publish the
+                            podcast, we need to inject a <code class=" language-php">Publisher</code> instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Publisher</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Podcast</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Publish the podcast.
+     *
+     * @param  Publisher  $publisher
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">publish</span><span
+                                    class="token punctuation">(</span>Publisher <span
+                                    class="token variable">$publisher</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">update</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'publishing'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$publisher</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">publish</span><span class="token punctuation">(</span><span
+                                    class="token variable">$this</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Injecting a publisher implementation into the method allows us to
+                            easily test the method in isolation since we can mock the injected
+                            publisher. However, it requires us to always pass a publisher instance
+                            each time we call the <code class=" language-php">publish</code> method. Using real-time
+                            facades, we can maintain the same testability while not being required to explicitly pass a
+                            <code class=" language-php">Publisher</code> instance. To generate a real-time facade,
+                            prefix the namespace of the imported class with <code class=" language-php">Facades</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Facades<span
+                                    class="token punctuation">\</span>App<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Publisher</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Podcast</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Publish the podcast.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">publish</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">update</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'publishing'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Publisher<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">publish</span><span class="token punctuation">(</span><span
+                                    class="token variable">$this</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When the real-time facade is used, the publisher implementation will
+                            be resolved out of the service container using the portion of the
+                            interface or class name that appears after the <code class=" language-php">Facades</code>
+                            prefix. When testing, we can use Laravel's built-in facade testing helpers to mock this
+                            method call:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Tests<span class="token punctuation">\</span>Feature</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Podcast</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Facades<span
+                                    class="token punctuation">\</span>App<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Publisher</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Testing<span class="token punctuation">\</span>RefreshDatabase</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Tests<span class="token punctuation">\</span>TestCase</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PodcastTest</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">TestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">RefreshDatabase</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * A test example.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">test_podcast_can_be_published</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$podcast</span> <span class="token operator">=</span> <span class="token function">factory</span><span
+                                    class="token punctuation">(</span>Podcast<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">create</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Publisher<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">shouldReceive</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'publish'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">once</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">with</span><span class="token punctuation">(</span><span
+                                    class="token variable">$podcast</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+        <span class="token variable">$podcast</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">publish</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="facade-class-reference"></a></p>
+                        <h2 id="facade-class-reference"><a href="#facade-class-reference">Facade Class Reference</a>
+                        </h2>
+                        <p>Below you will find every facade and its underlying class. This is a
+                            useful tool for quickly digging into the API documentation for a given
+                            facade root. The <a href="https://laravel.com/docs/7.x/container">service container
+                                binding</a> key is also included where applicable.</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Facade</th>
+                                <th>Class</th>
+                                <th>Service Container Binding</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>App</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Foundation/Application.html">Illuminate\Foundation\Application</a>
+                                </td>
+                                <td><code class=" language-php">app</code></td>
+                            </tr>
+                            <tr>
+                                <td>Artisan</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Console/Kernel.html">Illuminate\Contracts\Console\Kernel</a>
+                                </td>
+                                <td><code class=" language-php">artisan</code></td>
+                            </tr>
+                            <tr>
+                                <td>Auth</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Auth/AuthManager.html">Illuminate\Auth\AuthManager</a>
+                                </td>
+                                <td><code class=" language-php">auth</code></td>
+                            </tr>
+                            <tr>
+                                <td>Auth (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Auth/Guard.html">Illuminate\Contracts\Auth\Guard</a>
+                                </td>
+                                <td><code class=" language-php">auth<span
+                                        class="token punctuation">.</span>driver</code></td>
+                            </tr>
+                            <tr>
+                                <td>Blade</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/View/Compilers/BladeCompiler.html">Illuminate\View\Compilers\BladeCompiler</a>
+                                </td>
+                                <td><code class=" language-php">blade<span
+                                        class="token punctuation">.</span>compiler</code></td>
+                            </tr>
+                            <tr>
+                                <td>Broadcast</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/Contracts/Broadcasting/Factory.html">Illuminate\Contracts\Broadcasting\Factory</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Broadcast (Instance)</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/Contracts/Broadcasting/Broadcaster.html">Illuminate\Contracts\Broadcasting\Broadcaster</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Bus</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Bus/Dispatcher.html">Illuminate\Contracts\Bus\Dispatcher</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Cache</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Cache/CacheManager.html">Illuminate\Cache\CacheManager</a>
+                                </td>
+                                <td><code class=" language-php">cache</code></td>
+                            </tr>
+                            <tr>
+                                <td>Cache (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Cache/Repository.html">Illuminate\Cache\Repository</a>
+                                </td>
+                                <td><code class=" language-php">cache<span
+                                        class="token punctuation">.</span>store</code></td>
+                            </tr>
+                            <tr>
+                                <td>Config</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Config/Repository.html">Illuminate\Config\Repository</a>
+                                </td>
+                                <td><code class=" language-php">config</code></td>
+                            </tr>
+                            <tr>
+                                <td>Cookie</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Cookie/CookieJar.html">Illuminate\Cookie\CookieJar</a>
+                                </td>
+                                <td><code class=" language-php">cookie</code></td>
+                            </tr>
+                            <tr>
+                                <td>Crypt</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Encryption/Encrypter.html">Illuminate\Encryption\Encrypter</a>
+                                </td>
+                                <td><code class=" language-php">encrypter</code></td>
+                            </tr>
+                            <tr>
+                                <td>DB</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Database/DatabaseManager.html">Illuminate\Database\DatabaseManager</a>
+                                </td>
+                                <td><code class=" language-php">db</code></td>
+                            </tr>
+                            <tr>
+                                <td>DB (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Database/Connection.html">Illuminate\Database\Connection</a>
+                                </td>
+                                <td><code class=" language-php">db<span
+                                        class="token punctuation">.</span>connection</code></td>
+                            </tr>
+                            <tr>
+                                <td>Event</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Events/Dispatcher.html">Illuminate\Events\Dispatcher</a>
+                                </td>
+                                <td><code class=" language-php">events</code></td>
+                            </tr>
+                            <tr>
+                                <td>File</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Filesystem/Filesystem.html">Illuminate\Filesystem\Filesystem</a>
+                                </td>
+                                <td><code class=" language-php">files</code></td>
+                            </tr>
+                            <tr>
+                                <td>Gate</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Auth/Access/Gate.html">Illuminate\Contracts\Auth\Access\Gate</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Hash</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Hashing/Hasher.html">Illuminate\Contracts\Hashing\Hasher</a>
+                                </td>
+                                <td><code class=" language-php">hash</code></td>
+                            </tr>
+                            <tr>
+                                <td>Lang</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Translation/Translator.html">Illuminate\Translation\Translator</a>
+                                </td>
+                                <td><code class=" language-php">translator</code></td>
+                            </tr>
+                            <tr>
+                                <td>Log</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Log/LogManager.html">Illuminate\Log\LogManager</a>
+                                </td>
+                                <td><code class=" language-php">log</code></td>
+                            </tr>
+                            <tr>
+                                <td>Mail</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Mail/Mailer.html">Illuminate\Mail\Mailer</a>
+                                </td>
+                                <td><code class=" language-php">mailer</code></td>
+                            </tr>
+                            <tr>
+                                <td>Notification</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Notifications/ChannelManager.html">Illuminate\Notifications\ChannelManager</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/Auth/Passwords/PasswordBrokerManager.html">Illuminate\Auth\Passwords\PasswordBrokerManager</a>
+                                </td>
+                                <td><code class=" language-php">auth<span
+                                        class="token punctuation">.</span>password</code></td>
+                            </tr>
+                            <tr>
+                                <td>Password (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Auth/Passwords/PasswordBroker.html">Illuminate\Auth\Passwords\PasswordBroker</a>
+                                </td>
+                                <td><code class=" language-php">auth<span
+                                        class="token punctuation">.</span>password<span
+                                        class="token punctuation">.</span>broker</code></td>
+                            </tr>
+                            <tr>
+                                <td>Queue</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Queue/QueueManager.html">Illuminate\Queue\QueueManager</a>
+                                </td>
+                                <td><code class=" language-php">queue</code></td>
+                            </tr>
+                            <tr>
+                                <td>Queue (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Contracts/Queue/Queue.html">Illuminate\Contracts\Queue\Queue</a>
+                                </td>
+                                <td><code class=" language-php">queue<span class="token punctuation">.</span>connection</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Queue (Base Class)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Queue/Queue.html">Illuminate\Queue\Queue</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Redirect</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Routing/Redirector.html">Illuminate\Routing\Redirector</a>
+                                </td>
+                                <td><code class=" language-php">redirect</code></td>
+                            </tr>
+                            <tr>
+                                <td>Redis</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Redis/RedisManager.html">Illuminate\Redis\RedisManager</a>
+                                </td>
+                                <td><code class=" language-php">redis</code></td>
+                            </tr>
+                            <tr>
+                                <td>Redis (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Redis/Connections/Connection.html">Illuminate\Redis\Connections\Connection</a>
+                                </td>
+                                <td><code class=" language-php">redis<span class="token punctuation">.</span>connection</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Request</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Http/Request.html">Illuminate\Http\Request</a>
+                                </td>
+                                <td><code class=" language-php">request</code></td>
+                            </tr>
+                            <tr>
+                                <td>Response</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/Contracts/Routing/ResponseFactory.html">Illuminate\Contracts\Routing\ResponseFactory</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Response (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Http/Response.html">Illuminate\Http\Response</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Route</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Routing/Router.html">Illuminate\Routing\Router</a>
+                                </td>
+                                <td><code class=" language-php">router</code></td>
+                            </tr>
+                            <tr>
+                                <td>Schema</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Database/Schema/Builder.html">Illuminate\Database\Schema\Builder</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Session</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Session/SessionManager.html">Illuminate\Session\SessionManager</a>
+                                </td>
+                                <td><code class=" language-php">session</code></td>
+                            </tr>
+                            <tr>
+                                <td>Session (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Session/Store.html">Illuminate\Session\Store</a>
+                                </td>
+                                <td><code class=" language-php">session<span
+                                        class="token punctuation">.</span>store</code></td>
+                            </tr>
+                            <tr>
+                                <td>Storage</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Filesystem/FilesystemManager.html">Illuminate\Filesystem\FilesystemManager</a>
+                                </td>
+                                <td><code class=" language-php">filesystem</code></td>
+                            </tr>
+                            <tr>
+                                <td>Storage (Instance)</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/Contracts/Filesystem/Filesystem.html">Illuminate\Contracts\Filesystem\Filesystem</a>
+                                </td>
+                                <td><code class=" language-php">filesystem<span
+                                        class="token punctuation">.</span>disk</code></td>
+                            </tr>
+                            <tr>
+                                <td>URL</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Routing/UrlGenerator.html">Illuminate\Routing\UrlGenerator</a>
+                                </td>
+                                <td><code class=" language-php">url</code></td>
+                            </tr>
+                            <tr>
+                                <td>Validator</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Validation/Factory.html">Illuminate\Validation\Factory</a>
+                                </td>
+                                <td><code class=" language-php">validator</code></td>
+                            </tr>
+                            <tr>
+                                <td>Validator (Instance)</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/Validation/Validator.html">Illuminate\Validation\Validator</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>View</td>
+                                <td><a href="https://laravel.com/api/7.x/Illuminate/View/Factory.html">Illuminate\View\Factory</a>
+                                </td>
+                                <td><code class=" language-php">view</code></td>
+                            </tr>
+                            <tr>
+                                <td>View (Instance)</td>
+                                <td>
+                                    <a href="https://laravel.com/api/7.x/Illuminate/View/View.html">Illuminate\View\View</a>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

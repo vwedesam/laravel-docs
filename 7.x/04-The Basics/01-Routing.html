@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Routing - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/routing">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="01-Routing_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="01-Routing_files/app.css">
+
+    <!-- Load JS -->
+    <script src="01-Routing_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="01-Routing_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Routing</h1>
+                        <ul>
+                            <li><a href="#basic-routing">Basic Routing</a>
+                                <ul>
+                                    <li><a href="#redirect-routes">Redirect Routes</a></li>
+                                    <li><a href="#view-routes">View Routes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#route-parameters">Route Parameters</a>
+                                <ul>
+                                    <li><a href="#required-parameters">Required Parameters</a></li>
+                                    <li><a href="#parameters-optional-parameters">Optional Parameters</a></li>
+                                    <li><a href="#parameters-regular-expression-constraints">Regular Expression
+                                        Constraints</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#named-routes">Named Routes</a></li>
+                            <li><a href="#route-groups">Route Groups</a>
+                                <ul>
+                                    <li><a href="#route-group-middleware">Middleware</a></li>
+                                    <li><a href="#route-group-namespaces">Namespaces</a></li>
+                                    <li><a href="#route-group-subdomain-routing">Subdomain Routing</a></li>
+                                    <li><a href="#route-group-prefixes">Route Prefixes</a></li>
+                                    <li><a href="#route-group-name-prefixes">Route Name Prefixes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#route-model-binding">Route Model Binding</a>
+                                <ul>
+                                    <li><a href="#implicit-binding">Implicit Binding</a></li>
+                                    <li><a href="#explicit-binding">Explicit Binding</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#fallback-routes">Fallback Routes</a></li>
+                            <li><a href="#rate-limiting">Rate Limiting</a></li>
+                            <li><a href="#form-method-spoofing">Form Method Spoofing</a></li>
+                            <li><a href="#accessing-the-current-route">Accessing The Current Route</a></li>
+                            <li><a href="#cors">Cross-Origin Resource Sharing (CORS)</a></li>
+                        </ul>
+                        <p><a name="basic-routing"></a></p>
+                        <h2 id="basic-routing"><a href="#basic-routing">Basic Routing</a></h2>
+                        <p>The most basic Laravel routes accept a URI and a <code class=" language-php">Closure</code>,
+                            providing a very simple and expressive method of defining routes:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'Hello World'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>The Default Route Files</h4>
+                        <p>All Laravel routes are defined in your route files, which are located in the <code
+                                class=" language-php">routes</code> directory. These files are automatically loaded by
+                            the framework. The <code class=" language-php">routes<span class="token operator">/</span>web<span
+                                    class="token punctuation">.</span>php</code> file defines routes that are for your
+                            web interface. These routes are assigned the <code class=" language-php">web</code>
+                            middleware group, which provides features like session state and CSRF protection. The routes
+                            in <code class=" language-php">routes<span class="token operator">/</span>api<span
+                                    class="token punctuation">.</span>php</code> are stateless and are assigned the
+                            <code class=" language-php">api</code> middleware group.</p>
+                        <p>For most applications, you will begin by defining routes in your <code class=" language-php">routes<span
+                                class="token operator">/</span>web<span class="token punctuation">.</span>php</code>
+                            file. The routes defined in <code class=" language-php">routes<span
+                                    class="token operator">/</span>web<span class="token punctuation">.</span>php</code>
+                            may be accessed by entering the defined route's URL in your browser.
+                            For example, you may access the following route by navigating to <code
+                                    class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//your-app.test/user</span></code> in your browser:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/user'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'UserController@index'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Routes defined in the <code class=" language-php">routes<span class="token operator">/</span>api<span
+                                class="token punctuation">.</span>php</code> file are nested within a route group by the
+                            <code class=" language-php">RouteServiceProvider</code>. Within this group, the <code
+                                    class=" language-php"><span class="token operator">/</span>api</code>
+                            URI prefix is automatically applied so you do not need to manually
+                            apply it to every route in the file. You may modify the prefix and other
+                            route group options by modifying your <code
+                                    class=" language-php">RouteServiceProvider</code> class.</p>
+                        <h4>Available Router Methods</h4>
+                        <p>The router allows you to register routes that respond to any HTTP verb:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token variable">$uri</span><span class="token punctuation">,</span> <span
+                                class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">post</span><span class="token punctuation">(</span><span
+                                    class="token variable">$uri</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">put</span><span class="token punctuation">(</span><span
+                                    class="token variable">$uri</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">patch</span><span class="token punctuation">(</span><span
+                                    class="token variable">$uri</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">delete</span><span class="token punctuation">(</span><span
+                                    class="token variable">$uri</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">options</span><span
+                                    class="token punctuation">(</span><span class="token variable">$uri</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$callback</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Sometimes you may need to register a route that responds to multiple HTTP verbs. You may do
+                            so using the <code class=" language-php">match</code> method. Or, you may even register a
+                            route that responds to all HTTP verbs using the <code class=" language-php">any</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">match</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'get'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'post'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'/'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">any</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/'</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>CSRF Protection</h4>
+                        <p>Any HTML forms pointing to <code class=" language-php"><span
+                                class="token constant">POST</span></code>, <code class=" language-php"><span
+                                class="token constant">PUT</span></code>, or <code class=" language-php"><span
+                                class="token constant">DELETE</span></code> routes that are defined in the <code
+                                class=" language-php">web</code>
+                            routes file should include a CSRF token field. Otherwise, the request
+                            will be rejected. You can read more about CSRF protection in the <a
+                                    href="https://laravel.com/docs/7.x/csrf">CSRF documentation</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>form method<span
+                                class="token operator">=</span><span
+                                class="token double-quoted-string string">"POST"</span> action<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"/profile"</span><span
+                                class="token operator">&gt;</span>
+    @csrf
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                    class="token punctuation">.</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>form<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p><a name="redirect-routes"></a></p>
+                        <h3 id="redirect-routes"><a href="#redirect-routes">Redirect Routes</a></h3>
+                        <p>If you are defining a route that redirects to another URI, you may use the <code
+                                class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>redirect</code>
+                            method. This method provides a convenient shortcut so that you do not
+                            have to define a full route or controller for performing a simple
+                            redirect:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">redirect</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/here'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'/there'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>By default, <code class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>redirect</code> returns a <code class=" language-php"><span
+                                class="token number">302</span></code> status code. You may customize the status code
+                            using the optional third parameter:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">redirect</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/here'</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'/there'</span><span
+                                class="token punctuation">,</span> <span class="token number">301</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may use the <code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>permanentRedirect</code>
+                            method to return a <code class=" language-php"><span class="token number">301</span></code>
+                            status code:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">permanentRedirect</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/here'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'/there'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="view-routes"></a></p>
+                        <h3 id="view-routes"><a href="#view-routes">View Routes</a></h3>
+                        <p>If your route only needs to return a view, you may use the <code
+                                class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>view</code> method. Like the <code
+                                class=" language-php">redirect</code> method, this method provides a simple shortcut so
+                            that you do not have to define a full route or controller. The <code class=" language-php">view</code>
+                            method accepts a URI as its first argument and a view name as its
+                            second argument. In addition, you may provide an array of data to pass
+                            to the view as an optional third argument:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">view</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'/welcome'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'welcome'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/welcome'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'welcome'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'Taylor'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="route-parameters"></a></p>
+                        <h2 id="route-parameters"><a href="#route-parameters">Route Parameters</a></h2>
+                        <p><a name="required-parameters"></a></p>
+                        <h3 id="required-parameters"><a href="#required-parameters">Required Parameters</a></h3>
+                        <p>Sometimes you will need to capture segments of the URI within your
+                            route. For example, you may need to capture a user's ID from the URL.
+                            You may do so by defining route parameters:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$id</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'User '</span><span
+                                    class="token punctuation">.</span><span class="token variable">$id</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may define as many route parameters as required by your route:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'posts/{post}/comments/{comment}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$postId</span><span
+                                class="token punctuation">,</span> <span class="token variable">$commentId</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Route parameters are always encased within <code class=" language-php"><span
+                                class="token punctuation">{</span><span class="token punctuation">}</span></code> braces
+                            and should consist of alphabetic characters, and may not contain a <code
+                                    class=" language-php"><span class="token operator">-</span></code> character.
+                            Instead of using the <code class=" language-php"><span
+                                    class="token operator">-</span></code> character, use an underscore (<code
+                                    class=" language-php"><span class="token constant">_</span></code>).
+                            Route parameters are injected into route callbacks / controllers based
+                            on their order - the names of the callback / controller arguments do not
+                            matter.</p>
+                        <p><a name="parameters-optional-parameters"></a></p>
+                        <h3 id="parameters-optional-parameters"><a href="#parameters-optional-parameters">Optional
+                            Parameters</a></h3>
+                        <p>Occasionally you may need to specify a route parameter, but make the
+                            presence of that route parameter optional. You may do so by placing a <code
+                                    class=" language-php"><span class="token operator">?</span></code> mark after the
+                            parameter name. Make sure to give the route's corresponding variable a default value:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{name?}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$name</span> <span
+                                class="token operator">=</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$name</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user/{name?}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$name</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'John'</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$name</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="parameters-regular-expression-constraints"></a></p>
+                        <h3 id="parameters-regular-expression-constraints"><a
+                                href="#parameters-regular-expression-constraints">Regular Expression Constraints</a>
+                        </h3>
+                        <p>You may constrain the format of your route parameters using the <code class=" language-php">where</code>
+                            method on a route instance. The <code class=" language-php">where</code> method accepts the
+                            name of the parameter and a regular expression defining how the parameter should be
+                            constrained:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{name}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$name</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'name'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'[A-Za-z]+'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user/{id}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'[0-9]+'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'user/{id}/{name}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$id</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$name</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'[0-9]+'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'name'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'[a-z]+'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="parameters-global-constraints"></a></p>
+                        <h4 id="parameters-global-constraints"><a href="#parameters-global-constraints">Global
+                            Constraints</a></h4>
+                        <p>If you would like a route parameter to always be constrained by a given regular expression,
+                            you may use the <code class=" language-php">pattern</code> method. You should define these
+                            patterns in the <code class=" language-php">boot</code> method of your <code
+                                    class=" language-php">RouteServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Define your route model bindings, pattern filters, etc.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">pattern</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'[0-9]+'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">parent</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once the pattern has been defined, it is automatically applied to all routes using that
+                            parameter name:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$id</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Only executed if {id} is numeric...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="parameters-encoded-forward-slashes"></a></p>
+                        <h4 id="parameters-encoded-forward-slashes"><a href="#parameters-encoded-forward-slashes">Encoded
+                            Forward Slashes</a></h4>
+                        <p>The Laravel routing component allows all characters except <code class=" language-php"><span
+                                class="token operator">/</span></code>. You must explicitly allow <code
+                                class=" language-php"><span class="token operator">/</span></code> to be part of your
+                            placeholder using a <code class=" language-php">where</code> condition regular expression:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'search/{search}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$search</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$search</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'search'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'.*'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Routing_files/exclamation.svg"></div>
+                                <p class="content"> Encoded forward slashes are only supported within the last route
+                                    segment.</p></div>
+                        </blockquote>
+                        <p><a name="named-routes"></a></p>
+                        <h2 id="named-routes"><a href="#named-routes">Named Routes</a></h2>
+                        <p>Named routes allow the convenient generation of URLs or redirects for
+                            specific routes. You may specify a name for a route by chaining the <code
+                                    class=" language-php">name</code> method onto the route definition:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may also specify route names for controller actions:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/profile'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'UserProfileController@show'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">name</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Routing_files/exclamation.svg"></div>
+                                <p class="content"> Route names should always be unique.</p></div>
+                        </blockquote>
+                        <h4>Generating URLs To Named Routes</h4>
+                        <p>Once you have assigned a name to a given route, you may use the route's name when generating
+                            URLs or redirects via the global <code class=" language-php">route</code> function:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Generating URLs...</span>
+<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Generating Redirects...</span>
+<span class="token keyword">return</span> <span class="token function">redirect</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">route</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If the named route defines parameters, you may pass the parameters as the second argument to
+                            the <code class=" language-php">route</code> function. The given parameters will
+                            automatically be inserted into the URL in their correct positions:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}/profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$id</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you pass additional parameters in the array, those key / value
+                            pairs will automatically be added to the generated URL's query string:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'user/{id}/profile'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token variable">$id</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'id'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'photos'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'yes'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token comment">// /user/1/profile?photos=yes</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Routing_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    Sometimes, you may wish to specify request-wide default values for URL
+                                    parameters, such as the current locale. To accomplish this, you may use
+                                    the <a href="#default-values"><code
+                                        class=" language-php"><span class="token constant">URL</span><span
+                                        class="token punctuation">:</span><span class="token punctuation">:</span>defaults</code>
+                                    method</a>.</p></div>
+                        </blockquote>
+                        <h4>Inspecting The Current Route</h4>
+                        <p>If you would like to determine if the current request was routed to a given named route, you
+                            may use the <code class=" language-php">named</code> method on a Route instance. For
+                            example, you may check the current route name from a route middleware:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Handle an incoming request.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \Closure  $next
+ * @return mixed
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> Closure <span class="token variable">$next</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">route</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">named</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'profile'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$next</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="route-groups"></a></p>
+                        <h2 id="route-groups"><a href="#route-groups">Route Groups</a></h2>
+                        <p>Route groups allow you to share route attributes, such as middleware
+                            or namespaces, across a large number of routes without needing to define
+                            those attributes on each individual route. Shared attributes are
+                            specified in an array format as the first parameter to the <code class=" language-php">Route<span
+                                    class="token punctuation">:</span><span
+                                    class="token punctuation">:</span>group</code> method.</p>
+                        <p>Nested groups attempt to intelligently "merge" attributes with their parent group. Middleware
+                            and <code class=" language-php">where</code>
+                            conditions are merged while names, namespaces, and prefixes are
+                            appended. Namespace delimiters and slashes in URI prefixes are
+                            automatically added where appropriate.</p>
+                        <p><a name="route-group-middleware"></a></p>
+                        <h3 id="route-group-middleware"><a href="#route-group-middleware">Middleware</a></h3>
+                        <p>To assign middleware to all routes within a group, you may use the <code
+                                class=" language-php">middleware</code> method before defining the group. Middleware are
+                            executed in the order they are listed in the array:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'first'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'second'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">group</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">// Uses first &amp; second Middleware</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user/profile'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">// Uses first &amp; second Middleware</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="route-group-namespaces"></a></p>
+                        <h3 id="route-group-namespaces"><a href="#route-group-namespaces">Namespaces</a></h3>
+                        <p>Another common use-case for route groups is assigning the same PHP namespace to a group of
+                            controllers using the <code class=" language-php"><span
+                                    class="token keyword">namespace</span></code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token keyword">namespace</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'Admin'</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">group</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Controllers Within The "App\Http\Controllers\Admin" Namespace</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Remember, by default, the <code class=" language-php">RouteServiceProvider</code> includes
+                            your route files within a namespace group, allowing you to register controller routes
+                            without specifying the full <code class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Controllers</span></code> namespace prefix. So,
+                            you only need to specify the portion of the namespace that comes after the base <code
+                                    class=" language-php">App\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Controllers</span></code> namespace.</p>
+                        <p><a name="route-group-subdomain-routing"></a></p>
+                        <h3 id="route-group-subdomain-routing"><a href="#route-group-subdomain-routing">Subdomain
+                            Routing</a></h3>
+                        <p>Route groups may also be used to handle subdomain routing. Subdomains
+                            may be assigned route parameters just like route URIs, allowing you to
+                            capture a portion of the subdomain for usage in your route or
+                            controller. The subdomain may be specified by calling the <code
+                                    class=" language-php">domain</code> method before defining the group:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">domain</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'{account}.myapp.com'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user/{id}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$account</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$id</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Routing_files/exclamation.svg"></div>
+                                <p class="content">
+                                    In order to ensure your subdomain routes are reachable, you should
+                                    register subdomain routes before registering root domain routes. This
+                                    will prevent root domain routes from overwriting subdomain routes which
+                                    have the same URI path.</p></div>
+                        </blockquote>
+                        <p><a name="route-group-prefixes"></a></p>
+                        <h3 id="route-group-prefixes"><a href="#route-group-prefixes">Route Prefixes</a></h3>
+                        <p>The <code class=" language-php">prefix</code> method may be used to
+                            prefix each route in the group with a given URI. For example, you may
+                            want to prefix all route URIs within the group with <code class=" language-php">admin</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">prefix</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin'</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">group</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">// Matches The "/admin/users" URL</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="route-group-name-prefixes"></a></p>
+                        <h3 id="route-group-name-prefixes"><a href="#route-group-name-prefixes">Route Name Prefixes</a>
+                        </h3>
+                        <p>The <code class=" language-php">name</code> method may be used to
+                            prefix each route name in the group with a given string. For example,
+                            you may want to prefix all of the grouped route's names with <code class=" language-php">admin</code>.
+                            The given string is prefixed to the route name exactly as it is specified, so we will be
+                            sure to provide the trailing <code class=" language-php"><span
+                                    class="token punctuation">.</span></code> character in the prefix:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">name</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'admin.'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">// Route assigned name "admin.users"...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">name</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'users'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="route-model-binding"></a></p>
+                        <h2 id="route-model-binding"><a href="#route-model-binding">Route Model Binding</a></h2>
+                        <p>When injecting a model ID to a route or controller action, you will
+                            often query to retrieve the model that corresponds to that ID. Laravel
+                            route model binding provides a convenient way to automatically inject
+                            the model instances directly into your routes. For example, instead of
+                            injecting a user's ID, you can inject the entire <code class=" language-php">User</code>
+                            model instance that matches the given ID.</p>
+                        <p><a name="implicit-binding"></a></p>
+                        <h3 id="implicit-binding"><a href="#implicit-binding">Implicit Binding</a></h3>
+                        <p>Laravel automatically resolves Eloquent models defined in routes or
+                            controller actions whose type-hinted variable names match a route
+                            segment name. For example:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'api/users/{user}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>App\<span class="token package">User</span> <span
+                                class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Since the <code class=" language-php"><span class="token variable">$user</span></code>
+                            variable is type-hinted as the <code class=" language-php">App\<span class="token package">User</span></code>
+                            Eloquent model and the variable name matches the <code class=" language-php"><span
+                                    class="token punctuation">{</span>user<span
+                                    class="token punctuation">}</span></code>
+                            URI segment, Laravel will automatically inject the model instance that
+                            has an ID matching the corresponding value from the request URI. If a
+                            matching model instance is not found in the database, a 404 HTTP
+                            response will automatically be generated.</p>
+                        <h4>Customizing The Key</h4>
+                        <p>Sometimes you may wish to resolve Eloquent models using a column other than <code
+                                class=" language-php">id</code>. To do so, you may specify the column in the route
+                            parameter definition:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'api/posts/{post:slug}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>App\<span class="token package">Post</span> <span
+                                class="token variable">$post</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Custom Keys &amp; Scoping</h4>
+                        <p>Sometimes, when implicitly binding multiple Eloquent models in a
+                            single route definition, you may wish to scope the second Eloquent model
+                            such that it must be a child of the first Eloquent model. For example,
+                            consider this situation that retrieves a blog post by slug for a
+                            specific user:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'api/users/{user}/posts/{post:slug}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>User <span
+                                    class="token variable">$user</span><span
+                                    class="token punctuation">,</span> Post <span
+                                    class="token variable">$post</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$post</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When using a custom keyed implicit binding as a nested route
+                            parameter, Laravel will automatically scope the query to retrieve the
+                            nested model by its parent using conventions to guess the relationship
+                            name on the parent. In this case, it will be assumed that the <code class=" language-php">User</code>
+                            model has a relationship named <code class=" language-php">posts</code> (the plural of the
+                            route parameter name) which can be used to retrieve the <code
+                                    class=" language-php">Post</code> model.</p>
+                        <h4>Customizing The Default Key Name</h4>
+                        <p>If you would like model binding to use a default database column other than <code
+                                class=" language-php">id</code> when retrieving a given model class, you may override
+                            the <code class=" language-php">getRouteKeyName</code> method on the Eloquent model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the route key for the model.
+ *
+ * @return string
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getRouteKeyName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'slug'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="explicit-binding"></a></p>
+                        <h3 id="explicit-binding"><a href="#explicit-binding">Explicit Binding</a></h3>
+                        <p>To register an explicit binding, use the router's <code class=" language-php">model</code>
+                            method to specify the class for a given parameter. You should define your explicit model
+                            bindings in the <code class=" language-php">boot</code> method of the <code
+                                    class=" language-php">RouteServiceProvider</code> class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">public</span> <span
+                                class="token keyword">function</span> <span class="token function">boot</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">parent</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">model</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user'</span><span
+                                    class="token punctuation">,</span> App\<span class="token package">User</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Next, define a route that contains a <code class=" language-php"><span
+                                class="token punctuation">{</span>user<span class="token punctuation">}</span></code>
+                            parameter:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'profile/{user}'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>App\<span class="token package">User</span> <span
+                                class="token variable">$user</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Since we have bound all <code class=" language-php"><span class="token punctuation">{</span>user<span
+                                class="token punctuation">}</span></code> parameters to the <code class=" language-php">App\<span
+                                class="token package">User</span></code> model, a <code
+                                class=" language-php">User</code> instance will be injected into the route. So, for
+                            example, a request to <code class=" language-php">profile<span
+                                    class="token operator">/</span><span class="token number">1</span></code> will
+                            inject the <code class=" language-php">User</code> instance from the database which has an
+                            ID of <code class=" language-php"><span class="token number">1</span></code>.</p>
+                        <p>If a matching model instance is not found in the database, a 404 HTTP response will be
+                            automatically generated.</p>
+                        <h4>Customizing The Resolution Logic</h4>
+                        <p>If you wish to use your own resolution logic, you may use the <code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>bind</code>
+                            method. The <code class=" language-php">Closure</code> you pass to the <code
+                                    class=" language-php">bind</code>
+                            method will receive the value of the URI segment and should return the
+                            instance of the class that should be injected into the route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">boot</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">parent</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">bind</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> App\<span class="token package">User</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'name'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">firstOrFail</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Alternatively, you may override the <code class=" language-php">resolveRouteBinding</code>
+                            method on your Eloquent model. This method will receive the value of
+                            the URI segment and should return the instance of the class that should
+                            be injected into the route:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Retrieve the model for a bound value.
+ *
+ * @param  mixed  $value
+ * @param  string|null  $field
+ * @return \Illuminate\Database\Eloquent\Model|null
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">resolveRouteBinding</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$field</span> <span
+                                    class="token operator">=</span> <span class="token constant">null</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'name'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">firstOrFail</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="fallback-routes"></a></p>
+                        <h2 id="fallback-routes"><a href="#fallback-routes">Fallback Routes</a></h2>
+                        <p>Using the <code class=" language-php">Route<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>fallback</code>
+                            method, you may define a route that will be executed when no other
+                            route matches the incoming request. Typically, unhandled requests will
+                            automatically render a "404" page via your application's exception
+                            handler. However, since you may define the <code class=" language-php">fallback</code> route
+                            within your <code class=" language-php">routes<span class="token operator">/</span>web<span
+                                    class="token punctuation">.</span>php</code> file, all middleware in the <code
+                                    class=" language-php">web</code> middleware group will apply to the route. You are
+                            free to add additional middleware to this route as needed:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">fallback</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="01-Routing_files/exclamation.svg"></div>
+                                <p class="content"> The fallback route should always be the last route registered by
+                                    your application.</p></div>
+                        </blockquote>
+                        <p><a name="rate-limiting"></a></p>
+                        <h2 id="rate-limiting"><a href="#rate-limiting">Rate Limiting</a></h2>
+                        <p>Laravel includes a <a href="https://laravel.com/docs/7.x/middleware">middleware</a> to rate
+                            limit access to routes within your application. To get started, assign the <code
+                                    class=" language-php">throttle</code> middleware to a route or a group of routes.
+                            The <code class=" language-php">throttle</code>
+                            middleware accepts two parameters that determine the maximum number of
+                            requests that can be made in a given number of minutes. For example,
+                            let's specify that an authenticated user may access the following group
+                            of routes 60 times per minute:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:api'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'throttle:60,1'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Dynamic Rate Limiting</h4>
+                        <p>You may specify a dynamic request maximum based on an attribute of the authenticated <code
+                                class=" language-php">User</code> model. For example, if your <code
+                                class=" language-php">User</code> model contains a <code class=" language-php">rate_limit</code>
+                            attribute, you may pass the name of the attribute to the <code class=" language-php">throttle</code>
+                            middleware so that it is used to calculate the maximum request count:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:api'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'throttle:rate_limit,1'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Distinct Guest &amp;&nbsp;Authenticated User Rate Limits</h4>
+                        <p>You may specify different rate limits for guest and authenticated users. For example, you may
+                            specify a maximum of <code class=" language-php"><span class="token number">10</span></code>
+                            requests per minute for guests <code class=" language-php"><span
+                                    class="token number">60</span></code> for authenticated users:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'throttle:10|60,1'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also combine this functionality with dynamic rate limits. For example, if your <code
+                                class=" language-php">User</code> model contains a <code class=" language-php">rate_limit</code>
+                            attribute, you may pass the name of the attribute to the <code class=" language-php">throttle</code>
+                            middleware so that it is used to calculate the maximum request count for authenticated
+                            users:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:api'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'throttle:10|rate_limit,1'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Rate Limit Segments</h4>
+                        <p>Typically, you will probably specify one rate limit for your entire
+                            API. However, your application may require different rate limits for
+                            different segments of your API. If this is the case, you will need to
+                            pass a segment name as the third argument to the <code class=" language-php">throttle</code>
+                            middleware:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:api'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">group</span><span
+                                class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'throttle:60,1,default'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">group</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/servers'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">//</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">middleware</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'throttle:60,1,deletes'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">group</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">delete</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/servers/{id}'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token comment">//</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="form-method-spoofing"></a></p>
+                        <h2 id="form-method-spoofing"><a href="#form-method-spoofing">Form Method Spoofing</a></h2>
+                        <p>HTML forms do not support <code class=" language-php"><span class="token constant">PUT</span></code>,
+                            <code class=" language-php"><span class="token constant">PATCH</span></code> or <code
+                                    class=" language-php"><span class="token constant">DELETE</span></code> actions. So,
+                            when defining <code class=" language-php"><span class="token constant">PUT</span></code>,
+                            <code class=" language-php"><span class="token constant">PATCH</span></code> or <code
+                                    class=" language-php"><span class="token constant">DELETE</span></code> routes that
+                            are called from an HTML form, you will need to add a hidden <code class=" language-php">_method</code>
+                            field to the form. The value sent with the <code class=" language-php">_method</code> field
+                            will be used as the HTTP request method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>form action<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"/foo/bar"</span> method<span
+                                class="token operator">=</span><span
+                                class="token double-quoted-string string">"POST"</span><span
+                                class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"hidden"</span> name<span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"_method"</span> value<span
+                                    class="token operator">=</span><span
+                                    class="token double-quoted-string string">"PUT"</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"hidden"</span> name<span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"_token"</span> value<span
+                                    class="token operator">=</span><span class="token double-quoted-string string">"{{ csrf_token() }}"</span><span
+                                    class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>form<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p>You may use the <code class=" language-php">@method</code> Blade directive to generate the
+                            <code class=" language-php">_method</code> input:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>form action<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"/foo/bar"</span> method<span
+                                class="token operator">=</span><span
+                                class="token double-quoted-string string">"POST"</span><span
+                                class="token operator">&gt;</span>
+    @<span class="token function">method</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'PUT'</span><span
+                                    class="token punctuation">)</span>
+    @csrf
+<span class="token operator">&lt;</span><span class="token operator">/</span>form<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p><a name="accessing-the-current-route"></a></p>
+                        <h2 id="accessing-the-current-route"><a href="#accessing-the-current-route">Accessing The
+                            Current Route</a></h2>
+                        <p>You may use the <code class=" language-php">current</code>, <code class=" language-php">currentRouteName</code>,
+                            and <code class=" language-php">currentRouteAction</code> methods on the <code
+                                    class=" language-php">Route</code> facade to access information about the route
+                            handling the incoming request:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$route</span> <span class="token operator">=</span> Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">current</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$name</span> <span class="token operator">=</span> Route<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">currentRouteName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$action</span> <span class="token operator">=</span> Route<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">currentRouteAction</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Refer to the API documentation for both the <a
+                                href="https://laravel.com/api/7.x/Illuminate/Routing/Router.html">underlying class of
+                            the Route facade</a> and <a
+                                href="https://laravel.com/api/7.x/Illuminate/Routing/Route.html">Route instance</a> to
+                            review all accessible methods.</p>
+                        <p><a name="cors"></a></p>
+                        <h2 id="cors"><a href="#cors">Cross-Origin Resource Sharing (CORS)</a></h2>
+                        <p>Laravel can automatically respond to CORS OPTIONS requests with
+                            values that you configure. All CORS settings may be configured in your <code
+                                    class=" language-php">cors</code> configuration file and OPTIONS requests will
+                            automatically be handled by the <code class=" language-php">HandleCors</code> middleware
+                            that is included by default in your global middleware stack.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="01-Routing_files/lightbulb.svg"></div>
+                                <p class="content"> For more information on CORS and CORS headers, please consult the <a
+                                        href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#The_HTTP_response_headers">MDN
+                                    web documentation on CORS</a>.</p></div>
+                        </blockquote>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

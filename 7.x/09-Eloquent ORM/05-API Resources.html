@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Eloquent: API Resources - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/eloquent-resources">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="05-API%20Resources_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="05-API%20Resources_files/app.css">
+
+    <!-- Load JS -->
+    <script src="05-API%20Resources_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="05-API%20Resources_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Eloquent: API Resources</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#generating-resources">Generating Resources</a></li>
+                            <li><a href="#concept-overview">Concept Overview</a>
+                                <ul>
+                                    <li><a href="#resource-collections">Resource Collections</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#writing-resources">Writing Resources</a>
+                                <ul>
+                                    <li><a href="#data-wrapping">Data Wrapping</a></li>
+                                    <li><a href="#pagination">Pagination</a></li>
+                                    <li><a href="#conditional-attributes">Conditional Attributes</a></li>
+                                    <li><a href="#conditional-relationships">Conditional Relationships</a></li>
+                                    <li><a href="#adding-meta-data">Adding Meta Data</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#resource-responses">Resource Responses</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>When building an API, you may need a transformation layer that sits
+                            between your Eloquent models and the JSON responses that are actually
+                            returned to your application's users. Laravel's resource classes allow
+                            you to expressively and easily transform your models and model
+                            collections into JSON.</p>
+                        <p><a name="generating-resources"></a></p>
+                        <h2 id="generating-resources"><a href="#generating-resources">Generating Resources</a></h2>
+                        <p>To generate a resource class, you may use the <code class=" language-php">make<span
+                                class="token punctuation">:</span>resource</code> Artisan command. By default, resources
+                            will be placed in the <code class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Resources</code> directory of your application.
+                            Resources extend the <code class=" language-php">Illuminate\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span></code> class:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>resource User</code></pre>
+                        <h4>Resource Collections</h4>
+                        <p>In addition to generating resources that transform individual models,
+                            you may generate resources that are responsible for transforming
+                            collections of models. This allows your response to include links and
+                            other meta information that is relevant to an entire collection of a
+                            given resource.</p>
+                        <p>To create a resource collection, you should use the <code class=" language-php"><span
+                                class="token operator">--</span>collection</code> flag when creating the resource. Or,
+                            including the word <code class=" language-php">Collection</code> in the resource name will
+                            indicate to Laravel that it should create a collection resource. Collection resources extend
+                            the <code class=" language-php">Illuminate\<span class="token package">Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span></code> class:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>resource Users <span class="token operator">--</span>collection
+
+php artisan make<span class="token punctuation">:</span>resource UserCollection</code></pre>
+                        <p><a name="concept-overview"></a></p>
+                        <h2 id="concept-overview"><a href="#concept-overview">Concept Overview</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="05-API%20Resources_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    This is a high-level overview of resources and resource collections.
+                                    You are highly encouraged to read the other sections of this
+                                    documentation to gain a deeper understanding of the customization and
+                                    power offered to you by resources.</p></div>
+                        </blockquote>
+                        <p>Before diving into all of the options available to you when writing
+                            resources, let's first take a high-level look at how resources are used
+                            within Laravel. A resource class represents a single model that needs to
+                            be transformed into a JSON structure. For example, here is a simple <code
+                                    class=" language-php">User</code> resource class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">JsonResource</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'created_at'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'updated_at'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Every resource class defines a <code class=" language-php">toArray</code>
+                            method which returns the array of attributes that should be converted
+                            to JSON when sending the response. Notice that we can access model
+                            properties directly from the <code class=" language-php"><span
+                                    class="token variable">$this</span></code>
+                            variable. This is because a resource class will automatically proxy
+                            property and method access down to the underlying model for convenient
+                            access. Once the resource is defined, it may be returned from a route or
+                            controller:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserResource</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="resource-collections"></a></p>
+                        <h3 id="resource-collections"><a href="#resource-collections">Resource Collections</a></h3>
+                        <p>If you are returning a collection of resources or a paginated response, you may use the <code
+                                class=" language-php">collection</code> method when creating the resource instance in
+                            your route or controller:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> UserResource<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">collection</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">all</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Note that this does not allow any addition of meta data that may need
+                            to be returned with the collection. If you would like to customize the
+                            resource collection response, you may create a dedicated resource to
+                            represent the collection:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>resource UserCollection</code></pre>
+                        <p>Once the resource collection class has been generated, you may easily
+                            define any meta data that should be included with the response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserCollection</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">ResourceCollection</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'data'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">collection</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'links'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'self'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'link-value'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>After defining your resource collection, it may be returned from a route or controller:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>UserCollection</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/users'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserCollection</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">all</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Preserving Collection Keys</h4>
+                        <p>When returning a resource collection from a route, Laravel resets the
+                            collection's keys so that they are in simple numerical order. However,
+                            you may add a <code class=" language-php">preserveKeys</code> property to your resource
+                            class indicating if collection keys should be preserved:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">JsonResource</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Indicates if the resource's collection keys should be preserved.
+     *
+     * @var bool
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$preserveKeys</span> <span
+                                    class="token operator">=</span> <span
+                                    class="token boolean constant">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When the <code class=" language-php">preserveKeys</code> property is set to <code
+                                class=" language-php"><span class="token boolean constant">true</span></code>,
+                            collection keys will be preserved:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> UserResource<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">collection</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">all</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">keyBy</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Customizing The Underlying Resource Class</h4>
+                        <p>Typically, the <code class=" language-php"><span class="token variable">$this</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">collection</span></code>
+                            property of a resource collection is automatically populated with the
+                            result of mapping each item of the collection to its singular resource
+                            class. The singular resource class is assumed to be the collection's
+                            class name without the trailing <code class=" language-php">Collection</code> string.</p>
+                        <p>For example, <code class=" language-php">UserCollection</code> will attempt to map the given
+                            user instances into the <code class=" language-php">User</code> resource. To customize this
+                            behavior, you may override the <code class=" language-php"><span class="token variable">$collects</span></code>
+                            property of your resource collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserCollection</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">ResourceCollection</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The resource that this resource collects.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$collects</span> <span
+                                    class="token operator">=</span> <span class="token single-quoted-string string">'App\Http\Resources\Member'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="writing-resources"></a></p>
+                        <h2 id="writing-resources"><a href="#writing-resources">Writing Resources</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="05-API%20Resources_files/lightbulb.svg"></div>
+                                <p class="content"> If you have not read the <a href="#concept-overview">concept
+                                    overview</a>, you are highly encouraged to do so before proceeding with this
+                                    documentation.</p></div>
+                        </blockquote>
+                        <p>In essence, resources are simple. They only need to transform a given model into an array.
+                            So, each resource contains a <code class=" language-php">toArray</code> method which
+                            translates your model's attributes into an API friendly array that can be returned to your
+                            users:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">JsonResource</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'created_at'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'updated_at'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once a resource has been defined, it may be returned directly from a route or controller:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserResource</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Relationships</h4>
+                        <p>If you would like to include related resources in your response, you may add them to the
+                            array returned by your <code class=" language-php">toArray</code> method. In this example,
+                            we will use the <code class=" language-php">Post</code> resource's <code
+                                    class=" language-php">collection</code> method to add the user's blog posts to the
+                            resource response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'posts'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> PostResource<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">collection</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">posts</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'created_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'updated_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="05-API%20Resources_files/lightbulb.svg"></div>
+                                <p class="content"> If you would like to include relationships only when they have
+                                    already been loaded, check out the documentation on <a
+                                            href="#conditional-relationships">conditional relationships</a>.</p></div>
+                        </blockquote>
+                        <h4>Resource Collections</h4>
+                        <p>While resources translate a single model into an array, resource
+                            collections translate a collection of models into an array. It is not
+                            absolutely necessary to define a resource collection class for each one
+                            of your model types since all resources provide a <code
+                                    class=" language-php">collection</code> method to generate an "ad-hoc" resource
+                            collection on the fly:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> UserResource<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">collection</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">all</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>However, if you need to customize the meta data returned with the
+                            collection, it will be necessary to define a resource collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserCollection</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">ResourceCollection</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'data'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">collection</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'links'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'self'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'link-value'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Like singular resources, resource collections may be returned directly from routes or
+                            controllers:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>UserCollection</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/users'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserCollection</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">all</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="data-wrapping"></a></p>
+                        <h3 id="data-wrapping"><a href="#data-wrapping">Data Wrapping</a></h3>
+                        <p>By default, your outermost resource is wrapped in a <code class=" language-php">data</code>
+                            key when the resource response is converted to JSON. So, for example, a
+                            typical resource collection response looks like the following:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"data"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Eladio Schroeder Sr."</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"therese28@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Liliana Mayert"</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"evandervort@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you would like to disable the wrapping of the outermost resource, you may use the <code
+                                class=" language-php">withoutWrapping</code> method on the base resource class.
+                            Typically, you should call this method from your <code class=" language-php">AppServiceProvider</code>
+                            or another <a href="https://laravel.com/docs/7.x/providers">service provider</a> that is
+                            loaded on every request to your application:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Providers</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>ServiceProvider</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AppServiceProvider</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Register any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        JsonResource<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">withoutWrapping</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="05-API%20Resources_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">withoutWrapping</code> method only
+                                    affects the outermost response and will not remove <code
+                                            class=" language-php">data</code> keys that you manually add to your own
+                                    resource collections.</p></div>
+                        </blockquote>
+                        <h3>Wrapping Nested Resources</h3>
+                        <p>You have total freedom to determine how your resource's relationships
+                            are wrapped. If you would like all resource collections to be wrapped
+                            in a <code class=" language-php">data</code> key, regardless of their
+                            nesting, you should define a resource collection class for each resource
+                            and return the collection within a <code class=" language-php">data</code> key.</p>
+                        <p>You may be wondering if this will cause your outermost resource to be wrapped in two <code
+                                class=" language-php">data</code>
+                            keys. Don't worry, Laravel will never let your resources be
+                            accidentally double-wrapped, so you don't have to be concerned about the
+                            nesting level of the resource collection you are transforming:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CommentsCollection</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">ResourceCollection</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'data'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">collection</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h3>Data Wrapping And Pagination</h3>
+                        <p>When returning paginated collections in a resource response, Laravel will wrap your resource
+                            data in a <code class=" language-php">data</code> key even if the <code
+                                    class=" language-php">withoutWrapping</code> method has been called. This is because
+                            paginated responses always contain <code class=" language-php">meta</code> and <code
+                                    class=" language-php">links</code> keys with information about the paginator's
+                            state:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"data"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Eladio Schroeder Sr."</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"therese28@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Liliana Mayert"</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"evandervort@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">"links"</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"first"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination?page=1"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"last"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination?page=1"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"prev"</span><span class="token punctuation">:</span> <span
+                                    class="token constant">null</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"next"</span><span class="token punctuation">:</span> <span
+                                    class="token constant">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">"meta"</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"current_page"</span><span
+                                    class="token punctuation">:</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"from"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"last_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"path"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"per_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">15</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"to"</span><span class="token punctuation">:</span> <span
+                                    class="token number">10</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"total"</span><span class="token punctuation">:</span> <span
+                                    class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="pagination"></a></p>
+                        <h3 id="pagination"><a href="#pagination">Pagination</a></h3>
+                        <p>You may always pass a paginator instance to the <code class=" language-php">collection</code>
+                            method of a resource or to a custom resource collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>UserCollection</span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/users'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserCollection</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">paginate</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Paginated responses always contain <code class=" language-php">meta</code> and <code
+                                class=" language-php">links</code> keys with information about the paginator's state:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">{</span>
+    <span class="token double-quoted-string string">"data"</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Eladio Schroeder Sr."</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"therese28@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token double-quoted-string string">"id"</span><span class="token punctuation">:</span> <span
+                                    class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"name"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"Liliana Mayert"</span><span
+                                    class="token punctuation">,</span>
+            <span class="token double-quoted-string string">"email"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"evandervort@example.com"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">"links"</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"first"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination?page=1"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"last"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination?page=1"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"prev"</span><span class="token punctuation">:</span> <span
+                                    class="token constant">null</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"next"</span><span class="token punctuation">:</span> <span
+                                    class="token constant">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token double-quoted-string string">"meta"</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">{</span>
+        <span class="token double-quoted-string string">"current_page"</span><span
+                                    class="token punctuation">:</span> <span class="token number">1</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"from"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"last_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"path"</span><span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"http://example.com/pagination"</span><span
+                                    class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"per_page"</span><span class="token punctuation">:</span> <span
+                                    class="token number">15</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"to"</span><span class="token punctuation">:</span> <span
+                                    class="token number">10</span><span class="token punctuation">,</span>
+        <span class="token double-quoted-string string">"total"</span><span class="token punctuation">:</span> <span
+                                    class="token number">10</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="conditional-attributes"></a></p>
+                        <h3 id="conditional-attributes"><a href="#conditional-attributes">Conditional Attributes</a>
+                        </h3>
+                        <p>Sometimes you may wish to only include an attribute in a resource
+                            response if a given condition is met. For example, you may wish to only
+                            include a value if the current user is an "administrator". Laravel
+                            provides a variety of helper methods to assist you in this situation.
+                            The <code class=" language-php">when</code> method may be used to conditionally add an
+                            attribute to a resource response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">when</span><span class="token punctuation">(</span>Auth<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">isAdmin</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'secret-value'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'created_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'updated_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>In this example, the <code class=" language-php">secret</code> key will only be returned in
+                            the final resource response if the authenticated user's <code
+                                    class=" language-php">isAdmin</code> method returns <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>. If
+                            the method returns <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>, the <code class=" language-php">secret</code>
+                            key will be removed from the resource response entirely before it is sent back to the
+                            client. The <code class=" language-php">when</code> method allows you to expressively define
+                            your resources without resorting to conditional statements when building the array.</p>
+                        <p>The <code class=" language-php">when</code> method also accepts a
+                            Closure as its second argument, allowing you to calculate the resulting
+                            value only if the given condition is <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'secret'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$this</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">when</span><span
+                                class="token punctuation">(</span>Auth<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">user</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">isAdmin</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token single-quoted-string string">'secret-value'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Merging Conditional Attributes</h4>
+                        <p>Sometimes you may have several attributes that should only be
+                            included in the resource response based on the same condition. In this
+                            case, you may use the <code class=" language-php">mergeWhen</code> method to include the
+                            attributes in the response only when the given condition is <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">mergeWhen</span><span
+                                    class="token punctuation">(</span>Auth<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">isAdmin</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'first-secret'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'second-secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'created_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'updated_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Again, if the given condition is <code class=" language-php"><span
+                                class="token boolean constant">false</span></code>, these attributes will be removed
+                            from the resource response entirely before it is sent to the client.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="05-API%20Resources_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">mergeWhen</code>
+                                    method should not be used within arrays that mix string and numeric
+                                    keys. Furthermore, it should not be used within arrays with numeric keys
+                                    that are not ordered sequentially.</p></div>
+                        </blockquote>
+                        <p><a name="conditional-relationships"></a></p>
+                        <h3 id="conditional-relationships"><a href="#conditional-relationships">Conditional
+                            Relationships</a></h3>
+                        <p>In addition to conditionally loading attributes, you may
+                            conditionally include relationships on your resource responses based on
+                            if the relationship has already been loaded on the model. This allows
+                            your controller to decide which relationships should be loaded on the
+                            model and your resource can easily include them only when they have
+                            actually been loaded.</p>
+                        <p>Ultimately, this makes it easier to avoid "N+1" query problems within your resources. The
+                            <code class=" language-php">whenLoaded</code>
+                            method may be used to conditionally load a relationship. In order to
+                            avoid unnecessarily loading relationships, this method accepts the name
+                            of the relationship instead of the relationship itself:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'posts'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> PostResource<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">collection</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">whenLoaded</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'posts'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'created_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">created_at</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'updated_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">updated_at</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>In this example, if the relationship has not been loaded, the <code class=" language-php">posts</code>
+                            key will be removed from the resource response entirely before it is sent to the client.</p>
+                        <h4>Conditional Pivot Information</h4>
+                        <p>In addition to conditionally including relationship information in
+                            your resource responses, you may conditionally include data from the
+                            intermediate tables of many-to-many relationships using the <code class=" language-php">whenPivotLoaded</code>
+                            method. The <code class=" language-php">whenPivotLoaded</code>
+                            method accepts the name of the pivot table as its first argument. The
+                            second argument should be a Closure that defines the value to be
+                            returned if the pivot information is available on the model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'expires_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">whenPivotLoaded</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'role_user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">pivot</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">expires_at</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If your intermediate table is using an accessor other than <code
+                                class=" language-php">pivot</code>, you may use the <code class=" language-php">whenPivotLoadedAs</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">name</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'expires_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">whenPivotLoadedAs</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'subscription'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'role_user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">subscription</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">expires_at</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="adding-meta-data"></a></p>
+                        <h3 id="adding-meta-data"><a href="#adding-meta-data">Adding Meta Data</a></h3>
+                        <p>Some JSON API standards require the addition of meta data to your
+                            resource and resource collections responses. This often includes things
+                            like <code class=" language-php">links</code> to the resource or related
+                            resources, or meta data about the resource itself. If you need to
+                            return additional meta data about a resource, include it in your <code
+                                    class=" language-php">toArray</code> method. For example, you might include <code
+                                    class=" language-php">link</code> information when transforming a resource
+                            collection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Transform the resource into an array.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return array
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'data'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">collection</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'links'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'self'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'link-value'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>When returning additional meta data from your resources, you never have to worry about
+                            accidentally overriding the <code class=" language-php">links</code> or <code
+                                    class=" language-php">meta</code> keys that are automatically added by Laravel when
+                            returning paginated responses. Any additional <code class=" language-php">links</code> you
+                            define will be merged with the links provided by the paginator.</p>
+                        <h4>Top Level Meta Data</h4>
+                        <p>Sometimes you may wish to only include certain meta data with a
+                            resource response if the resource is the outermost resource being
+                            returned. Typically, this includes meta information about the response
+                            as a whole. To define this meta data, add a <code class=" language-php">with</code>
+                            method to your resource class. This method should return an array of
+                            meta data to be included with the resource response only when the
+                            resource is the outermost resource being rendered:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>ResourceCollection</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">UserCollection</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">ResourceCollection</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">parent</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">toArray</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get additional data that should be returned with the resource array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">with</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'meta'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Adding Meta Data When Constructing Resources</h4>
+                        <p>You may also add top-level data when constructing resource instances in your route or
+                            controller. The <code class=" language-php">additional</code> method, which is available on
+                            all resources, accepts an array of data that should be added to the resource response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">UserCollection</span><span class="token punctuation">(</span>User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">all</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">load</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'roles'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">additional</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'meta'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">'key'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="resource-responses"></a></p>
+                        <h2 id="resource-responses"><a href="#resource-responses">Resource Responses</a></h2>
+                        <p>As you have already read, resources may be returned directly from routes and controllers:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserResource</span><span
+                                    class="token punctuation">(</span>User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">find</span><span
+                                    class="token punctuation">(</span><span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>However, sometimes you may need to customize the outgoing HTTP
+                            response before it is sent to the client. There are two ways to
+                            accomplish this. First, you may chain the <code class=" language-php">response</code> method
+                            onto the resource. This method will return an <code class=" language-php">Illuminate\<span
+                                    class="token package">Http<span
+                                    class="token punctuation">\</span>JsonResponse</span></code> instance, allowing you
+                            full control of the response's headers:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Resources<span class="token punctuation">\</span>User</span> <span
+                                class="token keyword">as</span> UserResource<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/user'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">UserResource</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">find</span><span class="token punctuation">(</span><span
+                                    class="token number">1</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">response</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">header</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'X-Value'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'True'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Alternatively, you may define a <code class=" language-php">withResponse</code>
+                            method within the resource itself. This method will be called when the
+                            resource is returned as the outermost resource in a response:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Resources<span class="token punctuation">\</span>Json<span
+                                    class="token punctuation">\</span>JsonResource</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">JsonResource</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">toArray</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'id'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">id</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Customize the outgoing response for the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Response  $response
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">withResponse</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$response</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$response</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">header</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'X-Value'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'True'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

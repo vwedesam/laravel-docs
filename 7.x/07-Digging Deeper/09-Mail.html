@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Mail - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/mail">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="09-Mail_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="09-Mail_files/app.css">
+
+    <!-- Load JS -->
+    <script src="09-Mail_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="09-Mail_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Mail</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#driver-prerequisites">Driver Prerequisites</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#generating-mailables">Generating Mailables</a></li>
+                            <li><a href="#writing-mailables">Writing Mailables</a>
+                                <ul>
+                                    <li><a href="#configuring-the-sender">Configuring The Sender</a></li>
+                                    <li><a href="#configuring-the-view">Configuring The View</a></li>
+                                    <li><a href="#view-data">View Data</a></li>
+                                    <li><a href="#attachments">Attachments</a></li>
+                                    <li><a href="#inline-attachments">Inline Attachments</a></li>
+                                    <li><a href="#customizing-the-swiftmailer-message">Customizing The SwiftMailer
+                                        Message</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#markdown-mailables">Markdown Mailables</a>
+                                <ul>
+                                    <li><a href="#generating-markdown-mailables">Generating Markdown Mailables</a></li>
+                                    <li><a href="#writing-markdown-messages">Writing Markdown Messages</a></li>
+                                    <li><a href="#customizing-the-components">Customizing The Components</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#sending-mail">Sending Mail</a>
+                                <ul>
+                                    <li><a href="#queueing-mail">Queueing Mail</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#rendering-mailables">Rendering Mailables</a>
+                                <ul>
+                                    <li><a href="#previewing-mailables-in-the-browser">Previewing Mailables In The
+                                        Browser</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#localizing-mailables">Localizing Mailables</a></li>
+                            <li><a href="#mail-and-local-development">Mail &amp; Local Development</a></li>
+                            <li><a href="#events">Events</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel provides a clean, simple API over the popular <a
+                                href="https://swiftmailer.symfony.com/">SwiftMailer</a> library with drivers for SMTP,
+                            Mailgun, Postmark, Amazon SES, and <code class=" language-php">sendmail</code>, allowing you
+                            to quickly get started sending mail through a local or cloud based service of your choice.
+                        </p>
+                        <p><a name="configuration"></a></p>
+                        <h3 id="configuration"><a href="#configuration">Configuration</a></h3>
+                        <p>Laravel's email services may be configured via the <code class=" language-php">mail</code>
+                            configuration file. Each mailer configured within this file may have
+                            its own options and even its own unique "transport", allowing your
+                            application to use different email services to send certain email
+                            messages. For example, your application might use Postmark to send
+                            transactional mail while using Amazon SES to send bulk mail.</p>
+                        <p><a name="driver-prerequisites"></a></p>
+                        <h3 id="driver-prerequisites"><a href="#driver-prerequisites">Driver Prerequisites</a></h3>
+                        <p>The API based drivers such as Mailgun and Postmark are often simpler
+                            and faster than SMTP servers. If possible, you should use one of these
+                            drivers. All of the API drivers require the Guzzle HTTP library, which
+                            may be installed via the Composer package manager:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> guzzlehttp<span
+                                class="token operator">/</span>guzzle</code></pre>
+                        <h4>Mailgun Driver</h4>
+                        <p>To use the Mailgun driver, first install Guzzle, then set the <code
+                                class=" language-php"><span class="token keyword">default</span></code> option in your
+                            <code class=" language-php">config<span class="token operator">/</span>mail<span
+                                    class="token punctuation">.</span>php</code> configuration file to <code
+                                    class=" language-php">mailgun</code>. Next, verify that your <code
+                                    class=" language-php">config<span class="token operator">/</span>services<span
+                                    class="token punctuation">.</span>php</code> configuration file contains the
+                            following options:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'mailgun'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'domain'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-mailgun-domain'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-mailgun-key'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>If you are not using the "US" <a
+                                href="https://documentation.mailgun.com/en/latest/api-intro.html#mailgun-regions">Mailgun
+                            region</a>, you may define your region's endpoint in the <code class=" language-php">services</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'mailgun'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'domain'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-mailgun-domain'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-mailgun-key'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'endpoint'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'api.eu.mailgun.net'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Postmark Driver</h4>
+                        <p>To use the Postmark driver, install Postmark's SwiftMailer transport via Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> wildbit<span
+                                class="token operator">/</span>swiftmailer<span class="token operator">-</span>postmark</code></pre>
+                        <p>Next, install Guzzle and set the <code class=" language-php"><span class="token keyword">default</span></code>
+                            option in your <code class=" language-php">config<span
+                                    class="token operator">/</span>mail<span
+                                    class="token punctuation">.</span>php</code> configuration file to <code
+                                    class=" language-php">postmark</code>. Finally, verify that your <code
+                                    class=" language-php">config<span class="token operator">/</span>services<span
+                                    class="token punctuation">.</span>php</code> configuration file contains the
+                            following options:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'postmark'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'token'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-postmark-token'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>SES Driver</h4>
+                        <p>To use the Amazon SES driver you must first install the Amazon AWS
+                            SDK for PHP. You may install this library by adding the following line
+                            to your <code class=" language-php">composer<span
+                                    class="token punctuation">.</span>json</code> file's <code
+                                    class=" language-php"><span class="token keyword">require</span></code> section and
+                            running the <code class=" language-php">composer update</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token double-quoted-string string">"aws/aws-sdk-php"</span><span
+                                class="token punctuation">:</span> <span class="token double-quoted-string string">"~3.0"</span></code></pre>
+                        <p>Next, set the <code class=" language-php"><span class="token keyword">default</span></code>
+                            option in your <code class=" language-php">config<span
+                                    class="token operator">/</span>mail<span
+                                    class="token punctuation">.</span>php</code> configuration file to <code
+                                    class=" language-php">ses</code> and verify that your <code class=" language-php">config<span
+                                    class="token operator">/</span>services<span
+                                    class="token punctuation">.</span>php</code> configuration file contains the
+                            following options:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'ses'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-ses-key'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-ses-secret'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'region'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'ses-region'</span><span
+                                    class="token punctuation">,</span>  <span
+                                    class="token comment">// e.g. us-east-1</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>If you need to include <a
+                                href="https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-email-2010-12-01.html#sendrawemail">additional
+                            options</a> when executing the SES <code class=" language-php">SendRawEmail</code> request,
+                            you may define an <code class=" language-php">options</code> array within your <code
+                                    class=" language-php">ses</code> configuration:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'ses'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-ses-key'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'your-ses-secret'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'region'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'ses-region'</span><span
+                                    class="token punctuation">,</span>  <span
+                                    class="token comment">// e.g. us-east-1</span>
+    <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'ConfigurationSetName'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'MyConfigurationSet'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'Tags'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span>
+                <span class="token single-quoted-string string">'Name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">,</span>
+                <span class="token single-quoted-string string">'Value'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'bar'</span><span
+                                    class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="generating-mailables"></a></p>
+                        <h2 id="generating-mailables"><a href="#generating-mailables">Generating Mailables</a></h2>
+                        <p>In Laravel, each type of email sent by your application is represented as a "mailable" class.
+                            These classes are stored in the <code class=" language-php">app<span class="token operator">/</span>Mail</code>
+                            directory. Don't worry if you don't see this directory in your
+                            application, since it will be generated for you when you create your
+                            first mailable class using the <code class=" language-php">make<span
+                                    class="token punctuation">:</span>mail</code> command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>mail OrderShipped</code></pre>
+                        <p><a name="writing-mailables"></a></p>
+                        <h2 id="writing-mailables"><a href="#writing-mailables">Writing Mailables</a></h2>
+                        <p>All of a mailable class' configuration is done in the <code
+                                class=" language-php">build</code> method. Within this method, you may call various
+                            methods such as <code class=" language-php">from</code>, <code
+                                    class=" language-php">subject</code>, <code class=" language-php">view</code>, and
+                            <code class=" language-php">attach</code> to configure the email's presentation and
+                            delivery.</p>
+                        <p><a name="configuring-the-sender"></a></p>
+                        <h3 id="configuring-the-sender"><a href="#configuring-the-sender">Configuring The Sender</a>
+                        </h3>
+                        <h4>Using The <code class=" language-php">from</code> Method</h4>
+                        <p>First, let's explore configuring the sender of the email. Or, in
+                            other words, who the email is going to be "from". There are two ways to
+                            configure the sender. First, you may use the <code class=" language-php">from</code> method
+                            within your mailable class' <code class=" language-php">build</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">from</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'example@example.com'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Using A Global <code class=" language-php">from</code> Address</h4>
+                        <p>However, if your application uses the same "from" address for all of its emails, it can
+                            become cumbersome to call the <code class=" language-php">from</code> method in each
+                            mailable class you generate. Instead, you may specify a global "from" address in your <code
+                                    class=" language-php">config<span class="token operator">/</span>mail<span
+                                    class="token punctuation">.</span>php</code> configuration file. This address will
+                            be used if no other "from" address is specified within the mailable class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'from'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'address'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'example@example.com'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'name'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'App Name'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p>In addition, you may define a global "reply_to" address within your <code
+                                class=" language-php">config<span class="token operator">/</span>mail<span
+                                class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'reply_to'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'address'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'example@example.com'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'name'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'App Name'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="configuring-the-view"></a></p>
+                        <h3 id="configuring-the-view"><a href="#configuring-the-view">Configuring The View</a></h3>
+                        <p>Within a mailable class' <code class=" language-php">build</code> method, you may use the
+                            <code class=" language-php">view</code> method to specify which template should be used when
+                            rendering the email's contents. Since each email typically uses a <a
+                                    href="https://laravel.com/docs/7.x/blade">Blade template</a> to render its contents,
+                            you have the full power and convenience of the Blade templating engine when building your
+                            email's HTML:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Mail_files/lightbulb.svg"></div>
+                                <p class="content"> You may wish to create a <code class=" language-php">resources<span
+                                        class="token operator">/</span>views<span class="token operator">/</span>emails</code>
+                                    directory to house all of your email templates; however, you are free to place them
+                                    wherever you wish within your <code class=" language-php">resources<span
+                                            class="token operator">/</span>views</code> directory.</p></div>
+                        </blockquote>
+                        <h4>Plain Text Emails</h4>
+                        <p>If you would like to define a plain-text version of your email, you may use the <code
+                                class=" language-php">text</code> method. Like the <code
+                                class=" language-php">view</code> method, the <code class=" language-php">text</code>
+                            method accepts a template name which will be used to render the
+                            contents of the email. You are free to define both an HTML and
+                            plain-text version of your message:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">text</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped_plain'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="view-data"></a></p>
+                        <h3 id="view-data"><a href="#view-data">View Data</a></h3>
+                        <h4>Via Public Properties</h4>
+                        <p>Typically, you will want to pass some data to your view that you can
+                            utilize when rendering the email's HTML. There are two ways you may make
+                            data available to your view. First, any public property defined on your
+                            mailable class will automatically be made available to the view. So,
+                            for example, you may pass data into your mailable class' constructor and
+                            set that data to public properties defined on the class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Mail</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Order</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span
+                                    class="token punctuation">\</span>Queueable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Mail<span
+                                    class="token punctuation">\</span>Mailable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderShipped</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Mailable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Queueable</span><span
+                                    class="token punctuation">,</span> SerializesModels<span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The order instance.
+     *
+     * @var Order
+     */</span>
+    <span class="token keyword">public</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new message instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Order <span
+                                    class="token variable">$order</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">order</span> <span
+                                    class="token operator">=</span> <span class="token variable">$order</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Build the message.
+     *
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">build</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once the data has been set to a public property, it will
+                            automatically be available in your view, so you may access it like you
+                            would access any other data in your Blade templates:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>div<span
+                                class="token operator">&gt;</span>
+    Price<span class="token punctuation">:</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">{</span> <span class="token variable">$order</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">price</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+                        <h4>Via The <code class=" language-php">with</code> Method:</h4>
+                        <p>If you would like to customize the format of your email's data before
+                            it is sent to the template, you may manually pass your data to the view
+                            via the <code class=" language-php">with</code> method. Typically, you will still pass data
+                            via the mailable class' constructor; however, you should set this data to <code
+                                    class=" language-php"><span class="token keyword">protected</span></code> or <code
+                                    class=" language-php"><span class="token keyword">private</span></code> properties
+                            so the data is not automatically made available to the template. Then, when calling the
+                            <code class=" language-php">with</code> method, pass an array of data that you wish to make
+                            available to the template:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Mail</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Order</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span
+                                    class="token punctuation">\</span>Queueable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Mail<span
+                                    class="token punctuation">\</span>Mailable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span
+                                    class="token punctuation">\</span>SerializesModels</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderShipped</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Mailable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Queueable</span><span
+                                    class="token punctuation">,</span> SerializesModels<span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * The order instance.
+     *
+     * @var Order
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$order</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new message instance.
+     *
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span>Order <span
+                                    class="token variable">$order</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">order</span> <span
+                                    class="token operator">=</span> <span class="token variable">$order</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Build the message.
+     *
+     * @return $this
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">build</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">with</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>
+                        <span class="token single-quoted-string string">'orderName'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">order</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">name</span><span
+                                    class="token punctuation">,</span>
+                        <span class="token single-quoted-string string">'orderPrice'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">order</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">price</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once the data has been passed to the <code class=" language-php">with</code>
+                            method, it will automatically be available in your view, so you may
+                            access it like you would access any other data in your Blade templates:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>div<span
+                                class="token operator">&gt;</span>
+    Price<span class="token punctuation">:</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">{</span> <span
+                                    class="token variable">$orderPrice</span> <span
+                                    class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+                        <p><a name="attachments"></a></p>
+                        <h3 id="attachments"><a href="#attachments">Attachments</a></h3>
+                        <p>To add attachments to an email, use the <code class=" language-php">attach</code> method
+                            within the mailable class' <code class=" language-php">build</code> method. The <code
+                                    class=" language-php">attach</code> method accepts the full path to the file as its
+                            first argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attach</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/path/to/file'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>When attaching files to a message, you may also specify the display name and / or MIME type
+                            by passing an <code class=" language-php"><span class="token keyword">array</span></code> as
+                            the second argument to the <code class=" language-php">attach</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attach</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/path/to/file'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">'as'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'name.pdf'</span><span
+                                    class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">'mime'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'application/pdf'</span><span
+                                    class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Attaching Files from Disk</h4>
+                        <p>If you have stored a file on one of your <a href="https://laravel.com/docs/7.x/filesystem">filesystem
+                            disks</a>, you may attach it to the email using the <code class=" language-php">attachFromStorage</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'email.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+               <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attachFromStorage</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/path/to/file'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If necessary, you may specify the file's attachment name and additional options using the
+                            second and third arguments to the <code class=" language-php">attachFromStorage</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'email.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+               <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attachFromStorage</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/path/to/file'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'name.pdf'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+                   <span class="token single-quoted-string string">'mime'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'application/pdf'</span>
+               <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>The <code class=" language-php">attachFromStorageDisk</code> method may be used if you need
+                            to specify a storage disk other than your default disk:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'email.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+               <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attachFromStorageDisk</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'s3'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'/path/to/file'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Raw Data Attachments</h4>
+                        <p>The <code class=" language-php">attachData</code> method may be used
+                            to attach a raw string of bytes as an attachment. For example, you might
+                            use this method if you have generated a PDF in memory and want to
+                            attach it to the email without writing it to disk. The <code class=" language-php">attachData</code>
+                            method accepts the raw data bytes as its first argument, the name of
+                            the file as its second argument, and an array of options as its third
+                            argument:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">view</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">attachData</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">pdf</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'name.pdf'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">'mime'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token single-quoted-string string">'application/pdf'</span><span
+                                    class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="inline-attachments"></a></p>
+                        <h3 id="inline-attachments"><a href="#inline-attachments">Inline Attachments</a></h3>
+                        <p>Embedding inline images into your emails is typically cumbersome;
+                            however, Laravel provides a convenient way to attach images to your
+                            emails and retrieving the appropriate CID. To embed an inline image, use
+                            the <code class=" language-php">embed</code> method on the <code class=" language-php"><span
+                                    class="token variable">$message</span></code> variable within your email template.
+                            Laravel automatically makes the <code class=" language-php"><span class="token variable">$message</span></code>
+                            variable available to all of your email templates, so you don't need to worry about passing
+                            it in manually:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>body<span
+                                class="token operator">&gt;</span>
+    Here is an image<span class="token punctuation">:</span>
+
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"{{ <span
+                                    class="token interpolation"><span class="token variable">$message</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">embed</span></span>(<span class="token interpolation"><span
+                                    class="token variable">$pathToImage</span></span>) }}"</span><span
+                                    class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="09-Mail_files/exclamation.svg"></div>
+                                <p class="content"><code class=" language-php"><span
+                                        class="token variable">$message</span></code> variable is not available in
+                                    plain-text messages since plain-text messages do not utilize inline attachments.</p>
+                            </div>
+                        </blockquote>
+                        <h4>Embedding Raw Data Attachments</h4>
+                        <p>If you already have a raw data string you wish to embed into an email template, you may use
+                            the <code class=" language-php">embedData</code> method on the <code
+                                    class=" language-php"><span class="token variable">$message</span></code> variable:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>body<span
+                                class="token operator">&gt;</span>
+    Here is an image from raw data<span class="token punctuation">:</span>
+
+    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"{{ <span
+                                    class="token interpolation"><span class="token variable">$message</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">embedData</span></span>(<span
+                                    class="token interpolation"><span class="token variable">$data</span></span>, <span
+                                    class="token interpolation"><span
+                                    class="token variable">$name</span></span>) }}"</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span
+                                    class="token operator">&gt;</span></code></pre>
+                        <p><a name="customizing-the-swiftmailer-message"></a></p>
+                        <h3 id="customizing-the-swiftmailer-message"><a href="#customizing-the-swiftmailer-message">Customizing
+                            The SwiftMailer Message</a></h3>
+                        <p>The <code class=" language-php">withSwiftMessage</code> method of the <code
+                                class=" language-php">Mailable</code>
+                            base class allows you to register a callback which will be invoked with
+                            the raw SwiftMailer message instance before sending the message. This
+                            gives you an opportunity to customize the message before it is
+                            delivered:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">view</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">withSwiftMessage</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token variable">$message</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$message</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">getHeaders</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">addTextHeader</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'Custom-Header'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'HeaderValue'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="markdown-mailables"></a></p>
+                        <h2 id="markdown-mailables"><a href="#markdown-mailables">Markdown Mailables</a></h2>
+                        <p>Markdown mailable messages allow you to take advantage of the
+                            pre-built templates and components of mail notifications in your
+                            mailables. Since the messages are written in Markdown, Laravel is able
+                            to render beautiful, responsive HTML templates for the messages while
+                            also automatically generating a plain-text counterpart.</p>
+                        <p><a name="generating-markdown-mailables"></a></p>
+                        <h3 id="generating-markdown-mailables"><a href="#generating-markdown-mailables">Generating
+                            Markdown Mailables</a></h3>
+                        <p>To generate a mailable with a corresponding Markdown template, you may use the <code
+                                class=" language-php"><span class="token operator">--</span>markdown</code> option of
+                            the <code class=" language-php">make<span class="token punctuation">:</span>mail</code>
+                            Artisan command:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan make<span
+                                class="token punctuation">:</span>mail OrderShipped <span
+                                class="token operator">--</span>markdown<span class="token operator">=</span>emails<span
+                                class="token punctuation">.</span>orders<span class="token punctuation">.</span>shipped</code></pre>
+                        <p>Then, when configuring the mailable within its <code class=" language-php">build</code>
+                            method, call the <code class=" language-php">markdown</code> method instead of the <code
+                                    class=" language-php">view</code> method. The <code
+                                    class=" language-php">markdown</code> method accepts the name of the Markdown
+                            template and an optional array of data to make available to the template:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Build the message.
+ *
+ * @return $this
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span
+                                    class="token function">build</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">from</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'example@example.com'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">markdown</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails.orders.shipped'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="writing-markdown-messages"></a></p>
+                        <h3 id="writing-markdown-messages"><a href="#writing-markdown-messages">Writing Markdown
+                            Messages</a></h3>
+                        <p>Markdown mailables use a combination of Blade components and Markdown
+                            syntax which allow you to easily construct mail messages while
+                            leveraging Laravel's pre-crafted components:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">component</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mail::message'</span><span
+                                class="token punctuation">)</span>
+<span class="token shell-comment comment"># Order Shipped</span>
+
+Your order has been shipped<span class="token operator">!</span>
+
+@<span class="token function">component</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'mail::button'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'url'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token variable">$url</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span>
+View Order
+@endcomponent
+
+Thanks<span class="token punctuation">,</span><span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span
+                                    class="token function">config</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'app.name'</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">}</span><span
+                                    class="token punctuation">}</span>
+@endcomponent</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="09-Mail_files/lightbulb.svg"></div>
+                                <p class="content"> Do not use excess indentation when writing Markdown emails. Markdown
+                                    parsers will render indented content as code blocks.</p></div>
+                        </blockquote>
+                        <h4>Button Component</h4>
+                        <p>The button component renders a centered button link. The component accepts two arguments, a
+                            <code class=" language-php">url</code> and an optional <code
+                                    class=" language-php">color</code>. Supported colors are <code
+                                    class=" language-php">primary</code>, <code class=" language-php">success</code>,
+                            and <code class=" language-php">error</code>. You may add as many button components to a
+                            message as you wish:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">component</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mail::button'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'url'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token variable">$url</span><span class="token punctuation">,</span> <span
+                                class="token single-quoted-string string">'color'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'success'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span>
+View Order
+@endcomponent</code></pre>
+                        <h4>Panel Component</h4>
+                        <p>The panel component renders the given block of text in a panel that
+                            has a slightly different background color than the rest of the message.
+                            This allows you to draw attention to a given block of text:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">component</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mail::panel'</span><span
+                                class="token punctuation">)</span>
+This is the panel content<span class="token punctuation">.</span>
+@endcomponent</code></pre>
+                        <h4>Table Component</h4>
+                        <p>The table component allows you to transform a Markdown table into an
+                            HTML table. The component accepts the Markdown table as its content.
+                            Table column alignment is supported using the default Markdown table
+                            alignment syntax:</p>
+                        <pre class=" language-php"><code class=" language-php">@<span
+                                class="token function">component</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mail::table'</span><span
+                                class="token punctuation">)</span>
+<span class="token operator">|</span> Laravel       <span class="token operator">|</span> Table         <span
+                                    class="token operator">|</span> Example  <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">-</span> <span class="token operator">|</span><span
+                                    class="token punctuation">:</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">-</span><span
+                                    class="token punctuation">:</span><span class="token operator">|</span> <span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token operator">--</span><span class="token operator">--</span><span
+                                    class="token punctuation">:</span><span class="token operator">|</span>
+<span class="token operator">|</span> Col <span class="token number">2</span> is      <span
+                                    class="token operator">|</span> Centered      <span class="token operator">|</span> <span
+                                    class="token variable">$10</span>      <span class="token operator">|</span>
+<span class="token operator">|</span> Col <span class="token number">3</span> is      <span
+                                    class="token operator">|</span> Right<span
+                                    class="token operator">-</span>Aligned <span class="token operator">|</span> <span
+                                    class="token variable">$20</span>      <span class="token operator">|</span>
+@endcomponent</code></pre>
+                        <p><a name="customizing-the-components"></a></p>
+                        <h3 id="customizing-the-components"><a href="#customizing-the-components">Customizing The
+                            Components</a></h3>
+                        <p>You may export all of the Markdown mail components to your own application for customization.
+                            To export the components, use the <code class=" language-php">vendor<span
+                                    class="token punctuation">:</span>publish</code> Artisan command to publish the
+                            <code class=" language-php">laravel<span class="token operator">-</span>mail</code> asset
+                            tag:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>tag<span
+                                class="token operator">=</span>laravel<span
+                                class="token operator">-</span>mail</code></pre>
+                        <p>This command will publish the Markdown mail components to the <code class=" language-php">resources<span
+                                class="token operator">/</span>views<span class="token operator">/</span>vendor<span
+                                class="token operator">/</span>mail</code> directory. The <code class=" language-php">mail</code>
+                            directory will contain an <code class=" language-php">html</code> and a <code
+                                    class=" language-php">text</code>
+                            directory, each containing their respective representations of every
+                            available component. You are free to customize these components however
+                            you like.</p>
+                        <h4>Customizing The CSS</h4>
+                        <p>After exporting the components, the <code class=" language-php">resources<span
+                                class="token operator">/</span>views<span class="token operator">/</span>vendor<span
+                                class="token operator">/</span>mail<span class="token operator">/</span>html<span
+                                class="token operator">/</span>themes</code> directory will contain a <code
+                                class=" language-php"><span class="token keyword">default</span><span
+                                class="token punctuation">.</span>css</code>
+                            file. You may customize the CSS in this file and your styles will
+                            automatically be in-lined within the HTML representations of your
+                            Markdown mail messages.</p>
+                        <p>If you would like to build an entirely new theme for Laravel's Markdown components, you may
+                            place a CSS file within the <code class=" language-php">html<span
+                                    class="token operator">/</span>themes</code> directory. After naming and saving your
+                            CSS file, update the <code class=" language-php">theme</code> option of the <code
+                                    class=" language-php">mail</code> configuration file to match the name of your new
+                            theme.</p>
+                        <p>To customize the theme for an individual mailable, you may set the <code
+                                class=" language-php"><span class="token variable">$theme</span></code> property of the
+                            mailable class to the name of the theme that should be used when sending that mailable.</p>
+                        <p><a name="sending-mail"></a></p>
+                        <h2 id="sending-mail"><a href="#sending-mail">Sending Mail</a></h2>
+                        <p>To send a message, use the <code class=" language-php">to</code> method on the <code
+                                class=" language-php">Mail</code> <a
+                                href="https://laravel.com/docs/7.x/facades">facade</a>. The <code class=" language-php">to</code>
+                            method accepts an email address, a user instance, or a collection of
+                            users. If you pass an object or collection of objects, the mailer will
+                            automatically use their <code class=" language-php">email</code> and <code
+                                    class=" language-php">name</code>
+                            properties when setting the email recipients, so make sure these
+                            attributes are available on your objects. Once you have specified your
+                            recipients, you may pass an instance of your mailable class to the <code
+                                    class=" language-php">send</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Controllers<span
+                                    class="token punctuation">\</span>Controller</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Mail<span
+                                    class="token punctuation">\</span>OrderShipped</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Order</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Mail</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderController</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Ship the given order.
+     *
+     * @param  Request  $request
+     * @param  int  $orderId
+     * @return Response
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">ship</span><span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$orderId</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$order</span> <span class="token operator">=</span> Order<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">findOrFail</span><span
+                                    class="token punctuation">(</span><span class="token variable">$orderId</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Ship order...</span>
+
+        Mail<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">send</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>You are not limited to just specifying the "to" recipients when
+                            sending a message. You are free to set "to", "cc", and "bcc" recipients
+                            all within a single, chained method call:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Support<span class="token punctuation">\</span>Facades<span
+                                class="token punctuation">\</span>Mail</span><span class="token punctuation">;</span>
+
+Mail<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">cc</span><span class="token punctuation">(</span><span
+                                    class="token variable">$moreUsers</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bcc</span><span
+                                    class="token punctuation">(</span><span class="token variable">$evenMoreUsers</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">send</span><span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Sending Mail Via A Specific Mailer</h4>
+                        <p>By default, Laravel will use the mailer configured as the <code class=" language-php"><span
+                                class="token keyword">default</span></code> mailer in your <code class=" language-php">mail</code>
+                            configuration file. However, you may use the <code class=" language-php">mailer</code>
+                            method to send a message using a specific mailer configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">Mail<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">mailer</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'postmark'</span><span
+                                class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">send</span><span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="rendering-mailables"></a></p>
+                        <h2 id="rendering-mailables"><a href="#rendering-mailables">Rendering Mailables</a></h2>
+                        <p>Sometimes you may wish to capture the HTML content of a mailable without sending it. To
+                            accomplish this, you may call the <code class=" language-php">render</code> method of the
+                            mailable. This method will return the evaluated contents of the mailable as a string:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$invoice</span> <span class="token operator">=</span> App\<span
+                                class="token package">Invoice</span><span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">find</span><span
+                                class="token punctuation">(</span><span class="token number">1</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">App<span class="token punctuation">\</span>Mail<span
+                                    class="token punctuation">\</span>InvoicePaid</span><span class="token punctuation">(</span><span
+                                    class="token variable">$invoice</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">render</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="previewing-mailables-in-the-browser"></a></p>
+                        <h3 id="previewing-mailables-in-the-browser"><a href="#previewing-mailables-in-the-browser">Previewing
+                            Mailables In The Browser</a></h3>
+                        <p>When designing a mailable's template, it is convenient to quickly
+                            preview the rendered mailable in your browser like a typical Blade
+                            template. For this reason, Laravel allows you to return any mailable
+                            directly from a route Closure or controller. When a mailable is
+                            returned, it will be rendered and displayed in the browser, allowing you
+                            to quickly preview its design without needing to send it to an actual
+                            email address:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">get</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'mailable'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token variable">$invoice</span> <span class="token operator">=</span> App\<span class="token package">Invoice</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">find</span><span class="token punctuation">(</span><span
+                                    class="token number">1</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">App<span class="token punctuation">\</span>Mail<span
+                                    class="token punctuation">\</span>InvoicePaid</span><span class="token punctuation">(</span><span
+                                    class="token variable">$invoice</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="queueing-mail"></a></p>
+                        <h3 id="queueing-mail"><a href="#queueing-mail">Queueing Mail</a></h3>
+                        <h4>Queueing A Mail Message</h4>
+                        <p>Since sending email messages can drastically lengthen the response
+                            time of your application, many developers choose to queue email messages
+                            for background sending. Laravel makes this easy using its built-in <a
+                                    href="https://laravel.com/docs/7.x/queues">unified queue API</a>. To queue a mail
+                            message, use the <code class=" language-php">queue</code> method on the <code
+                                    class=" language-php">Mail</code> facade after specifying the message's recipients:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">Mail<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">to</span><span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">user</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">cc</span><span class="token punctuation">(</span><span
+                                    class="token variable">$moreUsers</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bcc</span><span
+                                    class="token punctuation">(</span><span class="token variable">$evenMoreUsers</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">queue</span><span class="token punctuation">(</span><span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>This method will automatically take care of pushing a job onto the
+                            queue so the message is sent in the background. You will need to <a
+                                    href="https://laravel.com/docs/7.x/queues">configure your queues</a> before using
+                            this feature.</p>
+                        <h4>Delayed Message Queueing</h4>
+                        <p>If you wish to delay the delivery of a queued email message, you may use the <code
+                                class=" language-php">later</code> method. As its first argument, the <code
+                                class=" language-php">later</code> method accepts a <code
+                                class=" language-php">DateTime</code> instance indicating when the message should be
+                            sent:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$when</span> <span
+                                class="token operator">=</span> <span class="token function">now</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">addMinutes</span><span class="token punctuation">(</span><span
+                                class="token number">10</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+Mail<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">cc</span><span class="token punctuation">(</span><span
+                                    class="token variable">$moreUsers</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bcc</span><span
+                                    class="token punctuation">(</span><span class="token variable">$evenMoreUsers</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">later</span><span class="token punctuation">(</span><span
+                                    class="token variable">$when</span><span class="token punctuation">,</span> <span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">OrderShipped</span><span class="token punctuation">(</span><span
+                                    class="token variable">$order</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Pushing To Specific Queues</h4>
+                        <p>Since all mailable classes generated using the <code class=" language-php">make<span
+                                class="token punctuation">:</span>mail</code> command make use of the <code
+                                class=" language-php">Illuminate\<span class="token package">Bus<span
+                                class="token punctuation">\</span>Queueable</span></code> trait, you may call the <code
+                                class=" language-php">onQueue</code> and <code class=" language-php">onConnection</code>
+                            methods on any mailable class instance, allowing you to specify the connection and queue
+                            name for the message:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$message</span> <span class="token operator">=</span> <span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">OrderShipped</span><span
+                                class="token punctuation">(</span><span class="token variable">$order</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onConnection</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'sqs'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onQueue</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'emails'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Mail<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">to</span><span class="token punctuation">(</span><span
+                                    class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">user</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">cc</span><span class="token punctuation">(</span><span
+                                    class="token variable">$moreUsers</span><span class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bcc</span><span
+                                    class="token punctuation">(</span><span class="token variable">$evenMoreUsers</span><span
+                                    class="token punctuation">)</span>
+    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">queue</span><span class="token punctuation">(</span><span
+                                    class="token variable">$message</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Queueing By Default</h4>
+                        <p>If you have mailable classes that you want to always be queued, you may implement the <code
+                                class=" language-php">ShouldQueue</code> contract on the class. Now, even if you call
+                            the <code class=" language-php">send</code> method when mailing, the mailable will still be
+                            queued since it implements the contract:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span
+                                class="token punctuation">\</span>ShouldQueue</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OrderShipped</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Mailable</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="localizing-mailables"></a></p>
+                        <h2 id="localizing-mailables"><a href="#localizing-mailables">Localizing Mailables</a></h2>
+                        <p>Laravel allows you to send mailables in a locale other than the
+                            current language, and will even remember this locale if the mail is
+                            queued.</p>
+                        <p>To accomplish this, the <code class=" language-php">Mail</code> facade offers a <code
+                                class=" language-php">locale</code>
+                            method to set the desired language. The application will change into
+                            this locale when the mailable is being formatted and then revert back to
+                            the previous locale when formatting is complete:</p>
+                        <pre class=" language-php"><code class=" language-php">Mail<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">to</span><span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">user</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">locale</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'es'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">send</span><span
+                                class="token punctuation">(</span>
+    <span class="token keyword">new</span> <span class="token class-name">OrderShipped</span><span
+                                    class="token punctuation">(</span><span class="token variable">$order</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h3>User Preferred Locales</h3>
+                        <p>Sometimes, applications store each user's preferred locale. By implementing the <code
+                                class=" language-php">HasLocalePreference</code> contract on one or more of your models,
+                            you may instruct Laravel to use this stored locale when sending mail:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Illuminate<span
+                                class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Translation<span
+                                class="token punctuation">\</span>HasLocalePreference</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Model</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">HasLocalePreference</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Get the user's preferred locale.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">preferredLocale</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">locale</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>Once you have implemented the interface, Laravel will automatically
+                            use the preferred locale when sending mailables and notifications to the
+                            model. Therefore, there is no need to call the <code class=" language-php">locale</code>
+                            method when using this interface:</p>
+                        <pre class=" language-php"><code class=" language-php">Mail<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">to</span><span class="token punctuation">(</span><span
+                                class="token variable">$request</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">user</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">send</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">OrderShipped</span><span
+                                class="token punctuation">(</span><span class="token variable">$order</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="mail-and-local-development"></a></p>
+                        <h2 id="mail-and-local-development"><a href="#mail-and-local-development">Mail &amp; Local
+                            Development</a></h2>
+                        <p>When developing an application that sends email, you probably don't
+                            want to actually send emails to live email addresses. Laravel provides
+                            several ways to "disable" the actual sending of emails during local
+                            development.</p>
+                        <h4>Log Driver</h4>
+                        <p>Instead of sending your emails, the <code class=" language-php">log</code>
+                            mail driver will write all email messages to your log files for
+                            inspection. For more information on configuring your application per
+                            environment, check out the <a
+                                    href="#environment-configuration">configuration
+                                documentation</a>.</p>
+                        <h4>Universal To</h4>
+                        <p>Another solution provided by Laravel is to set a universal recipient
+                            of all emails sent by the framework. This way, all the emails generated
+                            by your application will be sent to a specific address, instead of the
+                            address actually specified when sending the message. This can be done
+                            via the <code class=" language-php">to</code> option in your <code class=" language-php">config<span
+                                    class="token operator">/</span>mail<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'to'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'address'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'example@example.com'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'Example'</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Mailtrap</h4>
+                        <p>Finally, you may use a service like <a href="https://mailtrap.io/">Mailtrap</a> and the <code
+                                class=" language-php">smtp</code>
+                            driver to send your email messages to a "dummy" mailbox where you may
+                            view them in a true email client. This approach has the benefit of
+                            allowing you to actually inspect the final emails in Mailtrap's message
+                            viewer.</p>
+                        <p><a name="events"></a></p>
+                        <h2 id="events"><a href="#events">Events</a></h2>
+                        <p>Laravel fires two events during the process of sending mail messages. The <code
+                                class=" language-php">MessageSending</code> event is fired prior to a message being
+                            sent, while the <code class=" language-php">MessageSent</code> event is fired after a
+                            message has been sent. Remember, these events are fired when the mail is being <em>sent</em>,
+                            not when it is queued. You may register an event listener for this event in your <code
+                                    class=" language-php">EventServiceProvider</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The event listener mappings for the application.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$listen</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'Illuminate\Mail\Events\MessageSending'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogSendingMessage'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'Illuminate\Mail\Events\MessageSent'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'App\Listeners\LogSentMessage'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

@@ -1,0 +1,31 @@
+_carbonads_go({
+  "ads": [
+    {
+      "active": "1",
+      "ad_via_link": "https://buy.buysellads.com/checkout/new/?utm_source=laravel-com-carbon\u0026utm_medium=ad_via_link\u0026utm_campaign=in_unit\u0026utm_term=carbon",
+      "bannerid": "405266",
+      "company": "Adobe",
+      "creativeid": "415985",
+      "evenodd": "0",
+      "external_id": "17584",
+      "fallbackImage": "https://fallbacks.carbonads.com/nosvn/fallbacks/dabf8eec0afae2a669e68d8dc1092605.jpg",
+      "fallbackLink": "https://forge.laravel.com",
+      "fallbackTitle": "Deploy Laravel and PHP applications on DigitalOcean, Linode, \u0026 AWS.",
+      "height": "0",
+      "i": "0",
+      "identifier": "7bba828b2240e485242e6ab38906ebb7",
+      "longimp": "T3NFDH4OTTTTTTF46PQHATTTTTTT4MKLZYTTTTTTOTC7VUETTTTTT",
+      "longlink": "THNFDH4OTTTTTTF46PQHATTTTTTT4MKLZYTTTTTTOTC7VUETTTTTTBDW5JYFC5JGHRJNYB755J7C47DHKJUUPYIKKM74AYSG2WUNCSDQK2MIOA3RCVSDVK7MCWIC4GQLF6BD523NCAIC5GQLCK7D553YCWY4K7ZE26ONCYZLKQUNA7DH5Y",
+      "rendering": "carbon",
+      "smallImage": "https://cdn4.buysellads.net/uu/1/41334/1550855374-cc_light.png",
+      "statimp": "//srv.buysellads.com/ads/imp/x/GTND42QYCYSIE2JNCYA4YKQMFTSDKK7MCEAITZ3JCWADK2JWFT7I6KQKC6BIE2JUCYYI6K3EHJWNBADLKM7UCBZG2Y",
+      "statlink": "//srv.buysellads.com/ads/click/x/GTND42QYCYSIE2JNCYA4YKQMFTSDKK7MCEAITZ3JCWADK2JWFT7I6KQKC6BIE2JUCYYI6K3EHJNCLSIZ",
+      "timestamp": "1586764151",
+      "title": "Students and Teachers, save up to 60% on Adobe Creative Cloud.",
+      "width": "0",
+      "zoneid": "31900",
+      "zonekey": "CKYILK3E"
+    },
+    {}
+  ]
+});

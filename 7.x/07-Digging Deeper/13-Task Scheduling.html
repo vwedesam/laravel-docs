@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Task Scheduling - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/scheduling">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="13-Task%20Scheduling_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="13-Task%20Scheduling_files/app.css">
+
+    <!-- Load JS -->
+    <script src="13-Task%20Scheduling_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="13-Task%20Scheduling_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Task Scheduling</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#defining-schedules">Defining Schedules</a>
+                                <ul>
+                                    <li><a href="#scheduling-artisan-commands">Scheduling Artisan Commands</a></li>
+                                    <li><a href="#scheduling-queued-jobs">Scheduling Queued Jobs</a></li>
+                                    <li><a href="#scheduling-shell-commands">Scheduling Shell Commands</a></li>
+                                    <li><a href="#schedule-frequency-options">Schedule Frequency Options</a></li>
+                                    <li><a href="#timezones">Timezones</a></li>
+                                    <li><a href="#preventing-task-overlaps">Preventing Task Overlaps</a></li>
+                                    <li><a href="#running-tasks-on-one-server">Running Tasks On One Server</a></li>
+                                    <li><a href="#background-tasks">Background Tasks</a></li>
+                                    <li><a href="#maintenance-mode">Maintenance Mode</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#task-output">Task Output</a></li>
+                            <li><a href="#task-hooks">Task Hooks</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>In the past, you may have generated a Cron entry for each task you
+                            needed to schedule on your server. However, this can quickly become a
+                            pain, because your task schedule is no longer in source control and you
+                            must SSH into your server to add additional Cron entries.</p>
+                        <p>Laravel's command scheduler allows you to fluently and expressively
+                            define your command schedule within Laravel itself. When using the
+                            scheduler, only a single Cron entry is needed on your server. Your task
+                            schedule is defined in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Console<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file's <code class=" language-php">schedule</code>
+                            method. To help you get started, a simple example is defined within the method.</p>
+                        <h3>Starting The Scheduler</h3>
+                        <p>When using the scheduler, you only need to add the following Cron
+                            entry to your server. If you do not know how to add Cron entries to your
+                            server, consider using a service such as <a href="https://forge.laravel.com/">Laravel
+                                Forge</a> which can manage the Cron entries for you:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token operator">*</span> <span class="token operator">*</span> <span
+                                class="token operator">*</span> <span class="token operator">*</span> <span
+                                class="token operator">*</span> cd <span class="token operator">/</span>path<span
+                                class="token operator">-</span>to<span class="token operator">-</span>your<span
+                                class="token operator">-</span>project <span class="token operator">&amp;&amp;</span> php artisan schedule<span
+                                class="token punctuation">:</span>run <span class="token operator">&gt;</span><span
+                                class="token operator">&gt;</span> <span class="token operator">/</span>dev<span
+                                class="token operator">/</span><span class="token constant">null</span> <span
+                                class="token number">2</span><span class="token operator">&gt;</span><span
+                                class="token operator">&amp;</span><span class="token number">1</span></code></pre>
+                        <p>This Cron will call the Laravel command scheduler every minute. When the <code
+                                class=" language-php">schedule<span class="token punctuation">:</span>run</code> command
+                            is executed, Laravel will evaluate your scheduled tasks and runs the tasks that are due.</p>
+                        <p><a name="defining-schedules"></a></p>
+                        <h2 id="defining-schedules"><a href="#defining-schedules">Defining Schedules</a></h2>
+                        <p>You may define all of your scheduled tasks in the <code class=" language-php">schedule</code>
+                            method of the <code class=" language-php">App\<span class="token package">Console<span
+                                    class="token punctuation">\</span>Kernel</span></code> class. To get started, let's
+                            look at an example of scheduling a task. In this example, we will schedule a <code
+                                    class=" language-php">Closure</code> to be called every day at midnight. Within the
+                            <code class=" language-php">Closure</code> we will execute a database query to clear a
+                            table:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Console</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Console<span
+                                    class="token punctuation">\</span>Scheduling<span class="token punctuation">\</span>Schedule</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span
+                                    class="token punctuation">\</span>Console<span class="token punctuation">\</span>Kernel</span> <span
+                                    class="token keyword">as</span> ConsoleKernel<span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>DB</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Kernel</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">ConsoleKernel</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$commands</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */</span>
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span
+                                    class="token function">schedule</span><span class="token punctuation">(</span>Schedule <span
+                                    class="token variable">$schedule</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$schedule</span><span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">call</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token constant">DB</span><span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">table</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'recent_users'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>In addition to scheduling using Closures, you may also use <a
+                                href="https://secure.php.net/manual/en/language.oop5.magic.php#object.invoke">invokable
+                            objects</a>. Invokable objects are simple PHP classes that contain an <code
+                                class=" language-php">__invoke</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">call</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">DeleteRecentUsers</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">daily</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="scheduling-artisan-commands"></a></p>
+                        <h3 id="scheduling-artisan-commands"><a href="#scheduling-artisan-commands">Scheduling Artisan
+                            Commands</a></h3>
+                        <p>In addition to scheduling Closure calls, you may also schedule <a
+                                href="https://laravel.com/docs/7.x/artisan">Artisan commands</a> and operating system
+                            commands. For example, you may use the <code class=" language-php">command</code> method to
+                            schedule an Artisan command using either the command's name or class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send Taylor --force'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">daily</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$schedule</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">command</span><span
+                                    class="token punctuation">(</span>EmailsCommand<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span> <span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'Taylor'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'--force'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="scheduling-queued-jobs"></a></p>
+                        <h3 id="scheduling-queued-jobs"><a href="#scheduling-queued-jobs">Scheduling Queued Jobs</a>
+                        </h3>
+                        <p>The <code class=" language-php">job</code> method may be used to schedule a <a
+                                href="https://laravel.com/docs/7.x/queues">queued job</a>. This method provides a
+                            convenient way to schedule jobs without using the <code class=" language-php">call</code>
+                            method to manually create Closures to queue the job:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">job</span><span
+                                class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                class="token class-name">Heartbeat</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">everyFiveMinutes</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token comment">// Dispatch the job to the "heartbeats" queue...</span>
+<span class="token variable">$schedule</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">job</span><span
+                                    class="token punctuation">(</span><span class="token keyword">new</span> <span
+                                    class="token class-name">Heartbeat</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'heartbeats'</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">everyFiveMinutes</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="scheduling-shell-commands"></a></p>
+                        <h3 id="scheduling-shell-commands"><a href="#scheduling-shell-commands">Scheduling Shell
+                            Commands</a></h3>
+                        <p>The <code class=" language-php">exec</code> method may be used to issue a command to the
+                            operating system:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">exec</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'node /home/forge/script.js'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">daily</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="schedule-frequency-options"></a></p>
+                        <h3 id="schedule-frequency-options"><a href="#schedule-frequency-options">Schedule Frequency
+                            Options</a></h3>
+                        <p>There are a variety of schedules you may assign to your task:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">cron</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token single-quoted-string string">'* * * * *'</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task on a custom Cron schedule</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">everyMinute</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every minute</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">everyFiveMinutes</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every five minutes</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">everyTenMinutes</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every ten minutes</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">everyFifteenMinutes</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every fifteen minutes</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">everyThirtyMinutes</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every thirty minutes</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">hourly</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every hour</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">hourlyAt</span><span
+                                        class="token punctuation">(</span><span class="token number">17</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every hour at 17 minutes past the hour</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">daily</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every day at midnight</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">dailyAt</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token single-quoted-string string">'13:00'</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every day at 13:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">twiceDaily</span><span
+                                        class="token punctuation">(</span><span class="token number">1</span><span
+                                        class="token punctuation">,</span> <span class="token number">13</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task daily at 1:00 &amp; 13:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">weekly</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every sunday at 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">weeklyOn</span><span
+                                        class="token punctuation">(</span><span class="token number">1</span><span
+                                        class="token punctuation">,</span> <span
+                                        class="token single-quoted-string string">'8:00'</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every week on Monday at 8:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">monthly</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task on the first day of every month at 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">monthlyOn</span><span
+                                        class="token punctuation">(</span><span class="token number">4</span><span
+                                        class="token punctuation">,</span> <span
+                                        class="token single-quoted-string string">'15:00'</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task every month on the 4th at 15:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">quarterly</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task on the first day of every quarter at 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">yearly</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Run the task on the first day of every year at 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">timezone</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token single-quoted-string string">'America/New_York'</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Set the timezone</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>These methods may be combined with additional constraints to create
+                            even more finely tuned schedules that only run on certain days of the
+                            week. For example, to schedule a command to run weekly on Monday:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Run once per week on Monday at 1 PM...</span>
+<span class="token variable">$schedule</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">call</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">weekly</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">mondays</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">at</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'13:00'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Run hourly from 8 AM to 5 PM on weekdays...</span>
+<span class="token variable">$schedule</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">command</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'foo'</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">weekdays</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">hourly</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timezone</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'America/Chicago'</span><span
+                                    class="token punctuation">)</span>
+          <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">between</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'8:00'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'17:00'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Below is a list of the additional schedule constraints:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">weekdays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to weekdays</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">weekends</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to weekends</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">sundays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Sunday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">mondays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Monday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">tuesdays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Tuesday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">wednesdays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Wednesday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">thursdays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Thursday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">fridays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Friday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">saturdays</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to Saturday</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">between</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token variable">$start</span><span class="token punctuation">,</span>
+                                    <span class="token variable">$end</span><span
+                                            class="token punctuation">)</span><span
+                                            class="token punctuation">;</span></code></td>
+                                <td>Limit the task to run between start and end times</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span class="token function">when</span><span
+                                        class="token punctuation">(</span>Closure<span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task based on a truth test</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">-</span><span
+                                        class="token operator">&gt;</span><span
+                                        class="token function">environments</span><span
+                                        class="token punctuation">(</span><span class="token variable">$env</span><span
+                                        class="token punctuation">)</span><span
+                                        class="token punctuation">;</span></code></td>
+                                <td>Limit the task to specific environments</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <h4>Between Time Constraints</h4>
+                        <p>The <code class=" language-php">between</code> method may be used to limit the execution of a
+                            task based on the time of day:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'reminders:send'</span><span
+                                class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">hourly</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">between</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'7:00'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'22:00'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Similarly, the <code class=" language-php">unlessBetween</code> method can be used to exclude
+                            the execution of a task for a period of time:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'reminders:send'</span><span
+                                class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">hourly</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+                    <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">unlessBetween</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'23:00'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'4:00'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Truth Test Constraints</h4>
+                        <p>The <code class=" language-php">when</code> method may be used to limit the execution of a
+                            task based on the result of a given truth test. In other words, if the given <code
+                                    class=" language-php">Closure</code> returns <code class=" language-php"><span
+                                    class="token boolean constant">true</span></code>, the task will execute as long as
+                            no other constraining conditions prevent the task from running:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">daily</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">when</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">skip</code> method may be seen as the inverse of <code
+                                class=" language-php">when</code>. If the <code class=" language-php">skip</code> method
+                            returns <code class=" language-php"><span class="token boolean constant">true</span></code>,
+                            the scheduled task will not be executed:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">daily</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token function">skip</span><span class="token punctuation">(</span><span
+                                class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When using chained <code class=" language-php">when</code> methods, the scheduled command
+                            will only execute if all <code class=" language-php">when</code> conditions return <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>.</p>
+                        <h4>Environment Constraints</h4>
+                        <p>The <code class=" language-php">environments</code> method may be used to execute tasks only
+                            on the given environments:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">daily</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">environments</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'staging'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'production'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="timezones"></a></p>
+                        <h3 id="timezones"><a href="#timezones">Timezones</a></h3>
+                        <p>Using the <code class=" language-php">timezone</code> method, you may specify that a
+                            scheduled task's time should be interpreted within a given timezone:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'report:generate'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timezone</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'America/New_York'</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">at</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'02:00'</span><span
+                                    class="token punctuation">)</span></code></pre>
+                        <p>If you are assigning the same timezone to all of your scheduled tasks, you may wish to define
+                            a <code class=" language-php">scheduleTimezone</code> method in your <code
+                                    class=" language-php">app<span class="token operator">/</span>Console<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file. This method should return the
+                            default timezone that should be assigned to all scheduled tasks:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the timezone that should be used by default for scheduled events.
+ *
+ * @return \DateTimeZone|string|null
+ */</span>
+<span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">scheduleTimezone</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span
+                                    class="token single-quoted-string string">'America/Chicago'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="13-Task%20Scheduling_files/exclamation.svg"></div>
+                                <p class="content">
+                                    Remember that some timezones utilize daylight savings time. When
+                                    daylight saving time changes occur, your scheduled task may run twice or
+                                    even not run at all. For this reason, we recommend avoiding timezone
+                                    scheduling when possible.</p></div>
+                        </blockquote>
+                        <p><a name="preventing-task-overlaps"></a></p>
+                        <h3 id="preventing-task-overlaps"><a href="#preventing-task-overlaps">Preventing Task
+                            Overlaps</a></h3>
+                        <p>By default, scheduled tasks will be run even if the previous instance
+                            of the task is still running. To prevent this, you may use the <code class=" language-php">withoutOverlapping</code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">withoutOverlapping</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>In this example, the <code class=" language-php">emails<span
+                                class="token punctuation">:</span>send</code> <a
+                                href="https://laravel.com/docs/7.x/artisan">Artisan command</a> will be run every minute
+                            if it is not already running. The <code class=" language-php">withoutOverlapping</code>
+                            method is especially useful if you have tasks that vary drastically in
+                            their execution time, preventing you from predicting exactly how long a
+                            given task will take.</p>
+                        <p>If needed, you may specify how many minutes must pass before the
+                            "without overlapping" lock expires. By default, the lock will expire
+                            after 24 hours:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">withoutOverlapping</span><span
+                                class="token punctuation">(</span><span class="token number">10</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="running-tasks-on-one-server"></a></p>
+                        <h3 id="running-tasks-on-one-server"><a href="#running-tasks-on-one-server">Running Tasks On One
+                            Server</a></h3>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="13-Task%20Scheduling_files/exclamation.svg"></div>
+                                <p class="content"> To utilize this feature, your application must be using the <code
+                                        class=" language-php">memcached</code> or <code
+                                        class=" language-php">redis</code>
+                                    cache driver as your application's default cache driver. In addition,
+                                    all servers must be communicating with the same central cache server.</p></div>
+                        </blockquote>
+                        <p>If your application is running on multiple servers, you may limit a
+                            scheduled job to only execute on a single server. For instance, assume
+                            you have a scheduled task that generates a new report every Friday
+                            night. If the task scheduler is running on three worker servers, the
+                            scheduled task will run on all three servers and generate the report
+                            three times. Not good!</p>
+                        <p>To indicate that the task should run on only one server, use the <code class=" language-php">onOneServer</code>
+                            method when defining the scheduled task. The first server to obtain the
+                            task will secure an atomic lock on the job to prevent other servers
+                            from running the same task at the same time:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'report:generate'</span><span
+                                class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">fridays</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">at</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'17:00'</span><span
+                                    class="token punctuation">)</span>
+                <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">onOneServer</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="background-tasks"></a></p>
+                        <h3 id="background-tasks"><a href="#background-tasks">Background Tasks</a></h3>
+                        <p>By default, multiple commands scheduled at the same time will execute
+                            sequentially. If you have long-running commands, this may cause
+                            subsequent commands to start much later than anticipated. If you would
+                            like to run commands in the background so that they may all run
+                            simultaneously, you may use the <code class=" language-php">runInBackground</code> method:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'analytics:report'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">runInBackground</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="13-Task%20Scheduling_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">runInBackground</code> method may
+                                    only be used when scheduling tasks via the <code
+                                            class=" language-php">command</code> and <code
+                                            class=" language-php">exec</code> methods.</p></div>
+                        </blockquote>
+                        <p><a name="maintenance-mode"></a></p>
+                        <h3 id="maintenance-mode"><a href="#maintenance-mode">Maintenance Mode</a></h3>
+                        <p>Laravel's scheduled tasks will not run when Laravel is in <a
+                                href="#maintenance-mode">maintenance mode</a>,
+                            since we don't want your tasks to interfere with any unfinished
+                            maintenance you may be performing on your server. However, if you would
+                            like to force a task to run even in maintenance mode, you may use the <code
+                                    class=" language-php">evenInMaintenanceMode</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span
+                                class="token function">evenInMaintenanceMode</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p><a name="task-output"></a></p>
+                        <h2 id="task-output"><a href="#task-output">Task Output</a></h2>
+                        <p>The Laravel scheduler provides several convenient methods for working
+                            with the output generated by scheduled tasks. First, using the <code class=" language-php">sendOutputTo</code>
+                            method, you may send the output to a file for later inspection:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">sendOutputTo</span><span
+                                    class="token punctuation">(</span><span class="token variable">$filePath</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you would like to append the output to a given file, you may use the <code
+                                class=" language-php">appendOutputTo</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">appendOutputTo</span><span
+                                    class="token punctuation">(</span><span class="token variable">$filePath</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Using the <code class=" language-php">emailOutputTo</code> method,
+                            you may e-mail the output to an e-mail address of your choice. Before
+                            e-mailing the output of a task, you should configure Laravel's <a
+                                    href="https://laravel.com/docs/7.x/mail">e-mail services</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">sendOutputTo</span><span
+                                    class="token punctuation">(</span><span class="token variable">$filePath</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">emailOutputTo</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'foo@example.com'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you only want to e-mail the output if the command fails, use the <code
+                                class=" language-php">emailOutputOnFailure</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'foo'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">emailOutputOnFailure</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'foo@example.com'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="13-Task%20Scheduling_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">emailOutputTo</code>, <code
+                                        class=" language-php">emailOutputOnFailure</code>, <code class=" language-php">sendOutputTo</code>,
+                                    and <code class=" language-php">appendOutputTo</code> methods are exclusive to the
+                                    <code class=" language-php">command</code> and <code
+                                            class=" language-php">exec</code> methods.</p></div>
+                        </blockquote>
+                        <p><a name="task-hooks"></a></p>
+                        <h2 id="task-hooks"><a href="#task-hooks">Task Hooks</a></h2>
+                        <p>Using the <code class=" language-php">before</code> and <code
+                                class=" language-php">after</code> methods, you may specify code to be executed before
+                            and after the scheduled task is complete:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">before</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+             <span class="token comment">// Task is about to start...</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">after</span><span class="token punctuation">(</span><span
+                                    class="token keyword">function</span> <span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token comment">// Task is complete...</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">onSuccess</code> and <code
+                                class=" language-php">onFailure</code> methods allow you to specify code to be executed
+                            if the scheduled task succeeds or fails:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onSuccess</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+             <span class="token comment">// The task succeeded...</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">onFailure</span><span
+                                    class="token punctuation">(</span><span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+             <span class="token comment">// The task failed...</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Pinging URLs</h4>
+                        <p>Using the <code class=" language-php">pingBefore</code> and <code class=" language-php">thenPing</code>
+                            methods, the scheduler can automatically ping a given URL before or
+                            after a task is complete. This method is useful for notifying an
+                            external service, such as <a href="https://envoyer.io/">Laravel Envoyer</a>, that your
+                            scheduled task is commencing or has finished execution:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pingBefore</span><span
+                                    class="token punctuation">(</span><span class="token variable">$url</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">thenPing</span><span
+                                    class="token punctuation">(</span><span class="token variable">$url</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">pingBeforeIf</code> and <code class=" language-php">thenPingIf</code>
+                            methods may be used to ping a given URL only if the given condition is <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pingBeforeIf</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$condition</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$url</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">thenPingIf</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$condition</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$url</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">pingOnSuccess</code> and <code class=" language-php">pingOnFailure</code>
+                            methods may be used to ping a given URL only if the task succeeds or fails:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$schedule</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">command</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'emails:send'</span><span
+                                class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">daily</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pingOnSuccess</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$successUrl</span><span class="token punctuation">)</span>
+         <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pingOnFailure</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$failureUrl</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>All of the ping methods require the Guzzle HTTP library. You can add Guzzle to your project
+                            using the Composer package manager:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> guzzlehttp<span
+                                class="token operator">/</span>guzzle</code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

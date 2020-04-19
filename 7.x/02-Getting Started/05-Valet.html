@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Valet - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/valet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="05-Valet_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="05-Valet_files/app.css">
+
+    <!-- Load JS -->
+    <script src="05-Valet_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="05-Valet_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Valet</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#valet-or-homestead">Valet Or Homestead</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#installation">Installation</a>
+                                <ul>
+                                    <li><a href="#upgrading">Upgrading</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#serving-sites">Serving Sites</a>
+                                <ul>
+                                    <li><a href="#the-park-command">The "Park" Command</a></li>
+                                    <li><a href="#the-link-command">The "Link" Command</a></li>
+                                    <li><a href="#securing-sites">Securing Sites With TLS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#sharing-sites">Sharing Sites</a></li>
+                            <li><a href="#site-specific-environment-variables">Site Specific Environment Variables</a>
+                            </li>
+                            <li><a href="#custom-valet-drivers">Custom Valet Drivers</a>
+                                <ul>
+                                    <li><a href="#local-drivers">Local Drivers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#other-valet-commands">Other Valet Commands</a></li>
+                            <li><a href="#valet-directories-and-files">Valet Directories &amp; Files</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Valet is a Laravel development environment for Mac minimalists. No Vagrant, no <code
+                                class=" language-php"><span class="token operator">/</span>etc<span
+                                class="token operator">/</span>hosts</code> file. You can even share your sites publicly
+                            using local tunnels. <em>Yeah, we like it too.</em></p>
+                        <p>Laravel Valet configures your Mac to always run <a href="https://www.nginx.com/">Nginx</a> in
+                            the background when your machine starts. Then, using <a
+                                    href="https://en.wikipedia.org/wiki/Dnsmasq">DnsMasq</a>, Valet proxies all requests
+                            on the <code class=" language-php"><span class="token operator">*</span><span
+                                    class="token punctuation">.</span>test</code> domain to point to sites installed on
+                            your local machine.</p>
+                        <p>In other words, a blazing fast Laravel development environment that
+                            uses roughly 7 MB of RAM. Valet isn't a complete replacement for Vagrant
+                            or Homestead, but provides a great alternative if you want flexible
+                            basics, prefer extreme speed, or are working on a machine with a limited
+                            amount of RAM.</p>
+                        <p>Out of the box, Valet support includes, but is not limited to:</p>
+                        <style>
+                            #valet-support > ul {
+                                column-count: 3;
+                                -moz-column-count: 3;
+                                -webkit-column-count: 3;
+                                line-height: 1.9;
+                            }
+                        </style>
+                        <div id="valet-support">
+                            <ul>
+                                <li><a href="https://laravel.com/">Laravel</a></li>
+                                <li><a href="https://lumen.laravel.com/">Lumen</a></li>
+                                <li><a href="https://roots.io/bedrock/">Bedrock</a></li>
+                                <li><a href="https://cakephp.org/">CakePHP 3</a></li>
+                                <li><a href="https://www.concrete5.org/">Concrete5</a></li>
+                                <li><a href="https://contao.org/en/">Contao</a></li>
+                                <li><a href="https://craftcms.com/">Craft</a></li>
+                                <li><a href="https://www.drupal.org/">Drupal</a></li>
+                                <li><a href="https://www.expressionengine.com/">ExpressionEngine</a></li>
+                                <li><a href="https://jigsaw.tighten.co/">Jigsaw</a></li>
+                                <li><a href="https://www.joomla.org/">Joomla</a></li>
+                                <li><a href="https://github.com/themsaid/katana">Katana</a></li>
+                                <li><a href="https://getkirby.com/">Kirby</a></li>
+                                <li><a href="https://magento.com/">Magento</a></li>
+                                <li><a href="https://octobercms.com/">OctoberCMS</a></li>
+                                <li><a href="https://sculpin.io/">Sculpin</a></li>
+                                <li><a href="https://www.slimframework.com/">Slim</a></li>
+                                <li><a href="https://statamic.com/">Statamic</a></li>
+                                <li>Static HTML</li>
+                                <li><a href="https://symfony.com/">Symfony</a></li>
+                                <li><a href="https://wordpress.org/">WordPress</a></li>
+                                <li><a href="https://framework.zend.com/">Zend</a></li>
+                            </ul>
+                        </div>
+                        <p>However, you may extend Valet with your own <a href="#custom-valet-drivers">custom
+                            drivers</a>.</p>
+                        <p><a name="valet-or-homestead"></a></p>
+                        <h3 id="valet-or-homestead"><a href="#valet-or-homestead">Valet Or Homestead</a></h3>
+                        <p>As you may know, Laravel offers <a
+                                href="https://laravel.com/docs/7.x/homestead">Homestead</a>,
+                            another local Laravel development environment. Homestead and Valet
+                            differ in regards to their intended audience and their approach to local
+                            development. Homestead offers an entire Ubuntu virtual machine with
+                            automated Nginx configuration. Homestead is a wonderful choice if you
+                            want a fully virtualized Linux development environment or are on Windows
+                            / Linux.</p>
+                        <p>Valet only supports Mac, and requires you to install PHP and a
+                            database server directly onto your local machine. This is easily
+                            achieved by using <a href="https://brew.sh/">Homebrew</a> with commands like <code
+                                    class=" language-php">brew install php</code> and <code class=" language-php">brew
+                                install mysql</code>.
+                            Valet provides a blazing fast local development environment with
+                            minimal resource consumption, so it's great for developers who only
+                            require PHP / MySQL and do not need a fully virtualized development
+                            environment.</p>
+                        <p>Both Valet and Homestead are great choices for configuring your
+                            Laravel development environment. Which one you choose will depend on
+                            your personal taste and your team's needs.</p>
+                        <p><a name="installation"></a></p>
+                        <h2 id="installation"><a href="#installation">Installation</a></h2>
+                        <p><strong>Valet requires macOS and <a href="https://brew.sh/">Homebrew</a>.
+                            Before installation, you should make sure that no other programs such
+                            as Apache or Nginx are binding to your local machine's port 80.</strong></p>
+                        <div class="content-list">
+                            <ul>
+                                <li>Install or update <a href="https://brew.sh/">Homebrew</a> to the latest version
+                                    using <code class=" language-php">brew update</code>.
+                                </li>
+                                <li>Install PHP 7.4 using Homebrew via <code class=" language-php">brew install
+                                    php</code>.
+                                </li>
+                                <li>Install <a href="https://getcomposer.org/">Composer</a>.</li>
+                                <li>Install Valet with Composer via <code class=" language-php">composer <span
+                                        class="token keyword">global</span> <span class="token keyword">require</span>
+                                    laravel<span class="token operator">/</span>valet</code>. Make sure the <code
+                                        class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>composer<span class="token operator">/</span>vendor<span
+                                        class="token operator">/</span>bin</code> directory is in your system's "PATH".
+                                </li>
+                                <li>Run the <code class=" language-php">valet install</code> command. This will
+                                    configure and install Valet and DnsMasq, and register Valet's daemon to launch when
+                                    your system starts.
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Once Valet is installed, try pinging any <code class=" language-php"><span
+                                class="token operator">*</span><span class="token punctuation">.</span>test</code>
+                            domain on your terminal using a command such as <code class=" language-php">ping foobar<span
+                                    class="token punctuation">.</span>test</code>. If Valet is installed correctly you
+                            should see this domain responding on <code class=" language-php"><span class="token number">127.0</span><span
+                                    class="token number">.0</span><span class="token number">.1</span></code>.</p>
+                        <p>Valet will automatically start its daemon each time your machine boots. There is no need to
+                            run <code class=" language-php">valet start</code> or <code class=" language-php">valet
+                                install</code> ever again once the initial Valet installation is complete.</p>
+                        <h4>Using Another Domain</h4>
+                        <p>By default, Valet serves your projects using the <code class=" language-php"><span
+                                class="token punctuation">.</span>test</code> TLD. If you'd like to use another domain,
+                            you can do so using the <code class=" language-php">valet tld tld<span
+                                    class="token operator">-</span>name</code> command.</p>
+                        <p>For example, if you'd like to use <code class=" language-php"><span
+                                class="token punctuation">.</span>app</code> instead of <code
+                                class=" language-php"><span class="token punctuation">.</span>test</code>, run <code
+                                class=" language-php">valet tld app</code> and Valet will start serving your projects at
+                            <code class=" language-php"><span class="token operator">*</span><span
+                                    class="token punctuation">.</span>app</code> automatically.</p>
+                        <h4>Database</h4>
+                        <p>If you need a database, try MySQL by running <code class=" language-php">brew install
+                            mysql@<span class="token number">5.7</span></code> on your command line. Once MySQL has been
+                            installed, you may start it using the <code class=" language-php">brew services start mysql@<span
+                                    class="token number">5.7</span></code> command. You can then connect to the database
+                            at <code class=" language-php"><span class="token number">127.0</span><span
+                                    class="token number">.0</span><span class="token number">.1</span></code> using the
+                            <code class=" language-php">root</code> username and an empty string for the password.</p>
+                        <h4>PHP Versions</h4>
+                        <p>Valet allows you to switch PHP versions using the <code class=" language-php">valet <span
+                                class="token keyword">use</span> <span class="token package">php</span>@version</code>
+                            command. Valet will install the specified PHP version via Brew if it is not already
+                            installed:</p>
+                        <pre class=" language-php"><code class=" language-php">valet <span
+                                class="token keyword">use</span> <span class="token package">php</span>@<span
+                                class="token number">7.2</span>
+
+valet <span class="token keyword">use</span> <span class="token package">php</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="05-Valet_files/exclamation.svg"></div>
+                                <p class="content"> Valet only serves one PHP version at a time, even if you have
+                                    multiple PHP versions installed.</p></div>
+                        </blockquote>
+                        <h4>Resetting Your Installation</h4>
+                        <p>If you are having trouble getting your Valet installation to run properly, executing the
+                            <code class=" language-php">composer <span class="token keyword">global</span> update</code>
+                            command followed by <code class=" language-php">valet install</code>
+                            will reset your installation and can solve a variety of problems. In
+                            rare cases it may be necessary to "hard reset" Valet by executing <code
+                                    class=" language-php">valet uninstall <span
+                                    class="token operator">--</span>force</code> followed by <code
+                                    class=" language-php">valet install</code>.</p>
+                        <p><a name="upgrading"></a></p>
+                        <h3 id="upgrading"><a href="#upgrading">Upgrading</a></h3>
+                        <p>You may update your Valet installation using the <code class=" language-php">composer <span
+                                class="token keyword">global</span> update</code> command in your terminal. After
+                            upgrading, it is good practice to run the <code class=" language-php">valet install</code>
+                            command so Valet can make additional upgrades to your configuration files if necessary.</p>
+                        <p><a name="serving-sites"></a></p>
+                        <h2 id="serving-sites"><a href="#serving-sites">Serving Sites</a></h2>
+                        <p>Once Valet is installed, you're ready to start serving sites. Valet provides two commands to
+                            help you serve your Laravel sites: <code class=" language-php">park</code> and <code
+                                    class=" language-php">link</code>.</p>
+                        <p><a name="the-park-command"></a></p>
+                        <h4 id="the-park-command"><a href="#the-park-command">The <code
+                                class=" language-php">park</code> Command</a></h4>
+                        <div class="content-list">
+                            <ul>
+                                <li>Create a new directory on your Mac by running something like <code
+                                        class=" language-php">mkdir <span class="token operator">~</span><span
+                                        class="token operator">/</span>Sites</code>. Next, <code class=" language-php">cd
+                                    <span class="token operator">~</span><span
+                                            class="token operator">/</span>Sites</code> and run <code
+                                        class=" language-php">valet park</code>. This command will register your current
+                                    working directory as a path that Valet should search for sites.
+                                </li>
+                                <li>Next, create a new Laravel site within this directory: <code class=" language-php">laravel
+                                    <span class="token keyword">new</span> <span
+                                            class="token class-name">blog</span></code>.
+                                </li>
+                                <li>Open <code class=" language-php">http<span class="token punctuation">:</span><span
+                                        class="token comment">//blog.test</span></code> in your browser.
+                                </li>
+                            </ul>
+                        </div>
+                        <p><strong>That's all there is to it.</strong> Now, any Laravel project you create within your
+                            "parked" directory will automatically be served using the <code
+                                    class=" language-php">http<span class="token punctuation">:</span><span
+                                    class="token comment">//folder-name.test</span></code> convention.</p>
+                        <p><a name="the-link-command"></a></p>
+                        <h4 id="the-link-command"><a href="#the-link-command">The <code
+                                class=" language-php">link</code> Command</a></h4>
+                        <p>The <code class=" language-php">link</code> command may also be used
+                            to serve your Laravel sites. This command is useful if you want to serve
+                            a single site in a directory and not the entire directory.</p>
+                        <div class="content-list">
+                            <ul>
+                                <li>To use the command, navigate to one of your projects and run <code
+                                        class=" language-php">valet link app<span
+                                        class="token operator">-</span>name</code> in your terminal. Valet will create a
+                                    symbolic link in <code class=" language-php"><span
+                                            class="token operator">~</span><span class="token operator">/</span><span
+                                            class="token punctuation">.</span>config<span
+                                            class="token operator">/</span>valet<span class="token operator">/</span>Sites</code>
+                                    which points to your current working directory.
+                                </li>
+                                <li>After running the <code class=" language-php">link</code> command, you can access
+                                    the site in your browser at <code class=" language-php">http<span
+                                            class="token punctuation">:</span><span class="token comment">//app-name.test</span></code>.
+                                </li>
+                            </ul>
+                        </div>
+                        <p>To see a listing of all of your linked directories, run the <code class=" language-php">valet
+                            links</code> command. You may use <code class=" language-php">valet unlink app<span
+                                class="token operator">-</span>name</code> to destroy the symbolic link.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="05-Valet_files/lightbulb.svg"></div>
+                                <p class="content"> You can use <code class=" language-php">valet link</code> to serve
+                                    the same project from multiple (sub)domains. To add a subdomain or another domain to
+                                    your project run <code class=" language-php">valet link subdomain<span
+                                            class="token punctuation">.</span>app<span class="token operator">-</span>name</code>
+                                    from the project folder.</p></div>
+                        </blockquote>
+                        <p><a name="securing-sites"></a></p>
+                        <h4 id="securing-sites"><a href="#securing-sites">Securing Sites With TLS</a></h4>
+                        <p>By default, Valet serves sites over plain HTTP. However, if you would
+                            like to serve a site over encrypted TLS using HTTP/2, use the <code class=" language-php">secure</code>
+                            command. For example, if your site is being served by Valet on the <code
+                                    class=" language-php">laravel<span class="token punctuation">.</span>test</code>
+                            domain, you should run the following command to secure it:</p>
+                        <pre class=" language-php"><code class=" language-php">valet secure laravel</code></pre>
+                        <p>To "unsecure" a site and revert back to serving its traffic over plain HTTP, use the <code
+                                class=" language-php">unsecure</code> command. Like the <code class=" language-php">secure</code>
+                            command, this command accepts the host name that you wish to unsecure:</p>
+                        <pre class=" language-php"><code class=" language-php">valet unsecure laravel</code></pre>
+                        <p><a name="sharing-sites"></a></p>
+                        <h2 id="sharing-sites"><a href="#sharing-sites">Sharing Sites</a></h2>
+                        <p>Valet even includes a command to share your local sites with the
+                            world, providing an easy way to test your site on mobile devices or
+                            share it with team members and clients. No additional software
+                            installation is required once Valet is installed.</p>
+                        <h3>Sharing Sites Via Ngrok</h3>
+                        <p>To share a site, navigate to the site's directory in your terminal and run the <code
+                                class=" language-php">valet share</code>
+                            command. A publicly accessible URL will be inserted into your clipboard
+                            and is ready to paste directly into your browser or share with your
+                            team.</p>
+                        <p>To stop sharing your site, hit <code class=" language-php">Control <span
+                                class="token operator">+</span> <span class="token constant">C</span></code> to cancel
+                            the process.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="05-Valet_files/lightbulb.svg"></div>
+                                <p class="content"> You may pass additional parameters to the share command, such as
+                                    <code class=" language-php">valet share <span class="token operator">--</span>region<span
+                                            class="token operator">=</span>eu</code>. For more information, consult the
+                                    <a href="https://ngrok.com/docs">ngrok documentation</a>.</p></div>
+                        </blockquote>
+                        <h3>Sharing Sites On Your Local Network</h3>
+                        <p>Valet restricts incoming traffic to the internal <code class=" language-php"><span
+                                class="token number">127.0</span><span class="token number">.0</span><span
+                                class="token number">.1</span></code> interface by default. This way your development
+                            machine isn't exposed to security risks from the Internet.</p>
+                        <p>If you wish to allow other devices on your local network to access
+                            the Valet sites on your machine via your machine's IP address (eg: <code
+                                    class=" language-php"><span class="token number">192.168</span><span
+                                    class="token number">.1</span><span class="token number">.10</span><span
+                                    class="token operator">/</span>app<span class="token operator">-</span>name<span
+                                    class="token punctuation">.</span>test</code>), you will need to manually edit the
+                            appropriate Nginx configuration file for that site to remove the restriction on the <code
+                                    class=" language-php">listen</code> directive by removing the the <code
+                                    class=" language-php"><span class="token number">127.0</span><span
+                                    class="token number">.0</span><span class="token number">.1</span><span
+                                    class="token punctuation">:</span></code> prefix on the directive for ports 80 and
+                            443.</p>
+                        <p>If you have not run <code class=" language-php">valet secure</code> on the project, you can
+                            open up network access for all non-HTTPS sites by editing the <code
+                                    class=" language-php"><span class="token operator">/</span>usr<span
+                                    class="token operator">/</span>local<span class="token operator">/</span>etc<span
+                                    class="token operator">/</span>nginx<span class="token operator">/</span>valet<span
+                                    class="token operator">/</span>valet<span
+                                    class="token punctuation">.</span>conf</code> file. However, if you're serving the
+                            project site over HTTPS (you have run <code class=" language-php">valet secure</code> for
+                            the site) then you should edit the <code class=" language-php"><span class="token operator">~</span><span
+                                    class="token operator">/</span><span class="token punctuation">.</span>config<span
+                                    class="token operator">/</span>valet<span class="token operator">/</span>Nginx<span
+                                    class="token operator">/</span>app<span class="token operator">-</span>name<span
+                                    class="token punctuation">.</span>test</code> file.</p>
+                        <p>Once you have updated your Nginx configuration, run the <code class=" language-php">valet
+                            restart</code> command to apply the configuration changes.</p>
+                        <p><a name="site-specific-environment-variables"></a></p>
+                        <h2 id="site-specific-environment-variables"><a href="#site-specific-environment-variables">Site
+                            Specific Environment Variables</a></h2>
+                        <p>Some applications using other frameworks may depend on server
+                            environment variables but do not provide a way for those variables to be
+                            configured within your project. Valet allows you to configure site
+                            specific environment variables by adding a <code class=" language-php"><span
+                                    class="token punctuation">.</span>valet<span class="token operator">-</span>env<span
+                                    class="token punctuation">.</span>php</code> file within the root of your project.
+                            These variables will be added to the <code class=" language-php"><span
+                                    class="token variable">$_SERVER</span></code> global array:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token comment">// Set $_SERVER['key'] to "value" for the foo.test site...</span>
+<span class="token keyword">return</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'foo'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Set $_SERVER['key'] to "value" for all sites...</span>
+<span class="token keyword">return</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'*'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'key'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></span></code></pre>
+                        <p><a name="custom-valet-drivers"></a></p>
+                        <h2 id="custom-valet-drivers"><a href="#custom-valet-drivers">Custom Valet Drivers</a></h2>
+                        <p>You can write your own Valet "driver" to serve PHP applications
+                            running on another framework or CMS that is not natively supported by
+                            Valet. When you install Valet, a <code class=" language-php"><span
+                                    class="token operator">~</span><span class="token operator">/</span><span
+                                    class="token punctuation">.</span>config<span
+                                    class="token operator">/</span>valet<span
+                                    class="token operator">/</span>Drivers</code> directory is created which contains a
+                            <code class=" language-php">SampleValetDriver<span
+                                    class="token punctuation">.</span>php</code>
+                            file. This file contains a sample driver implementation to demonstrate
+                            how to write a custom driver. Writing a driver only requires you to
+                            implement three methods: <code class=" language-php">serves</code>, <code
+                                    class=" language-php">isStaticFile</code>, and <code class=" language-php">frontControllerPath</code>.
+                        </p>
+                        <p>All three methods receive the <code class=" language-php"><span class="token variable">$sitePath</span></code>,
+                            <code class=" language-php"><span class="token variable">$siteName</span></code>, and <code
+                                    class=" language-php"><span class="token variable">$uri</span></code> values as
+                            their arguments. The <code class=" language-php"><span
+                                    class="token variable">$sitePath</span></code> is the fully qualified path to the
+                            site being served on your machine, such as <code class=" language-php"><span
+                                    class="token operator">/</span>Users<span class="token operator">/</span>Lisa<span
+                                    class="token operator">/</span>Sites<span class="token operator">/</span>my<span
+                                    class="token operator">-</span>project</code>. The <code class=" language-php"><span
+                                    class="token variable">$siteName</span></code> is the "host" / "site name" portion
+                            of the domain (<code class=" language-php">my<span
+                                    class="token operator">-</span>project</code>). The <code
+                                    class=" language-php"><span class="token variable">$uri</span></code> is the
+                            incoming request URI (<code class=" language-php"><span
+                                    class="token operator">/</span>foo<span class="token operator">/</span>bar</code>).
+                        </p>
+                        <p>Once you have completed your custom Valet driver, place it in the <code
+                                class=" language-php"><span class="token operator">~</span><span class="token operator">/</span><span
+                                class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                class="token operator">/</span>Drivers</code> directory using the <code
+                                class=" language-php">FrameworkValetDriver<span
+                                class="token punctuation">.</span>php</code> naming convention. For example, if you are
+                            writing a custom valet driver for WordPress, your file name should be <code
+                                    class=" language-php">WordPressValetDriver<span class="token punctuation">.</span>php</code>.
+                        </p>
+                        <p>Let's take a look at a sample implementation of each method your custom Valet driver should
+                            implement.</p>
+                        <h4>The <code class=" language-php">serves</code> Method</h4>
+                        <p>The <code class=" language-php">serves</code> method should return <code
+                                class=" language-php"><span class="token boolean constant">true</span></code> if your
+                            driver should handle the incoming request. Otherwise, the method should return <code
+                                    class=" language-php"><span class="token boolean constant">false</span></code>. So,
+                            within this method you should attempt to determine if the given <code class=" language-php"><span
+                                    class="token variable">$sitePath</span></code> contains a project of the type you
+                            are trying to serve.</p>
+                        <p>For example, let's pretend we are writing a <code
+                                class=" language-php">WordPressValetDriver</code>. Our <code class=" language-php">serves</code>
+                            method might look something like this:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine if the driver serves the request.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return bool
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">serves</span><span
+                                    class="token punctuation">(</span><span class="token variable">$sitePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$siteName</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">is_dir</span><span class="token punctuation">(</span><span
+                                    class="token variable">$sitePath</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/wp-admin'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>The <code class=" language-php">isStaticFile</code> Method</h4>
+                        <p>The <code class=" language-php">isStaticFile</code> should determine
+                            if the incoming request is for a file that is "static", such as an image
+                            or a stylesheet. If the file is static, the method should return the
+                            fully qualified path to the static file on disk. If the incoming request
+                            is not for a static file, the method should return <code class=" language-php"><span
+                                    class="token boolean constant">false</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Determine if the incoming request is for a static file.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return string|false
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isStaticFile</span><span
+                                    class="token punctuation">(</span><span class="token variable">$sitePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$siteName</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$staticFilePath</span> <span class="token operator">=</span> <span
+                                    class="token variable">$sitePath</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">'/public/'</span><span
+                                    class="token punctuation">.</span><span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$staticFilePath</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token boolean constant">false</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="05-Valet_files/exclamation.svg"></div>
+                                <p class="content"> The <code class=" language-php">isStaticFile</code> method will only
+                                    be called if the <code class=" language-php">serves</code> method returns <code
+                                            class=" language-php"><span
+                                            class="token boolean constant">true</span></code> for the incoming request
+                                    and the request URI is not <code class=" language-php"><span class="token operator">/</span></code>.
+                                </p></div>
+                        </blockquote>
+                        <h4>The <code class=" language-php">frontControllerPath</code> Method</h4>
+                        <p>The <code class=" language-php">frontControllerPath</code> method
+                            should return the fully qualified path to your application's "front
+                            controller", which is typically your "index.php" file or equivalent:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the fully resolved path to the application's front controller.
+ *
+ * @param  string  $sitePath
+ * @param  string  $siteName
+ * @param  string  $uri
+ * @return string
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">frontControllerPath</span><span
+                                    class="token punctuation">(</span><span class="token variable">$sitePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$siteName</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$sitePath</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/public/index.php'</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="local-drivers"></a></p>
+                        <h3 id="local-drivers"><a href="#local-drivers">Local Drivers</a></h3>
+                        <p>If you would like to define a custom Valet driver for a single application, create a <code
+                                class=" language-php">LocalValetDriver<span class="token punctuation">.</span>php</code>
+                            in the application's root directory. Your custom driver may extend the base <code
+                                    class=" language-php">ValetDriver</code> class or extend an existing application
+                            specific driver such as the <code class=" language-php">LaravelValetDriver</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">class</span> <span
+                                class="token class-name">LocalValetDriver</span> <span
+                                class="token keyword">extends</span> <span
+                                class="token class-name">LaravelValetDriver</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Determine if the driver serves the request.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return bool
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">serves</span><span
+                                    class="token punctuation">(</span><span class="token variable">$sitePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$siteName</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Get the fully resolved path to the application's front controller.
+     *
+     * @param  string  $sitePath
+     * @param  string  $siteName
+     * @param  string  $uri
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">frontControllerPath</span><span
+                                    class="token punctuation">(</span><span class="token variable">$sitePath</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$siteName</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$uri</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$sitePath</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">'/public_html/index.php'</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="other-valet-commands"></a></p>
+                        <h2 id="other-valet-commands"><a href="#other-valet-commands">Other Valet Commands</a></h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php">valet forget</code></td>
+                                <td>Run this command from a "parked" directory to remove it from the parked directory
+                                    list.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet log</code></td>
+                                <td>View a list of logs which are written by Valet's services.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet paths</code></td>
+                                <td>View all of your "parked" paths.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet restart</code></td>
+                                <td>Restart the Valet daemon.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet start</code></td>
+                                <td>Start the Valet daemon.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet stop</code></td>
+                                <td>Stop the Valet daemon.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet trust</code></td>
+                                <td>Add sudoers files for Brew and Valet to allow Valet commands to be run without
+                                    prompting for passwords.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php">valet uninstall</code></td>
+                                <td>Uninstall Valet: Shows instructions for manual uninstall; or pass the <code
+                                        class=" language-php"><span class="token operator">--</span>force</code>
+                                    parameter to aggressively delete all of Valet.
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><a name="valet-directories-and-files"></a></p>
+                        <h2 id="valet-directories-and-files"><a href="#valet-directories-and-files">Valet Directories
+                            &amp; Files</a></h2>
+                        <p>You may find the following directory and file information helpful while troubleshooting
+                            issues with your Valet environment:</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>File / Path</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span></code></td>
+                                <td>Contains all of Valet's configuration. You may wish to maintain a backup of this
+                                    folder.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>dnsmasq<span
+                                        class="token punctuation">.</span>d<span class="token operator">/</span></code>
+                                </td>
+                                <td>Contains DNSMasq's configuration.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Drivers<span
+                                        class="token operator">/</span></code></td>
+                                <td>Contains custom Valet drivers.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Extensions<span
+                                        class="token operator">/</span></code></td>
+                                <td>Contains custom Valet extensions / commands.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Nginx<span class="token operator">/</span></code>
+                                </td>
+                                <td>Contains all Valet generated Nginx site configurations. These files are rebuilt when
+                                    running the <code class=" language-php">install</code>, <code class=" language-php">secure</code>,
+                                    and <code class=" language-php">tld</code> commands.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Sites<span class="token operator">/</span></code>
+                                </td>
+                                <td>Contains all symbolic links for linked projects.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>config<span class="token punctuation">.</span>json</code>
+                                </td>
+                                <td>Valet's master configuration file</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>valet<span class="token punctuation">.</span>sock</code>
+                                </td>
+                                <td>The PHP-FPM socket used by Valet's Nginx configuration. This will only exist if PHP
+                                    is running properly.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Log<span class="token operator">/</span>fpm<span
+                                        class="token operator">-</span>php<span
+                                        class="token punctuation">.</span>www<span class="token punctuation">.</span>log</code>
+                                </td>
+                                <td>User log for PHP errors.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>config<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>Log<span
+                                        class="token operator">/</span>nginx<span
+                                        class="token operator">-</span>error<span class="token punctuation">.</span>log</code>
+                                </td>
+                                <td>User log for Nginx errors.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">/</span>usr<span
+                                        class="token operator">/</span>local<span class="token operator">/</span><span
+                                        class="token keyword">var</span><span class="token operator">/</span>log<span
+                                        class="token operator">/</span>php<span class="token operator">-</span>fpm<span
+                                        class="token punctuation">.</span>log</code></td>
+                                <td>System log for PHP-FPM errors.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">/</span>usr<span
+                                        class="token operator">/</span>local<span class="token operator">/</span><span
+                                        class="token keyword">var</span><span class="token operator">/</span>log<span
+                                        class="token operator">/</span>nginx</code></td>
+                                <td>Contains Nginx access and error logs.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">/</span>usr<span
+                                        class="token operator">/</span>local<span
+                                        class="token operator">/</span>etc<span class="token operator">/</span>php<span
+                                        class="token operator">/</span><span class="token constant">X</span><span
+                                        class="token punctuation">.</span><span class="token constant">X</span><span
+                                        class="token operator">/</span>conf<span
+                                        class="token punctuation">.</span>d</code></td>
+                                <td>Contains <code class=" language-php"><span class="token operator">*</span><span
+                                        class="token punctuation">.</span>ini</code> files for various PHP configuration
+                                    settings.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">/</span>usr<span
+                                        class="token operator">/</span>local<span
+                                        class="token operator">/</span>etc<span class="token operator">/</span>php<span
+                                        class="token operator">/</span><span class="token constant">X</span><span
+                                        class="token punctuation">.</span><span class="token constant">X</span><span
+                                        class="token operator">/</span>php<span class="token operator">-</span>fpm<span
+                                        class="token punctuation">.</span>d<span
+                                        class="token operator">/</span>valet<span
+                                        class="token operator">-</span>fpm<span
+                                        class="token punctuation">.</span>conf</code></td>
+                                <td>PHP-FPM pool configuration file.</td>
+                            </tr>
+                            <tr>
+                                <td><code class=" language-php"><span class="token operator">~</span><span
+                                        class="token operator">/</span><span
+                                        class="token punctuation">.</span>composer<span class="token operator">/</span>vendor<span
+                                        class="token operator">/</span>laravel<span class="token operator">/</span>valet<span
+                                        class="token operator">/</span>cli<span
+                                        class="token operator">/</span>stubs<span
+                                        class="token operator">/</span>secure<span class="token punctuation">.</span>valet<span
+                                        class="token punctuation">.</span>conf</code></td>
+                                <td>The default Nginx configuration used for building site certificates.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

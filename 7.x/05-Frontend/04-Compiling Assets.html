@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Compiling Assets (Mix) - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/mix">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Compiling%20Assets_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Compiling%20Assets_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Compiling%20Assets_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Compiling%20Assets_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Compiling Assets (Mix)</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#installation">Installation &amp; Setup</a></li>
+                            <li><a href="#running-mix">Running Mix</a></li>
+                            <li><a href="#working-with-stylesheets">Working With Stylesheets</a>
+                                <ul>
+                                    <li><a href="#less">Less</a></li>
+                                    <li><a href="#sass">Sass</a></li>
+                                    <li><a href="#stylus">Stylus</a></li>
+                                    <li><a href="#postcss">PostCSS</a></li>
+                                    <li><a href="#plain-css">Plain CSS</a></li>
+                                    <li><a href="#url-processing">URL Processing</a></li>
+                                    <li><a href="#css-source-maps">Source Maps</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#working-with-scripts">Working With JavaScript</a>
+                                <ul>
+                                    <li><a href="#vendor-extraction">Vendor Extraction</a></li>
+                                    <li><a href="#react">React</a></li>
+                                    <li><a href="#vanilla-js">Vanilla JS</a></li>
+                                    <li><a href="#custom-webpack-configuration">Custom Webpack Configuration</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#copying-files-and-directories">Copying Files &amp; Directories</a></li>
+                            <li><a href="#versioning-and-cache-busting">Versioning / Cache Busting</a></li>
+                            <li><a href="#browsersync-reloading">Browsersync Reloading</a></li>
+                            <li><a href="#environment-variables">Environment Variables</a></li>
+                            <li><a href="#notifications">Notifications</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p><a href="https://github.com/JeffreyWay/laravel-mix">Laravel Mix</a>
+                            provides a fluent API for defining Webpack build steps for your Laravel
+                            application using several common CSS and JavaScript pre-processors.
+                            Through simple method chaining, you can fluently define your asset
+                            pipeline. For example:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">sass</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/app.scss'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you've ever been confused and overwhelmed about getting started
+                            with Webpack and asset compilation, you will love Laravel Mix. However,
+                            you are not required to use it while developing your application; you
+                            are free to use any asset pipeline tool you wish, or even none at all.</p>
+                        <p><a name="installation"></a></p>
+                        <h2 id="installation"><a href="#installation">Installation &amp; Setup</a></h2>
+                        <h4>Installing Node</h4>
+                        <p>Before triggering Mix, you must first ensure that Node.js and NPM are installed on your
+                            machine.</p>
+                        <pre class=" language-php"><code class=" language-php">node <span
+                                class="token operator">-</span>v
+npm <span class="token operator">-</span>v</code></pre>
+                        <p>By default, Laravel Homestead includes everything you need; however,
+                            if you aren't using Vagrant, then you can easily install the latest
+                            version of Node and NPM using simple graphical installers from <a
+                                    href="https://nodejs.org/en/download/">their download page</a>.</p>
+                        <h4>Laravel Mix</h4>
+                        <p>The only remaining step is to install Laravel Mix. Within a fresh installation of Laravel,
+                            you'll find a <code class=" language-php">package<span class="token punctuation">.</span>json</code>
+                            file in the root of your directory structure. The default <code class=" language-php">package<span
+                                    class="token punctuation">.</span>json</code> file includes everything you need to
+                            get started. Think of this like your <code class=" language-php">composer<span
+                                    class="token punctuation">.</span>json</code> file, except it defines Node
+                            dependencies instead of PHP. You may install the dependencies it references by running:</p>
+                        <pre class=" language-php"><code class=" language-php">npm install</code></pre>
+                        <p><a name="running-mix"></a></p>
+                        <h2 id="running-mix"><a href="#running-mix">Running Mix</a></h2>
+                        <p>Mix is a configuration layer on top of <a href="https://webpack.js.org/">Webpack</a>, so to
+                            run your Mix tasks you only need to execute one of the NPM scripts that is included with the
+                            default Laravel <code class=" language-php">package<span class="token punctuation">.</span>json</code>
+                            file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Run all Mix tasks...</span>
+npm run dev
+
+<span class="token comment">// Run all Mix tasks and minify output...</span>
+npm run production</code></pre>
+                        <h4>Watching Assets For Changes</h4>
+                        <p>The <code class=" language-php">npm run watch</code> command will
+                            continue running in your terminal and watch all relevant files for
+                            changes. Webpack will then automatically recompile your assets when it
+                            detects a change:</p>
+                        <pre class=" language-php"><code class=" language-php">npm run watch</code></pre>
+                        <p>You may find that in certain environments Webpack isn't updating when
+                            your files change. If this is the case on your system, consider using
+                            the <code class=" language-php">watch<span class="token operator">-</span>poll</code>
+                            command:</p>
+                        <pre class=" language-php"><code class=" language-php">npm run watch<span
+                                class="token operator">-</span>poll</code></pre>
+                        <p><a name="working-with-stylesheets"></a></p>
+                        <h2 id="working-with-stylesheets"><a href="#working-with-stylesheets">Working With
+                            Stylesheets</a></h2>
+                        <p>The <code class=" language-php">webpack<span class="token punctuation">.</span>mix<span
+                                class="token punctuation">.</span>js</code>
+                            file is your entry point for all asset compilation. Think of it as a
+                            light configuration wrapper around Webpack. Mix tasks can be chained
+                            together to define exactly how your assets should be compiled.</p>
+                        <p><a name="less"></a></p>
+                        <h3 id="less"><a href="#less">Less</a></h3>
+                        <p>The <code class=" language-php">less</code> method may be used to compile <a
+                                href="http://lesscss.org/">Less</a> into CSS. Let's compile our primary <code
+                                class=" language-php">app<span class="token punctuation">.</span>less</code> file to
+                            <code class=" language-php"><span class="token keyword">public</span><span
+                                    class="token operator">/</span>css<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>css</code>.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">less</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/less/app.less'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Multiple calls to the <code class=" language-php">less</code> method may be used to compile
+                            multiple files:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">less</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/less/app.less'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">less</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'resources/less/admin.less'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>If you wish to customize the file name of the compiled CSS, you may pass a full file path as
+                            the second argument to the <code class=" language-php">less</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">less</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/less/app.less'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/stylesheets/styles.css'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>If you need to override the <a href="https://github.com/webpack-contrib/less-loader#options">underlying
+                            Less plug-in options</a>, you may pass an object as the third argument to <code
+                                class=" language-php">mix<span class="token punctuation">.</span><span
+                                class="token function">less</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">less</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/less/app.less'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">{</span>
+    strictMath<span class="token punctuation">:</span> <span class="token boolean constant">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="sass"></a></p>
+                        <h3 id="sass"><a href="#sass">Sass</a></h3>
+                        <p>The <code class=" language-php">sass</code> method allows you to compile <a
+                                href="https://sass-lang.com/">Sass</a> into CSS. You may use the method like so:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">sass</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/app.scss'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Again, like the <code class=" language-php">less</code> method, you
+                            may compile multiple Sass files into their own respective CSS files and
+                            even customize the output directory of the resulting CSS:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">sass</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/app.sass'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">sass</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/admin.sass'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css/admin'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>Additional <a href="https://github.com/sass/node-sass#options">Node-Sass plug-in options</a>
+                            may be provided as the third argument:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">sass</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/app.sass'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">{</span>
+    precision<span class="token punctuation">:</span> <span class="token number">5</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="stylus"></a></p>
+                        <h3 id="stylus"><a href="#stylus">Stylus</a></h3>
+                        <p>Similar to Less and Sass, the <code class=" language-php">stylus</code> method allows you to
+                            compile <a href="http://stylus-lang.com/">Stylus</a> into CSS:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">stylus</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/stylus/app.styl'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may also install additional Stylus plug-ins, such as <a
+                                href="https://github.com/jescalan/rupture">Rupture</a>. First, install the plug-in in
+                            question through NPM (<code class=" language-php">npm install rupture</code>) and then
+                            require it in your call to <code class=" language-php">mix<span
+                                    class="token punctuation">.</span><span class="token function">stylus</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">stylus</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/stylus/app.styl'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token keyword">use</span><span class="token punctuation">:</span> <span
+                                    class="token punctuation">[</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'rupture'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="postcss"></a></p>
+                        <h3 id="postcss"><a href="#postcss">PostCSS</a></h3>
+                        <p><a href="https://postcss.org/">PostCSS</a>, a powerful tool for transforming your CSS, is
+                            included with Laravel Mix out of the box. By default, Mix leverages the popular <a
+                                    href="https://github.com/postcss/autoprefixer">Autoprefixer</a>
+                            plug-in to automatically apply all necessary CSS3 vendor prefixes.
+                            However, you're free to add any additional plug-ins that are appropriate
+                            for your application. First, install the desired plug-in through NPM
+                            and then reference it in your <code class=" language-php">webpack<span
+                                    class="token punctuation">.</span>mix<span
+                                    class="token punctuation">.</span>js</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">sass</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/sass/app.scss'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">options</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">{</span>
+        postCss<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token keyword">require</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'postcss-css-variables'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="plain-css"></a></p>
+                        <h3 id="plain-css"><a href="#plain-css">Plain CSS</a></h3>
+                        <p>If you would just like to concatenate some plain CSS stylesheets into a single file, you may
+                            use the <code class=" language-php">styles</code> method.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">styles</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'public/css/vendor/normalize.css'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'public/css/vendor/videojs.css'</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'public/css/all.css'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="url-processing"></a></p>
+                        <h3 id="url-processing"><a href="#url-processing">URL Processing</a></h3>
+                        <p>Because Laravel Mix is built on top of Webpack, it's important to
+                            understand a few Webpack concepts. For CSS compilation, Webpack will
+                            rewrite and optimize any <code class=" language-php"><span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code>
+                            calls within your stylesheets. While this might initially sound
+                            strange, it's an incredibly powerful piece of functionality. Imagine
+                            that we want to compile Sass that includes a relative URL to an image:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">.</span>example <span
+                                class="token punctuation">{</span>
+    background<span class="token punctuation">:</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'../images/example.png'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Compiling%20Assets_files/exclamation.svg"></div>
+                                <p class="content"> Absolute paths for any given <code class=" language-php"><span
+                                        class="token function">url</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code> will be excluded from URL-rewriting.
+                                    For example, <code class=" language-php"><span
+                                            class="token function">url</span><span
+                                            class="token punctuation">(</span><span
+                                            class="token single-quoted-string string">'/images/thing.png'</span><span
+                                            class="token punctuation">)</span></code> or <code
+                                            class=" language-php"><span class="token function">url</span><span
+                                            class="token punctuation">(</span><span
+                                            class="token single-quoted-string string">'http://example.com/images/thing.png'</span><span
+                                            class="token punctuation">)</span></code> won't be modified.</p></div>
+                        </blockquote>
+                        <p>By default, Laravel Mix and Webpack will find <code class=" language-php">example<span
+                                class="token punctuation">.</span>png</code>, copy it to your <code
+                                class=" language-php"><span class="token keyword">public</span><span
+                                class="token operator">/</span>images</code> folder, and then rewrite the <code
+                                class=" language-php"><span class="token function">url</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span></code> within
+                            your generated stylesheet. As such, your compiled CSS will be:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">.</span>example <span
+                                class="token punctuation">{</span>
+    background<span class="token punctuation">:</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token operator">/</span>images<span
+                                    class="token operator">/</span>example<span
+                                    class="token punctuation">.</span>png<span class="token operator">?</span>d41d8cd98f00b204e9800998ecf8427e<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>As useful as this feature may be, it's possible that your existing
+                            folder structure is already configured in a way you like. If this is the
+                            case, you may disable <code class=" language-php"><span
+                                    class="token function">url</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span></code> rewriting like so:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">sass</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/app/app.scss'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">options</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">{</span>
+        processCssUrls<span class="token punctuation">:</span> <span class="token boolean constant">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>With this addition to your <code class=" language-php">webpack<span
+                                class="token punctuation">.</span>mix<span class="token punctuation">.</span>js</code>
+                            file, Mix will no longer match any <code class=" language-php"><span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code> or
+                            copy assets to your public directory. In other words, the compiled CSS will look just like
+                            how you originally typed it:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token punctuation">.</span>example <span
+                                class="token punctuation">{</span>
+    background<span class="token punctuation">:</span> <span class="token function">url</span><span
+                                    class="token punctuation">(</span><span class="token double-quoted-string string">"../images/thing.png"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="css-source-maps"></a></p>
+                        <h3 id="css-source-maps"><a href="#css-source-maps">Source Maps</a></h3>
+                        <p>Though disabled by default, source maps may be activated by calling the <code
+                                class=" language-php">mix<span class="token punctuation">.</span><span
+                                class="token function">sourceMaps</span><span class="token punctuation">(</span><span
+                                class="token punctuation">)</span></code> method in your <code class=" language-php">webpack<span
+                                class="token punctuation">.</span>mix<span class="token punctuation">.</span>js</code>
+                            file. Though it comes with a compile/performance cost, this will
+                            provide extra debugging information to your browser's developer tools
+                            when using compiled assets.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">sourceMaps</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Style Of Source Mapping</h4>
+                        <p>Webpack offers a variety of <a href="https://webpack.js.org/configuration/devtool/#devtool">source
+                            mapping styles</a>. By default, Mix's source mapping style is set to <code
+                                class=" language-php"><span class="token keyword">eval</span><span
+                                class="token operator">-</span>source<span class="token operator">-</span>map</code>,
+                            which provides a fast rebuild time. If you want to change the mapping style, you may do so
+                            using the <code class=" language-php">sourceMaps</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">let productionSourceMaps <span
+                                class="token operator">=</span> <span class="token boolean constant">false</span><span
+                                class="token punctuation">;</span>
+
+mix<span class="token punctuation">.</span><span class="token function">js</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">sourceMaps</span><span
+                                    class="token punctuation">(</span>productionSourceMaps<span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'source-map'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="working-with-scripts"></a></p>
+                        <h2 id="working-with-scripts"><a href="#working-with-scripts">Working With JavaScript</a></h2>
+                        <p>Mix provides several features to help you work with your JavaScript
+                            files, such as compiling ECMAScript 2015, module bundling, minification,
+                            and concatenating plain JavaScript files. Even better, this all works
+                            seamlessly, without requiring an ounce of custom configuration:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>With this single line of code, you may now take advantage of:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li>ES2015 syntax.</li>
+                                <li>Modules</li>
+                                <li>Compilation of <code class=" language-php"><span class="token punctuation">.</span>vue</code>
+                                    files.
+                                </li>
+                                <li>Minification for production environments.</li>
+                            </ul>
+                        </div>
+                        <p><a name="vendor-extraction"></a></p>
+                        <h3 id="vendor-extraction"><a href="#vendor-extraction">Vendor Extraction</a></h3>
+                        <p>One potential downside to bundling all application-specific
+                            JavaScript with your vendor libraries is that it makes long-term caching
+                            more difficult. For example, a single update to your application code
+                            will force the browser to re-download all of your vendor libraries even
+                            if they haven't changed.</p>
+                        <p>If you intend to make frequent updates to your application's
+                            JavaScript, you should consider extracting all of your vendor libraries
+                            into their own file. This way, a change to your application code will
+                            not affect the caching of your large <code class=" language-php">vendor<span
+                                    class="token punctuation">.</span>js</code> file. Mix's <code class=" language-php">extract</code>
+                            method makes this a breeze:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">extract</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'vue'</span><span
+                                    class="token punctuation">]</span><span
+                                    class="token punctuation">)</span></code></pre>
+                        <p>The <code class=" language-php">extract</code> method accepts an array of all libraries or
+                            modules that you wish to extract into a <code class=" language-php">vendor<span
+                                    class="token punctuation">.</span>js</code> file. Using the above snippet as an
+                            example, Mix will generate the following files:</p>
+                        <div class="content-list">
+                            <ul>
+                                <li><code class=" language-php"><span class="token keyword">public</span><span
+                                        class="token operator">/</span>js<span
+                                        class="token operator">/</span>manifest<span class="token punctuation">.</span>js</code>:
+                                    <em>The Webpack manifest runtime</em></li>
+                                <li><code class=" language-php"><span class="token keyword">public</span><span
+                                        class="token operator">/</span>js<span
+                                        class="token operator">/</span>vendor<span class="token punctuation">.</span>js</code>:
+                                    <em>Your vendor libraries</em></li>
+                                <li><code class=" language-php"><span class="token keyword">public</span><span
+                                        class="token operator">/</span>js<span class="token operator">/</span>app<span
+                                        class="token punctuation">.</span>js</code>: <em>Your application code</em></li>
+                            </ul>
+                        </div>
+                        <p>To avoid JavaScript errors, be sure to load these files in the proper order:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>script src<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"/js/manifest.js"</span><span
+                                class="token operator">&gt;</span><span class="token operator">&lt;</span><span
+                                class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"/js/vendor.js"</span><span
+                                    class="token operator">&gt;</span><span class="token operator">&lt;</span><span
+                                    class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span
+                                    class="token double-quoted-string string">"/js/app.js"</span><span
+                                    class="token operator">&gt;</span><span class="token operator">&lt;</span><span
+                                    class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre>
+                        <p><a name="react"></a></p>
+                        <h3 id="react"><a href="#react">React</a></h3>
+                        <p>Mix can automatically install the Babel plug-ins necessary for React support. To get started,
+                            replace your <code class=" language-php">mix<span class="token punctuation">.</span><span
+                                    class="token function">js</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span></code> call with <code
+                                    class=" language-php">mix<span class="token punctuation">.</span><span
+                                    class="token function">react</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">react</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.jsx'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Behind the scenes, Mix will download and include the appropriate <code class=" language-php">babel<span
+                                class="token operator">-</span>preset<span class="token operator">-</span>react</code>
+                            Babel plug-in.</p>
+                        <p><a name="vanilla-js"></a></p>
+                        <h3 id="vanilla-js"><a href="#vanilla-js">Vanilla JS</a></h3>
+                        <p>Similar to combining stylesheets with <code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">styles</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span></code>, you
+                            may also combine and minify any number of JavaScript files with the <code
+                                    class=" language-php"><span class="token function">scripts</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">scripts</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'public/js/admin.js'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'public/js/dashboard.js'</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'public/js/all.js'</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>This option is particularly useful for legacy projects where you don't require Webpack
+                            compilation for your JavaScript.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Compiling%20Assets_files/lightbulb.svg"></div>
+                                <p class="content"> A slight variation of <code class=" language-php">mix<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">scripts</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code> is <code
+                                        class=" language-php">mix<span class="token punctuation">.</span><span
+                                        class="token function">babel</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span></code>. Its method signature is identical to
+                                    <code class=" language-php">scripts</code>;
+                                    however, the concatenated file will receive Babel compilation, which
+                                    translates any ES2015 code to vanilla JavaScript that all browsers will
+                                    understand.</p></div>
+                        </blockquote>
+                        <p><a name="custom-webpack-configuration"></a></p>
+                        <h3 id="custom-webpack-configuration"><a href="#custom-webpack-configuration">Custom Webpack
+                            Configuration</a></h3>
+                        <p>Behind the scenes, Laravel Mix references a pre-configured <code class=" language-php">webpack<span
+                                class="token punctuation">.</span>config<span
+                                class="token punctuation">.</span>js</code>
+                            file to get you up and running as quickly as possible. Occasionally,
+                            you may need to manually modify this file. You might have a special
+                            loader or plug-in that needs to be referenced, or maybe you prefer to
+                            use Stylus instead of Sass. In such instances, you have two choices:</p>
+                        <h4>Merging Custom Configuration</h4>
+                        <p>Mix provides a useful <code class=" language-php">webpackConfig</code>
+                            method that allows you to merge any short Webpack configuration
+                            overrides. This is a particularly appealing choice, as it doesn't
+                            require you to copy and maintain your own copy of the <code
+                                    class=" language-php">webpack<span class="token punctuation">.</span>config<span
+                                    class="token punctuation">.</span>js</code> file. The <code class=" language-php">webpackConfig</code>
+                            method accepts an object, which should contain any <a
+                                    href="https://webpack.js.org/configuration/">Webpack-specific configuration</a> that
+                            you wish to apply.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">webpackConfig</span><span
+                                class="token punctuation">(</span><span class="token punctuation">{</span>
+    resolve<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        modules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            path<span class="token punctuation">.</span><span class="token function">resolve</span><span
+                                    class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span
+                                    class="token single-quoted-string string">'vendor/laravel/spark/resources/assets/js'</span><span
+                                    class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Custom Configuration Files</h4>
+                        <p>If you would like to completely customize your Webpack configuration, copy the <code
+                                class=" language-php">node_modules<span class="token operator">/</span>laravel<span
+                                class="token operator">-</span>mix<span class="token operator">/</span>setup<span
+                                class="token operator">/</span>webpack<span
+                                class="token punctuation">.</span>config<span
+                                class="token punctuation">.</span>js</code> file to your project's root directory. Next,
+                            point all of the <code class=" language-php"><span
+                                    class="token operator">--</span>config</code> references in your <code
+                                    class=" language-php">package<span class="token punctuation">.</span>json</code>
+                            file to the newly copied configuration file. If you choose to take this
+                            approach to customization, any future upstream updates to Mix's <code class=" language-php">webpack<span
+                                    class="token punctuation">.</span>config<span
+                                    class="token punctuation">.</span>js</code> must be manually merged into your
+                            customized file.</p>
+                        <p><a name="copying-files-and-directories"></a></p>
+                        <h2 id="copying-files-and-directories"><a href="#copying-files-and-directories">Copying Files
+                            &amp; Directories</a></h2>
+                        <p>The <code class=" language-php">copy</code> method may be used to copy files and directories
+                            to new locations. This can be useful when a particular asset within your <code
+                                    class=" language-php">node_modules</code> directory needs to be relocated to your
+                            <code class=" language-php"><span class="token keyword">public</span></code> folder.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">copy</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'node_modules/foo/bar.css'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/css/bar.css'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When copying a directory, the <code class=" language-php">copy</code> method will flatten the
+                            directory's structure. To maintain the directory's original structure, you should use the
+                            <code class=" language-php">copyDirectory</code> method instead:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">copyDirectory</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/img'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/img'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="versioning-and-cache-busting"></a></p>
+                        <h2 id="versioning-and-cache-busting"><a href="#versioning-and-cache-busting">Versioning / Cache
+                            Busting</a></h2>
+                        <p>Many developers suffix their compiled assets with a timestamp or
+                            unique token to force browsers to load the fresh assets instead of
+                            serving stale copies of the code. Mix can handle this for you using the <code
+                                    class=" language-php">version</code> method.</p>
+                        <p>The <code class=" language-php">version</code> method will
+                            automatically append a unique hash to the filenames of all compiled
+                            files, allowing for more convenient cache busting:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">version</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>After generating the versioned file, you won't know the exact file name. So, you should use
+                            Laravel's global <code class=" language-php">mix</code> function within your <a
+                                    href="https://laravel.com/docs/7.x/views">views</a> to load the appropriately hashed
+                            asset. The <code class=" language-php">mix</code> function will automatically determine the
+                            current name of the hashed file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token operator">&lt;</span>script src<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"{{ mix('/js/app.js') }}"</span><span
+                                class="token operator">&gt;</span><span class="token operator">&lt;</span><span
+                                class="token operator">/</span>script<span
+                                class="token operator">&gt;</span></code></pre>
+                        <p>Because versioned files are usually unnecessary in development, you may instruct the
+                            versioning process to only run during <code class=" language-php">npm run production</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">js</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'resources/js/app.js'</span><span
+                                class="token punctuation">,</span> <span class="token single-quoted-string string">'public/js'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>mix<span
+                                    class="token punctuation">.</span><span
+                                    class="token function">inProduction</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    mix<span class="token punctuation">.</span><span class="token function">version</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <h4>Custom Mix Base URLs</h4>
+                        <p>If your Mix compiled assets are deployed to a CDN separate from your
+                            application, you will need to change the base URL generated by the <code
+                                    class=" language-php">mix</code> function. You may do so by adding a <code
+                                    class=" language-php">mix_url</code> configuration option to your <code
+                                    class=" language-php">config<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>php</code> configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'mix_url'</span> <span class="token operator">=</span><span
+                                class="token operator">&gt;</span> <span class="token function">env</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'MIX_ASSET_URL'</span><span
+                                class="token punctuation">,</span> <span class="token constant">null</span><span
+                                class="token punctuation">)</span></code></pre>
+                        <p>After configuring the Mix URL, The <code class=" language-php">mix</code> function will
+                            prefix the configured URL when generating URLs to assets:</p>
+                        <pre class=" language-php"><code class=" language-php">https<span
+                                class="token punctuation">:</span><span class="token comment">//cdn.example.com/js/app.js?id=1964becbdd96414518cd</span></code></pre>
+                        <p><a name="browsersync-reloading"></a></p>
+                        <h2 id="browsersync-reloading"><a href="#browsersync-reloading">Browsersync Reloading</a></h2>
+                        <p><a href="https://browsersync.io/">BrowserSync</a> can automatically
+                            monitor your files for changes, and inject your changes into the browser
+                            without requiring a manual refresh. You may enable support by calling
+                            the <code class=" language-php">mix<span class="token punctuation">.</span><span
+                                    class="token function">browserSync</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span></code>
+                            method:</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span class="token function">browserSync</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'my-domain.test'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Or...</span>
+
+<span class="token comment">// https://browsersync.io/docs/options</span>
+mix<span class="token punctuation">.</span><span class="token function">browserSync</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">{</span>
+    proxy<span class="token punctuation">:</span> <span
+                                    class="token single-quoted-string string">'my-domain.test'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may pass either a string (proxy) or object (BrowserSync settings)
+                            to this method. Next, start Webpack's dev server using the <code class=" language-php">npm
+                                run watch</code> command. Now, when you modify a script or PHP file, watch as the
+                            browser instantly refreshes the page to reflect your changes.</p>
+                        <p><a name="environment-variables"></a></p>
+                        <h2 id="environment-variables"><a href="#environment-variables">Environment Variables</a></h2>
+                        <p>You may inject environment variables into Mix by prefixing a key in your <code
+                                class=" language-php"><span class="token punctuation">.</span>env</code> file with <code
+                                class=" language-php"><span class="token constant">MIX_</span></code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token constant">MIX_SENTRY_DSN_PUBLIC</span><span
+                                class="token operator">=</span>http<span class="token punctuation">:</span><span
+                                class="token comment">//example.com</span></code></pre>
+                        <p>After the variable has been defined in your <code class=" language-php"><span
+                                class="token punctuation">.</span>env</code> file, you may access via the <code
+                                class=" language-php">process<span class="token punctuation">.</span>env</code> object.
+                            If the value changes while you are running a <code class=" language-php">watch</code> task,
+                            you will need to restart the task:</p>
+                        <pre class=" language-php"><code class=" language-php">process<span
+                                class="token punctuation">.</span>env<span class="token punctuation">.</span><span
+                                class="token constant">MIX_SENTRY_DSN_PUBLIC</span></code></pre>
+                        <p><a name="notifications"></a></p>
+                        <h2 id="notifications"><a href="#notifications">Notifications</a></h2>
+                        <p>When available, Mix will automatically display OS notifications for
+                            each bundle. This will give you instant feedback, as to whether the
+                            compilation was successful or not. However, there may be instances when
+                            you'd prefer to disable these notifications. One such example might be
+                            triggering Mix on your production server. Notifications may be
+                            deactivated, via the <code class=" language-php">disableNotifications</code> method.</p>
+                        <pre class=" language-php"><code class=" language-php">mix<span
+                                class="token punctuation">.</span><span
+                                class="token function">disableNotifications</span><span
+                                class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

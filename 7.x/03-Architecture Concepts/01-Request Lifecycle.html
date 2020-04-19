@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Request Lifecycle - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/lifecycle">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="01-Request%20Lifecycle_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="01-Request%20Lifecycle_files/app.css">
+
+    <!-- Load JS -->
+    <script src="01-Request%20Lifecycle_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="01-Request%20Lifecycle_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Request Lifecycle</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#lifecycle-overview">Lifecycle Overview</a></li>
+                            <li><a href="#focus-on-service-providers">Focus On Service Providers</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>When using any tool in the "real world", you feel more confident if
+                            you understand how that tool works. Application development is no
+                            different. When you understand how your development tools function, you
+                            feel more comfortable and confident using them.</p>
+                        <p>The goal of this document is to give you a good, high-level overview
+                            of how the Laravel framework works. By getting to know the overall
+                            framework better, everything feels less "magical" and you will be more
+                            confident building your applications. If you don't understand all of the
+                            terms right away, don't lose heart! Just try to get a basic grasp of
+                            what is going on, and your knowledge will grow as you explore other
+                            sections of the documentation.</p>
+                        <p><a name="lifecycle-overview"></a></p>
+                        <h2 id="lifecycle-overview"><a href="#lifecycle-overview">Lifecycle Overview</a></h2>
+                        <h3>First Things</h3>
+                        <p>The entry point for all requests to a Laravel application is the <code class=" language-php"><span
+                                class="token keyword">public</span><span class="token operator">/</span>index<span
+                                class="token punctuation">.</span>php</code> file. All requests are directed to this
+                            file by your web server (Apache / Nginx) configuration. The <code class=" language-php">index<span
+                                    class="token punctuation">.</span>php</code> file doesn't contain much code. Rather,
+                            it is a starting point for loading the rest of the framework.</p>
+                        <p>The <code class=" language-php">index<span class="token punctuation">.</span>php</code> file
+                            loads the Composer generated autoloader definition, and then retrieves an instance of the
+                            Laravel application from <code class=" language-php">bootstrap<span
+                                    class="token operator">/</span>app<span class="token punctuation">.</span>php</code>
+                            script. The first action taken by Laravel itself is to create an instance of the application
+                            / <a href="https://laravel.com/docs/7.x/container">service container</a>.</p>
+                        <h3>HTTP / Console Kernels</h3>
+                        <p>Next, the incoming request is sent to either the HTTP kernel or the
+                            console kernel, depending on the type of request that is entering the
+                            application. These two kernels serve as the central location that all
+                            requests flow through. For now, let's just focus on the HTTP kernel,
+                            which is located in <code class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code>.</p>
+                        <p>The HTTP kernel extends the <code class=" language-php">Illuminate\<span
+                                class="token package">Foundation<span class="token punctuation">\</span>Http<span
+                                class="token punctuation">\</span>Kernel</span></code> class, which defines an array of
+                            <code class=" language-php">bootstrappers</code> that will be run before the request is
+                            executed. These bootstrappers configure error handling, configure logging, <a
+                                    href="#environment-configuration">detect
+                                the application environment</a>, and perform other tasks that need to be done before the
+                            request is actually handled.</p>
+                        <p>The HTTP kernel also defines a list of HTTP <a
+                                href="https://laravel.com/docs/7.x/middleware">middleware</a> that all requests must
+                            pass through before being handled by the application. These middleware handle reading and
+                            writing the <a href="https://laravel.com/docs/7.x/session">HTTP session</a>, determining if
+                            the application is in maintenance mode, <a href="https://laravel.com/docs/7.x/csrf">verifying
+                                the CSRF token</a>, and more.</p>
+                        <p>The method signature for the HTTP kernel's <code class=" language-php">handle</code> method
+                            is quite simple: receive a <code class=" language-php">Request</code> and return a <code
+                                    class=" language-php">Response</code>.
+                            Think of the Kernel as being a big black box that represents your
+                            entire application. Feed it HTTP requests and it will return HTTP
+                            responses.</p>
+                        <h4>Service Providers</h4>
+                        <p>One of the most important Kernel bootstrapping actions is loading the <a
+                                href="https://laravel.com/docs/7.x/providers">service providers</a> for your
+                            application. All of the service providers for the application are configured in the <code
+                                    class=" language-php">config<span class="token operator">/</span>app<span
+                                    class="token punctuation">.</span>php</code> configuration file's <code
+                                    class=" language-php">providers</code> array. First, the <code
+                                    class=" language-php">register</code> method will be called on all providers, then,
+                            once all providers have been registered, the <code class=" language-php">boot</code> method
+                            will be called.</p>
+                        <p>Service providers are responsible for bootstrapping all of the
+                            framework's various components, such as the database, queue, validation,
+                            and routing components. Since they bootstrap and configure every
+                            feature offered by the framework, service providers are the most
+                            important aspect of the entire Laravel bootstrap process.</p>
+                        <h4>Dispatch Request</h4>
+                        <p>Once the application has been bootstrapped and all service providers have been registered,
+                            the <code class=" language-php">Request</code>
+                            will be handed off to the router for dispatching. The router will
+                            dispatch the request to a route or controller, as well as run any route
+                            specific middleware.</p>
+                        <p><a name="focus-on-service-providers"></a></p>
+                        <h2 id="focus-on-service-providers"><a href="#focus-on-service-providers">Focus On Service
+                            Providers</a></h2>
+                        <p>Service providers are truly the key to bootstrapping a Laravel
+                            application. The application instance is created, the service providers
+                            are registered, and the request is handed to the bootstrapped
+                            application. It's really that simple!</p>
+                        <p>Having a firm grasp of how a Laravel application is built and
+                            bootstrapped via service providers is very valuable. Your application's
+                            default service providers are stored in the <code class=" language-php">app<span
+                                    class="token operator">/</span>Providers</code> directory.</p>
+                        <p>By default, the <code class=" language-php">AppServiceProvider</code>
+                            is fairly empty. This provider is a great place to add your
+                            application's own bootstrapping and service container bindings. For
+                            large applications, you may wish to create several service providers,
+                            each with a more granular type of bootstrapping.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

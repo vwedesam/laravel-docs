@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Laravel Sanctum - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/sanctum">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="06-Sanctum_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="06-Sanctum_files/app.css">
+
+    <!-- Load JS -->
+    <script src="06-Sanctum_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="06-Sanctum_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Laravel Sanctum</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a>
+                                <ul>
+                                    <li><a href="#how-it-works">How It Works</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#installation">Installation</a></li>
+                            <li><a href="#api-token-authentication">API Token Authentication</a>
+                                <ul>
+                                    <li><a href="#issuing-api-tokens">Issuing API Tokens</a></li>
+                                    <li><a href="#token-abilities">Token Abilities</a></li>
+                                    <li><a href="#protecting-routes">Protecting Routes</a></li>
+                                    <li><a href="#revoking-tokens">Revoking Tokens</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#spa-authentication">SPA Authentication</a>
+                                <ul>
+                                    <li><a href="#spa-configuration">Configuration</a></li>
+                                    <li><a href="#spa-authenticating">Authenticating</a></li>
+                                    <li><a href="#protecting-spa-routes">Protecting Routes</a></li>
+                                    <li><a href="#authorizing-private-broadcast-channels">Authorizing Private Broadcast
+                                        Channels</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#mobile-application-authentication">Mobile Application Authentication</a>
+                                <ul>
+                                    <li><a href="#issuing-mobile-api-tokens">Issuing API Tokens</a></li>
+                                    <li><a href="#protecting-mobile-api-routes">Protecting Routes</a></li>
+                                    <li><a href="#revoking-mobile-api-tokens">Revoking Tokens</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#testing">Testing</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Laravel Sanctum provides a featherweight authentication system for
+                            SPAs (single page applications), mobile applications, and simple, token
+                            based APIs. Sanctum allows each user of your application to generate
+                            multiple API tokens for their account. These tokens may be granted
+                            abilities / scopes which specify which actions the tokens are allowed to
+                            perform.</p>
+                        <p><a name="how-it-works"></a></p>
+                        <h3 id="how-it-works"><a href="#how-it-works">How It Works</a></h3>
+                        <h4>API Tokens</h4>
+                        <p>Laravel Sanctum exists to solve two separate problems. First, it is a
+                            simple package to issue API tokens to your users without the
+                            complication of OAuth. This feature is inspired by GitHub "access
+                            tokens". For example, imagine the "account settings" of your application
+                            has a screen where a user may generate an API token for their account.
+                            You may use Sanctum to generate and manage those tokens. These tokens
+                            typically have a very long expiration time (years), but may be manually
+                            revoked by the user at anytime.</p>
+                        <p>Laravel Sanctum offers this feature by storing user API tokens in a
+                            single database table and authenticating incoming requests via the <code
+                                    class=" language-php">Authorization</code> header which should contain a valid API
+                            token.</p>
+                        <h4>SPA Authentication</h4>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Sanctum_files/lightbulb.svg"></div>
+                                <p class="content">
+                                    It is perfectly fine to use Sanctum only for API token authentication
+                                    or only for SPA authentication. Just because you use Sanctum does not
+                                    mean you are required to use both features it offers.</p></div>
+                        </blockquote>
+                        <p>Second, Sanctum exists to offer a simple way to authenticate single
+                            page applications (SPAs) that need to communicate with a Laravel powered
+                            API. These SPAs might exist in the same repository as your Laravel
+                            application or might be an entirely separate repository, such as a SPA
+                            created using Vue CLI.</p>
+                        <p>For this feature, Sanctum does not use tokens of any kind. Instead,
+                            Sanctum uses Laravel's built-in cookie based session authentication
+                            services. This provides the benefits of CSRF protection, session
+                            authentication, as well as protects against leakage of the
+                            authentication credentials via XSS. Sanctum will only attempt to
+                            authenticate using cookies when the incoming request originates from
+                            your own SPA frontend.</p>
+                        <p><a name="installation"></a></p>
+                        <h2 id="installation"><a href="#installation">Installation</a></h2>
+                        <p>You may install Laravel Sanctum via Composer:</p>
+                        <pre class=" language-php"><code class=" language-php">composer <span class="token keyword">require</span> laravel<span
+                                class="token operator">/</span>sanctum</code></pre>
+                        <p>Next, you should publish the Sanctum configuration and migration files using the <code
+                                class=" language-php">vendor<span class="token punctuation">:</span>publish</code>
+                            Artisan command. The <code class=" language-php">sanctum</code> configuration file will be
+                            placed in your <code class=" language-php">config</code> directory:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan vendor<span
+                                class="token punctuation">:</span>publish <span class="token operator">--</span>provider<span
+                                class="token operator">=</span><span class="token double-quoted-string string">"Laravel\Sanctum\SanctumServiceProvider"</span></code></pre>
+                        <p>Finally, you should run your database migrations. Sanctum will create one database table in
+                            which to store API tokens:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan migrate</code></pre>
+                        <p>Next, if you plan to utilize Sanctum to authenticate an SPA, you should add Sanctum's
+                            middleware to your <code class=" language-php">api</code> middleware group within your <code
+                                    class=" language-php">app<span class="token operator">/</span>Http<span
+                                    class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Laravel<span
+                                class="token punctuation">\</span>Sanctum<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>EnsureFrontendRequestsAreStateful</span><span
+                                class="token punctuation">;</span>
+
+<span class="token single-quoted-string string">'api'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    EnsureFrontendRequestsAreStateful<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'throttle:60,1'</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <h4>Migration Customization</h4>
+                        <p>If you are not going to use Sanctum's default migrations, you should call the <code
+                                class=" language-php">Sanctum<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span>ignoreMigrations</code> method in the <code
+                                class=" language-php">register</code> method of your <code class=" language-php">AppServiceProvider</code>.
+                            You may export the default migrations using <code class=" language-php">php artisan
+                                vendor<span class="token punctuation">:</span>publish <span
+                                        class="token operator">--</span>tag<span
+                                        class="token operator">=</span>sanctum<span class="token operator">-</span>migrations</code>.
+                        </p>
+                        <p><a name="api-token-authentication"></a></p>
+                        <h2 id="api-token-authentication"><a href="#api-token-authentication">API Token
+                            Authentication</a></h2>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Sanctum_files/lightbulb.svg"></div>
+                                <p class="content"> You should not use API tokens to authenticate your own first-party
+                                    SPA. Instead, use Sanctum's built-in <a href="#spa-authentication">SPA
+                                        authentication</a>.</p></div>
+                        </blockquote>
+                        <p><a name="issuing-api-tokens"></a></p>
+                        <h3 id="issuing-api-tokens"><a href="#issuing-api-tokens">Issuing API Tokens</a></h3>
+                        <p>Sanctum allows you to issue API tokens / personal access tokens that
+                            may be used to authenticate API requests. When making requests using API
+                            tokens, the token should be included in the <code class=" language-php">Authorization</code>
+                            header as a <code class=" language-php">Bearer</code> token.</p>
+                        <p>To begin issuing tokens for users, your User model should use the <code
+                                class=" language-php">HasApiTokens</code> trait:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Laravel<span
+                                class="token punctuation">\</span>Sanctum<span class="token punctuation">\</span>HasApiTokens</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Authenticatable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">HasApiTokens</span><span
+                                    class="token punctuation">,</span> Notifiable<span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>To issue a token, you may use the <code class=" language-php">createToken</code> method. The
+                            <code class=" language-php">createToken</code> method returns a <code class=" language-php">Laravel\<span
+                                    class="token package">Sanctum<span class="token punctuation">\</span>NewAccessToken</span></code>
+                            instance. API tokens are hashed using SHA-256 hashing before being
+                            stored in your database, but you may access the plain-text value of the
+                            token using the <code class=" language-php">plainTextToken</code> property of the <code
+                                    class=" language-php">NewAccessToken</code> instance. You should display this value
+                            to the user immediately after the token has been created:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$token</span> <span class="token operator">=</span> <span
+                                class="token variable">$user</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">createToken</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'token-name'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token variable">$token</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">plainTextToken</span><span class="token punctuation">;</span></code></pre>
+                        <p>You may access all of the user's tokens using the <code class=" language-php">tokens</code>
+                            Eloquent relationship provided by the <code class=" language-php">HasApiTokens</code> trait:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">foreach</span> <span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token property">tokens</span> <span
+                                class="token keyword">as</span> <span class="token variable">$token</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="token-abilities"></a></p>
+                        <h3 id="token-abilities"><a href="#token-abilities">Token Abilities</a></h3>
+                        <p>Sanctum allows you to assign "abilities" to tokens, similar to OAuth
+                            "scopes". You may pass an array of string abilities as the second
+                            argument to the <code class=" language-php">createToken</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token keyword">return</span> <span
+                                class="token variable">$user</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">createToken</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'token-name'</span><span
+                                class="token punctuation">,</span> <span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'server:update'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                class="token operator">-</span><span class="token operator">&gt;</span><span
+                                class="token property">plainTextToken</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>When handling an incoming request authenticated by Sanctum, you may determine if the token
+                            has a given ability using the <code class=" language-php">tokenCan</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                class="token variable">$user</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">tokenCan</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'server:update'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Sanctum_files/lightbulb.svg"></div>
+                                <p class="content"> For convenience, the <code class=" language-php">tokenCan</code>
+                                    method will always return <code class=" language-php"><span
+                                            class="token boolean constant">true</span></code> if the incoming
+                                    authenticated request was from your first-party SPA and you are using Sanctum's
+                                    built-in <a href="#spa-authentication">SPA authentication</a>.</p></div>
+                        </blockquote>
+                        <p><a name="protecting-routes"></a></p>
+                        <h3 id="protecting-routes"><a href="#protecting-routes">Protecting Routes</a></h3>
+                        <p>To protect routes so that all incoming requests must be authenticated, you should attach the
+                            <code class=" language-php">sanctum</code> authentication guard to your API routes within
+                            your <code class=" language-php">routes<span class="token operator">/</span>api<span
+                                    class="token punctuation">.</span>php</code>
+                            file. This guard will ensure that incoming requests are authenticated
+                            as either a stateful authenticated requests from your SPA or contain a
+                            valid API token header if the request is from a third party:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:sanctum'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>Request <span
+                                class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="revoking-tokens"></a></p>
+                        <h3 id="revoking-tokens"><a href="#revoking-tokens">Revoking Tokens</a></h3>
+                        <p>You may "revoke" tokens by deleting them from your database using the <code
+                                class=" language-php">tokens</code> relationship that is provided by the <code
+                                class=" language-php">HasApiTokens</code> trait:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Revoke all tokens...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">tokens</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">delete</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Revoke a specific token...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">tokens</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="spa-authentication"></a></p>
+                        <h2 id="spa-authentication"><a href="#spa-authentication">SPA Authentication</a></h2>
+                        <p>Sanctum exists to offer a simple way to authenticate single page
+                            applications (SPAs) that need to communicate with a Laravel powered API.
+                            These SPAs might exist in the same repository as your Laravel
+                            application or might be an entirely separate repository, such as a SPA
+                            created using Vue CLI.</p>
+                        <p>For this feature, Sanctum does not use tokens of any kind. Instead,
+                            Sanctum uses Laravel's built-in cookie based session authentication
+                            services. This provides the benefits of CSRF protection, session
+                            authentication, as well as protects against leakage of the
+                            authentication credentials via XSS. Sanctum will only attempt to
+                            authenticate using cookies when the incoming request originates from
+                            your own SPA frontend.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-Sanctum_files/exclamation.svg"></div>
+                                <p class="content">
+                                    In order to authenticate, your SPA and API must share the same
+                                    top-level domain. However, they may be placed on different subdomains.</p></div>
+                        </blockquote>
+                        <p><a name="spa-configuration"></a></p>
+                        <h3 id="spa-configuration"><a href="#spa-configuration">Configuration</a></h3>
+                        <h4>Configuring Your First-Party Domains</h4>
+                        <p>First, you should configure which domains your SPA will be making requests from. You may
+                            configure these domains using the <code class=" language-php">stateful</code> configuration
+                            option in your <code class=" language-php">sanctum</code>
+                            configuration file. This configuration setting determines which domains
+                            will maintain "stateful" authentication using Laravel session cookies
+                            when making requests to your API.</p>
+                        <h4>Sanctum Middleware</h4>
+                        <p>Next, you should add Sanctum's middleware to your <code class=" language-php">api</code>
+                            middleware group within your <code class=" language-php">app<span
+                                    class="token operator">/</span>Http<span class="token operator">/</span>Kernel<span
+                                    class="token punctuation">.</span>php</code>
+                            file. This middleware is responsible for ensuring that incoming
+                            requests from your SPA can authenticate using Laravel's session cookies,
+                            while still allowing requests from third parties or mobile applications
+                            to authenticate using API tokens:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">Laravel<span
+                                class="token punctuation">\</span>Sanctum<span
+                                class="token punctuation">\</span>Http<span class="token punctuation">\</span>Middleware<span
+                                class="token punctuation">\</span>EnsureFrontendRequestsAreStateful</span><span
+                                class="token punctuation">;</span>
+
+<span class="token single-quoted-string string">'api'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span>
+    EnsureFrontendRequestsAreStateful<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'throttle:60,1'</span><span class="token punctuation">,</span>
+    \<span class="token package">Illuminate<span class="token punctuation">\</span>Routing<span
+                                    class="token punctuation">\</span>Middleware<span class="token punctuation">\</span>SubstituteBindings</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre>
+                        <p><a name="cors-and-cookies"></a></p>
+                        <h4 id="cors-and-cookies"><a href="#cors-and-cookies">CORS &amp; Cookies</a></h4>
+                        <p>If you are having trouble authenticating with your application from
+                            an SPA that executes on a separate subdomain, you have likely
+                            misconfigured your CORS (Cross-Origin Resource Sharing) or session
+                            cookie settings.</p>
+                        <p>You should ensure that your application's CORS configuration is returning the <code
+                                class=" language-php">Access<span class="token operator">-</span>Control<span
+                                class="token operator">-</span>Allow<span
+                                class="token operator">-</span>Credentials</code> header with a value of <code
+                                class=" language-php"><span class="token boolean constant">True</span></code> by setting
+                            the <code class=" language-php">supports_credentials</code> option within your application's
+                            <code class=" language-php">cors</code> configuration file to <code
+                                    class=" language-php"><span class="token boolean constant">true</span></code>.</p>
+                        <p>In addition, you should enable the <code class=" language-php">withCredentials</code> option
+                            on your global <code class=" language-php">axios</code> instance. Typically, this should be
+                            performed in your <code class=" language-php">resources<span class="token operator">/</span>js<span
+                                    class="token operator">/</span>bootstrap<span
+                                    class="token punctuation">.</span>js</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">axios<span
+                                class="token punctuation">.</span>defaults<span class="token punctuation">.</span>withCredentials <span
+                                class="token operator">=</span> <span class="token boolean constant">true</span><span
+                                class="token punctuation">;</span></code></pre>
+                        <p>Finally, you should ensure your application's session cookie domain
+                            configuration supports any subdomain of your root domain. You may do
+                            this by prefixing the domain with a leading <code class=" language-php"><span
+                                    class="token punctuation">.</span></code> within your <code class=" language-php">session</code>
+                            configuration file:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token single-quoted-string string">'domain'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token single-quoted-string string">'.domain.com'</span><span
+                                class="token punctuation">,</span></code></pre>
+                        <p><a name="spa-authenticating"></a></p>
+                        <h3 id="spa-authenticating"><a href="#spa-authenticating">Authenticating</a></h3>
+                        <p>To authenticate your SPA, your SPA's login page should first make a request to the <code
+                                class=" language-php"><span class="token operator">/</span>sanctum<span
+                                class="token operator">/</span>csrf<span class="token operator">-</span>cookie</code>
+                            route to initialize CSRF protection for the application:</p>
+                        <pre class=" language-php"><code class=" language-php">axios<span
+                                class="token punctuation">.</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/sanctum/csrf-cookie'</span><span
+                                class="token punctuation">)</span><span class="token punctuation">.</span><span
+                                class="token function">then</span><span class="token punctuation">(</span>response <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">{</span>
+    <span class="token comment">// Login...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Once CSRF protection has been initialized, you should make a <code
+                                class=" language-php"><span class="token constant">POST</span></code> request to the
+                            typical Laravel <code class=" language-php"><span
+                                    class="token operator">/</span>login</code> route. This <code class=" language-php"><span
+                                    class="token operator">/</span>login</code> route may be provided by the <code
+                                    class=" language-php">laravel<span class="token operator">/</span>ui</code> <a
+                                    href="#introduction">authentication
+                                scaffolding</a> package.</p>
+                        <p>If the login request is successful, you will be authenticated and
+                            subsequent requests to your API routes will automatically be
+                            authenticated via the session cookie that the Laravel backend issued to
+                            your client.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Sanctum_files/lightbulb.svg"></div>
+                                <p class="content"> You are free to write your own <code class=" language-php"><span
+                                        class="token operator">/</span>login</code> endpoint; however, you should ensure
+                                    that it authenticates the user using the standard, <a
+                                            href="#authenticating-users">session
+                                        based authentication services that Laravel provides</a>.</p></div>
+                        </blockquote>
+                        <p><a name="protecting-spa-routes"></a></p>
+                        <h3 id="protecting-spa-routes"><a href="#protecting-spa-routes">Protecting Routes</a></h3>
+                        <p>To protect routes so that all incoming requests must be authenticated, you should attach the
+                            <code class=" language-php">sanctum</code> authentication guard to your API routes within
+                            your <code class=" language-php">routes<span class="token operator">/</span>api<span
+                                    class="token punctuation">.</span>php</code>
+                            file. This guard will ensure that incoming requests are authenticated
+                            as either a stateful authenticated requests from your SPA or contain a
+                            valid API token header if the request is from a third party:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:sanctum'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>Request <span
+                                class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="authorizing-private-broadcast-channels"></a></p>
+                        <h3 id="authorizing-private-broadcast-channels"><a
+                                href="#authorizing-private-broadcast-channels">Authorizing Private Broadcast
+                            Channels</a></h3>
+                        <p>If your SPA needs to authenticate with <a
+                                href="#authorizing-channels">private / presence
+                            broadcast channels</a>, you should place the <code class=" language-php">Broadcast<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span>routes</code>
+                            method call within your <code class=" language-php">routes<span
+                                    class="token operator">/</span>api<span class="token punctuation">.</span>php</code>
+                            file:</p>
+                        <pre class=" language-php"><code class=" language-php">Broadcast<span class="token punctuation">:</span><span
+                                class="token punctuation">:</span><span class="token function">routes</span><span
+                                class="token punctuation">(</span><span class="token punctuation">[</span><span
+                                class="token single-quoted-string string">'middleware'</span> <span
+                                class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                class="token punctuation">[</span><span class="token single-quoted-string string">'auth:sanctum'</span><span
+                                class="token punctuation">]</span><span class="token punctuation">]</span><span
+                                class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>Next, in order for Pusher's authorization requests to succeed, you will need to provide a
+                            custom Pusher <code class=" language-php">authorizer</code> when initializing <a
+                                    href="#installing-laravel-echo">Laravel
+                                Echo</a>. This allows your application to configure Pusher to use the <code
+                                    class=" language-php">axios</code> instance that is <a href="#cors-and-cookies">properly
+                                configured for cross-domain requests</a>:</p>
+                        <pre class=" language-php"><code class=" language-php">window<span
+                                class="token punctuation">.</span><span class="token keyword">Echo</span> <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name">Echo</span><span class="token punctuation">(</span><span
+                                class="token punctuation">{</span>
+    broadcaster<span class="token punctuation">:</span> <span
+                                    class="token double-quoted-string string">"pusher"</span><span
+                                    class="token punctuation">,</span>
+    cluster<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span
+                                    class="token punctuation">.</span><span class="token constant">MIX_PUSHER_APP_CLUSTER</span><span
+                                    class="token punctuation">,</span>
+    encrypted<span class="token punctuation">:</span> <span class="token boolean constant">true</span><span
+                                    class="token punctuation">,</span>
+    key<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span
+                                    class="token punctuation">.</span><span
+                                    class="token constant">MIX_PUSHER_APP_KEY</span><span
+                                    class="token punctuation">,</span>
+    authorizer<span class="token punctuation">:</span> <span class="token punctuation">(</span>channel<span
+                                    class="token punctuation">,</span> options<span
+                                    class="token punctuation">)</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            authorize<span class="token punctuation">:</span> <span class="token punctuation">(</span>socketId<span
+                                    class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">{</span>
+                axios<span class="token punctuation">.</span><span class="token function">post</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'/api/broadcasting/auth'</span><span
+                                    class="token punctuation">,</span> <span class="token punctuation">{</span>
+                    socket_id<span class="token punctuation">:</span> socketId<span class="token punctuation">,</span>
+                    channel_name<span class="token punctuation">:</span> channel<span class="token punctuation">.</span>name
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">then</span><span
+                                    class="token punctuation">(</span>response <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token punctuation">{</span>
+                    <span class="token function">callback</span><span class="token punctuation">(</span><span
+                                    class="token boolean constant">false</span><span class="token punctuation">,</span> response<span
+                                    class="token punctuation">.</span>data<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token keyword">catch</span><span
+                                    class="token punctuation">(</span>error <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                    <span class="token function">callback</span><span class="token punctuation">(</span><span
+                                    class="token boolean constant">true</span><span class="token punctuation">,</span> error<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+                        <p><a name="mobile-application-authentication"></a></p>
+                        <h2 id="mobile-application-authentication"><a href="#mobile-application-authentication">Mobile
+                            Application Authentication</a></h2>
+                        <p>You may use Sanctum tokens to authenticate your mobile application's
+                            requests to your API. The process for authenticating mobile application
+                            requests is similar to authenticating third-party API requests; however,
+                            there are small differences in how you will issue the API tokens.</p>
+                        <p><a name="issuing-mobile-api-tokens"></a></p>
+                        <h3 id="issuing-mobile-api-tokens"><a href="#issuing-mobile-api-tokens">Issuing API Tokens</a>
+                        </h3>
+                        <p>To get started, create a route that accepts the user's email /
+                            username, password, and device name, then exchanges those credentials
+                            for a new Sanctum token. The endpoint will return the plain-text Sanctum
+                            token which may then be stored on the mobile device and used to make
+                            additional API requests:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Http<span
+                                    class="token punctuation">\</span>Request</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span
+                                    class="token punctuation">\</span>Facades<span class="token punctuation">\</span>Hash</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Validation<span
+                                    class="token punctuation">\</span>ValidationException</span><span
+                                    class="token punctuation">;</span>
+
+Route<span class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">post</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/sanctum/token'</span><span
+                                    class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                    class="token punctuation">(</span>Request <span
+                                    class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+    <span class="token variable">$request</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">validate</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'required|email'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'password'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'required'</span><span
+                                    class="token punctuation">,</span>
+        <span class="token single-quoted-string string">'device_name'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'required'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token variable">$user</span> <span class="token operator">=</span> User<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">where</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'email'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">email</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">first</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span> <span
+                                    class="token variable">$user</span> <span class="token operator">||</span> <span
+                                    class="token operator">!</span> Hash<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">check</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">password</span><span class="token punctuation">,</span> <span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">password</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+        <span class="token keyword">throw</span> ValidationException<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span
+                                    class="token function">withMessages</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'email'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'The provided credentials are incorrect.'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">createToken</span><span
+                                    class="token punctuation">(</span><span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">device_name</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">plainTextToken</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p>When the mobile device uses the token to make an API request to your application, it should
+                            pass the token in the <code class=" language-php">Authorization</code> header as a <code
+                                    class=" language-php">Bearer</code> token.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Sanctum_files/lightbulb.svg"></div>
+                                <p class="content"> When issuing tokens for a mobile application, you are also free to
+                                    specify <a href="#token-abilities">token abilities</a></p></div>
+                        </blockquote>
+                        <p><a name="protecting-mobile-api-routes"></a></p>
+                        <h3 id="protecting-mobile-api-routes"><a href="#protecting-mobile-api-routes">Protecting
+                            Routes</a></h3>
+                        <p>As previously documented, you may protect routes so that all incoming requests must be
+                            authenticated by attaching the <code class=" language-php">sanctum</code> authentication
+                            guard to the routes. Typically, you will attach this guard to the routes defined within your
+                            <code class=" language-php">routes<span class="token operator">/</span>api<span
+                                    class="token punctuation">.</span>php</code> file:</p>
+                        <pre class=" language-php"><code class=" language-php">Route<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">middleware</span><span class="token punctuation">(</span><span
+                                class="token single-quoted-string string">'auth:sanctum'</span><span
+                                class="token punctuation">)</span><span class="token operator">-</span><span
+                                class="token operator">&gt;</span><span class="token function">get</span><span
+                                class="token punctuation">(</span><span class="token single-quoted-string string">'/user'</span><span
+                                class="token punctuation">,</span> <span class="token keyword">function</span> <span
+                                class="token punctuation">(</span>Request <span
+                                class="token variable">$request</span><span class="token punctuation">)</span> <span
+                                class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$request</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">user</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="revoking-mobile-api-tokens"></a></p>
+                        <h3 id="revoking-mobile-api-tokens"><a href="#revoking-mobile-api-tokens">Revoking Tokens</a>
+                        </h3>
+                        <p>To allow users to revoke API tokens issued to mobile devices, you may
+                            list them by name, along with a "Revoke" button, within an "account
+                            settings" portion of your web application's UI. When the user clicks the
+                            "Revoke" button, you can delete the token from the database. Remember,
+                            you can access a user's API tokens via the <code class=" language-php">tokens</code>
+                            relationship provided by the <code class=" language-php">HasApiTokens</code> trait:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">// Revoke all tokens...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">tokens</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">delete</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Revoke a specific token...</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">tokens</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">where</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'id'</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$id</span><span
+                                    class="token punctuation">)</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">delete</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="testing"></a></p>
+                        <h2 id="testing"><a href="#testing">Testing</a></h2>
+                        <p>While testing, the <code class=" language-php">Sanctum<span
+                                class="token punctuation">:</span><span
+                                class="token punctuation">:</span>actingAs</code> method may be used to authenticate a
+                            user and specify which abilities are granted to their token:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>User</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Laravel<span class="token punctuation">\</span>Sanctum<span
+                                    class="token punctuation">\</span>Sanctum</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">test_task_list_can_be_retrieved</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Sanctum<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">actingAs</span><span
+                                    class="token punctuation">(</span>
+        <span class="token function">factory</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">create</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">[</span><span class="token single-quoted-string string">'view-tasks'</span><span
+                                    class="token punctuation">]</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token single-quoted-string string">'/api/task'</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token variable">$response</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">assertOk</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p>If you would like to grant all abilities to the token, you should include <code
+                                class=" language-php"><span class="token operator">*</span></code> in the ability list
+                            provided to the <code class=" language-php">actingAs</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php">Sanctum<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">actingAs</span><span class="token punctuation">(</span>
+    <span class="token function">factory</span><span class="token punctuation">(</span>User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">create</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token single-quoted-string string">'*'</span><span
+                                    class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

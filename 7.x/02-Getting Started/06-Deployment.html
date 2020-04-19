@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Deployment - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/deployment">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="06-Deployment_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="06-Deployment_files/app.css">
+
+    <!-- Load JS -->
+    <script src="06-Deployment_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="06-Deployment_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Deployment</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#server-configuration">Server Configuration</a>
+                                <ul>
+                                    <li><a href="#nginx">Nginx</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#optimization">Optimization</a>
+                                <ul>
+                                    <li><a href="#autoloader-optimization">Autoloader Optimization</a></li>
+                                    <li><a href="#optimizing-configuration-loading">Optimizing Configuration Loading</a>
+                                    </li>
+                                    <li><a href="#optimizing-route-loading">Optimizing Route Loading</a></li>
+                                    <li><a href="#optimizing-view-loading">Optimizing View Loading</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#deploying-with-forge">Deploying With Forge</a></li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>When you're ready to deploy your Laravel application to production,
+                            there are some important things you can do to make sure your application
+                            is running as efficiently as possible. In this document, we'll cover
+                            some great starting points for making sure your Laravel application is
+                            deployed properly.</p>
+                        <p><a name="server-configuration"></a></p>
+                        <h2 id="server-configuration"><a href="#server-configuration">Server Configuration</a></h2>
+                        <p><a name="nginx"></a></p>
+                        <h3 id="nginx"><a href="#nginx">Nginx</a></h3>
+                        <p>If you are deploying your application to a server that is running
+                            Nginx, you may use the following configuration file as a starting point
+                            for configuring your web server. Most likely, this file will need to be
+                            customized depending on your server's configuration. If you would like
+                            assistance in managing your server, consider using a service such as <a
+                                    href="https://forge.laravel.com/">Laravel Forge</a>:</p>
+                        <pre class=" language-php"><code class=" language-php">server <span
+                                class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name example<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    root <span class="token operator">/</span>example<span class="token punctuation">.</span>com<span
+                                    class="token operator">/</span><span class="token keyword">public</span><span
+                                    class="token punctuation">;</span>
+
+    add_header <span class="token constant">X</span><span class="token operator">-</span>Frame<span
+                                    class="token operator">-</span>Options <span
+                                    class="token double-quoted-string string">"SAMEORIGIN"</span><span
+                                    class="token punctuation">;</span>
+    add_header <span class="token constant">X</span><span class="token operator">-</span><span class="token constant">XSS</span><span
+                                    class="token operator">-</span>Protection <span
+                                    class="token double-quoted-string string">"1; mode=block"</span><span
+                                    class="token punctuation">;</span>
+    add_header <span class="token constant">X</span><span class="token operator">-</span>Content<span
+                                    class="token operator">-</span>Type<span
+                                    class="token operator">-</span>Options <span
+                                    class="token double-quoted-string string">"nosniff"</span><span
+                                    class="token punctuation">;</span>
+
+    index index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm index<span
+                                    class="token punctuation">.</span>php<span class="token punctuation">;</span>
+
+    charset utf<span class="token operator">-</span><span class="token number">8</span><span
+                                    class="token punctuation">;</span>
+
+    location <span class="token operator">/</span> <span class="token punctuation">{</span>
+        try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span><span
+                                    class="token operator">/</span> <span class="token operator">/</span>index<span
+                                    class="token punctuation">.</span>php<span class="token operator">?</span><span
+                                    class="token variable">$query_string</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    location <span class="token operator">=</span> <span class="token operator">/</span>favicon<span
+                                    class="token punctuation">.</span>ico <span class="token punctuation">{</span> access_log off<span
+                                    class="token punctuation">;</span> log_not_found off<span class="token punctuation">;</span> <span
+                                    class="token punctuation">}</span>
+    location <span class="token operator">=</span> <span class="token operator">/</span>robots<span
+                                    class="token punctuation">.</span>txt  <span class="token punctuation">{</span> access_log off<span
+                                    class="token punctuation">;</span> log_not_found off<span class="token punctuation">;</span> <span
+                                    class="token punctuation">}</span>
+
+    error_page <span class="token number">404</span> <span class="token operator">/</span>index<span
+                                    class="token punctuation">.</span>php<span class="token punctuation">;</span>
+
+    location <span class="token operator">~</span> \<span class="token punctuation">.</span>php$ <span
+                                    class="token punctuation">{</span>
+        fastcgi_pass unix<span class="token punctuation">:</span><span class="token operator">/</span><span
+                                    class="token keyword">var</span><span class="token operator">/</span>run<span
+                                    class="token operator">/</span>php<span class="token operator">/</span>php7<span
+                                    class="token punctuation">.</span><span class="token number">2</span><span
+                                    class="token operator">-</span>fpm<span class="token punctuation">.</span>sock<span
+                                    class="token punctuation">;</span>
+        fastcgi_index index<span class="token punctuation">.</span>php<span class="token punctuation">;</span>
+        fastcgi_param <span class="token constant">SCRIPT_FILENAME</span> <span
+                                    class="token variable">$realpath_root</span><span class="token variable">$fastcgi_script_name</span><span
+                                    class="token punctuation">;</span>
+        <span class="token keyword">include</span> fastcgi_params<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    location <span class="token operator">~</span> <span class="token operator">/</span>\<span
+                                    class="token punctuation">.</span><span class="token punctuation">(</span><span
+                                    class="token operator">?</span><span class="token operator">!</span>well<span
+                                    class="token operator">-</span>known<span class="token punctuation">)</span><span
+                                    class="token punctuation">.</span><span class="token operator">*</span> <span
+                                    class="token punctuation">{</span>
+        deny all<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+                        <p><a name="optimization"></a></p>
+                        <h2 id="optimization"><a href="#optimization">Optimization</a></h2>
+                        <p><a name="autoloader-optimization"></a></p>
+                        <h3 id="autoloader-optimization"><a href="#autoloader-optimization">Autoloader Optimization</a>
+                        </h3>
+                        <p>When deploying to production, make sure that you are optimizing
+                            Composer's class autoloader map so Composer can quickly find the proper
+                            file to load for a given class:</p>
+                        <pre class=" language-php"><code class=" language-php">composer install <span
+                                class="token operator">--</span>optimize<span class="token operator">-</span>autoloader <span
+                                class="token operator">--</span>no<span class="token operator">-</span>dev</code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="06-Deployment_files/lightbulb.svg"></div>
+                                <p class="content"> In addition to optimizing the autoloader, you should always be sure
+                                    to include a <code class=" language-php">composer<span
+                                            class="token punctuation">.</span>lock</code> file in your project's source
+                                    control repository. Your project's dependencies can be installed much faster when a
+                                    <code class=" language-php">composer<span
+                                            class="token punctuation">.</span>lock</code> file is present.</p></div>
+                        </blockquote>
+                        <p><a name="optimizing-configuration-loading"></a></p>
+                        <h3 id="optimizing-configuration-loading"><a href="#optimizing-configuration-loading">Optimizing
+                            Configuration Loading</a></h3>
+                        <p>When deploying your application to production, you should make sure that you run the <code
+                                class=" language-php">config<span class="token punctuation">:</span>cache</code> Artisan
+                            command during your deployment process:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan config<span
+                                class="token punctuation">:</span>cache</code></pre>
+                        <p>This command will combine all of Laravel's configuration files into a
+                            single, cached file, which greatly reduces the number of trips the
+                            framework must make to the filesystem when loading your configuration
+                            values.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-Deployment_files/exclamation.svg"></div>
+                                <p class="content"> If you execute the <code class=" language-php">config<span
+                                        class="token punctuation">:</span>cache</code> command during your deployment
+                                    process, you should be sure that you are only calling the <code
+                                            class=" language-php">env</code> function from within your configuration
+                                    files. Once the configuration has been cached, the <code class=" language-php"><span
+                                            class="token punctuation">.</span>env</code> file will not be loaded and all
+                                    calls to the <code class=" language-php">env</code> function will return <code
+                                            class=" language-php"><span class="token constant">null</span></code>.</p>
+                            </div>
+                        </blockquote>
+                        <p><a name="optimizing-route-loading"></a></p>
+                        <h3 id="optimizing-route-loading"><a href="#optimizing-route-loading">Optimizing Route
+                            Loading</a></h3>
+                        <p>If you are building a large application with many routes, you should make sure that you are
+                            running the <code class=" language-php">route<span
+                                    class="token punctuation">:</span>cache</code> Artisan command during your
+                            deployment process:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan route<span
+                                class="token punctuation">:</span>cache</code></pre>
+                        <p>This command reduces all of your route registrations into a single
+                            method call within a cached file, improving the performance of route
+                            registration when registering hundreds of routes.</p>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="06-Deployment_files/exclamation.svg"></div>
+                                <p class="content">
+                                    Since this feature uses PHP serialization, you may only cache the
+                                    routes for applications that exclusively use controller based routes.
+                                    PHP is not able to serialize Closures.</p></div>
+                        </blockquote>
+                        <p><a name="optimizing-view-loading"></a></p>
+                        <h3 id="optimizing-view-loading"><a href="#optimizing-view-loading">Optimizing View Loading</a>
+                        </h3>
+                        <p>When deploying your application to production, you should make sure that you run the <code
+                                class=" language-php">view<span class="token punctuation">:</span>cache</code> Artisan
+                            command during your deployment process:</p>
+                        <pre class=" language-php"><code class=" language-php">php artisan view<span
+                                class="token punctuation">:</span>cache</code></pre>
+                        <p>This command precompiles all your Blade views so they are not
+                            compiled on demand, improving the performance of each request that
+                            returns a view.</p>
+                        <p><a name="deploying-with-forge"></a></p>
+                        <h2 id="deploying-with-forge"><a href="#deploying-with-forge">Deploying With Forge</a></h2>
+                        <p>If you aren't quite ready to manage your own server configuration or
+                            aren't comfortable configuring all of the various services needed to run
+                            a robust Laravel application, <a href="https://forge.laravel.com/">Laravel Forge</a> is a
+                            wonderful alternative.</p>
+                        <p>Laravel Forge can create servers on various infrastructure providers
+                            such as DigitalOcean, Linode, AWS, and more. In addition, Forge installs
+                            and manages all of the tools needed to build robust Laravel
+                            applications, such as Nginx, MySQL, Redis, Memcached, Beanstalk, and
+                            more.</p>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>

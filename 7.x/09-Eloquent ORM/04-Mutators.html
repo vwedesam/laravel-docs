@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html class="gr__laravel_com" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Eloquent: Mutators - Laravel - The PHP Framework For Web Artisans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <link rel="canonical" href="https://laravel.com/docs/7.x/eloquent-mutators">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://laravel.com/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://laravel.com/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://laravel.com/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://laravel.com/img/favicon/safari-pinned-tab.svg" color="#ff2d20">
+    <link rel="shortcut icon" href="https://laravel.com/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ff2d20">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Load fonts -->
+    <link rel="stylesheet" href="04-Mutators_files/ins2wgm.css">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" type="text/css" href="04-Mutators_files/app.css">
+
+    <!-- Load JS -->
+    <script src="04-Mutators_files/jquery.js"></script>
+
+    <script id="_carbonads_projs" type="text/javascript" src="04-Mutators_files/CKYILK3E.json"></script>
+</head>
+<body class="language-php" data-gr-c-s-loaded="true">
+
+<div class="sidebar_layout" id="docsScreen">
+
+    <div class="page_contain">
+        <div class="contain">
+            <aside class="sidebar">
+                <a href="../index.html" class="logo">
+                    <img class="mark" src="../index_files/logomark.min.svg" alt="Laravel">
+                    <img class="type" src="../index_files/logotype.min.svg" alt="Laravel">
+                </a>
+                <nav>
+                    <div class="navigation_contain" style="display: block;">
+                        <div class="docs_sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Prologue</h2>
+                                    <ul>
+                                        <li><a href="../01-Prologue/01-Release%20Notes.html">Release Notes</a></li>
+                                        <li><a href="../01-Prologue/02-Upgrade%20Guide.html">Upgrade Guide</a></li>
+                                        <li><a href="../01-Prologue/03-Contribution%20Guide.html">Contribution Guide</a>
+                                        </li>
+                                        <li><a href="https://laravel.com/api/7.x">API Documentation</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Getting Started</h2>
+                                    <ul>
+                                        <li><a href="../02-Getting%20Started/01-Installation.html">Installation</a></li>
+                                        <li><a href="../02-Getting%20Started/02-Configuration.html">Configuration</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/03-Directory%20Structure.html">Directory
+                                            Structure</a>
+                                        </li>
+                                        <li><a href="../02-Getting%20Started/04-Homestead.html">Homestead</a></li>
+                                        <li><a href="../02-Getting%20Started/05-Valet.html">Valet</a></li>
+                                        <li><a href="../02-Getting%20Started/06-Deployment.html">Deployment</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Architecture Concepts</h2>
+                                    <ul>
+                                        <li><a href="../03-Architecture%20Concepts/01-Request%20Lifecycle.html">Request
+                                            Lifecycle</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/02-Service%20Container.html">Service
+                                            Container</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/03-Service%20Providers.html">Service
+                                            Providers</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/04-Facades.html">Facades</a></li>
+                                        <li><a href="../03-Architecture%20Concepts/05-Contracts.html">Contracts</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>The Basics</h2>
+                                    <ul>
+                                        <li><a href="../04-The%20Basics/01-Routing.html">Routing</a></li>
+                                        <li><a href="../04-The%20Basics/02-Middleware.html">Middleware</a></li>
+                                        <li><a href="../04-The%20Basics/03-CSRF%20Protection.html">CSRF Protection</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/04-Controllers.html">Controllers</a></li>
+                                        <li><a href="../04-The%20Basics/05-Requests.html">Requests</a></li>
+                                        <li><a href="../04-The%20Basics/06-Responses.html">Responses</a></li>
+                                        <li><a href="../04-The%20Basics/07-Views.html">Views</a></li>
+                                        <li><a href="../04-The%20Basics/08-URL%20Generation.html">URL Generation</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/09-Session.html">Session</a></li>
+                                        <li><a href="../04-The%20Basics/10-Validation.html">Validation</a></li>
+                                        <li><a href="../04-The%20Basics/11-Error%20Handling.html">Error Handling</a>
+                                        </li>
+                                        <li><a href="../04-The%20Basics/12-Logging.html">Logging</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Frontend</h2>
+                                    <ul>
+                                        <li><a href="../05-Frontend/01-Blade%20Templates.html">Blade Templates</a></li>
+                                        <li><a href="../05-Frontend/02-Localization.html">Localization</a></li>
+                                        <li><a href="../05-Frontend/03-Frontend%20Scaffolding.html">Frontend
+                                            Scaffolding</a></li>
+                                        <li><a href="../05-Frontend/04-Compiling%20Assets.html">Compiling Assets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Security</h2>
+                                    <ul>
+                                        <li><a href="../06-Security/01-Authentication.html">Authentication</a></li>
+                                        <li><a href="../06-Security/02-Authorization.html">Authorization</a></li>
+                                        <li><a href="../06-Security/03-Email%20Verification.html">Email Verification</a>
+                                        </li>
+                                        <li><a href="../06-Security/04-Encryption.html">Encryption</a></li>
+                                        <li><a href="../06-Security/05-Hashing.html">Hashing</a></li>
+                                        <li><a href="../06-Security/06-Password%20Reset.html">Password Reset</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Digging Deeper</h2>
+                                    <ul>
+                                        <li><a href="../07-Digging%20Deeper/01-Artisan%20Console.html">Artisan
+                                            Console</a></li>
+                                        <li><a href="../07-Digging%20Deeper/02-Broadcasting.html">Broadcasting</a></li>
+                                        <li><a href="../07-Digging%20Deeper/03-Cache.html">Cache</a></li>
+                                        <li><a href="../07-Digging%20Deeper/04-Collections.html">Collections</a></li>
+                                        <li><a href="../07-Digging%20Deeper/05-Events.html">Events</a></li>
+                                        <li><a href="../07-Digging%20Deeper/06-File%20Storage.html">File Storage</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/07-Helpers.html">Helpers</a></li>
+                                        <li><a href="../07-Digging%20Deeper/08-HTTP%20Client.html">HTTP Client</a></li>
+                                        <li><a href="../07-Digging%20Deeper/09-Mail.html">Mail</a></li>
+                                        <li><a href="../07-Digging%20Deeper/10-Notifications.html">Notifications</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/11-Package%20Development.html">Package
+                                            Development</a>
+                                        </li>
+                                        <li><a href="../07-Digging%20Deeper/12-Queues.html">Queues</a></li>
+                                        <li><a href="../07-Digging%20Deeper/13-Task%20Scheduling.html">Task
+                                            Scheduling</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Database</h2>
+                                    <ul>
+                                        <li><a href="../08-Database/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../08-Database/02-Query%20Builder.html">Query Builder</a></li>
+                                        <li><a href="../08-Database/03-Pagination.html">Pagination</a></li>
+                                        <li><a href="../08-Database/04-Migrations.html">Migrations</a></li>
+                                        <li><a href="../08-Database/05-Seeding.html">Seeding</a></li>
+                                        <li><a href="../08-Database/06-Redis.html">Redis</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Eloquent ORM</h2>
+                                    <ul>
+                                        <li><a href="../09-Eloquent%20ORM/01-Getting%20Started.html">Getting Started</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/02-Relationships.html">Relationships</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/03-Collections.html">Collections</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/04-Mutators.html">Mutators</a></li>
+                                        <li><a href="../09-Eloquent%20ORM/05-API%20Resources.html">API Resources</a>
+                                        </li>
+                                        <li><a href="../09-Eloquent%20ORM/06-Serialization.html">Serialization</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Testing</h2>
+                                    <ul>
+                                        <li><a href="../10-Testing/01-Getting%20Started.html">Getting Started</a></li>
+                                        <li><a href="../10-Testing/02-HTTP%20Tests.html">HTTP Tests</a></li>
+                                        <li><a href="../10-Testing/03-Console%20Tests.html">Console Tests</a></li>
+                                        <li><a href="../10-Testing/04-Browser%20Tests.html">Browser Tests</a></li>
+                                        <li><a href="../10-Testing/05-Database.html">Database</a></li>
+                                        <li><a href="../10-Testing/06-Mocking.html">Mocking</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Official Packages</h2>
+                                    <ul>
+                                        <li><a href="../11-Official%20Packages/01-Cashier.html">Cashier (Stripe)</a>
+                                        </li>
+                                        <li><a href="https://github.com/laravel/cashier-mollie">Cashier (Mollie)</a>
+                                        </li>
+                                        <li><a href="../11-Official%20Packages/02-Dusk.html">Dusk</a></li>
+                                        <li><a href="../11-Official%20Packages/03-Envoy.html">Envoy</a></li>
+                                        <li><a href="../11-Official%20Packages/04-Horizon.html">Horizon</a></li>
+                                        <li><a href="../11-Official%20Packages/05-Passport.html">Passport</a></li>
+                                        <li><a href="../11-Official%20Packages/06-Sanctum.html">Sanctum</a></li>
+                                        <li><a href="../11-Official%20Packages/07-Scout.html">Scout</a></li>
+                                        <li><a href="../11-Official%20Packages/08-Socialite.html">Socialite</a></li>
+                                        <li><a href="../11-Official%20Packages/09-Telescope.html">Telescope</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="trigger_contain">
+                    <a href="#" class="nav_trigger" aria-label="Menu">
+                        <div class="bar"></div>
+                    </a>
+                </div>
+            </aside>
+
+            <section class="body_content">
+                <section class="docs_body">
+                    <section class="docs_main">
+                        <h1>Eloquent: Mutators</h1>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#accessors-and-mutators">Accessors &amp; Mutators</a>
+                                <ul>
+                                    <li><a href="#defining-an-accessor">Defining An Accessor</a></li>
+                                    <li><a href="#defining-a-mutator">Defining A Mutator</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#date-mutators">Date Mutators</a></li>
+                            <li><a href="#attribute-casting">Attribute Casting</a>
+                                <ul>
+                                    <li><a href="#custom-casts">Custom Casts</a></li>
+                                    <li><a href="#array-and-json-casting">Array &amp; JSON Casting</a></li>
+                                    <li><a href="#date-casting">Date Casting</a></li>
+                                    <li><a href="#query-time-casting">Query Time Casting</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p><a name="introduction"></a></p>
+                        <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+                        <p>Accessors and mutators allow you to format Eloquent attribute values
+                            when you retrieve or set them on model instances. For example, you may
+                            want to use the <a href="https://laravel.com/docs/7.x/encryption">Laravel encrypter</a>
+                            to encrypt a value while it is stored in the database, and then
+                            automatically decrypt the attribute when you access it on an Eloquent
+                            model.</p>
+                        <p>In addition to custom accessors and mutators, Eloquent can also automatically cast date
+                            fields to <a href="https://github.com/briannesbitt/Carbon">Carbon</a> instances or even <a
+                                    href="#attribute-casting">cast text fields to JSON</a>.</p>
+                        <p><a name="accessors-and-mutators"></a></p>
+                        <h2 id="accessors-and-mutators"><a href="#accessors-and-mutators">Accessors &amp; Mutators</a>
+                        </h2>
+                        <p><a name="defining-an-accessor"></a></p>
+                        <h3 id="defining-an-accessor"><a href="#defining-an-accessor">Defining An Accessor</a></h3>
+                        <p>To define an accessor, create a <code class=" language-php">getFooAttribute</code> method on
+                            your model where <code class=" language-php">Foo</code> is the "studly" cased name of the
+                            column you wish to access. In this example, we'll define an accessor for the <code
+                                    class=" language-php">first_name</code> attribute. The accessor will automatically
+                            be called by Eloquent when attempting to retrieve the value of the <code
+                                    class=" language-php">first_name</code> attribute:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Get the user's first name.
+     *
+     * @param  string  $value
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFirstNameAttribute</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">ucfirst</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>As you can see, the original value of the column is passed to the
+                            accessor, allowing you to manipulate and return the value. To access the
+                            value of the accessor, you may access the <code class=" language-php">first_name</code>
+                            attribute on a model instance:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$firstName</span> <span class="token operator">=</span> <span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">first_name</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>You may also use accessors to return new, computed values from existing attributes:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * Get the user's full name.
+ *
+ * @return string
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFullNameAttribute</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token double-quoted-string string">"<span
+                                    class="token interpolation"><span class="token punctuation">{</span><span
+                                    class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">first_name</span><span
+                                    class="token punctuation">}</span></span> <span class="token interpolation"><span
+                                    class="token punctuation">{</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">last_name</span><span
+                                    class="token punctuation">}</span></span>"</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Mutators_files/lightbulb.svg"></div>
+                                <p class="content"> If you would like these computed values to be added to the array /
+                                    JSON representations of your model, <a
+                                            href="#appending-values-to-json">you
+                                        will need to append them</a>.</p></div>
+                        </blockquote>
+                        <p><a name="defining-a-mutator"></a></p>
+                        <h3 id="defining-a-mutator"><a href="#defining-a-mutator">Defining A Mutator</a></h3>
+                        <p>To define a mutator, define a <code class=" language-php">setFooAttribute</code> method on
+                            your model where <code class=" language-php">Foo</code> is the "studly" cased name of the
+                            column you wish to access. So, again, let's define a mutator for the <code
+                                    class=" language-php">first_name</code> attribute. This mutator will be
+                            automatically called when we attempt to set the value of the <code class=" language-php">first_name</code>
+                            attribute on the model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Set the user's first name.
+     *
+     * @param  string  $value
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">setFirstNameAttribute</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">attributes</span><span
+                                    class="token punctuation">[</span><span class="token single-quoted-string string">'first_name'</span><span
+                                    class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                    class="token function">strtolower</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>The mutator will receive the value that is being set on the
+                            attribute, allowing you to manipulate the value and set the manipulated
+                            value on the Eloquent model's internal <code class=" language-php"><span
+                                    class="token variable">$attributes</span></code> property. So, for example, if we
+                            attempt to set the <code class=" language-php">first_name</code> attribute to <code
+                                    class=" language-php">Sally</code>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">first_name</span> <span class="token operator">=</span> <span
+                                    class="token single-quoted-string string">'Sally'</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>In this example, the <code class=" language-php">setFirstNameAttribute</code> function will
+                            be called with the value <code class=" language-php">Sally</code>. The mutator will then
+                            apply the <code class=" language-php">strtolower</code> function to the name and set its
+                            resulting value in the internal <code class=" language-php"><span class="token variable">$attributes</span></code>
+                            array.</p>
+                        <p><a name="date-mutators"></a></p>
+                        <h2 id="date-mutators"><a href="#date-mutators">Date Mutators</a></h2>
+                        <p>By default, Eloquent will convert the <code class=" language-php">created_at</code> and <code
+                                class=" language-php">updated_at</code> columns to instances of <a
+                                href="https://github.com/briannesbitt/Carbon">Carbon</a>, which extends the PHP <code
+                                class=" language-php">DateTime</code> class and provides an assortment of helpful
+                            methods. You may add additional date attributes by setting the <code
+                                    class=" language-php"><span class="token variable">$dates</span></code> property of
+                            your model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$dates</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'seen_at'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon purple"><img src="04-Mutators_files/lightbulb.svg"></div>
+                                <p class="content"> You may disable the default <code
+                                        class=" language-php">created_at</code> and <code class=" language-php">updated_at</code>
+                                    timestamps by setting the public <code class=" language-php"><span
+                                            class="token variable">$timestamps</span></code> property of your model to
+                                    <code class=" language-php"><span class="token boolean constant">false</span></code>.
+                                </p></div>
+                        </blockquote>
+                        <p>When a column is considered a date, you may set its value to a UNIX timestamp, date string
+                            (<code class=" language-php"><span class="token constant">Y</span><span
+                                    class="token operator">-</span>m<span class="token operator">-</span>d</code>),
+                            date-time string, or a <code class=" language-php">DateTime</code> / <code
+                                    class=" language-php">Carbon</code> instance. The date's value will be correctly
+                            converted and stored in your database:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">deleted_at</span> <span class="token operator">=</span> <span
+                                    class="token function">now</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>As noted above, when retrieving attributes that are listed in your <code
+                                class=" language-php"><span class="token variable">$dates</span></code> property, they
+                            will automatically be cast to <a href="https://github.com/briannesbitt/Carbon">Carbon</a>
+                            instances, allowing you to use any of Carbon's methods on your attributes:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">deleted_at</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token function">getTimestamp</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Date Formats</h4>
+                        <p>By default, timestamps are formatted as <code class=" language-php"><span
+                                class="token single-quoted-string string">'Y-m-d H:i:s'</span></code>. If you need to
+                            customize the timestamp format, set the <code class=" language-php"><span
+                                    class="token variable">$dateFormat</span></code>
+                            property on your model. This property determines how date attributes
+                            are stored in the database, as well as their format when the model is
+                            serialized to an array or JSON:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Flight</span> <span class="token keyword">extends</span> <span
+                                    class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The storage format of the model's date columns.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$dateFormat</span> <span
+                                    class="token operator">=</span> <span
+                                    class="token single-quoted-string string">'U'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p><a name="attribute-casting"></a></p>
+                        <h2 id="attribute-casting"><a href="#attribute-casting">Attribute Casting</a></h2>
+                        <p>The <code class=" language-php"><span class="token variable">$casts</span></code> property on
+                            your model provides a convenient method of converting attributes to common data types. The
+                            <code class=" language-php"><span class="token variable">$casts</span></code>
+                            property should be an array where the key is the name of the attribute
+                            being cast and the value is the type you wish to cast the column to. The
+                            supported cast types are: <code class=" language-php">integer</code>, <code
+                                    class=" language-php">real</code>, <code class=" language-php">float</code>, <code
+                                    class=" language-php">double</code>, <code class=" language-php">decimal<span
+                                    class="token punctuation">:</span><span
+                                    class="token operator">&lt;</span>digits<span
+                                    class="token operator">&gt;</span></code>, <code class=" language-php">string</code>,
+                            <code class=" language-php">boolean</code>, <code class=" language-php">object</code>, <code
+                                    class=" language-php"><span class="token keyword">array</span></code>, <code
+                                    class=" language-php">collection</code>, <code class=" language-php">date</code>,
+                            <code class=" language-php">datetime</code>, and <code
+                                    class=" language-php">timestamp</code>. When casting to <code class=" language-php">decimal</code>,
+                            you must define the number of digits (<code class=" language-php">decimal<span
+                                    class="token punctuation">:</span><span class="token number">2</span></code>).</p>
+                        <p>To demonstrate attribute casting, let's cast the <code class=" language-php">is_admin</code>
+                            attribute, which is stored in our database as an integer (<code class=" language-php"><span
+                                    class="token number">0</span></code> or <code class=" language-php"><span
+                                    class="token number">1</span></code>) to a boolean value:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'is_admin'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'boolean'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Now the <code class=" language-php">is_admin</code> attribute will
+                            always be cast to a boolean when you access it, even if the underlying
+                            value is stored in the database as an integer:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">is_admin</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+<span class="token punctuation">}</span></code></pre>
+                        <blockquote>
+                            <div class="callout">
+                                <div class="icon red"><img src="04-Mutators_files/exclamation.svg"></div>
+                                <p class="content"> Attributes that are <code class=" language-php"><span
+                                        class="token constant">null</span></code> will not be cast.</p></div>
+                        </blockquote>
+                        <p><a name="custom-casts"></a></p>
+                        <h3 id="custom-casts"><a href="#custom-casts">Custom Casts</a></h3>
+                        <p>Laravel has a variety of built-in, helpful cast types; however, you
+                            may occasionally need to define your own cast types. You may accomplish
+                            this by defining a class that implements the <code
+                                    class=" language-php">CastsAttributes</code> interface.</p>
+                        <p>Classes that implement this interface must define a <code class=" language-php">get</code>
+                            and <code class=" language-php">set</code> methods. The <code
+                                    class=" language-php">get</code> method is responsible for transforming a raw value
+                            from the database into a cast value, while the <code class=" language-php">set</code>
+                            method should transform a cast value into a raw value that can be
+                            stored in the database. As an example, we will re-implement the built-in
+                            <code class=" language-php">json</code> cast type as a custom cast type:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Casts</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span
+                                    class="token punctuation">\</span>CastsAttributes</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Json</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">CastsAttributes</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Cast the given value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">json_decode</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token boolean constant">true</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  array  $value
+     * @param  array  $attributes
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">set</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">json_encode</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once you have defined a custom cast type, you may attach it to a model attribute using its
+                            class name:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Casts<span
+                                    class="token punctuation">\</span>Json</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Json<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Value Object Casting</h4>
+                        <p>You are not limited to casting values to primitive types. You may
+                            also cast values to objects. Defining custom casts that cast values to
+                            objects is very similar to casting to primitive types; however, the <code
+                                    class=" language-php">set</code> method should return an array of key / value pairs
+                            that will be used to set raw, storable values on the model.</p>
+                        <p>As an example, we will define a custom cast class that casts multiple model values into a
+                            single <code class=" language-php">Address</code> value object. We will assume the <code
+                                    class=" language-php">Address</code> value has two public properties: <code
+                                    class=" language-php">lineOne</code> and <code class=" language-php">lineTwo</code>:
+                        </p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Casts</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>Address</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span
+                                    class="token punctuation">\</span>CastsAttributes</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Address</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">CastsAttributes</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Cast the given value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return \App\Address
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">get</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Address</span><span
+                                    class="token punctuation">(</span>
+            <span class="token variable">$attributes</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'address_line_one'</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token variable">$attributes</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'address_line_two'</span><span
+                                    class="token punctuation">]</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  \App\Address  $value
+     * @param  array  $attributes
+     * @return array
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">set</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'address_line_one'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$value</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">lineOne</span><span
+                                    class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'address_line_two'</span> <span
+                                    class="token operator">=</span><span class="token operator">&gt;</span> <span
+                                    class="token variable">$value</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">lineTwo</span><span
+                                    class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When casting to value objects, any changes made to the value object
+                            will automatically be synced back to the model before the model is
+                            saved:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">address</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">lineOne</span> <span class="token operator">=</span> <span
+                                    class="token single-quoted-string string">'Updated Address Value'</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <h4>Inbound Casting</h4>
+                        <p>Occasionally, you may need to write a custom cast that only
+                            transforms values that are being set on the model and does not perform
+                            any operations when attributes are being retrieved from the model. A
+                            classic example of an inbound only cast is a "hashing" cast. Inbound
+                            only custom casts should implement the <code
+                                    class=" language-php">CastsInboundAttributes</code> interface, which only requires a
+                            <code class=" language-php">set</code> method to be defined.</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Casts</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span
+                                    class="token punctuation">\</span>CastsInboundAttributes</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Hash</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">CastsInboundAttributes</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The hashing algorithm.
+     *
+     * @var string
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$algorithm</span><span
+                                    class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Create a new cast class instance.
+     *
+     * @param  string|null  $algorithm
+     * @return void
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token variable">$algorithm</span> <span class="token operator">=</span> <span
+                                    class="token constant">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span
+                                    class="token property">algorithm</span> <span class="token operator">=</span> <span
+                                    class="token variable">$algorithm</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Prepare the given value for storage.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  array  $value
+     * @param  array  $attributes
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">set</span><span
+                                    class="token punctuation">(</span><span class="token variable">$model</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$key</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">,</span> <span
+                                    class="token variable">$attributes</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">is_null</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">algorithm</span><span class="token punctuation">)</span>
+                    <span class="token operator">?</span> <span class="token function">bcrypt</span><span
+                                    class="token punctuation">(</span><span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">:</span> <span class="token function">hash</span><span
+                                    class="token punctuation">(</span><span class="token variable">$this</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token property">algorithm</span><span
+                                    class="token punctuation">,</span> <span class="token variable">$value</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <h4>Cast Parameters</h4>
+                        <p>When attaching a custom cast to a model, cast parameters may be specified by separating them
+                            from the class name using a <code class=" language-php"><span
+                                    class="token punctuation">:</span></code> character and comma-delimiting multiple
+                            parameters. The parameters will be passed to the constructor of the cast class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The attributes that should be cast.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'secret'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Hash<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">.</span><span class="token single-quoted-string string">':sha256'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <h4>Castables</h4>
+                        <p>Instead of attaching the custom cast to your model, you may alternatively attach a class that
+                            implements the <code class=" language-php">Illuminate\<span
+                                    class="token package">Contracts<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Castable</span></code>
+                            interface:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">App<span
+                                    class="token punctuation">\</span>Address</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p>Objects that implement the <code class=" language-php">Castable</code> interface must define
+                            a <code class=" language-php">castUsing</code> method that returns the class name of the
+                            custom caster class that is responsible for casting to and from the <code
+                                    class=" language-php">Castable</code> class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span
+                                    class="token punctuation">\</span>Database<span class="token punctuation">\</span>Eloquent<span
+                                    class="token punctuation">\</span>Castable</span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Casts<span
+                                    class="token punctuation">\</span>Address</span> <span
+                                    class="token keyword">as</span> AddressCast<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Address</span> <span class="token keyword">implements</span> <span
+                                    class="token class-name">Castable</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Get the name of the caster class to use when casting from / to this cast target.
+     *
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span
+                                    class="token function">castUsing</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> AddressCast<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token keyword">class</span><span
+                                    class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>When using <code class=" language-php">Castable</code> classes, you may still provide
+                            arguments in the <code class=" language-php"><span
+                                    class="token variable">$casts</span></code> definition. The arguments will be passed
+                            directly to the caster class:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> \<span class="token package">App<span
+                                    class="token punctuation">\</span>Address</span><span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token keyword">class</span><span class="token punctuation">.</span><span
+                                    class="token single-quoted-string string">':argument'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="array-and-json-casting"></a></p>
+                        <h3 id="array-and-json-casting"><a href="#array-and-json-casting">Array &amp; JSON Casting</a>
+                        </h3>
+                        <p>The <code class=" language-php"><span class="token keyword">array</span></code>
+                            cast type is particularly useful when working with columns that are
+                            stored as serialized JSON. For example, if your database has a <code
+                                    class=" language-php"><span class="token constant">JSON</span></code> or <code
+                                    class=" language-php"><span class="token constant">TEXT</span></code> field type
+                            that contains serialized JSON, adding the <code class=" language-php"><span
+                                    class="token keyword">array</span></code> cast to that attribute will automatically
+                            deserialize the attribute to a PHP array when you access it on your Eloquent model:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Database<span
+                                    class="token punctuation">\</span>Eloquent<span class="token punctuation">\</span>Model</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */</span>
+    <span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'options'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'array'</span><span
+                                    class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></span></code></pre>
+                        <p>Once the cast is defined, you may access the <code class=" language-php">options</code>
+                            attribute and it will automatically be deserialized from JSON into a PHP array. When you set
+                            the value of the <code class=" language-php">options</code> attribute, the given array will
+                            automatically be serialized back into JSON for storage:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token variable">$user</span> <span
+                                class="token operator">=</span> App\<span class="token package">User</span><span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">find</span><span class="token punctuation">(</span><span
+                                class="token number">1</span><span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+
+<span class="token variable">$options</span> <span class="token operator">=</span> <span
+                                    class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">options</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$options</span><span class="token punctuation">[</span><span
+                                    class="token single-quoted-string string">'key'</span><span
+                                    class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                    class="token single-quoted-string string">'value'</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token property">options</span> <span
+                                    class="token operator">=</span> <span class="token variable">$options</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$user</span><span class="token operator">-</span><span
+                                    class="token operator">&gt;</span><span class="token function">save</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p><a name="date-casting"></a></p>
+                        <h3 id="date-casting"><a href="#date-casting">Date Casting</a></h3>
+                        <p>When using the <code class=" language-php">date</code> or <code class=" language-php">datetime</code>
+                            cast type, you may specify the date's format. This format will be used when the <a
+                                    href="https://laravel.com/docs/7.x/eloquent-serialization">model is serialized to an
+                                array or JSON</a>:</p>
+                        <pre class=" language-php"><code class=" language-php"><span class="token comment">/**
+ * The attributes that should be cast.
+ *
+ * @var array
+ */</span>
+<span class="token keyword">protected</span> <span class="token variable">$casts</span> <span
+                                    class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'created_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'datetime:Y-m-d'</span><span
+                                    class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+                        <p><a name="query-time-casting"></a></p>
+                        <h3 id="query-time-casting"><a href="#query-time-casting">Query Time Casting</a></h3>
+                        <p>Sometimes you may need to apply casts while executing a query, such
+                            as when selecting a raw value from a table. For example, consider the
+                            following query:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token keyword">use</span> <span class="token package">App<span
+                                class="token punctuation">\</span>Post</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span
+                                    class="token punctuation">\</span>User</span><span
+                                    class="token punctuation">;</span>
+
+<span class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                    class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                    class="token function">select</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users.*'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">selectRaw</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'MAX(created_at)'</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whereColumn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'users.id'</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                        <p>The <code class=" language-php">last_posted_at</code> attribute on the results of this query
+                            will be a raw string. It would be convenient if we could apply a <code
+                                    class=" language-php">date</code> cast to this attribute when executing the query.
+                            To accomplish this, we may use the <code class=" language-php">withCasts</code> method:</p>
+                        <pre class=" language-php"><code class=" language-php"><span
+                                class="token variable">$users</span> <span class="token operator">=</span> User<span
+                                class="token punctuation">:</span><span class="token punctuation">:</span><span
+                                class="token function">select</span><span class="token punctuation">(</span><span
+                                class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'users.*'</span><span class="token punctuation">,</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> Post<span class="token punctuation">:</span><span
+                                    class="token punctuation">:</span><span class="token function">selectRaw</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'MAX(created_at)'</span><span
+                                    class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">whereColumn</span><span
+                                    class="token punctuation">(</span><span class="token single-quoted-string string">'user_id'</span><span
+                                    class="token punctuation">,</span> <span class="token single-quoted-string string">'users.id'</span><span
+                                    class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">withCasts</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">[</span>
+    <span class="token single-quoted-string string">'last_posted_at'</span> <span class="token operator">=</span><span
+                                    class="token operator">&gt;</span> <span class="token single-quoted-string string">'date'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                    class="token operator">-</span><span class="token operator">&gt;</span><span
+                                    class="token function">get</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span
+                                    class="token punctuation">;</span></code></pre>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../index_files/app.js.download"></script>
+</html>
