@@ -13,9 +13,3 @@ You can find the online version of the Laravel documentation at [https://laravel
 
 
 ![](images/image.jpg)
-
-
-
-
-
-## :star::star::star:Support me by starring:star::star::star:
